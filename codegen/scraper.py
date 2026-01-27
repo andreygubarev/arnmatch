@@ -79,7 +79,7 @@ class AWSScraper:
         if not table:
             return []
 
-        known_resources = []
+        resources = []
         for row in table.find_all("tr"):
             cells = row.find_all("td")
             if len(cells) < 2:
@@ -99,14 +99,14 @@ class AWSScraper:
                 continue
             arn_pattern = code.get_text(strip=True)
 
-            known_resources.append({
+            resources.append({
                 "service": service,
                 "resource_type": resource_type,
                 "arn_pattern": arn_pattern,
             })
 
-        log.info(f"{service}: {len(known_resources)} known resources")
-        return known_resources
+        log.info(f"{service}: {len(resources)} known resources")
+        return resources
 
 
 if __name__ == "__main__":
@@ -120,4 +120,4 @@ if __name__ == "__main__":
         resources = scraper.get_resources(svc["href"])
         known_resources.extend(resources)
 
-    log.info(f"Total: {len(known_resources)} known resources")
+    log.info(f"Total: {len(known_resources)} resources")
