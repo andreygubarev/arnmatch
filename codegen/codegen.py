@@ -29,13 +29,8 @@ class ARNIndexer:
         "arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}/originEndpoint/${OriginEndpointName}",
     }
 
-    # Services to exclude entirely (use wildcards instead of capture groups)
-    EXCLUDED_SERVICES = {"dms", "amplifybackend", "health", "neptune-db"}
-
     # Specific resource types to exclude
     EXCLUDED_RESOURCE_TYPES = {
-        ("artifact", "agreement"),
-        ("artifact", "customer-agreement"),
         ("backup", "recoveryPoint"),
         ("connect", "wildcard-agent-status"),
         ("connect", "wildcard-contact-flow"),
@@ -43,8 +38,6 @@ class ARNIndexer:
         ("connect", "wildcard-phone-number"),
         ("connect", "wildcard-queue"),
         ("connect", "wildcard-quick-connect"),
-        ("ec2", "image"),
-        ("ec2", "snapshot"),
         ("identitystore", "AllGroupMemberships"),
         ("identitystore", "AllGroups"),
         ("identitystore", "AllUsers"),
@@ -55,28 +48,47 @@ class ARNIndexer:
         ("mobiletargeting", "recommenders"),
     }
 
-    # Manual patterns to add (service, arn_pattern, resource_type)
-    MANUAL_PATTERNS = [
+    # Pattern overrides: (service, resource_type) -> corrected arn_pattern
+    # Used when AWS docs have wildcards instead of capture groups
+    PATTERN_OVERRIDES = {
         # amplifybackend: wildcards replaced with capture groups
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/api/${ApiId}", "api"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/auth/${AuthId}", "auth"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/challenge/${ChallengeId}", "token"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/config/${ConfigId}", "config"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/environments/${EnvironmentId}", "environment"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/job/${JobId}", "job"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/storage/${StorageId}", "storage"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/${SubResourceId}", "backend"),
-        ("amplifybackend", "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${BackendId}", "created-backend"),
+        ("amplifybackend", "api"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/api/${ApiId}",
+        ("amplifybackend", "auth"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/auth/${AuthId}",
+        ("amplifybackend", "token"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/challenge/${ChallengeId}",
+        ("amplifybackend", "config"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/config/${ConfigId}",
+        ("amplifybackend", "environment"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/environments/${EnvironmentId}",
+        ("amplifybackend", "job"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/job/${JobId}",
+        ("amplifybackend", "storage"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/storage/${StorageId}",
+        ("amplifybackend", "backend"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/${SubResourceId}",
+        ("amplifybackend", "created-backend"): "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${BackendId}",
         # artifact: wildcards replaced with capture groups
-        ("artifact", "arn:${Partition}:artifact:::agreement/${AgreementId}", "agreement"),
-        ("artifact", "arn:${Partition}:artifact::${Account}:customer-agreement/${CustomerAgreementId}", "customer-agreement"),
+        ("artifact", "agreement"): "arn:${Partition}:artifact:::agreement/${AgreementId}",
+        ("artifact", "customer-agreement"): "arn:${Partition}:artifact::${Account}:customer-agreement/${CustomerAgreementId}",
+        # dms: wildcards replaced with capture groups
+        ("dms", "ReplicationTaskAssessmentRun"): "arn:${Partition}:dms:${Region}:${Account}:assessment-run:${AssessmentRunId}",
+        ("dms", "Certificate"): "arn:${Partition}:dms:${Region}:${Account}:cert:${CertificateId}",
+        ("dms", "DataMigration"): "arn:${Partition}:dms:${Region}:${Account}:data-migration:${DataMigrationId}",
+        ("dms", "DataProvider"): "arn:${Partition}:dms:${Region}:${Account}:data-provider:${DataProviderId}",
+        ("dms", "Endpoint"): "arn:${Partition}:dms:${Region}:${Account}:endpoint:${EndpointId}",
+        ("dms", "EventSubscription"): "arn:${Partition}:dms:${Region}:${Account}:es:${EventSubscriptionId}",
+        ("dms", "ReplicationTaskIndividualAssessment"): "arn:${Partition}:dms:${Region}:${Account}:individual-assessment:${IndividualAssessmentId}",
+        ("dms", "InstanceProfile"): "arn:${Partition}:dms:${Region}:${Account}:instance-profile:${InstanceProfileId}",
+        ("dms", "MigrationProject"): "arn:${Partition}:dms:${Region}:${Account}:migration-project:${MigrationProjectId}",
+        ("dms", "ReplicationInstance"): "arn:${Partition}:dms:${Region}:${Account}:rep:${ReplicationInstanceId}",
+        ("dms", "ReplicationConfig"): "arn:${Partition}:dms:${Region}:${Account}:replication-config:${ReplicationConfigId}",
+        ("dms", "ReplicationTask"): "arn:${Partition}:dms:${Region}:${Account}:task:${TaskId}",
+        ("dms", "ReplicationSubnetGroup"): "arn:${Partition}:dms:${Region}:${Account}:subgrp:${SubnetGroupName}",
+        # ec2: add account (modern format)
+        ("ec2", "image"): "arn:${Partition}:ec2:${Region}:${Account}:image/${ImageId}",
+        ("ec2", "snapshot"): "arn:${Partition}:ec2:${Region}:${Account}:snapshot/${SnapshotId}",
         # health: wildcards replaced with capture groups
-        ("health", "arn:${Partition}:health:${Region}:${Account}:event/${Service}/${EventTypeCode}/${EventId}", "event"),
+        ("health", "event"): "arn:${Partition}:health:${Region}:${Account}:event/${Service}/${EventTypeCode}/${EventId}",
         # neptune-db: wildcard replaced with capture group
-        ("neptune-db", "arn:${Partition}:neptune-db:${Region}:${Account}:${ClusterResourceId}/${DatabaseId}", "database"),
-        # EC2 with account (modern format)
-        ("ec2", "arn:${Partition}:ec2:${Region}:${Account}:image/${ImageId}", "image"),
-        ("ec2", "arn:${Partition}:ec2:${Region}:${Account}:snapshot/${SnapshotId}", "snapshot"),
+        ("neptune-db", "database"): "arn:${Partition}:neptune-db:${Region}:${Account}:${ClusterResourceId}/${DatabaseId}",
+    }
+
+    # Additional patterns not in AWS docs (service, arn_pattern, resource_type)
+    PATTERN_INCLUDE = [
         # EKS Kubernetes resources (from Resource Explorer)
         ("eks", "arn:${Partition}:eks:${Region}:${Account}:deployment/${ClusterName}/${Namespace}/${DeploymentName}/${UUID}", "deployment"),
         ("eks", "arn:${Partition}:eks:${Region}:${Account}:replicaset/${ClusterName}/${Namespace}/${ReplicaSetName}/${UUID}", "replicaset"),
@@ -89,27 +101,16 @@ class ARNIndexer:
         ("eks", "arn:${Partition}:eks:${Region}:${Account}:daemonset/${ClusterName}/${Namespace}/${DaemonSetName}/${UUID}", "daemonset"),
         # Inspector (legacy)
         ("inspector", "arn:${Partition}:inspector:${Region}:${Account}:target/${TargetId}/template/${TemplateId}", "target-template"),
-        # DMS: AWS docs use wildcards, add proper capture groups
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:assessment-run:${AssessmentRunId}", "ReplicationTaskAssessmentRun"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:cert:${CertificateId}", "Certificate"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:data-migration:${DataMigrationId}", "DataMigration"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:data-provider:${DataProviderId}", "DataProvider"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:endpoint:${EndpointId}", "Endpoint"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:es:${EventSubscriptionId}", "EventSubscription"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:individual-assessment:${IndividualAssessmentId}", "ReplicationTaskIndividualAssessment"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:instance-profile:${InstanceProfileId}", "InstanceProfile"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:migration-project:${MigrationProjectId}", "MigrationProject"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:rep:${ReplicationInstanceId}", "ReplicationInstance"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:replication-config:${ReplicationConfigId}", "ReplicationConfig"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:task:${TaskId}", "ReplicationTask"),
-        ("dms", "arn:${Partition}:dms:${Region}:${Account}:subgrp:${SubnetGroupName}", "ReplicationSubnetGroup"),
     ]
 
     def process(self, resources):
-        """Process raw resources: add arn_service, filter, dedupe, add manual, sort."""
-        # Add arn_service
+        """Process raw resources: add arn_service, apply overrides, filter, dedupe, add includes, sort."""
+        # Add arn_service and apply overrides
         for r in resources:
             r["arn_service"] = self.extract_arn_service(r["arn_pattern"])
+            key = (r["service"], r["resource_type"])
+            if key in self.PATTERN_OVERRIDES:
+                r["arn_pattern"] = self.PATTERN_OVERRIDES[key]
 
         # Filter
         resources = [r for r in resources if not self.should_exclude(r)]
@@ -119,15 +120,15 @@ class ARNIndexer:
         resources = self.deduplicate(resources)
         log.info(f"After deduplication: {len(resources)} resources")
 
-        # Add manual patterns
-        for service, arn_pattern, resource_type in self.MANUAL_PATTERNS:
+        # Add included patterns
+        for service, arn_pattern, resource_type in self.PATTERN_INCLUDE:
             resources.append({
                 "service": service,
                 "arn_service": service,
                 "resource_type": resource_type,
                 "arn_pattern": arn_pattern,
             })
-        log.info(f"After manual patterns: {len(resources)} resources")
+        log.info(f"After includes: {len(resources)} resources")
 
         # Sort
         resources = self.sort_by_specificity(resources)
@@ -143,15 +144,9 @@ class ARNIndexer:
 
     def should_exclude(self, r):
         """Check if a resource should be excluded."""
-        service = r["service"]
-        resource_type = r["resource_type"]
-        arn_pattern = r["arn_pattern"]
-
-        if arn_pattern in self.EXCLUDED_ARNS:
+        if r["arn_pattern"] in self.EXCLUDED_ARNS:
             return True
-        if service in self.EXCLUDED_SERVICES:
-            return True
-        if (service, resource_type) in self.EXCLUDED_RESOURCE_TYPES:
+        if (r["service"], r["resource_type"]) in self.EXCLUDED_RESOURCE_TYPES:
             return True
         return False
 
