@@ -3,8 +3,10 @@
 # dependencies = ["requests", "joblib", "beautifulsoup4"]
 # ///
 
+import json
 import logging
 import re
+from pathlib import Path
 from urllib.parse import urljoin
 
 import joblib
@@ -121,3 +123,18 @@ if __name__ == "__main__":
         known_resources.extend(resources)
 
     log.info(f"Total: {len(known_resources)} resources")
+
+    # Deduplicate and sort
+    seen = set()
+    unique = []
+    for r in known_resources:
+        key = (r["service"], r["resource_type"], r["arn_pattern"])
+        if key not in seen:
+            seen.add(key)
+            unique.append(r)
+    unique.sort(key=lambda r: (r["service"], r["resource_type"]))
+
+    build_dir = Path(__file__).parent / "build"
+    build_dir.mkdir(exist_ok=True)
+    with open(build_dir / "arn_resources.json", "w") as f:
+        json.dump(unique, f, indent=2)
