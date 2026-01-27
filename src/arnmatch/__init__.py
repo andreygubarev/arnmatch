@@ -1,5 +1,7 @@
 """ARN pattern matching using regex patterns."""
 
+__version__ = "0.1.0"
+
 import sys
 from dataclasses import dataclass
 from functools import cached_property
