@@ -1,7 +1,7 @@
 [project]
 name = "arnmatch"
 dynamic = ["version"]
-description = "arnmatch - parse AWS ARNs into structured data"
+description = "Parse AWS ARNs into structured data"
 readme = "README.md"
 authors = [
     { name = "Andrey Gubarev", email = "andrey@andreygubarev.com" }
