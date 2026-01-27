@@ -54,5 +54,6 @@ Data flow: AWS docs → `scraper.py` → raw resources → `codegen.py` → `cod
 
 - Uses `uv` for package management (not pip)
 - Build system is hatchling with dynamic version from `src/arnmatch/__init__.py`
+- **Versioning**: CalVer format `YYYY.MM.MICRO` (e.g., `2026.01.0`)
 - Always run `make build` before publishing to ensure patterns are current
 - Scraper cache lives in `.cache/` - delete if AWS docs change significantly

@@ -86,6 +86,10 @@ Properties:
 
 Exception raised when ARN parsing fails. Inherits from `ValueError`.
 
+## Versioning
+
+This project uses [CalVer](https://calver.org/) with format `YYYY.MM.MICRO` (e.g., `2026.01.0`).
+
 ## Development
 
 Prerequisites: [uv](https://github.com/astral-sh/uv)
