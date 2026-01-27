@@ -13,6 +13,7 @@ check: lint ## Run lint and test
 
 .PHONY: build
 build: ## Build package
+	cp codegen/build/arn_patterns.py src/arnmatch/arn_patterns.py
 	uv build
 
 .PHONY: clean
