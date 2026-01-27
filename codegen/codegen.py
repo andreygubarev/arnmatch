@@ -37,15 +37,20 @@ class ARNIndexer:
         ("artifact", "agreement"),
         ("artifact", "customer-agreement"),
         ("backup", "recoveryPoint"),
+        ("connect", "wildcard-agent-status"),
+        ("connect", "wildcard-contact-flow"),
+        ("connect", "wildcard-legacy-phone-number"),
+        ("connect", "wildcard-phone-number"),
+        ("connect", "wildcard-queue"),
+        ("connect", "wildcard-quick-connect"),
+        ("identitystore", "AllGroupMemberships"),
+        ("identitystore", "AllGroups"),
+        ("identitystore", "AllUsers"),
+        ("imagebuilder", "allComponentBuildVersions"),
+        ("imagebuilder", "allImageBuildVersions"),
+        ("imagebuilder", "allWorkflowBuildVersions"),
         ("mobiletargeting", "apps"),
         ("mobiletargeting", "recommenders"),
-    }
-
-    # Resource type prefixes to exclude
-    EXCLUDED_RESOURCE_TYPE_PREFIXES = {
-        ("connect", "wildcard-"),
-        ("identitystore", "All"),
-        ("imagebuilder", "all"),
     }
 
     # EC2 patterns to exclude (no account in pattern)
@@ -149,9 +154,6 @@ class ARNIndexer:
             return True
         if (service, resource_type) in self.EXCLUDED_RESOURCE_TYPES:
             return True
-        for svc, prefix in self.EXCLUDED_RESOURCE_TYPE_PREFIXES:
-            if service == svc and resource_type.startswith(prefix):
-                return True
         if service == "ec2":
             for pattern in self.EXCLUDED_EC2_PATTERNS:
                 if pattern in arn_pattern:
