@@ -4,7 +4,7 @@ import sys
 from dataclasses import dataclass
 from functools import cached_property
 
-from .patterns import ARN_PATTERNS
+from .arn_patterns import ARN_PATTERNS
 
 # Standard groups that are not resource-specific
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
