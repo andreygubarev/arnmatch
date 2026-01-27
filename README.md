@@ -23,7 +23,7 @@ pip install arnmatch
 ### CLI
 
 ```bash
-$ arnmatch "arn:aws:lambda:us-east-1:123456789012:function:my-function"
+$ uvx arnmatch "arn:aws:lambda:us-east-1:123456789012:function:my-function"
 aws_service: lambda
 aws_region: us-east-1
 aws_account: 123456789012
