@@ -7,7 +7,7 @@ Parse AWS ARNs into structured data.
 ## Features
 
 - Zero runtime dependencies
-- 355 AWS services supported
+- 300+ AWS services, 2000+ resource types supported
 - Patterns auto-generated from AWS official documentation
 - CLI and library interface
 - Extracts resource type, ID, and name with smart heuristics
@@ -35,7 +35,7 @@ resource_name: my-function
 ### Library
 
 ```python
-from arnmatch import arnmatch, ARN, ARNError
+from arnmatch import arnmatch
 
 arn = "arn:aws:lambda:us-east-1:123456789012:function:my-function"
 result = arnmatch(arn)
