@@ -16,6 +16,10 @@ build: ## Build package
 	cp codegen/build/arn_patterns.py src/arnmatch/arn_patterns.py
 	uv build
 
+.PHONY: publish
+publish: build ## Publish package to PyPI
+	uv publish
+
 .PHONY: clean
 clean: ## Clean build artifacts
 	rm -rf dist/ __pycache__/ .pytest_cache/ .ruff_cache/
