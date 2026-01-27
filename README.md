@@ -68,7 +68,7 @@ Dataclass with parsed ARN components:
 | `aws_region` | `str` | AWS region (may be empty for global resources) |
 | `aws_account` | `str` | AWS account ID |
 | `resource_type` | `str` | Canonical resource type from AWS docs |
-| `resource_type_aliases` | `list[str]` | All known names for this resource type |
+| `resource_types` | `list[str]` | All known names for this resource type |
 | `attributes` | `dict[str, str]` | All captured attributes from the pattern |
 
 Properties:

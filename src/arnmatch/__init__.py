@@ -27,7 +27,7 @@ class ARN:
     aws_region: str
     aws_account: str
     resource_type: str  # canonical type (from AWS docs)
-    resource_type_aliases: list[str]  # all known names including Resource Explorer
+    resource_types: list[str]  # all known names including Resource Explorer
     attributes: dict[str, str]
 
     @cached_property
@@ -104,7 +104,7 @@ def arnmatch(arn: str) -> ARN:
                 aws_region=region,
                 aws_account=account,
                 resource_type=type_names[0],  # canonical
-                resource_type_aliases=type_names,  # all known names
+                resource_types=type_names,  # all known names
                 attributes=match.groupdict(),
             )
 
