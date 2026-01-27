@@ -1,0 +1,23 @@
+[project]
+name = "arnmatch"
+version = "0.1.0"
+description = "AWS ARN Matcher - parses and returns information about AWS ARNs"
+readme = "README.md"
+authors = [
+    { name = "Andrey Gubarev", email = "andrey@andreygubarev.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+arnmatch = "arnmatch:main"
+
+[build-system]
+requires = ["uv_build>=0.9.26,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.14",
+]
