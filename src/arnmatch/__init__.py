@@ -1,6 +1,6 @@
 """ARN pattern matching using regex patterns."""
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 import sys
 from dataclasses import dataclass
