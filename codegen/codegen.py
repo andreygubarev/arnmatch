@@ -33,6 +33,7 @@ class ARNIndexer:
     EXCLUDED_RESOURCE_TYPES = {
         ("backup", "recoveryPoint"),
         ("connect", "wildcard-agent-status"),
+        ("ebs", "snapshot"),
         ("connect", "wildcard-contact-flow"),
         ("connect", "wildcard-legacy-phone-number"),
         ("connect", "wildcard-phone-number"),
@@ -88,7 +89,7 @@ class ARNIndexer:
     }
 
     # Additional patterns not in AWS docs (service, arn_pattern, resource_type)
-    PATTERN_INCLUDE = [
+    PATTERN_INCLUDES = [
         # EKS Kubernetes resources (from Resource Explorer)
         ("eks", "arn:${Partition}:eks:${Region}:${Account}:deployment/${ClusterName}/${Namespace}/${DeploymentName}/${UUID}", "deployment"),
         ("eks", "arn:${Partition}:eks:${Region}:${Account}:replicaset/${ClusterName}/${Namespace}/${ReplicaSetName}/${UUID}", "replicaset"),
@@ -113,7 +114,11 @@ class ARNIndexer:
                 r["arn_pattern"] = self.PATTERN_OVERRIDES[key]
 
         # Filter
-        resources = [r for r in resources if not self.should_exclude(r)]
+        resources = [
+            r for r in resources
+            if r["arn_pattern"] not in self.EXCLUDED_ARNS
+            and (r["service"], r["resource_type"]) not in self.EXCLUDED_RESOURCE_TYPES
+        ]
         log.info(f"After filtering: {len(resources)} resources")
 
         # Deduplicate
@@ -121,7 +126,7 @@ class ARNIndexer:
         log.info(f"After deduplication: {len(resources)} resources")
 
         # Add included patterns
-        for service, arn_pattern, resource_type in self.PATTERN_INCLUDE:
+        for service, arn_pattern, resource_type in self.PATTERN_INCLUDES:
             resources.append({
                 "service": service,
                 "arn_service": service,
@@ -142,14 +147,6 @@ class ARNIndexer:
             return parts[2]
         return ""
 
-    def should_exclude(self, r):
-        """Check if a resource should be excluded."""
-        if r["arn_pattern"] in self.EXCLUDED_ARNS:
-            return True
-        if (r["service"], r["resource_type"]) in self.EXCLUDED_RESOURCE_TYPES:
-            return True
-        return False
-
     def deduplicate(self, resources):
         """Deduplicate ARN patterns, keeping authoritative service."""
         by_arn = {}
@@ -164,11 +161,9 @@ class ARNIndexer:
             if len(group) == 1:
                 results.append(group[0])
             else:
+                # Prefer resource where arn_service matches service
                 matches = [r for r in group if r["arn_service"] == r["service"]]
-                if matches:
-                    results.extend(matches)
-                else:
-                    results.append(group[0])
+                results.append(matches[0] if matches else group[0])
 
         return results
 
