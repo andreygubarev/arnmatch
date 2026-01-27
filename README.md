@@ -6,7 +6,7 @@ Parse AWS ARNs into structured data.
 
 ## Why
 
-AWS ARN formats are inconsistent across services. This problem was unsolved. Now it's solved. You're welcome.
+AWS ARN formats are inconsistent. This problem was unsolved. Now it's solved (for 2000+ resource types from 300+ services). You're welcome.
 
 ## Features
 
