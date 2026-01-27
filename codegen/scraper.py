@@ -8,31 +8,31 @@ import re
 from urllib.parse import urljoin
 
 import joblib
-
-log = logging.getLogger(__name__)
 import requests
 from bs4 import BeautifulSoup
+
+log = logging.getLogger(__name__)
 
 INDEX_URL = "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
 
 
 class AWSScraper:
-    def __init__(self, cache_dir: str = ".cache"):
-        self._memory = joblib.Memory(cache_dir, verbose=0)
-        self._fetch_cached = self._memory.cache(self._fetch)
+    def __init__(self, cache_dir=".cache"):
+        self.memory = joblib.Memory(cache_dir, verbose=0)
+        self.fetch_cached = self.memory.cache(self.fetch)
 
-    def _fetch(self, url: str) -> str:
+    def fetch(self, url):
         r = requests.get(url)
         r.raise_for_status()
         return r.text
 
-    def _soup(self, url: str) -> BeautifulSoup:
-        html = self._fetch_cached(url)
+    def soup(self, url):
+        html = self.fetch_cached(url)
         return BeautifulSoup(html, "html.parser")
 
-    def get_services(self) -> list[dict]:
+    def get_services(self):
         """Fetch list of AWS services from index page."""
-        soup = self._soup(INDEX_URL)
+        soup = self.soup(INDEX_URL)
         highlights = soup.find("div", class_="highlights")
 
         services = []
@@ -56,9 +56,9 @@ class AWSScraper:
         log.info(f"Found {len(services)} services")
         return services
 
-    def get_resources(self, url: str) -> list[dict]:
+    def get_resources(self, url):
         """Fetch resource types and ARN patterns from a service page."""
-        soup = self._soup(url)
+        soup = self.soup(url)
 
         # Extract service prefix
         prefix_match = soup.find(string=re.compile(r"service prefix:"))

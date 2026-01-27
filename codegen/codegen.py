@@ -105,19 +105,19 @@ class ARNIndexer:
         ("dms", "arn:${Partition}:dms:${Region}:${Account}:subgrp:${SubnetGroupName}", "ReplicationSubnetGroup"),
     ]
 
-    def process(self, resources: list[dict]) -> list[dict]:
+    def process(self, resources):
         """Process raw resources: add arn_service, filter, dedupe, add manual, sort."""
         # Add arn_service
         for r in resources:
-            arn_service = self._extract_arn_service(r["arn_pattern"])
+            arn_service = self.extract_arn_service(r["arn_pattern"])
             r["arn_service"] = self.SERVICE_OVERRIDES.get(r["arn_pattern"], arn_service)
 
         # Filter
-        resources = [r for r in resources if not self._should_exclude(r)]
+        resources = [r for r in resources if not self.should_exclude(r)]
         log.info(f"After filtering: {len(resources)} resources")
 
         # Deduplicate
-        resources = self._deduplicate(resources)
+        resources = self.deduplicate(resources)
         log.info(f"After deduplication: {len(resources)} resources")
 
         # Add manual patterns
@@ -131,18 +131,18 @@ class ARNIndexer:
         log.info(f"After manual patterns: {len(resources)} resources")
 
         # Sort
-        resources = self._sort_by_specificity(resources)
+        resources = self.sort_by_specificity(resources)
 
         return resources
 
-    def _extract_arn_service(self, arn_pattern: str) -> str:
+    def extract_arn_service(self, arn_pattern):
         """Extract service from ARN pattern (3rd colon-separated part)."""
         parts = arn_pattern.split(":")
         if len(parts) >= 3:
             return parts[2]
         return ""
 
-    def _should_exclude(self, r: dict) -> bool:
+    def should_exclude(self, r):
         """Check if a resource should be excluded."""
         service = r["service"]
         resource_type = r["resource_type"]
@@ -163,9 +163,9 @@ class ARNIndexer:
                     return True
         return False
 
-    def _deduplicate(self, resources: list[dict]) -> list[dict]:
+    def deduplicate(self, resources):
         """Deduplicate ARN patterns, keeping authoritative service."""
-        by_arn: dict[str, list[dict]] = {}
+        by_arn = {}
         for r in resources:
             arn = r["arn_pattern"]
             if arn not in by_arn:
@@ -185,11 +185,11 @@ class ARNIndexer:
 
         return results
 
-    def _sort_by_specificity(self, resources: list[dict]) -> list[dict]:
+    def sort_by_specificity(self, resources):
         """Sort patterns: more specific (more segments, literals) first."""
-        return sorted(resources, key=self._sort_key)
+        return sorted(resources, key=self.sort_key)
 
-    def _sort_key(self, r: dict):
+    def sort_key(self, r):
         arn = r["arn_pattern"]
         parts = arn.split(":", 5)
         service = parts[2] if len(parts) > 2 else ""
@@ -197,17 +197,17 @@ class ARNIndexer:
         account = parts[4] if len(parts) > 4 else ""
         resource = parts[5] if len(parts) > 5 else ""
 
-        segments = self._parse_segments(resource)
+        segments = self.parse_segments(resource)
         seg_count = len(segments)
 
-        norm_service = self._normalize_for_sort(service)
-        norm_region = self._normalize_for_sort(region)
-        norm_account = self._normalize_for_sort(account)
-        norm_segments = [self._normalize_for_sort(s) for s in segments]
+        norm_service = self.normalize_for_sort(service)
+        norm_region = self.normalize_for_sort(region)
+        norm_account = self.normalize_for_sort(account)
+        norm_segments = [self.normalize_for_sort(s) for s in segments]
 
         return (norm_service, norm_region, norm_account, -seg_count, norm_segments)
 
-    def _parse_segments(self, resource: str) -> list[str]:
+    def parse_segments(self, resource):
         """Split resource into segments by /, : and variables."""
         var_pattern = re.compile(r"(\$\{[^}]+\})")
         parts = [s1 for s0 in resource.split("/") for s1 in s0.split(":")]
@@ -217,7 +217,7 @@ class ARNIndexer:
             segments.extend([s for s in splits if s])
         return segments
 
-    def _normalize_for_sort(self, value: str) -> str:
+    def normalize_for_sort(self, value):
         """Replace variables and wildcards so they sort after literals."""
         value = re.sub(r"\$\{[^}]+\}", "~", value)
         value = value.replace("*", "~~")
@@ -243,16 +243,16 @@ class CodeGenerator:
         ("dms", "ReplicationSubnetGroup"): ["subgrp"],
     }
 
-    def generate(self, resources: list[dict], output_path: Path):
+    def generate(self, resources, output_path):
         """Generate Python file with ARN patterns."""
         # Group by service
-        by_service: dict[str, list[tuple[str, list[str]]]] = {}
+        by_service = {}
         for r in resources:
             service = r["arn_service"]
             if service not in by_service:
                 by_service[service] = []
-            regex = self._pattern_to_regex(r["arn_pattern"])
-            type_names = self._get_type_names(service, r["resource_type"])
+            regex = self.pattern_to_regex(r["arn_pattern"])
+            type_names = self.get_type_names(service, r["resource_type"])
             by_service[service].append((regex, type_names))
 
         # Write Python file
@@ -260,7 +260,7 @@ class CodeGenerator:
             f.write("# Auto-generated ARN patterns for matching\n")
             f.write("# Patterns are ordered: most specific first\n")
             f.write("import re\n\n")
-            f.write("ARN_PATTERNS: dict[str, list[tuple[re.Pattern, list[str]]]] = {\n")
+            f.write("ARN_PATTERNS = {\n")
 
             for service, patterns in by_service.items():
                 f.write(f"    {service!r}: [\n")
@@ -272,7 +272,7 @@ class CodeGenerator:
 
         log.info(f"Wrote {len(resources)} patterns for {len(by_service)} services to {output_path}")
 
-    def _pattern_to_regex(self, arn_pattern: str) -> str:
+    def pattern_to_regex(self, arn_pattern):
         """Convert ARN pattern to regex with named capture groups."""
         placeholders = []
 
@@ -291,7 +291,7 @@ class CodeGenerator:
         result = result.replace("\x01", ".*")
         return f"^{result}$"
 
-    def _get_type_names(self, service: str, resource_type: str) -> list[str]:
+    def get_type_names(self, service, resource_type):
         """Get list of type names: primary type + any aliases."""
         types = [resource_type]
         aliases = self.TYPE_ALIASES.get((service, resource_type), [])

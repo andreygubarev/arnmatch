@@ -2,7 +2,7 @@
 # Patterns are ordered: most specific first
 import re
 
-ARN_PATTERNS: dict[str, list[tuple[re.Pattern, list[str]]]] = {
+ARN_PATTERNS = {
     'a4b': [
         (re.compile(r'^arn:(?P<Partition>.+?):a4b:(?P<Region>.+?):(?P<Account>.+?):address-book/(?P<ResourceId>.+?)$'), ['addressbook']),
         (re.compile(r'^arn:(?P<Partition>.+?):a4b:(?P<Region>.+?):(?P<Account>.+?):conference-provider/(?P<ResourceId>.+?)$'), ['conferenceprovider']),
