@@ -88,6 +88,8 @@ Prerequisites: [uv](https://github.com/astral-sh/uv)
 
 ```bash
 make lint       # Run ruff linter
+make test       # Run pytest tests
+make check      # Run lint and test
 make build      # Build wheel and tarball
 make publish    # Build and upload to PyPI
 make clean      # Remove build artifacts
