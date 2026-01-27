@@ -18,13 +18,9 @@ BUILD_DIR = CODEGEN_DIR / "build"
 class ARNIndexer:
     """Processes raw ARN resources into a clean, sorted index."""
 
-    # ARNs where service in pattern differs from service_prefix
-    SERVICE_OVERRIDES = {
-        "arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}": "backup",
-    }
-
     # ARNs to exclude (have multiple resource types or other issues)
     EXCLUDED_ARNS = {
+        "arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}",
         "arn:${Partition}:rtbfabric:${Region}:${Account}:gateway/${GatewayId}/link/${LinkId}",
         "arn:${Partition}:rtbfabric:${Region}:${Account}:gateway/${GatewayId}",
         "arn:${Partition}:aws-marketplace::${Account}:${Catalog}/ReportingData/${FactTable}/Dashboard/${DashboardName}",
@@ -109,8 +105,7 @@ class ARNIndexer:
         """Process raw resources: add arn_service, filter, dedupe, add manual, sort."""
         # Add arn_service
         for r in resources:
-            arn_service = self.extract_arn_service(r["arn_pattern"])
-            r["arn_service"] = self.SERVICE_OVERRIDES.get(r["arn_pattern"], arn_service)
+            r["arn_service"] = self.extract_arn_service(r["arn_pattern"])
 
         # Filter
         resources = [r for r in resources if not self.should_exclude(r)]
