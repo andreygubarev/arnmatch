@@ -8,8 +8,12 @@ help: ## Show this help
 lint: ## Run linter
 	uv run ruff check .
 
+.PHONY: test
+test: ## Run tests
+	uv run pytest tests/
+
 .PHONY: check
-check: lint ## Run lint and test
+check: lint test ## Run lint and test
 
 .PHONY: build
 build: ## Build package
