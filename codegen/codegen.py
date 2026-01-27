@@ -5,6 +5,10 @@
 
 import logging
 import re
+from pathlib import Path
+
+CODEGEN_DIR = Path(__file__).parent
+BUILD_DIR = CODEGEN_DIR / "build"
 
 from scraper import AWSScraper
 
@@ -303,4 +307,5 @@ def generate(output_path: str):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-    generate("arn_patterns.py")
+    BUILD_DIR.mkdir(exist_ok=True)
+    generate(BUILD_DIR / "arn_patterns.py")
