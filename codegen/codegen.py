@@ -43,6 +43,8 @@ class ARNIndexer:
         ("connect", "wildcard-phone-number"),
         ("connect", "wildcard-queue"),
         ("connect", "wildcard-quick-connect"),
+        ("ec2", "image"),
+        ("ec2", "snapshot"),
         ("identitystore", "AllGroupMemberships"),
         ("identitystore", "AllGroups"),
         ("identitystore", "AllUsers"),
@@ -52,9 +54,6 @@ class ARNIndexer:
         ("mobiletargeting", "apps"),
         ("mobiletargeting", "recommenders"),
     }
-
-    # EC2 patterns to exclude (no account in pattern)
-    EXCLUDED_EC2_PATTERNS = {"::image/", "::snapshot/"}
 
     # Manual patterns to add (service, arn_pattern, resource_type)
     MANUAL_PATTERNS = [
@@ -154,10 +153,6 @@ class ARNIndexer:
             return True
         if (service, resource_type) in self.EXCLUDED_RESOURCE_TYPES:
             return True
-        if service == "ec2":
-            for pattern in self.EXCLUDED_EC2_PATTERNS:
-                if pattern in arn_pattern:
-                    return True
         return False
 
     def deduplicate(self, resources):
