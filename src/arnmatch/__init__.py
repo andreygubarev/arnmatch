@@ -22,10 +22,10 @@ class ARNError(ValueError):
 class ARN:
     """Parsed ARN with structured data and captured groups."""
 
-    partition: str
-    service: str
-    region: str
-    account: str
+    aws_partition: str
+    aws_service: str
+    aws_region: str
+    aws_account: str
     resource_type: str  # canonical type (from AWS docs)
     resource_type_aliases: list[str]  # all known names including Resource Explorer
     groups: dict[str, str]
@@ -99,10 +99,10 @@ def arnmatch(arn: str) -> ARN:
         match = regex.match(arn)
         if match:
             return ARN(
-                partition=partition,
-                service=service,
-                region=region,
-                account=account,
+                aws_partition=partition,
+                aws_service=service,
+                aws_region=region,
+                aws_account=account,
                 resource_type=type_names[0],  # canonical
                 resource_type_aliases=type_names,  # all known names
                 groups=match.groupdict(),
@@ -120,9 +120,9 @@ def main() -> None:
     arn = sys.argv[1]
     try:
         result = arnmatch(arn)
-        print(f"service: {result.service}")
-        print(f"region: {result.region}")
-        print(f"account: {result.account}")
+        print(f"aws_service: {result.aws_service}")
+        print(f"aws_region: {result.aws_region}")
+        print(f"aws_account: {result.aws_account}")
         print(f"resource_type: {result.resource_type}")
         print(f"resource_id: {result.resource_id}")
         print(f"resource_name: {result.resource_name}")

@@ -24,9 +24,9 @@ pip install arnmatch
 
 ```bash
 $ arnmatch "arn:aws:lambda:us-east-1:123456789012:function:my-function"
-service: lambda
-region: us-east-1
-account: 123456789012
+aws_service: lambda
+aws_region: us-east-1
+aws_account: 123456789012
 resource_type: function
 resource_id: my-function
 resource_name: my-function
@@ -40,9 +40,9 @@ from arnmatch import arnmatch, ARN, ARNError
 arn = "arn:aws:lambda:us-east-1:123456789012:function:my-function"
 result = arnmatch(arn)
 
-print(result.service)        # lambda
-print(result.region)         # us-east-1
-print(result.account)        # 123456789012
+print(result.aws_service)    # lambda
+print(result.aws_region)     # us-east-1
+print(result.aws_account)    # 123456789012
 print(result.resource_type)  # function
 print(result.resource_id)    # my-function
 print(result.resource_name)  # my-function
@@ -63,10 +63,10 @@ Dataclass with parsed ARN components:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `partition` | `str` | AWS partition (aws, aws-cn, aws-us-gov) |
-| `service` | `str` | AWS service name |
-| `region` | `str` | AWS region (may be empty for global resources) |
-| `account` | `str` | AWS account ID |
+| `aws_partition` | `str` | AWS partition (aws, aws-cn, aws-us-gov) |
+| `aws_service` | `str` | AWS service name |
+| `aws_region` | `str` | AWS region (may be empty for global resources) |
+| `aws_account` | `str` | AWS account ID |
 | `resource_type` | `str` | Canonical resource type from AWS docs |
 | `resource_type_aliases` | `list[str]` | All known names for this resource type |
 | `groups` | `dict[str, str]` | All captured groups from the pattern |
