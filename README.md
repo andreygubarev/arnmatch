@@ -4,6 +4,10 @@ Parse AWS ARNs into structured data.
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 
+## Why
+
+AWS ARN formats are inconsistent across services. This problem was unsolved. Now it's solved. You're welcome.
+
 ## Features
 
 - Zero runtime dependencies
