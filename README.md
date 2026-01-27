@@ -46,7 +46,7 @@ print(result.aws_account)    # 123456789012
 print(result.resource_type)  # function
 print(result.resource_id)    # my-function
 print(result.resource_name)  # my-function
-print(result.groups)         # {'Partition': 'aws', 'Region': 'us-east-1', ...}
+print(result.attributes)     # {'Partition': 'aws', 'Region': 'us-east-1', ...}
 ```
 
 ## API Reference
@@ -69,7 +69,7 @@ Dataclass with parsed ARN components:
 | `aws_account` | `str` | AWS account ID |
 | `resource_type` | `str` | Canonical resource type from AWS docs |
 | `resource_type_aliases` | `list[str]` | All known names for this resource type |
-| `groups` | `dict[str, str]` | All captured groups from the pattern |
+| `attributes` | `dict[str, str]` | All captured attributes from the pattern |
 
 Properties:
 

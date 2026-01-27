@@ -28,7 +28,7 @@ class ARN:
     aws_account: str
     resource_type: str  # canonical type (from AWS docs)
     resource_type_aliases: list[str]  # all known names including Resource Explorer
-    groups: dict[str, str]
+    attributes: dict[str, str]
 
     @cached_property
     def resource_id(self) -> str:
@@ -39,7 +39,7 @@ class ARN:
         2. Group ending with 'Name' as fallback
         3. Last non-standard group
         """
-        resource_groups = list(self.groups.items())
+        resource_groups = list(self.attributes.items())
         resource_groups = [(k, v) for k, v in resource_groups if k not in STANDARD_GROUPS]
 
         # Look for *Id (from end)
@@ -66,7 +66,7 @@ class ARN:
         1. Group ending with 'Name' (FunctionName, BucketName, StackName)
         2. Falls back to resource_id
         """
-        resource_groups = list(self.groups.items())
+        resource_groups = list(self.attributes.items())
         resource_groups = [(k, v) for k, v in resource_groups if k not in STANDARD_GROUPS]
 
         # Look for *Name (from end)
@@ -105,7 +105,7 @@ def arnmatch(arn: str) -> ARN:
                 aws_account=account,
                 resource_type=type_names[0],  # canonical
                 resource_type_aliases=type_names,  # all known names
-                groups=match.groupdict(),
+                attributes=match.groupdict(),
             )
 
     raise ARNError(f"No pattern matched ARN: {arn}")
