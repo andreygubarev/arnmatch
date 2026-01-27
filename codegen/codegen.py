@@ -209,6 +209,14 @@ class ARNIndexer:
 class CodeGenerator:
     """Generates Python code from processed ARN resources."""
 
+    # Placeholder patterns: map placeholder name -> regex pattern
+    # Based on AWS regex: ^arn:[\w+=/,.@-]+:service:[\w+=/,.@-]*:[0-9]+:...
+    PLACEHOLDER_PATTERNS = {
+        "Partition": r"[\w-]+",  # aws, aws-cn, aws-us-gov
+        "Region": r"[\w-]*",  # us-east-1, eu-west-1, or empty
+        "Account": r"\d{12}",  # AWS accounts are always 12 digits
+    }
+
     # Type aliases: map AWS doc type -> list of known aliases
     TYPE_ALIASES = {
         ("elasticloadbalancing", "loadbalancer/app/"): ["loadbalancer/app"],
@@ -247,7 +255,7 @@ class CodeGenerator:
             for service, patterns in by_service.items():
                 f.write(f"    {service!r}: [\n")
                 for regex, type_names in patterns:
-                    f.write(f"        (re.compile(r{regex!r}), {type_names!r}),\n")
+                    f.write(f'        (re.compile(r"{regex}"), {type_names!r}),\n')
                 f.write("    ],\n")
 
             f.write("}\n")
@@ -268,7 +276,8 @@ class CodeGenerator:
         result = result.replace("\\-", "-")
 
         for i, name in enumerate(placeholders):
-            result = result.replace(f"\x00{i}\x00", f"(?P<{name}>.+?)")
+            pattern = self.PLACEHOLDER_PATTERNS.get(name, ".+?")
+            result = result.replace(f"\x00{i}\x00", f"(?P<{name}>{pattern})")
 
         result = result.replace("\x01", ".*")
         return f"^{result}$"
