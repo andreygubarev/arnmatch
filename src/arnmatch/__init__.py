@@ -12,15 +12,15 @@ from .arn_patterns import ARN_PATTERNS
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
 
 
-class ARNMatchError(ValueError):
-    """Raised when ARN cannot be matched."""
+class ARNError(ValueError):
+    """Raised when ARN cannot be parsed or matched."""
 
     pass
 
 
 @dataclass(frozen=True)
-class ARNMatch:
-    """Result of matching an ARN against patterns."""
+class ARN:
+    """Parsed ARN with structured data and captured groups."""
 
     partition: str
     service: str
@@ -78,7 +78,7 @@ class ARNMatch:
         return self.resource_id
 
 
-def arnmatch(arn: str) -> ARNMatch:
+def arnmatch(arn: str) -> ARN:
     """Match ARN against patterns.
 
     Returns ARNMatch with all captured groups.
@@ -88,17 +88,17 @@ def arnmatch(arn: str) -> ARNMatch:
     """
     parts = arn.split(":", 5)
     if len(parts) != 6 or parts[0] != "arn":
-        raise ARNMatchError(f"Invalid ARN format: {arn}")
+        raise ARNError(f"Invalid ARN format: {arn}")
 
     _, partition, service, region, account, _ = parts
 
     if service not in ARN_PATTERNS:
-        raise ARNMatchError(f"Unknown service: {service}")
+        raise ARNError(f"Unknown service: {service}")
 
     for regex, type_names in ARN_PATTERNS[service]:
         match = regex.match(arn)
         if match:
-            return ARNMatch(
+            return ARN(
                 partition=partition,
                 service=service,
                 region=region,
@@ -108,7 +108,7 @@ def arnmatch(arn: str) -> ARNMatch:
                 groups=match.groupdict(),
             )
 
-    raise ARNMatchError(f"No pattern matched ARN: {arn}")
+    raise ARNError(f"No pattern matched ARN: {arn}")
 
 
 def main() -> None:
@@ -126,6 +126,6 @@ def main() -> None:
         print(f"resource_type: {result.resource_type}")
         print(f"resource_id: {result.resource_id}")
         print(f"resource_name: {result.resource_name}")
-    except ARNMatchError as e:
+    except ARNError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)

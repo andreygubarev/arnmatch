@@ -35,7 +35,7 @@ resource_name: my-function
 ### Library
 
 ```python
-from arnmatch import arnmatch, ARNMatchError
+from arnmatch import arnmatch, ARN, ARNError
 
 arn = "arn:aws:lambda:us-east-1:123456789012:function:my-function"
 result = arnmatch(arn)
@@ -51,13 +51,13 @@ print(result.groups)         # {'Partition': 'aws', 'Region': 'us-east-1', ...}
 
 ## API Reference
 
-### `arnmatch(arn: str) -> ARNMatch`
+### `arnmatch(arn: str) -> ARN`
 
 Parse an ARN string and return structured data.
 
-Raises `ARNMatchError` if the ARN format is invalid or no pattern matches.
+Raises `ARNError` if the ARN format is invalid or no pattern matches.
 
-### `ARNMatch`
+### `ARN`
 
 Dataclass with parsed ARN components:
 
@@ -78,7 +78,7 @@ Properties:
 | `resource_id` | Resource identifier (prefers groups ending in `Id`, falls back to `Name`, then last group) |
 | `resource_name` | Resource name (prefers groups ending in `Name`, falls back to `resource_id`) |
 
-### `ARNMatchError`
+### `ARNError`
 
 Exception raised when ARN parsing fails. Inherits from `ValueError`.
 
