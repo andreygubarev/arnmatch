@@ -6,7 +6,7 @@ import sys
 from dataclasses import dataclass
 from functools import cached_property
 
-from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES
+from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES, AWS_SDK_SERVICES_DEFAULT
 
 # Standard groups that are not resource-specific
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
@@ -78,7 +78,7 @@ class ARN:
         return self.resource_id
 
     @cached_property
-    def aws_sdk_services(self):
+    def aws_sdk_services(self) -> list[str]:
         """Get AWS SDK (boto3) client names for this resource's service.
 
         Returns list of client names that can interact with this resource type.
@@ -87,6 +87,20 @@ class ARN:
         Returns empty list if no SDK client exists.
         """
         return AWS_SDK_SERVICES.get(self.aws_service, [])
+
+    @cached_property
+    def aws_sdk_service(self) -> str | None:
+        """Get the primary AWS SDK (boto3) client name for this resource.
+
+        Returns single client name for the service. For multi-SDK services,
+        returns the default/primary SDK. Returns None if no SDK exists.
+        """
+        sdks = self.aws_sdk_services
+        if len(sdks) == 1:
+            return sdks[0]
+        if len(sdks) > 1:
+            return AWS_SDK_SERVICES_DEFAULT.get(self.aws_service)
+        return None
 
 
 def arnmatch(arn: str) -> ARN:
@@ -132,6 +146,7 @@ def main() -> None:
     try:
         result = arnmatch(arn)
         print(f"aws_service: {result.aws_service}")
+        print(f"aws_sdk_service: {result.aws_sdk_service}")
         print(f"aws_sdk_services: {','.join(result.aws_sdk_services)}")
         print(f"aws_region: {result.aws_region}")
         print(f"aws_account: {result.aws_account}")
