@@ -10,12 +10,20 @@ def test_acm():
     assert result.resource_type == "certificate"
     assert result.attributes["CertificateId"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
     assert result.aws_sdk_services == ["acm"]
+    assert result.aws_sdk_service == "acm"
 
 
 def test_apigateway():
+    # v1 REST API (default)
     result = arnmatch("arn:aws:apigateway:us-east-1::/restapis/abc123def4")
     assert result.resource_type == "RestApi"
     assert result.attributes["RestApiId"] == "abc123def4"
+    assert result.aws_sdk_service == "apigateway"
+
+    # v2 HTTP API (override)
+    result = arnmatch("arn:aws:apigateway:us-east-1::/apis/abc123def4")
+    assert result.resource_type == "Api"
+    assert result.aws_sdk_service == "apigatewayv2"
 
 
 def test_athena():
@@ -100,9 +108,18 @@ def test_datasync():
 
 
 def test_dynamodb():
+    # table (default)
     result = arnmatch("arn:aws:dynamodb:us-east-1:012345678901:table/table1")
     assert result.resource_type == "table"
     assert result.attributes["TableName"] == "table1"
+    assert result.aws_sdk_service == "dynamodb"
+
+    # stream (override)
+    result = arnmatch(
+        "arn:aws:dynamodb:us-east-1:012345678901:table/table1/stream/2024-01-01T00:00:00.000"
+    )
+    assert result.resource_type == "stream"
+    assert result.aws_sdk_service == "dynamodbstreams"
 
 
 def test_ec2():
@@ -220,30 +237,33 @@ def test_elasticfilesystem():
 
 
 def test_elasticloadbalancing():
-    # Classic LB
+    # Classic LB (override)
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:loadbalancer/a0123456789abcdef0123456789abcde"
     )
     assert result.resource_type == "loadbalancer"
     assert result.attributes["LoadBalancerName"] == "a0123456789abcdef0123456789abcde"
+    assert result.aws_sdk_service == "elb"
 
-    # ALB
+    # ALB (default)
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:loadbalancer/app/alb-application-lb-name/0123456789abcdef"
     )
     assert result.resource_type == "loadbalancer/app/"
     assert result.attributes["LoadBalancerName"] == "alb-application-lb-name"
     assert result.attributes["LoadBalancerId"] == "0123456789abcdef"
+    assert result.aws_sdk_service == "elbv2"
 
-    # NLB
+    # NLB (default)
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:loadbalancer/net/nlb-network-load-balancer/0123456789abcdef"
     )
     assert result.resource_type == "loadbalancer/net/"
     assert result.attributes["LoadBalancerName"] == "nlb-network-load-balancer"
     assert result.attributes["LoadBalancerId"] == "0123456789abcdef"
+    assert result.aws_sdk_service == "elbv2"
 
-    # Target group
+    # Target group (default)
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:targetgroup/target-grp-1/0123456789abcdef"
     )
@@ -252,6 +272,7 @@ def test_elasticloadbalancing():
     assert result.attributes["TargetGroupId"] == "0123456789abcdef"
     # elasticloadbalancing maps to multiple SDK clients
     assert result.aws_sdk_services == ["elb", "elbv2"]
+    assert result.aws_sdk_service == "elbv2"
 
 
 def test_es():
@@ -364,10 +385,17 @@ def test_route53():
 
 
 def test_s3():
+    # bucket (default)
     result = arnmatch("arn:aws:s3:::example-bucket-01")
     assert result.resource_type == "bucket"
     assert result.attributes["BucketName"] == "example-bucket-01"
     assert result.aws_sdk_services == ["s3", "s3control"]
+    assert result.aws_sdk_service == "s3"
+
+    # accesspoint (override)
+    result = arnmatch("arn:aws:s3:us-east-1:012345678901:accesspoint/my-access-point")
+    assert result.resource_type == "accesspoint"
+    assert result.aws_sdk_service == "s3control"
 
 
 def test_secretsmanager():
