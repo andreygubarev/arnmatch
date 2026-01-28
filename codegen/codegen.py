@@ -3,6 +3,7 @@
 # dependencies = ["requests", "joblib", "beautifulsoup4", "boto3"]
 # ///
 
+import json
 import logging
 import re
 from pathlib import Path
@@ -324,6 +325,16 @@ def main():
     for svc in services:
         resources.extend(scraper.get_resources(svc["href"]))
 
+    # Save raw resources to JSON (for reference/debugging)
+    BUILD_DIR.mkdir(exist_ok=True)
+    raw_resources = sorted(
+        [dict(t) for t in {tuple(r.items()) for r in resources}],
+        key=lambda r: (r["service"], r["resource_type"]),
+    )
+    with open(BUILD_DIR / "arn_resources.json", "w") as f:
+        json.dump(raw_resources, f, indent=2)
+    log.info(f"Wrote {len(raw_resources)} raw resources to arn_resources.json")
+
     # Process ARN patterns
     indexer = ARNIndexer()
     resources = indexer.process(resources)
@@ -338,7 +349,6 @@ def main():
     sdk_resource_indexer.process(sdk_mapping)
 
     # Generate
-    BUILD_DIR.mkdir(exist_ok=True)
     generator = CodeGenerator()
     generator.generate(resources, sdk_mapping, BUILD_DIR / "arn_patterns.py")
 
