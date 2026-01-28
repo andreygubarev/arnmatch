@@ -1,4 +1,16 @@
-"""Maps ARN resource types to specific SDK clients for multi-SDK services."""
+"""Maps ARN resource types to specific SDK clients for multi-SDK services.
+
+Why aws_sdk_services (plural) exists alongside aws_sdk_service (singular):
+
+Some services share identical ARN formats but are fundamentally different engines.
+For example, RDS, Neptune, and DocumentDB all use the same ARN structure:
+  arn:aws:rds:region:account:db:instance-name
+
+The ARN alone cannot distinguish between these engines - you need external context
+(tags, API calls, or prior knowledge) to determine the correct SDK. In these cases,
+aws_sdk_service returns the default (rds), while aws_sdk_services returns all
+possible SDKs [rds, neptune, docdb] for the caller to disambiguate.
+"""
 
 
 class SDKResourceIndexer:
