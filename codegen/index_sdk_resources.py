@@ -7,7 +7,7 @@ class SDKResourceIndexer:
     DEFAULT_SERVICE: Service-level default where all resources use a single SDK.
     Format: "arn_service" -> "sdk_client"
 
-    OVERRIDES_RESOURCES: Resource-level overrides where different resources use different SDKs.
+    OVERRIDE_SERVICE: Resource-level overrides where different resources use different SDKs.
     Format: "arn_service" -> [(resource_type_prefix, sdk_client), ...]
     Order matters: more specific prefixes must come before less specific ones.
     """
@@ -53,82 +53,24 @@ class SDKResourceIndexer:
         "wisdom": "qconnect",  # rebranded to Q Connect
     }
 
-    # Resource-level overrides - different resources use different SDKs
-    OVERRIDES_RESOURCES = {
-        # "apigateway": [
-        #     # v2 (HTTP/WebSocket API) resources
-        #     ("ApiMappings", "apigatewayv2"),
-        #     ("ApiMapping", "apigatewayv2"),
-        #     ("Apis", "apigatewayv2"),
-        #     ("Api", "apigatewayv2"),
-        #     ("Cors", "apigatewayv2"),
-        #     ("ExportedAPI", "apigatewayv2"),
-        #     ("Integrations", "apigatewayv2"),
-        #     ("RouteRequestParameter", "apigatewayv2"),
-        #     ("RouteResponses", "apigatewayv2"),
-        #     ("RouteResponse", "apigatewayv2"),
-        #     ("RouteSettings", "apigatewayv2"),
-        #     ("Routes", "apigatewayv2"),
-        #     ("Route", "apigatewayv2"),
-        #     # v1 (REST API) and shared resources
-        #     ("AccessLogSettings", "apigateway"),
-        #     ("Account", "apigateway"),
-        #     ("ApiKeys", "apigateway"),
-        #     ("ApiKey", "apigateway"),
-        #     ("AuthorizersCache", "apigateway"),
-        #     ("Authorizers", "apigateway"),
-        #     ("Authorizer", "apigateway"),
-        #     ("BasePathMappings", "apigateway"),
-        #     ("BasePathMapping", "apigateway"),
-        #     ("ClientCertificates", "apigateway"),
-        #     ("ClientCertificate", "apigateway"),
-        #     ("Deployments", "apigateway"),
-        #     ("Deployment", "apigateway"),
-        #     ("DocumentationParts", "apigateway"),
-        #     ("DocumentationPart", "apigateway"),
-        #     ("DocumentationVersions", "apigateway"),
-        #     ("DocumentationVersion", "apigateway"),
-        #     ("DomainNameAccessAssociations", "apigateway"),
-        #     ("DomainNameAccessAssociation", "apigateway"),
-        #     ("DomainNames", "apigateway"),
-        #     ("DomainName", "apigateway"),
-        #     ("GatewayResponses", "apigateway"),
-        #     ("GatewayResponse", "apigateway"),
-        #     ("IntegrationResponses", "apigateway"),
-        #     ("IntegrationResponse", "apigateway"),
-        #     ("Integration", "apigateway"),
-        #     ("MethodResponse", "apigateway"),
-        #     ("Method", "apigateway"),
-        #     ("ModelTemplate", "apigateway"),
-        #     ("Models", "apigateway"),
-        #     ("Model", "apigateway"),
-        #     ("Portal", "apigateway"),
-        #     ("PortalProduct", "apigateway"),
-        #     ("PrivateBasePathMappings", "apigateway"),
-        #     ("PrivateBasePathMapping", "apigateway"),
-        #     ("PrivateDomainName", "apigateway"),
-        #     ("ProductPage", "apigateway"),
-        #     ("ProductRestEndpointPage", "apigateway"),
-        #     ("RequestValidators", "apigateway"),
-        #     ("RequestValidator", "apigateway"),
-        #     ("Resources", "apigateway"),
-        #     ("Resource", "apigateway"),
-        #     ("RestApis", "apigateway"),
-        #     ("RestApi", "apigateway"),
-        #     ("RoutingRule", "apigateway"),
-        #     ("Sdk", "apigateway"),
-        #     ("Stages", "apigateway"),
-        #     ("Stage", "apigateway"),
-        #     ("Tags", "apigateway"),
-        #     ("Template", "apigateway"),
-        #     ("UsagePlanKeys", "apigateway"),
-        #     ("UsagePlanKey", "apigateway"),
-        #     ("UsagePlans", "apigateway"),
-        #     ("UsagePlan", "apigateway"),
-        #     ("VpcLinks", "apigateway"),
-        #     ("VpcLink", "apigateway"),
-        #     ("apigateway", "apigateway"),
-        # ],
+    # Resource-level overrides - only non-default SDK mappings
+    OVERRIDE_SERVICE = {
+        "apigateway": [
+            # v2 (HTTP/WebSocket API) resources
+            ("ApiMappings", "apigatewayv2"),
+            ("ApiMapping", "apigatewayv2"),
+            ("Apis", "apigatewayv2"),
+            ("Api", "apigatewayv2"),
+            ("Cors", "apigatewayv2"),
+            ("ExportedAPI", "apigatewayv2"),
+            ("Integrations", "apigatewayv2"),
+            ("RouteRequestParameter", "apigatewayv2"),
+            ("RouteResponses", "apigatewayv2"),
+            ("RouteResponse", "apigatewayv2"),
+            ("RouteSettings", "apigatewayv2"),
+            ("Routes", "apigatewayv2"),
+            ("Route", "apigatewayv2"),
+        ],
         # "aws-marketplace": [
         #     ("ChangeSet", "marketplace-catalog"),
         #     ("DeploymentParameter", "marketplace-catalog"),
