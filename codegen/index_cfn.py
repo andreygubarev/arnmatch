@@ -31,9 +31,11 @@ class CFNServiceIndexer:
         self.CACHE_FILE.write_text(json.dumps(data))
         return data
 
-    def process(self):
-        """Download spec and return resource types."""
-        return self.download()
+    def process(self) -> list[str]:
+        """Download spec and return unique service names."""
+        spec = self.download()
+        services = {rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()}
+        return sorted(services)
 
 
 if __name__ == "__main__":
