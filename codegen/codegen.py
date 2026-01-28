@@ -9,7 +9,6 @@ from pathlib import Path
 
 from scraper import AWSScraper
 from index_sdk import SDKServiceIndexer
-from index_sdk_resources import SDKResourceIndexer
 
 log = logging.getLogger(__name__)
 
@@ -235,7 +234,7 @@ class CodeGenerator:
         ("dms", "ReplicationSubnetGroup"): ["subgrp"],
     }
 
-    def generate(self, resources, sdk_services_mapping, sdk_resource_overrides, output_path):
+    def generate(self, resources, sdk_services_mapping, output_path):
         """Generate Python file with ARN patterns and SDK services mapping."""
         # Group by service
         by_service = {}
@@ -267,22 +266,10 @@ class CodeGenerator:
             f.write("AWS_SDK_SERVICES = {\n")
             for arn_svc, clients in sorted(sdk_services_mapping.items()):
                 f.write(f"    {arn_svc!r}: {clients!r},\n")
-            f.write("}\n\n")
-
-            # Write SDK resource overrides
-            f.write("# Auto-generated mapping: ARN service -> [(resource_type_prefix, sdk_client), ...]\n")
-            f.write("# For services with multiple SDK clients, maps specific resource types to their SDK\n")
-            f.write("AWS_SDK_RESOURCE_OVERRIDES = {\n")
-            for svc, patterns in sorted(sdk_resource_overrides.items()):
-                f.write(f"    {svc!r}: [\n")
-                for pattern, client in patterns:
-                    f.write(f"        ({pattern!r}, {client!r}),\n")
-                f.write("    ],\n")
             f.write("}\n")
 
         log.info(f"Wrote {len(resources)} patterns for {len(by_service)} services to {output_path}")
         log.info(f"Wrote SDK mapping for {len(sdk_services_mapping)} services")
-        log.info(f"Wrote SDK resource overrides for {len(sdk_resource_overrides)} services")
 
     def pattern_to_regex(self, arn_pattern):
         """Convert ARN pattern to regex with named capture groups."""
@@ -312,37 +299,6 @@ class CodeGenerator:
         return types
 
 
-def validate_sdk_overrides(resources, sdk_mapping, sdk_resource_overrides):
-    """Validate that all resources with multiple SDK clients have overrides."""
-    # Find services with multiple SDK clients
-    multi_sdk_services = {svc for svc, clients in sdk_mapping.items() if len(clients) > 1}
-
-    missing = []
-    for r in resources:
-        service = r["arn_service"]
-        if service not in multi_sdk_services:
-            continue
-
-        resource_type = r["resource_type"]
-        overrides = sdk_resource_overrides.get(service, [])
-
-        # Check if resource type matches any override pattern
-        matched = False
-        for pattern, _ in overrides:
-            if resource_type == pattern or resource_type.startswith(pattern + "/"):
-                matched = True
-                break
-
-        if not matched:
-            missing.append((service, resource_type))
-
-    if missing:
-        msg = "Resources with multiple SDK clients missing overrides:\n"
-        for service, resource_type in sorted(set(missing)):
-            msg += f"  {service}: {resource_type}\n"
-        raise ValueError(msg)
-
-
 def main():
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
@@ -361,15 +317,11 @@ def main():
     arn_services = {r["arn_service"] for r in resources}
     sdk_indexer = SDKServiceIndexer()
     sdk_mapping = sdk_indexer.process(arn_services)
-    sdk_resource_overrides = SDKResourceIndexer.SDK_RESOURCE_OVERRIDES
-
-    # Validate overrides coverage
-    validate_sdk_overrides(resources, sdk_mapping, sdk_resource_overrides)
 
     # Generate
     BUILD_DIR.mkdir(exist_ok=True)
     generator = CodeGenerator()
-    generator.generate(resources, sdk_mapping, sdk_resource_overrides, BUILD_DIR / "arn_patterns.py")
+    generator.generate(resources, sdk_mapping, BUILD_DIR / "arn_patterns.py")
 
 
 if __name__ == "__main__":

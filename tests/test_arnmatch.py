@@ -220,34 +220,30 @@ def test_elasticfilesystem():
 
 
 def test_elasticloadbalancing():
-    # Classic LB -> elb
+    # Classic LB
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:loadbalancer/a0123456789abcdef0123456789abcde"
     )
     assert result.resource_type == "loadbalancer"
     assert result.attributes["LoadBalancerName"] == "a0123456789abcdef0123456789abcde"
-    assert result.aws_sdk_services == ["elb", "elbv2"]
-    assert result.aws_sdk_service == "elb"
 
-    # ALB -> elbv2
+    # ALB
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:loadbalancer/app/alb-application-lb-name/0123456789abcdef"
     )
     assert result.resource_type == "loadbalancer/app/"
     assert result.attributes["LoadBalancerName"] == "alb-application-lb-name"
     assert result.attributes["LoadBalancerId"] == "0123456789abcdef"
-    assert result.aws_sdk_service == "elbv2"
 
-    # NLB -> elbv2
+    # NLB
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:loadbalancer/net/nlb-network-load-balancer/0123456789abcdef"
     )
     assert result.resource_type == "loadbalancer/net/"
     assert result.attributes["LoadBalancerName"] == "nlb-network-load-balancer"
     assert result.attributes["LoadBalancerId"] == "0123456789abcdef"
-    assert result.aws_sdk_service == "elbv2"
 
-    # Target group -> elbv2
+    # Target group
     result = arnmatch(
         "arn:aws:elasticloadbalancing:us-east-1:012345678901:targetgroup/target-grp-1/0123456789abcdef"
     )
@@ -256,7 +252,6 @@ def test_elasticloadbalancing():
     assert result.attributes["TargetGroupId"] == "0123456789abcdef"
     # elasticloadbalancing maps to multiple SDK clients
     assert result.aws_sdk_services == ["elb", "elbv2"]
-    assert result.aws_sdk_service == "elbv2"
 
 
 def test_es():
@@ -320,8 +315,6 @@ def test_lambda():
     assert result.resource_type == "function"
     assert result.attributes["FunctionName"] == "ProcessDataHandler"
     assert result.aws_sdk_services == ["lambda"]
-    # Single SDK client -> aws_sdk_service returns it
-    assert result.aws_sdk_service == "lambda"
 
 
 def test_logs():
@@ -354,8 +347,8 @@ def test_rds():
     )
     assert result.resource_type == "snapshot"
     assert result.attributes["SnapshotName"] == "final-database-backup-01234567"
-    # rds overridden to single SDK (docdb/neptune share ARN format but are different engines)
-    assert result.aws_sdk_services == ["rds"]
+    # rds maps to multiple SDK clients (rds, docdb, neptune share ARN format)
+    assert result.aws_sdk_services == ["rds", "docdb", "neptune"]
 
 
 def test_route53():
@@ -419,42 +412,3 @@ def test_wafv2():
     assert result.attributes["Scope"] == "regional"
     assert result.attributes["Name"] == "webacl-production-acl"
     assert result.attributes["Id"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
-
-
-def test_aws_sdk_service():
-    """Test aws_sdk_service property for various resource types."""
-    # Single SDK service -> returns that SDK
-    result = arnmatch("arn:aws:lambda:us-east-1:012345678901:function:my-func")
-    assert result.aws_sdk_service == "lambda"
-
-    # DynamoDB table -> dynamodb (has resource override)
-    result = arnmatch("arn:aws:dynamodb:us-east-1:012345678901:table/my-table")
-    assert result.aws_sdk_services == ["dynamodb", "dynamodbstreams"]
-    assert result.aws_sdk_service == "dynamodb"
-
-    # DynamoDB stream -> dynamodbstreams
-    result = arnmatch(
-        "arn:aws:dynamodb:us-east-1:012345678901:table/my-table/stream/2024-01-01T00:00:00.000"
-    )
-    assert result.aws_sdk_service == "dynamodbstreams"
-
-    # S3 bucket -> s3
-    result = arnmatch("arn:aws:s3:::my-bucket")
-    assert result.aws_sdk_services == ["s3", "s3control"]
-    assert result.aws_sdk_service == "s3"
-
-    # S3 access point -> s3control
-    result = arnmatch(
-        "arn:aws:s3:us-east-1:012345678901:accesspoint/my-access-point"
-    )
-    assert result.aws_sdk_service == "s3control"
-
-    # Discontinued service -> None
-    result = arnmatch("arn:aws:qldb:us-east-1:012345678901:ledger/my-ledger")
-    assert result.aws_sdk_services == []
-    assert result.aws_sdk_service is None
-
-    # RDS -> single SDK (overridden at service level)
-    result = arnmatch("arn:aws:rds:us-east-1:012345678901:db:my-db")
-    assert result.aws_sdk_services == ["rds"]
-    assert result.aws_sdk_service == "rds"
