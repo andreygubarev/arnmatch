@@ -60,7 +60,7 @@ class SDKServiceIndexer:
     def process(self, arn_services):
         """Build ARN service -> SDK clients mapping."""
         # Get all boto3 client metadata
-        client_metadata = self.clients_load()
+        metadata = self.metadata_load()
 
         result = {}
 
@@ -76,18 +76,18 @@ class SDKServiceIndexer:
                 continue
 
             # Phase 1: Direct name match
-            if arn_service in client_metadata:
+            if arn_service in metadata:
                 result[arn_service] = [arn_service]
                 # Also check for additional clients via metadata
-                additional = self.clients_find(
-                    arn_service, client_metadata, exclude={arn_service}
+                additional = self.metadata_match(
+                    arn_service, metadata, exclude={arn_service}
                 )
                 if additional:
                     result[arn_service].extend(sorted(additional))
                 continue
 
             # Phase 2: Find via botocore metadata (signingName/endpointPrefix)
-            clients = self.clients_find(arn_service, client_metadata)
+            clients = self.metadata_match(arn_service, metadata)
             if clients:
                 result[arn_service] = sorted(clients)
                 continue
@@ -98,7 +98,7 @@ class SDKServiceIndexer:
 
         return result
 
-    def clients_load(self):
+    def metadata_load(self):
         """Load metadata for all boto3 clients."""
         metadata = {}
 
@@ -129,12 +129,12 @@ class SDKServiceIndexer:
 
         return metadata
 
-    def clients_find(self, arn_service, client_metadata, exclude=None):
+    def metadata_match(self, arn_service, metadata, exclude=None):
         """Find SDK clients whose signingName or endpointPrefix matches ARN service."""
         exclude = exclude or set()
         matches = set()
 
-        for client_name, meta in client_metadata.items():
+        for client_name, meta in metadata.items():
             if client_name in exclude:
                 continue
 
