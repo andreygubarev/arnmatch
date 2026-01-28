@@ -6,7 +6,12 @@ import sys
 from dataclasses import dataclass
 from functools import cached_property
 
-from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES, AWS_SDK_SERVICES_DEFAULT
+from .arn_patterns import (
+    ARN_PATTERNS,
+    AWS_SDK_SERVICES,
+    AWS_SDK_SERVICES_DEFAULT,
+    AWS_SDK_SERVICES_OVERRIDE,
+)
 
 # Standard groups that are not resource-specific
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
@@ -90,11 +95,17 @@ class ARN:
 
     @cached_property
     def aws_sdk_service(self) -> str | None:
-        """Get the primary AWS SDK (boto3) client name for this resource.
+        """Get the AWS SDK (boto3) client name for this resource.
 
-        Returns single client name for the service. For multi-SDK services,
-        returns the default/primary SDK. Returns None if no SDK exists.
+        Returns single client name. Checks resource-level overrides first,
+        then falls back to service default. Returns None if no SDK exists.
         """
+        # Check resource-level override
+        overrides = AWS_SDK_SERVICES_OVERRIDE.get(self.aws_service)
+        if overrides and self.resource_type in overrides:
+            return overrides[self.resource_type]
+
+        # Fall back to service-level
         sdks = self.aws_sdk_services
         if len(sdks) == 1:
             return sdks[0]
