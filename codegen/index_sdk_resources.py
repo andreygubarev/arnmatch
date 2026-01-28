@@ -2,16 +2,65 @@
 
 
 class SDKResourceIndexer:
-    """Resource type -> SDK client overrides for services with multiple SDK clients.
+    """SDK overrides for services with multiple SDK clients.
 
-    For services that map to multiple SDK clients (e.g., elasticloadbalancing -> elb, elbv2),
-    this mapping determines which specific SDK client handles each resource type.
+    OVERRIDES_SERVICES: Service-level overrides where all resources use a single SDK.
+    Format: "arn_service" -> ["sdk_client"]
 
+    OVERRIDES_RESOURCES: Resource-level overrides where different resources use different SDKs.
     Format: "arn_service" -> [(resource_type_prefix, sdk_client), ...]
     Order matters: more specific prefixes must come before less specific ones.
     """
 
-    SDK_RESOURCE_OVERRIDES = {
+    # Service-level overrides - all resources use a single SDK
+    # (other auto-detected SDKs are runtime/data clients, not for resource management)
+    OVERRIDES_SERVICES = {
+        # AppConfig - appconfigdata is runtime-only
+        "appconfig": ["appconfig"],
+        # Cassandra (Keyspaces)
+        "cassandra": ["keyspaces"],
+        # CloudHSM v2
+        "cloudhsm": ["cloudhsmv2"],
+        # CloudSearch - cloudsearchdomain is for search queries only
+        "cloudsearch": ["cloudsearch"],
+        # Connect - connect-contact-lens is analytics only
+        "connect": ["connect"],
+        # Connect Campaigns v2
+        "connect-campaigns": ["connectcampaignsv2"],
+        # Elasticsearch -> OpenSearch
+        "es": ["opensearch"],
+        # Execute API (API Gateway WebSocket/HTTP management)
+        "execute-api": ["apigatewaymanagementapi"],
+        # Forecast - forecastquery is runtime-only
+        "forecast": ["forecast"],
+        # Kinesis Analytics v2
+        "kinesisanalytics": ["kinesisanalyticsv2"],
+        # Kinesis Video - other clients are for media streaming
+        "kinesisvideo": ["kinesisvideo"],
+        # Migration Hub
+        "mgh": ["mgh"],
+        # Payment Cryptography - payment-cryptography-data is for crypto operations
+        "payment-cryptography": ["payment-cryptography"],
+        # Personalize - events/runtime are runtime-only
+        "personalize": ["personalize"],
+        # RDS - docdb/neptune share ARN format but are different engines
+        "rds": ["rds"],
+        # SageMaker - other clients are for runtime/edge/metrics
+        "sagemaker": ["sagemaker"],
+        # SES v2 is current
+        "ses": ["sesv2"],
+        # SMS Voice v2 (v1 deprecated)
+        "sms-voice": ["pinpoint-sms-voice-v2"],
+        # SSO Admin for management (sso is portal access)
+        "sso": ["sso-admin"],
+        # Timestream Write for management (query is for queries)
+        "timestream": ["timestream-write"],
+        # Wisdom / Q Connect
+        "wisdom": ["qconnect"],
+    }
+
+    # Resource-level overrides - different resources use different SDKs
+    OVERRIDES_RESOURCES = {
         "apigateway": [
             # v2 (HTTP/WebSocket API) resources
             ("ApiMappings", "apigatewayv2"),
@@ -283,11 +332,6 @@ class SDKResourceIndexer:
             ("routingcontrol", "route53-recovery-control-config"),
             ("safetyrule", "route53-recovery-control-config"),
         ],
-        "servicecatalog": [
-            # AppRegistry resources
-            ("Application", "servicecatalog-appregistry"),
-            ("AttributeGroup", "servicecatalog-appregistry"),
-        ],
         "s3": [
             ("accessgrant", "s3control"),
             ("accessgrantslocation", "s3control"),
@@ -301,5 +345,10 @@ class SDKResourceIndexer:
             ("storagelensgroup", "s3control"),
             ("bucket", "s3"),
             ("object", "s3"),
+        ],
+        "servicecatalog": [
+            # AppRegistry resources
+            ("Application", "servicecatalog-appregistry"),
+            ("AttributeGroup", "servicecatalog-appregistry"),
         ],
     }
