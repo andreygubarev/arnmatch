@@ -1,0 +1,40 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["requests"]
+# ///
+
+"""Maps ARN service names to CloudFormation resource types."""
+
+import json
+from pathlib import Path
+
+import requests
+
+CLOUDFORMATION_SPEC = "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
+
+
+class CFNServiceIndexer:
+    """Builds mapping from ARN service names to CloudFormation resource types."""
+
+    CACHE_FILE = Path(__file__).parent / "cache" / "CloudFormationResourceSpecification.json"
+
+    def download(self) -> dict:
+        """Download and cache CloudFormation Resource Specification."""
+        if self.CACHE_FILE.exists():
+            return json.loads(self.CACHE_FILE.read_text())
+
+        resp = requests.get(CLOUDFORMATION_SPEC, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+
+        self.CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        self.CACHE_FILE.write_text(json.dumps(data))
+        return data
+
+    def process(self):
+        """Download spec and return resource types."""
+        return self.download()
+
+
+if __name__ == "__main__":
+    CFNServiceIndexer().process()
