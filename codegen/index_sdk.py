@@ -19,7 +19,7 @@ class SDKServiceIndexer:
 
     # Phase 3: Manual overrides for services where botocore metadata doesn't match
     # Format: "arn_service" -> ["sdk_client1", "sdk_client2", ...]
-    MANUAL_OVERRIDES = {
+    OVERRIDES = {
         # CloudWatch uses 'monitoring' as endpointPrefix but 'cloudwatch' in ARNs
         "cloudwatch": ["cloudwatch"],
         # Route53 recovery services
@@ -36,7 +36,7 @@ class SDKServiceIndexer:
 
     # Services that are deprecated/console-only and have no SDK client
     # These will be explicitly mapped to empty list
-    NO_SDK_CLIENT = {
+    EXCLUDES = {
         "a4b",  # Alexa for Business - discontinued
         "bugbust",  # AWS BugBust - discontinued
         "codestar",  # CodeStar - discontinued
@@ -64,37 +64,37 @@ class SDKServiceIndexer:
 
         result = {}
 
-        for arn_svc in sorted(arn_services):
+        for arn_service in sorted(arn_services):
             # Phase 3: Check manual overrides first
-            if arn_svc in self.MANUAL_OVERRIDES:
-                result[arn_svc] = self.MANUAL_OVERRIDES[arn_svc]
+            if arn_service in self.OVERRIDES:
+                result[arn_service] = self.OVERRIDES[arn_service]
                 continue
 
             # Known no-SDK services
-            if arn_svc in self.NO_SDK_CLIENT:
-                result[arn_svc] = []
+            if arn_service in self.EXCLUDES:
+                result[arn_service] = []
                 continue
 
             # Phase 1: Direct name match
-            if arn_svc in client_metadata:
-                result[arn_svc] = [arn_svc]
+            if arn_service in client_metadata:
+                result[arn_service] = [arn_service]
                 # Also check for additional clients via metadata
                 additional = self.clients_find(
-                    arn_svc, client_metadata, exclude={arn_svc}
+                    arn_service, client_metadata, exclude={arn_service}
                 )
                 if additional:
-                    result[arn_svc].extend(sorted(additional))
+                    result[arn_service].extend(sorted(additional))
                 continue
 
             # Phase 2: Find via botocore metadata (signingName/endpointPrefix)
-            clients = self.clients_find(arn_svc, client_metadata)
+            clients = self.clients_find(arn_service, client_metadata)
             if clients:
-                result[arn_svc] = sorted(clients)
+                result[arn_service] = sorted(clients)
                 continue
 
             # No mapping found
-            log.warning(f"No SDK client mapping for ARN service: {arn_svc}")
-            result[arn_svc] = []
+            log.warning(f"No SDK client mapping for ARN service: {arn_service}")
+            result[arn_service] = []
 
         return result
 
