@@ -267,6 +267,13 @@ class CodeGenerator:
             f.write("AWS_SDK_SERVICES = {\n")
             for arn_svc, clients in sorted(sdk_services_mapping.items()):
                 f.write(f"    {arn_svc!r}: {clients!r},\n")
+            f.write("}\n\n")
+
+            # Write SDK default service mapping
+            f.write("# Default SDK for multi-SDK services\n")
+            f.write("AWS_SDK_SERVICES_DEFAULT = {\n")
+            for arn_svc, sdk in sorted(SDKResourceIndexer.DEFAULT_SERVICE.items()):
+                f.write(f"    {arn_svc!r}: {sdk!r},\n")
             f.write("}\n")
 
         log.info(f"Wrote {len(resources)} patterns for {len(by_service)} services to {output_path}")
@@ -319,11 +326,9 @@ def main():
     sdk_indexer = SDKServiceIndexer()
     sdk_mapping = sdk_indexer.process(arn_services)
 
-    # Validate multi-SDK services have overrides
-    for svc, clients in sdk_mapping.items():
-        if len(clients) > 1:
-            if svc not in SDKResourceIndexer.OVERRIDES_SERVICES and svc not in SDKResourceIndexer.OVERRIDES_RESOURCES:
-                raise ValueError(f"Service '{svc}' has multiple SDKs {clients} but no override")
+    # Validate multi-SDK services have DEFAULT_SERVICE entries
+    sdk_resource_indexer = SDKResourceIndexer()
+    sdk_resource_indexer.process(sdk_mapping)
 
     # Generate
     BUILD_DIR.mkdir(exist_ok=True)

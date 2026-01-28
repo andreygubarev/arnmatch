@@ -2,61 +2,55 @@
 
 
 class SDKResourceIndexer:
-    """SDK overrides for services with multiple SDK clients.
+    """SDK defaults for services with multiple SDK clients.
 
-    OVERRIDES_SERVICES: Service-level overrides where all resources use a single SDK.
-    Format: "arn_service" -> ["sdk_client"]
+    DEFAULT_SERVICE: Service-level default where all resources use a single SDK.
+    Format: "arn_service" -> "sdk_client"
 
     OVERRIDES_RESOURCES: Resource-level overrides where different resources use different SDKs.
     Format: "arn_service" -> [(resource_type_prefix, sdk_client), ...]
     Order matters: more specific prefixes must come before less specific ones.
     """
 
-    # Service-level overrides - all resources use a single SDK
-    # (other auto-detected SDKs are runtime/data clients, not for resource management)
-    OVERRIDES_SERVICES = {
-        # # AppConfig - appconfigdata is runtime-only
-        # "appconfig": ["appconfig"],
-        # # Cassandra (Keyspaces)
-        # "cassandra": ["keyspaces"],
-        # # CloudHSM v2
-        # "cloudhsm": ["cloudhsmv2"],
-        # # CloudSearch - cloudsearchdomain is for search queries only
-        # "cloudsearch": ["cloudsearch"],
-        # # Connect - connect-contact-lens is analytics only
-        # "connect": ["connect"],
-        # # Connect Campaigns v2
-        # "connect-campaigns": ["connectcampaignsv2"],
-        # # Elasticsearch -> OpenSearch
-        # "es": ["opensearch"],
-        # # Execute API (API Gateway WebSocket/HTTP management)
-        # "execute-api": ["apigatewaymanagementapi"],
-        # # Forecast - forecastquery is runtime-only
-        # "forecast": ["forecast"],
-        # # Kinesis Analytics v2
-        # "kinesisanalytics": ["kinesisanalyticsv2"],
-        # # Kinesis Video - other clients are for media streaming
-        # "kinesisvideo": ["kinesisvideo"],
-        # # Migration Hub
-        # "mgh": ["mgh"],
-        # # Payment Cryptography - payment-cryptography-data is for crypto operations
-        # "payment-cryptography": ["payment-cryptography"],
-        # # Personalize - events/runtime are runtime-only
-        # "personalize": ["personalize"],
-        # # RDS - docdb/neptune share ARN format but are different engines
-        # "rds": ["rds"],
-        # # SageMaker - other clients are for runtime/edge/metrics
-        # "sagemaker": ["sagemaker"],
-        # # SES v2 is current
-        # "ses": ["sesv2"],
-        # # SMS Voice v2 (v1 deprecated)
-        # "sms-voice": ["pinpoint-sms-voice-v2"],
-        # # SSO Admin for management (sso is portal access)
-        # "sso": ["sso-admin"],
-        # # Timestream Write for management (query is for queries)
-        # "timestream": ["timestream-write"],
-        # # Wisdom / Q Connect
-        # "wisdom": ["qconnect"],
+    # Service-level default - the SDK responsible for most resources
+    # (other auto-detected SDKs are typically runtime/data/query clients)
+    DEFAULT_SERVICE = {
+        "apigateway": "apigateway",  # v1 REST API; v2 is HTTP/WebSocket
+        "appconfig": "appconfig",  # appconfigdata is runtime-only
+        "aws-marketplace": "marketplace-catalog",  # entity management
+        "bedrock": "bedrock",  # model management
+        "bedrock-agentcore": "bedrock-agentcore-control",  # control plane
+        "cassandra": "keyspaces",  # keyspacesstreams is CDC
+        "chime": "chime",  # others are specialized SDKs
+        "cloudhsm": "cloudhsmv2",  # v1 deprecated
+        "cloudsearch": "cloudsearch",  # domain is query-only
+        "connect": "connect",  # contact-lens is analytics
+        "connect-campaigns": "connectcampaignsv2",  # v1 deprecated
+        "dynamodb": "dynamodb",  # streams is CDC
+        "elasticloadbalancing": "elbv2",  # ALB/NLB/GLB; elb is classic
+        "es": "opensearch",  # Elasticsearch rebranded
+        "execute-api": "apigatewaymanagementapi",  # WebSocket management
+        "forecast": "forecast",  # forecastquery is runtime
+        "greengrass": "greengrassv2",  # v1 deprecated
+        "ivs": "ivs",  # ivs-realtime is stages
+        "kinesisanalytics": "kinesisanalyticsv2",  # v1 deprecated
+        "kinesisvideo": "kinesisvideo",  # others are media streaming
+        "lex": "lexv2-models",  # v1 deprecated
+        "mediastore": "mediastore",  # data is object operations
+        "mgh": "mgh",  # config is home region only
+        "partnercentral": "partnercentral-selling",  # primary module
+        "payment-cryptography": "payment-cryptography",  # data is crypto ops
+        "personalize": "personalize",  # events/runtime are runtime
+        "rds": "rds",  # docdb/neptune are different engines
+        "route53-recovery-control": "route53-recovery-control-config",  # cluster is data plane
+        "s3": "s3",  # s3control is account-level
+        "sagemaker": "sagemaker",  # others are runtime/edge/metrics
+        "servicecatalog": "servicecatalog",  # appregistry is separate
+        "ses": "sesv2",  # v1 deprecated
+        "sms-voice": "pinpoint-sms-voice-v2",  # v1 deprecated
+        "sso": "sso-admin",  # sso is portal access
+        "timestream": "timestream-write",  # query is queries only
+        "wisdom": "qconnect",  # rebranded to Q Connect
     }
 
     # Resource-level overrides - different resources use different SDKs
@@ -352,3 +346,12 @@ class SDKResourceIndexer:
         #     ("AttributeGroup", "servicecatalog-appregistry"),
         # ],
     }
+
+    def process(self, sdk_mapping):
+        """Validate all multi-SDK services have a DEFAULT_SERVICE entry."""
+        missing = {}
+        for arn_service, sdks in sdk_mapping.items():
+            if len(sdks) > 1 and arn_service not in self.DEFAULT_SERVICE:
+                missing[arn_service] = sdks
+        if missing:
+            raise RuntimeError(f"Missing DEFAULT_SERVICE for multi-SDK services: {missing}")
