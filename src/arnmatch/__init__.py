@@ -6,7 +6,7 @@ import sys
 from dataclasses import dataclass
 from functools import cached_property
 
-from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES
+from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES, AWS_SDK_RESOURCE_OVERRIDES
 
 # Standard groups that are not resource-specific
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
@@ -88,6 +88,30 @@ class ARN:
         """
         return AWS_SDK_SERVICES.get(self.aws_service, [])
 
+    @cached_property
+    def aws_sdk_service(self) -> str | None:
+        """Get the specific AWS SDK (boto3) client for this resource type.
+
+        Returns the SDK client name if determinable, or None if ambiguous.
+        For services with multiple SDK clients (e.g., elasticloadbalancing),
+        uses resource type to determine the specific client.
+        """
+        sdk_clients = self.aws_sdk_services
+
+        if not sdk_clients:
+            return None
+
+        if len(sdk_clients) == 1:
+            return sdk_clients[0]
+
+        # Multiple SDKs - check resource type overrides
+        if self.aws_service in AWS_SDK_RESOURCE_OVERRIDES:
+            for pattern, sdk_client in AWS_SDK_RESOURCE_OVERRIDES[self.aws_service]:
+                if self.resource_type == pattern or self.resource_type.startswith(pattern + "/"):
+                    return sdk_client
+
+        return None
+
 
 def arnmatch(arn: str) -> ARN:
     """Match ARN against patterns.
@@ -132,6 +156,7 @@ def main() -> None:
     try:
         result = arnmatch(arn)
         print(f"aws_service: {result.aws_service}")
+        print(f"aws_sdk_service: {result.aws_sdk_service}")
         print(f"aws_sdk_services: {','.join(result.aws_sdk_services)}")
         print(f"aws_region: {result.aws_region}")
         print(f"aws_account: {result.aws_account}")

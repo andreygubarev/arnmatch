@@ -3155,3 +3155,53 @@ AWS_SDK_SERVICES = {
     'workspaces-web': ['workspaces-web'],
     'xray': ['xray'],
 }
+
+# Auto-generated mapping: ARN service -> [(resource_type_prefix, sdk_client), ...]
+# For services with multiple SDK clients, maps specific resource types to their SDK
+AWS_SDK_RESOURCE_OVERRIDES = {
+    'chime': [
+        ('meeting', 'chime-sdk-meetings'),
+        ('app-instance', 'chime-sdk-identity'),
+        ('app-instance-bot', 'chime-sdk-identity'),
+        ('app-instance-user', 'chime-sdk-identity'),
+        ('channel', 'chime-sdk-messaging'),
+        ('channel-flow', 'chime-sdk-messaging'),
+        ('media-insights-pipeline-configuration', 'chime-sdk-media-pipelines'),
+        ('media-pipeline', 'chime-sdk-media-pipelines'),
+        ('media-pipeline-kinesis-video-stream-pool', 'chime-sdk-media-pipelines'),
+        ('sip-media-application', 'chime-sdk-voice'),
+        ('voice-connector', 'chime-sdk-voice'),
+        ('voice-profile', 'chime-sdk-voice'),
+        ('voice-profile-domain', 'chime-sdk-voice'),
+    ],
+    'dynamodb': [
+        ('stream', 'dynamodbstreams'),
+    ],
+    'elasticloadbalancing': [
+        ('listener-rule/app', 'elbv2'),
+        ('listener-rule/net', 'elbv2'),
+        ('listener/app', 'elbv2'),
+        ('listener/gwy', 'elbv2'),
+        ('listener/net', 'elbv2'),
+        ('loadbalancer/app', 'elbv2'),
+        ('loadbalancer/gwy', 'elbv2'),
+        ('loadbalancer/net', 'elbv2'),
+        ('targetgroup', 'elbv2'),
+        ('truststore', 'elbv2'),
+        ('loadbalancer', 'elb'),
+    ],
+    's3': [
+        ('accessgrant', 's3control'),
+        ('accessgrantslocation', 's3control'),
+        ('accessgrantsinstance', 's3control'),
+        ('accesspoint', 's3control'),
+        ('accesspointobject', 's3control'),
+        ('job', 's3control'),
+        ('multiregionaccesspoint', 's3control'),
+        ('multiregionaccesspointrequestarn', 's3control'),
+        ('storagelensconfiguration', 's3control'),
+        ('storagelensgroup', 's3control'),
+        ('bucket', 's3'),
+        ('object', 's3'),
+    ],
+}
