@@ -10,6 +10,7 @@ from pathlib import Path
 
 from scraper import AWSScraper
 from index_arn import ARNIndexer
+from index_cfn import CFNServiceIndexer
 from index_sdk import SDKServiceIndexer
 from index_sdk_resources import SDKResourceIndexer
 
@@ -157,6 +158,9 @@ def main():
     # Validate multi-SDK services have DEFAULT_SERVICE entries
     sdk_resource_indexer = SDKResourceIndexer()
     sdk_resource_indexer.process(sdk_mapping)
+
+    cfn_indexer = CFNServiceIndexer()
+    cfn_indexer.process()
 
     # Generate
     generator = CodeGenerator()
