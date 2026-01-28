@@ -3196,7 +3196,18 @@ AWS_SDK_SERVICES_DEFAULT = {
     'wisdom': 'qconnect',
 }
 
-# Resource-level SDK overrides: (resource_type_prefix, sdk_client)
+# Resource-level SDK overrides: resource_type -> sdk_client
 AWS_SDK_SERVICES_OVERRIDE = {
     'apigateway': {'ApiMappings': 'apigatewayv2', 'ApiMapping': 'apigatewayv2', 'Apis': 'apigatewayv2', 'Api': 'apigatewayv2', 'Cors': 'apigatewayv2', 'ExportedAPI': 'apigatewayv2', 'Integrations': 'apigatewayv2', 'RouteRequestParameter': 'apigatewayv2', 'RouteResponses': 'apigatewayv2', 'RouteResponse': 'apigatewayv2', 'RouteSettings': 'apigatewayv2', 'Routes': 'apigatewayv2', 'Route': 'apigatewayv2'},
+    'bedrock': {'agent-alias': 'bedrock-agent', 'agent': 'bedrock-agent', 'default-prompt-router': 'bedrock-agent', 'flow-alias': 'bedrock-agent', 'flow-execution': 'bedrock-agent', 'flow': 'bedrock-agent', 'knowledge-base': 'bedrock-agent', 'prompt-router': 'bedrock-agent', 'prompt-version': 'bedrock-agent', 'prompt': 'bedrock-agent', 'session': 'bedrock-agent-runtime', 'async-invoke': 'bedrock-runtime'},
+    'chime': {'meeting': 'chime-sdk-meetings', 'app-instance': 'chime-sdk-identity', 'app-instance-bot': 'chime-sdk-identity', 'app-instance-user': 'chime-sdk-identity', 'channel': 'chime-sdk-messaging', 'channel-flow': 'chime-sdk-messaging', 'media-insights-pipeline-configuration': 'chime-sdk-media-pipelines', 'media-pipeline': 'chime-sdk-media-pipelines', 'media-pipeline-kinesis-video-stream-pool': 'chime-sdk-media-pipelines', 'sip-media-application': 'chime-sdk-voice', 'voice-connector-group': 'chime-sdk-voice', 'voice-connector': 'chime-sdk-voice', 'voice-profile': 'chime-sdk-voice', 'voice-profile-domain': 'chime-sdk-voice'},
+    'dynamodb': {'stream': 'dynamodbstreams'},
+    'elasticloadbalancing': {'loadbalancer': 'elb'},
+    'greengrass': {'bulkDeployment': 'greengrass', 'certificateAuthority': 'greengrass', 'connectivityInfo': 'greengrass', 'connectorDefinitionVersion': 'greengrass', 'connectorDefinition': 'greengrass', 'coreDefinitionVersion': 'greengrass', 'coreDefinition': 'greengrass', 'deviceDefinitionVersion': 'greengrass', 'deviceDefinition': 'greengrass', 'functionDefinitionVersion': 'greengrass', 'functionDefinition': 'greengrass', 'groupVersion': 'greengrass', 'group': 'greengrass', 'loggerDefinitionVersion': 'greengrass', 'loggerDefinition': 'greengrass', 'resourceDefinitionVersion': 'greengrass', 'resourceDefinition': 'greengrass', 'subscriptionDefinitionVersion': 'greengrass', 'subscriptionDefinition': 'greengrass', 'thingRuntimeConfig': 'greengrass'},
+    'ivs': {'Composition': 'ivs-realtime', 'Encoder-Configuration': 'ivs-realtime', 'Ingest-Configuration': 'ivs-realtime', 'Public-Key': 'ivs-realtime', 'Stage': 'ivs-realtime', 'Storage-Configuration': 'ivs-realtime'},
+    'lex': {'channel': 'lex-models', 'intent version': 'lex-models', 'slottype version': 'lex-models'},
+    'mediastore': {'folder': 'mediastore-data', 'object': 'mediastore-data'},
+    'partnercentral': {'BenefitAllocation': 'partnercentral-benefits', 'BenefitApplication': 'partnercentral-benefits', 'Benefit': 'partnercentral-benefits', 'ChannelHandshake': 'partnercentral-channel', 'ProgramManagementAccount': 'partnercentral-account'},
+    's3': {'accessgrant': 's3control', 'accessgrantslocation': 's3control', 'accessgrantsinstance': 's3control', 'accesspoint': 's3control', 'accesspointobject': 's3control', 'job': 's3control', 'multiregionaccesspoint': 's3control', 'multiregionaccesspointrequestarn': 's3control', 'storagelensconfiguration': 's3control', 'storagelensgroup': 's3control'},
+    'servicecatalog': {'Application': 'servicecatalog-appregistry', 'AttributeGroup': 'servicecatalog-appregistry'},
 }
