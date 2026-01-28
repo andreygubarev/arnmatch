@@ -9,6 +9,7 @@ def test_acm():
     )
     assert result.resource_type == "certificate"
     assert result.attributes["CertificateId"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+    assert result.aws_sdk_services == ["acm"]
 
 
 def test_apigateway():
@@ -68,6 +69,8 @@ def test_cloudwatch():
         result.attributes["AlarmName"]
         == "CPU Utilization - High Warning - service-production-1"
     )
+    # cloudwatch is a manual override (endpointPrefix is 'monitoring')
+    assert result.aws_sdk_services == ["cloudwatch"]
 
 
 def test_codebuild():
@@ -212,6 +215,8 @@ def test_elasticfilesystem():
     )
     assert result.resource_type == "file-system"
     assert result.attributes["FileSystemId"] == "fs-01234567"
+    # elasticfilesystem maps to efs via metadata
+    assert result.aws_sdk_services == ["efs"]
 
 
 def test_elasticloadbalancing():
@@ -245,6 +250,8 @@ def test_elasticloadbalancing():
     assert result.resource_type == "targetgroup"
     assert result.attributes["TargetGroupName"] == "target-grp-1"
     assert result.attributes["TargetGroupId"] == "0123456789abcdef"
+    # elasticloadbalancing maps to multiple SDK clients
+    assert result.aws_sdk_services == ["elb", "elbv2"]
 
 
 def test_es():
@@ -307,6 +314,7 @@ def test_lambda():
     )
     assert result.resource_type == "function"
     assert result.attributes["FunctionName"] == "ProcessDataHandler"
+    assert result.aws_sdk_services == ["lambda"]
 
 
 def test_logs():
@@ -339,6 +347,8 @@ def test_rds():
     )
     assert result.resource_type == "snapshot"
     assert result.attributes["SnapshotName"] == "final-database-backup-01234567"
+    # rds maps to multiple SDK clients (rds, docdb, neptune share ARN format)
+    assert result.aws_sdk_services == ["rds", "docdb", "neptune"]
 
 
 def test_route53():
@@ -357,6 +367,7 @@ def test_s3():
     result = arnmatch("arn:aws:s3:::example-bucket-01")
     assert result.resource_type == "bucket"
     assert result.attributes["BucketName"] == "example-bucket-01"
+    assert result.aws_sdk_services == ["s3", "s3control"]
 
 
 def test_secretsmanager():
