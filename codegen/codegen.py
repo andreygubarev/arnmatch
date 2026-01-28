@@ -9,6 +9,7 @@ from pathlib import Path
 
 from scraper import AWSScraper
 from index_sdk import SDKServiceIndexer
+from index_sdk_resources import SDKResourceIndexer
 
 log = logging.getLogger(__name__)
 
@@ -360,7 +361,7 @@ def main():
     arn_services = {r["arn_service"] for r in resources}
     sdk_indexer = SDKServiceIndexer()
     sdk_mapping = sdk_indexer.process(arn_services)
-    sdk_resource_overrides = SDKServiceIndexer.SDK_RESOURCE_OVERRIDES
+    sdk_resource_overrides = SDKResourceIndexer.SDK_RESOURCE_OVERRIDES
 
     # Validate overrides coverage
     validate_sdk_overrides(resources, sdk_mapping, sdk_resource_overrides)
