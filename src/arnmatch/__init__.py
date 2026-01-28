@@ -78,7 +78,7 @@ class ARN:
         return self.resource_id
 
     @cached_property
-    def aws_sdk_services(self) -> list[str]:
+    def aws_sdk_services(self):
         """Get AWS SDK (boto3) client names for this resource's service.
 
         Returns list of client names that can interact with this resource type.

@@ -53,7 +53,7 @@ class SDKServiceIndexer:
         "worklink",  # WorkLink - discontinued
     }
 
-    def __init__(self, botocore_data_path: str | None = None):
+    def __init__(self, botocore_data_path=None):
         """Initialize with path to botocore data directory."""
         if botocore_data_path:
             self.botocore_data = Path(botocore_data_path)
@@ -63,15 +63,8 @@ class SDKServiceIndexer:
 
             self.botocore_data = Path(botocore.__file__).parent / "data"
 
-    def build_mapping(self, arn_services: set[str]) -> dict[str, list[str]]:
-        """Build ARN service -> SDK clients mapping.
-
-        Args:
-            arn_services: Set of ARN service names to map
-
-        Returns:
-            Dict mapping ARN service name to list of SDK client names
-        """
+    def build_mapping(self, arn_services):
+        """Build ARN service -> SDK clients mapping."""
         # Get all boto3 client metadata
         client_metadata = self.load_client_metadata()
 
@@ -111,12 +104,8 @@ class SDKServiceIndexer:
 
         return result
 
-    def load_client_metadata(self) -> dict[str, dict]:
-        """Load metadata for all boto3 clients.
-
-        Returns:
-            Dict mapping client name to its metadata
-        """
+    def load_client_metadata(self):
+        """Load metadata for all boto3 clients."""
         metadata = {}
 
         for client_name in os.listdir(self.botocore_data):
@@ -146,22 +135,8 @@ class SDKServiceIndexer:
 
         return metadata
 
-    def find_clients_by_metadata(
-        self,
-        arn_service: str,
-        client_metadata: dict[str, dict],
-        exclude: set[str] | None = None,
-    ) -> set[str]:
-        """Find SDK clients whose signingName or endpointPrefix matches ARN service.
-
-        Args:
-            arn_service: ARN service name to match
-            client_metadata: Dict of client name -> metadata
-            exclude: Client names to exclude from results
-
-        Returns:
-            Set of matching client names
-        """
+    def find_clients_by_metadata(self, arn_service, client_metadata, exclude=None):
+        """Find SDK clients whose signingName or endpointPrefix matches ARN service."""
         exclude = exclude or set()
         matches = set()
 
@@ -181,25 +156,3 @@ class SDKServiceIndexer:
                 matches.add(client_name)
 
         return matches
-
-    def generate_code(self, mapping: dict[str, list[str]]) -> str:
-        """Generate Python code for AWS_SDK_SERVICES dict.
-
-        Args:
-            mapping: ARN service -> SDK clients mapping
-
-        Returns:
-            Python code as string
-        """
-        lines = [
-            "# Auto-generated mapping: ARN service -> AWS SDK client names",
-            "AWS_SDK_SERVICES = {",
-        ]
-
-        for arn_svc, clients in sorted(mapping.items()):
-            lines.append(f"    {arn_svc!r}: {clients!r},")
-
-        lines.append("}")
-        lines.append("")
-
-        return "\n".join(lines)
