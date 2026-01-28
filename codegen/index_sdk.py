@@ -19,12 +19,36 @@ class SDKServiceIndexer:
     OVERRIDES = {
         # AI DevOps uses aiops client
         "aidevops": ["aiops"],
+        # AppConfig - appconfigdata is runtime-only
+        "appconfig": ["appconfig"],
         # AppMesh preview uses appmesh client
         "appmesh-preview": ["appmesh"],
+        # Cassandra (Keyspaces)
+        "cassandra": ["keyspaces"],
         # Service Catalog uses 'catalog' in ARNs but 'servicecatalog' client
         "catalog": ["servicecatalog"],
+        # CloudHSM v2
+        "cloudhsm": ["cloudhsmv2"],
+        # CloudSearch - cloudsearchdomain is for search queries only
+        "cloudsearch": ["cloudsearch"],
         # CloudWatch uses 'monitoring' as endpointPrefix but 'cloudwatch' in ARNs
         "cloudwatch": ["cloudwatch"],
+        # Connect - connect-contact-lens is analytics only
+        "connect": ["connect"],
+        # Connect Campaigns v2
+        "connect-campaigns": ["connectcampaignsv2"],
+        # Elasticsearch -> OpenSearch
+        "es": ["opensearch"],
+        # Execute API (API Gateway WebSocket/HTTP management)
+        "execute-api": ["apigatewaymanagementapi"],
+        # Forecast - forecastquery is runtime-only
+        "forecast": ["forecast"],
+        # Kinesis Analytics v2
+        "kinesisanalytics": ["kinesisanalyticsv2"],
+        # Kinesis Video - other clients are for media streaming
+        "kinesisvideo": ["kinesisvideo"],
+        # Migration Hub
+        "mgh": ["mgh"],
         # Partner Central has multiple sub-clients
         "partnercentral": [
             "partnercentral-account",
@@ -32,8 +56,14 @@ class SDKServiceIndexer:
             "partnercentral-channel",
             "partnercentral-selling",
         ],
+        # Payment Cryptography - payment-cryptography-data is for crypto operations
+        "payment-cryptography": ["payment-cryptography"],
+        # Personalize - events/runtime are runtime-only
+        "personalize": ["personalize"],
         # AWS Private 5G uses privatenetworks client
         "private-networks": ["privatenetworks"],
+        # RDS - docdb/neptune share ARN format but are different engines
+        "rds": ["rds"],
         # RDS IAM auth uses rds client
         "rds-db": ["rds"],
         # Route53 recovery services
