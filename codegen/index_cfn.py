@@ -31,9 +31,29 @@ class CFNServiceIndexer:
         "robomaker",
     }
 
-    # Manual mapping: CFN service -> SDK client (for unmatched)
+    # CFN services with no SDK (excluded from mapping)
+    EXCLUDES_NO_SDK = {
+        "ask",  # Alexa Skills Kit - uses SMAPI
+    }
+
+    # CFN services with no ARN patterns (excluded from mapping)
+    EXCLUDES_NO_ARN = {
+        "applicationinsights",
+        "apptest",
+        "arczonalshift",
+        "autoscalingplans",
+        "devopsguru",
+        "iotthingsgraph",
+        "lakeformation",
+        "rtbfabric",
+        "ssmguiconnect",
+        "supportapp",
+    }
+
+    # Manual mapping: CFN service -> SDK service (for unmatched)
     OVERRIDES = {
         "AmazonMQ": "mq",
+        "Macie": "macie2",
         "AppTest": "apptest",
         "CertificateManager": "acm",
         "Cognito": "cognito-idp",
@@ -98,9 +118,10 @@ class CFNServiceIndexer:
         """Build ARN service -> CFN service mapping."""
         spec = self.download()
         cfn_services = {rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()}
-        cfn_services = {s for s in cfn_services if s.lower() not in self.EXCLUDES_DISCONTINUED}
+        cfn_services_excludes = self.EXCLUDES_DISCONTINUED | self.EXCLUDES_NO_SDK | self.EXCLUDES_NO_ARN
+        cfn_services = {s for s in cfn_services if s.lower() not in cfn_services_excludes}
 
-        # Build CFN -> SDK client mapping
+        # Build CFN -> SDK service mapping
         metadata = self.metadata_load()
         cfn_to_sdk = {}
         for cfn in cfn_services:
@@ -109,7 +130,11 @@ class CFNServiceIndexer:
             elif cfn.lower() in metadata:
                 cfn_to_sdk[cfn] = metadata[cfn.lower()]
 
-        # Reverse sdk_mapping: SDK client -> ARN service
+        cfn_services_missing = set(cfn_services) - set(cfn_to_sdk.keys())
+        if cfn_services_missing:
+            raise ValueError(f"CFN services not matched to SDK: {sorted(unmatched)}")
+
+        # Reverse sdk_mapping: SDK service -> ARN service
         sdk_to_arn = {}
         for arn_service, clients in sdk_mapping.items():
             for client in clients:
@@ -117,10 +142,16 @@ class CFNServiceIndexer:
 
         # Build final: ARN service -> CFN service
         result = {}
-        for cfn, sdk_service in cfn_to_sdk.items():
+        unmapped = []
+        for cfn_service, sdk_service in cfn_to_sdk.items():
             if sdk_service in sdk_to_arn:
                 arn_service = sdk_to_arn[sdk_service]
-                result[arn_service] = cfn
+                result[arn_service] = cfn_service
+            else:
+                unmapped.append(f"{cfn_service} -> {sdk_service}")
+
+        if unmapped:
+            raise ValueError(f"CFN services not mapped to ARN: {sorted(unmapped)}")
 
         result = dict(sorted(result.items()))
         self.CACHE_SERVICES_FILE.write_text(json.dumps(result, indent=2))
