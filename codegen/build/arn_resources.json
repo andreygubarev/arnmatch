@@ -5987,12 +5987,12 @@
   {
     "service": "lex",
     "resource_type": "bot alias",
-    "arn_pattern": "arn:${Partition}:lex:${Region}:${Account}:bot:${BotName}:${BotAlias}"
+    "arn_pattern": "arn:${Partition}:lex:${Region}:${Account}:bot-alias/${BotId}/${BotAliasId}"
   },
   {
     "service": "lex",
     "resource_type": "bot alias",
-    "arn_pattern": "arn:${Partition}:lex:${Region}:${Account}:bot-alias/${BotId}/${BotAliasId}"
+    "arn_pattern": "arn:${Partition}:lex:${Region}:${Account}:bot:${BotName}:${BotAlias}"
   },
   {
     "service": "lex",
