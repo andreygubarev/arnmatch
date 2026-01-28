@@ -85,6 +85,12 @@ class SDKServiceIndexer:
         "qdeveloper",  # Amazon Q Developer - IDE plugins only, no SDK
         "qldb",  # QLDB - end of life 2025
         "robomaker",  # RoboMaker - end of life 2025
+        "securityagent",  # AWS Security Agent - preview, console only
+        "sqlworkbench",  # Redshift Query Editor - console only
+        "transform",  # AWS Transform - CLI only, no SDK
+        "transform-custom",  # AWS Transform Custom - CLI only, no SDK
+        "ts",  # AWS Diagnostic Tools - internal/support
+        "vendor-insights",  # AWS Marketplace Vendor Insights - console only
         "worklink",  # WorkLink - discontinued
     }
 
