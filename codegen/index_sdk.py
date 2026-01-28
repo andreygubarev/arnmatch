@@ -46,49 +46,56 @@ class SDKServiceIndexer:
         "s3express": ["s3"],
     }
 
-    # Services that are deprecated/console-only and have no SDK client
-    # These will be explicitly mapped to empty list
-    EXCLUDES = {
-        "a4b",  # Alexa for Business - discontinued
-        "appstudio",  # AWS App Studio - console only
-        "apptest",  # AWS Application Testing - no SDK
-        "bedrock-mantle",  # Bedrock inference engine - uses OpenAI SDK, not boto3
-        "bugbust",  # AWS BugBust - discontinued
-        "cloudshell",  # AWS CloudShell - console only
-        "codestar",  # CodeStar - discontinued
-        "codewhisperer",  # Now Q Developer - IDE extension, no SDK
-        "consoleapp",  # Console Mobile App
-        "elastic-inference",  # Elastic Inference - EOL April 2024
+    # Discontinued/EOL services
+    EXCLUDES_DISCONTINUED = {
+        "a4b",  # Alexa for Business
+        "bugbust",  # AWS BugBust
+        "codestar",  # CodeStar
+        "elastic-inference",  # EOL April 2024
         "elastictranscoder",  # Replaced by MediaConvert
-        "elemental-appliances-software",  # Physical hardware - console managed
-        "elemental-support-cases",  # Elemental support tickets - console only
-        "freertos",  # FreeRTOS console config - no SDK
-        "honeycode",  # Honeycode - discontinued
-        "identity-sync",  # Identity sync service - console only
-        "iotfleethub",  # IoT Fleet Hub - EOL October 2025
+        "honeycode",  # Honeycode
+        "iotfleethub",  # EOL October 2025
+        "lookoutmetrics",  # Lookout for Metrics
+        "lookoutvision",  # Lookout for Vision
+        "monitron",  # Monitron
+        "nimble",  # Nimble Studio
+        "opsworks",  # OpsWorks Stacks - EOL May 2024
+        "opsworks-cm",  # OpsWorks Chef/Puppet - EOL 2024
+        "qldb",  # QLDB - EOL 2025
+        "robomaker",  # RoboMaker - EOL 2025
+        "worklink",  # WorkLink
+    }
+
+    # Console-only services (no SDK)
+    EXCLUDES_CONSOLE = {
+        "appstudio",  # AWS App Studio
+        "cloudshell",  # AWS CloudShell
+        "consoleapp",  # Console Mobile App
+        "elemental-appliances-software",  # Physical hardware
+        "elemental-support-cases",  # Support tickets
+        "identity-sync",  # Identity sync
         "iq",  # AWS IQ
         "iq-permission",  # AWS IQ
-        "lookoutmetrics",  # Lookout for Metrics - discontinued
-        "lookoutvision",  # Lookout for Vision - discontinued
-        "mapcredits",  # AWS MAP credits - billing/console only
-        "monitron",  # Monitron - discontinued
-        "nimble",  # Nimble Studio - discontinued
-        "one",  # Amazon One Enterprise (palm recognition) - console only
-        "opsworks",  # OpsWorks Stacks - EOL May 2024
-        "opsworks-cm",  # OpsWorks for Chef/Puppet - EOL 2024
-        "payments",  # AWS billing payments - console only
-        "pricingplanmanager",  # AWS pricing plans - console only
-        "purchase-orders",  # AWS billing purchase orders - console only
-        "qdeveloper",  # Amazon Q Developer - IDE plugins only, no SDK
-        "qldb",  # QLDB - end of life 2025
-        "robomaker",  # RoboMaker - end of life 2025
-        "securityagent",  # AWS Security Agent - preview, console only
-        "sqlworkbench",  # Redshift Query Editor - console only
-        "transform",  # AWS Transform - CLI only, no SDK
-        "transform-custom",  # AWS Transform Custom - CLI only, no SDK
-        "ts",  # AWS Diagnostic Tools - internal/support
-        "vendor-insights",  # AWS Marketplace Vendor Insights - console only
-        "worklink",  # WorkLink - discontinued
+        "mapcredits",  # AWS MAP credits
+        "one",  # Amazon One Enterprise (palm recognition)
+        "payments",  # Billing payments
+        "pricingplanmanager",  # Pricing plans
+        "purchase-orders",  # Billing purchase orders
+        "securityagent",  # AWS Security Agent (preview)
+        "sqlworkbench",  # Redshift Query Editor
+        "ts",  # AWS Diagnostic Tools
+        "vendor-insights",  # Marketplace Vendor Insights
+    }
+
+    # Services using non-boto3 SDK (IDE plugins, CLI, OpenAI SDK, etc.)
+    EXCLUDES_NOSDK = {
+        "apptest",  # AWS Application Testing
+        "bedrock-mantle",  # Uses OpenAI SDK
+        "codewhisperer",  # IDE extension (now Q Developer)
+        "freertos",  # FreeRTOS device SDK
+        "qdeveloper",  # IDE plugins only
+        "transform",  # CLI only
+        "transform-custom",  # CLI only
     }
 
     def __init__(self):
@@ -109,7 +116,8 @@ class SDKServiceIndexer:
                 continue
 
             # Known no-SDK services
-            if arn_service in self.EXCLUDES:
+            excludes = self.EXCLUDES_DISCONTINUED | self.EXCLUDES_CONSOLE | self.EXCLUDES_NOSDK
+            if arn_service in excludes:
                 result[arn_service] = []
                 continue
 
