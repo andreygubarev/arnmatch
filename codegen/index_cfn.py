@@ -19,6 +19,15 @@ class CFNServiceIndexer:
     CACHE_FILE = Path(__file__).parent / "cache" / "CloudFormationResourceSpecification.json"
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
 
+    # Discontinued/EOL services (lowercase for comparison)
+    EXCLUDES_DISCONTINUED = {
+        "codestar",
+        "lookoutvision",
+        "opsworks",
+        "qldb",
+        "robomaker",
+    }
+
     def download(self) -> dict:
         """Download and cache CloudFormation Resource Specification."""
         if self.CACHE_FILE.exists():
@@ -35,7 +44,8 @@ class CFNServiceIndexer:
     def process(self) -> list[str]:
         """Download spec and return unique service names."""
         spec = self.download()
-        services = sorted({rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()})
+        services = {rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()}
+        services = sorted(s for s in services if s.lower() not in self.EXCLUDES_DISCONTINUED)
         self.CACHE_SERVICES_FILE.write_text(json.dumps(services, indent=2))
         return services
 
