@@ -329,7 +329,7 @@ def main():
     BUILD_DIR.mkdir(exist_ok=True)
     raw_resources = sorted(
         [dict(t) for t in {tuple(r.items()) for r in resources}],
-        key=lambda r: (r["service"], r["resource_type"]),
+        key=lambda r: (r["service"], r["resource_type"], -len(r["arn_pattern"]), r["arn_pattern"]),
     )
     with open(BUILD_DIR / "arn_resources.json", "w") as f:
         json.dump(raw_resources, f, indent=2)
