@@ -122,6 +122,7 @@ class CFNServiceIndexer:
                 arn_service = sdk_to_arn[sdk_service]
                 result[arn_service] = cfn
 
+        result = dict(sorted(result.items()))
         self.CACHE_SERVICES_FILE.write_text(json.dumps(result, indent=2))
         return result
 
