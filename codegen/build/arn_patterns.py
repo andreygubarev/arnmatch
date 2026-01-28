@@ -3195,3 +3195,8 @@ AWS_SDK_SERVICES_DEFAULT = {
     'timestream': 'timestream-write',
     'wisdom': 'qconnect',
 }
+
+# Resource-level SDK overrides: (resource_type_prefix, sdk_client)
+AWS_SDK_SERVICES_OVERRIDE = {
+    'apigateway': {'ApiMappings': 'apigatewayv2', 'ApiMapping': 'apigatewayv2', 'Apis': 'apigatewayv2', 'Api': 'apigatewayv2', 'Cors': 'apigatewayv2', 'ExportedAPI': 'apigatewayv2', 'Integrations': 'apigatewayv2', 'RouteRequestParameter': 'apigatewayv2', 'RouteResponses': 'apigatewayv2', 'RouteResponse': 'apigatewayv2', 'RouteSettings': 'apigatewayv2', 'Routes': 'apigatewayv2', 'Route': 'apigatewayv2'},
+}

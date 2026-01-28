@@ -265,15 +265,22 @@ class CodeGenerator:
             # Write SDK services mapping
             f.write("# Auto-generated mapping: ARN service -> AWS SDK client names\n")
             f.write("AWS_SDK_SERVICES = {\n")
-            for arn_svc, clients in sorted(sdk_services_mapping.items()):
-                f.write(f"    {arn_svc!r}: {clients!r},\n")
+            for arn_service, clients in sorted(sdk_services_mapping.items()):
+                f.write(f"    {arn_service!r}: {clients!r},\n")
             f.write("}\n\n")
 
             # Write SDK default service mapping
             f.write("# Default SDK for multi-SDK services\n")
             f.write("AWS_SDK_SERVICES_DEFAULT = {\n")
-            for arn_svc, sdk in sorted(SDKResourceIndexer.DEFAULT_SERVICE.items()):
-                f.write(f"    {arn_svc!r}: {sdk!r},\n")
+            for arn_service, sdk in sorted(SDKResourceIndexer.DEFAULT_SERVICE.items()):
+                f.write(f"    {arn_service!r}: {sdk!r},\n")
+            f.write("}\n\n")
+
+            # Write SDK service overrides (resource-level)
+            f.write("# Resource-level SDK overrides: resource_type -> sdk_client\n")
+            f.write("AWS_SDK_SERVICES_OVERRIDE = {\n")
+            for arn_service, overrides in sorted(SDKResourceIndexer.OVERRIDE_SERVICE.items()):
+                f.write(f"    {arn_service!r}: {overrides!r},\n")
             f.write("}\n")
 
         log.info(f"Wrote {len(resources)} patterns for {len(by_service)} services to {output_path}")

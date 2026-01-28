@@ -8,8 +8,7 @@ class SDKResourceIndexer:
     Format: "arn_service" -> "sdk_client"
 
     OVERRIDE_SERVICE: Resource-level overrides where different resources use different SDKs.
-    Format: "arn_service" -> [(resource_type_prefix, sdk_client), ...]
-    Order matters: more specific prefixes must come before less specific ones.
+    Format: "arn_service" -> {"resource_type": "sdk_client", ...}
     """
 
     # Service-level default - the SDK responsible for most resources
@@ -54,23 +53,24 @@ class SDKResourceIndexer:
     }
 
     # Resource-level overrides - only non-default SDK mappings
+    # Format: "arn_service" -> {"resource_type": "sdk_client", ...}
     OVERRIDE_SERVICE = {
-        "apigateway": [
+        "apigateway": {
             # v2 (HTTP/WebSocket API) resources
-            ("ApiMappings", "apigatewayv2"),
-            ("ApiMapping", "apigatewayv2"),
-            ("Apis", "apigatewayv2"),
-            ("Api", "apigatewayv2"),
-            ("Cors", "apigatewayv2"),
-            ("ExportedAPI", "apigatewayv2"),
-            ("Integrations", "apigatewayv2"),
-            ("RouteRequestParameter", "apigatewayv2"),
-            ("RouteResponses", "apigatewayv2"),
-            ("RouteResponse", "apigatewayv2"),
-            ("RouteSettings", "apigatewayv2"),
-            ("Routes", "apigatewayv2"),
-            ("Route", "apigatewayv2"),
-        ],
+            "ApiMappings": "apigatewayv2",
+            "ApiMapping": "apigatewayv2",
+            "Apis": "apigatewayv2",
+            "Api": "apigatewayv2",
+            "Cors": "apigatewayv2",
+            "ExportedAPI": "apigatewayv2",
+            "Integrations": "apigatewayv2",
+            "RouteRequestParameter": "apigatewayv2",
+            "RouteResponses": "apigatewayv2",
+            "RouteResponse": "apigatewayv2",
+            "RouteSettings": "apigatewayv2",
+            "Routes": "apigatewayv2",
+            "Route": "apigatewayv2",
+        },
         # "aws-marketplace": [
         #     ("ChangeSet", "marketplace-catalog"),
         #     ("DeploymentParameter", "marketplace-catalog"),
