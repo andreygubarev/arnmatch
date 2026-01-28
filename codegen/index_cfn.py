@@ -33,7 +33,6 @@ class CFNServiceIndexer:
 
     # Manual mapping: CFN service -> SDK client (for unmatched)
     OVERRIDES = {
-        "ASK": "alexaforbusiness",
         "AmazonMQ": "mq",
         "AppTest": "apptest",
         "CertificateManager": "acm",
@@ -68,10 +67,10 @@ class CFNServiceIndexer:
         self.CACHE_FILE.write_text(json.dumps(data))
         return data
 
-    def load_boto_metadata(self) -> dict[str, str]:
+    def metadata_load(self) -> dict[str, str]:
         """Build lookup: normalized name -> SDK client."""
         botocore_data = Path(botocore.__file__).parent / "data"
-        lookup = {}
+        metadata = {}
 
         for sdk_service in os.listdir(botocore_data):
             client_path = botocore_data / sdk_service
@@ -91,9 +90,9 @@ class CFNServiceIndexer:
 
             for name in [sdk_service, meta.get("signingName"), meta.get("endpointPrefix"), meta.get("serviceId")]:
                 if name:
-                    lookup[name.lower().replace(" ", "")] = sdk_service
+                    metadata[name.lower().replace(" ", "")] = sdk_service
 
-        return lookup
+        return metadata
 
     def process(self, sdk_mapping: dict) -> dict[str, str]:
         """Build ARN service -> CFN service mapping."""
@@ -102,26 +101,26 @@ class CFNServiceIndexer:
         cfn_services = {s for s in cfn_services if s.lower() not in self.EXCLUDES_DISCONTINUED}
 
         # Build CFN -> SDK client mapping
-        boto_lookup = self.load_boto_metadata()
+        metadata = self.metadata_load()
         cfn_to_sdk = {}
         for cfn in cfn_services:
             if cfn in self.OVERRIDES:
                 cfn_to_sdk[cfn] = self.OVERRIDES[cfn]
-            elif cfn.lower() in boto_lookup:
-                cfn_to_sdk[cfn] = boto_lookup[cfn.lower()]
+            elif cfn.lower() in metadata:
+                cfn_to_sdk[cfn] = metadata[cfn.lower()]
 
         # Reverse sdk_mapping: SDK client -> ARN service
         sdk_to_arn = {}
-        for arn_svc, clients in sdk_mapping.items():
+        for arn_service, clients in sdk_mapping.items():
             for client in clients:
-                sdk_to_arn[client] = arn_svc
+                sdk_to_arn[client] = arn_service
 
         # Build final: ARN service -> CFN service
         result = {}
-        for cfn, sdk_client in cfn_to_sdk.items():
-            if sdk_client in sdk_to_arn:
-                arn_svc = sdk_to_arn[sdk_client]
-                result[arn_svc] = cfn
+        for cfn, sdk_service in cfn_to_sdk.items():
+            if sdk_service in sdk_to_arn:
+                arn_service = sdk_to_arn[sdk_service]
+                result[arn_service] = cfn
 
         self.CACHE_SERVICES_FILE.write_text(json.dumps(result, indent=2))
         return result
