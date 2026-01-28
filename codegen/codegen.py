@@ -316,7 +316,7 @@ def main():
     # Build SDK services mapping
     arn_services = {r["arn_service"] for r in resources}
     sdk_indexer = SDKServiceIndexer()
-    sdk_mapping = sdk_indexer.build_mapping(arn_services)
+    sdk_mapping = sdk_indexer.process(arn_services)
 
     # Generate
     BUILD_DIR.mkdir(exist_ok=True)

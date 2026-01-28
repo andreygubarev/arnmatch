@@ -53,20 +53,14 @@ class SDKServiceIndexer:
         "worklink",  # WorkLink - discontinued
     }
 
-    def __init__(self, botocore_data_path=None):
-        """Initialize with path to botocore data directory."""
-        if botocore_data_path:
-            self.botocore_data = Path(botocore_data_path)
-        else:
-            # Find botocore data directory
-            import botocore
+    def __init__(self):
+        import botocore
+        self.botocore_data = Path(botocore.__file__).parent / "data"
 
-            self.botocore_data = Path(botocore.__file__).parent / "data"
-
-    def build_mapping(self, arn_services):
+    def process(self, arn_services):
         """Build ARN service -> SDK clients mapping."""
         # Get all boto3 client metadata
-        client_metadata = self.load_client_metadata()
+        client_metadata = self.clients_load()
 
         result = {}
 
@@ -85,7 +79,7 @@ class SDKServiceIndexer:
             if arn_svc in client_metadata:
                 result[arn_svc] = [arn_svc]
                 # Also check for additional clients via metadata
-                additional = self.find_clients_by_metadata(
+                additional = self.clients_find(
                     arn_svc, client_metadata, exclude={arn_svc}
                 )
                 if additional:
@@ -93,7 +87,7 @@ class SDKServiceIndexer:
                 continue
 
             # Phase 2: Find via botocore metadata (signingName/endpointPrefix)
-            clients = self.find_clients_by_metadata(arn_svc, client_metadata)
+            clients = self.clients_find(arn_svc, client_metadata)
             if clients:
                 result[arn_svc] = sorted(clients)
                 continue
@@ -104,7 +98,7 @@ class SDKServiceIndexer:
 
         return result
 
-    def load_client_metadata(self):
+    def clients_load(self):
         """Load metadata for all boto3 clients."""
         metadata = {}
 
@@ -135,7 +129,7 @@ class SDKServiceIndexer:
 
         return metadata
 
-    def find_clients_by_metadata(self, arn_service, client_metadata, exclude=None):
+    def clients_find(self, arn_service, client_metadata, exclude=None):
         """Find SDK clients whose signingName or endpointPrefix matches ARN service."""
         exclude = exclude or set()
         matches = set()
