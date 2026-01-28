@@ -1,239 +1,726 @@
 {
-  "access-analyzer": "AccessAnalyzer",
-  "acm": "CertificateManager",
-  "acm-pca": "ACMPCA",
-  "aiops": "AIOps",
-  "airflow": "MWAA",
-  "airflow-serverless": "MWAAServerless",
-  "amplify": "Amplify",
-  "amplifyuibuilder": "AmplifyUIBuilder",
-  "aoss": "OpenSearchServerless",
-  "apigateway": "ApiGateway",
-  "app-integrations": "AppIntegrations",
-  "appconfig": "AppConfig",
-  "appflow": "AppFlow",
-  "application-autoscaling": "ApplicationAutoScaling",
-  "application-signals": "ApplicationSignals",
-  "appmesh-preview": "AppMesh",
-  "apprunner": "AppRunner",
-  "appstream": "AppStream",
-  "appsync": "AppSync",
-  "aps": "APS",
-  "arc-region-switch": "ARCRegionSwitch",
-  "athena": "Athena",
-  "auditmanager": "AuditManager",
-  "autoscaling": "AutoScaling",
-  "b2bi": "B2BI",
-  "backup": "Backup",
-  "backup-gateway": "BackupGateway",
-  "batch": "Batch",
-  "bcm-data-exports": "BCMDataExports",
-  "bedrock": "Bedrock",
-  "bedrock-agentcore": "BedrockAgentCore",
-  "billing": "Billing",
-  "billingconductor": "BillingConductor",
-  "budgets": "Budgets",
-  "cases": "Cases",
-  "cassandra": "Cassandra",
-  "ce": "CE",
-  "chatbot": "Chatbot",
-  "cleanrooms": "CleanRooms",
-  "cleanrooms-ml": "CleanRoomsML",
-  "cloud9": "Cloud9",
-  "cloudformation": "CloudFormation",
-  "cloudfront": "CloudFront",
-  "cloudtrail": "CloudTrail",
-  "cloudwatch": "CloudWatch",
-  "codeartifact": "CodeArtifact",
-  "codebuild": "CodeBuild",
-  "codecommit": "CodeCommit",
-  "codeconnections": "CodeConnections",
-  "codedeploy": "CodeDeploy",
-  "codeguru-profiler": "CodeGuruProfiler",
-  "codeguru-reviewer": "CodeGuruReviewer",
-  "codepipeline": "CodePipeline",
-  "codestar-connections": "CodeStarConnections",
-  "codestar-notifications": "CodeStarNotifications",
-  "cognito-idp": "Cognito",
-  "comprehend": "Comprehend",
-  "config": "Config",
-  "connect": "Connect",
-  "connect-campaigns": "ConnectCampaignsV2",
-  "controltower": "ControlTower",
-  "cur": "CUR",
-  "databrew": "DataBrew",
-  "datapipeline": "DataPipeline",
-  "datasync": "DataSync",
-  "datazone": "DataZone",
-  "dax": "DAX",
-  "deadline": "Deadline",
-  "detective": "Detective",
-  "dlm": "DLM",
-  "dms": "DMS",
-  "docdb-elastic": "DocDBElastic",
-  "ds": "DirectoryService",
-  "dsql": "DSQL",
-  "dynamodb": "DynamoDB",
-  "ec2": "EC2",
-  "ecr": "ECR",
-  "ecs": "ECS",
-  "eks": "EKS",
-  "elasticache": "ElastiCache",
-  "elasticbeanstalk": "ElasticBeanstalk",
-  "elasticfilesystem": "EFS",
-  "elasticloadbalancing": "ElasticLoadBalancing",
-  "elasticmapreduce": "EMR",
-  "emr-containers": "EMRContainers",
-  "emr-serverless": "EMRServerless",
-  "entityresolution": "EntityResolution",
-  "es": "Elasticsearch",
-  "events": "Events",
-  "evidently": "Evidently",
-  "evs": "EVS",
-  "finspace": "FinSpace",
-  "firehose": "KinesisFirehose",
-  "fis": "FIS",
-  "fms": "FMS",
-  "forecast": "Forecast",
-  "frauddetector": "FraudDetector",
-  "fsx": "FSx",
-  "gamelift": "GameLift",
-  "geo": "Location",
-  "globalaccelerator": "GlobalAccelerator",
-  "glue": "Glue",
-  "grafana": "Grafana",
-  "greengrass": "Greengrass",
-  "groundstation": "GroundStation",
-  "guardduty": "GuardDuty",
-  "healthlake": "HealthLake",
-  "iam": "IAM",
-  "identitystore": "IdentityStore",
-  "imagebuilder": "ImageBuilder",
-  "inspector": "Inspector",
-  "inspector2": "InspectorV2",
-  "internetmonitor": "InternetMonitor",
-  "invoicing": "Invoicing",
-  "iot": "IoT",
-  "iotanalytics": "IoTAnalytics",
-  "iotdeviceadvisor": "IoTCoreDeviceAdvisor",
-  "iotevents": "IoTEvents",
-  "iotfleetwise": "IoTFleetWise",
-  "iotsitewise": "IoTSiteWise",
-  "iottwinmaker": "IoTTwinMaker",
-  "iotwireless": "IoTWireless",
-  "ivs": "IVS",
-  "ivschat": "IVSChat",
-  "kafka": "MSK",
-  "kafkaconnect": "KafkaConnect",
-  "kendra": "Kendra",
-  "kendra-ranking": "KendraRanking",
-  "kinesis": "Kinesis",
-  "kinesisanalytics": "KinesisAnalytics",
-  "kinesisvideo": "KinesisVideo",
-  "kms": "KMS",
-  "lambda": "Lambda",
-  "launchwizard": "LaunchWizard",
-  "lex": "Lex",
-  "license-manager": "LicenseManager",
-  "lightsail": "Lightsail",
-  "logs": "Logs",
-  "lookoutequipment": "LookoutEquipment",
-  "m2": "M2",
-  "managedblockchain": "ManagedBlockchain",
-  "mediaconnect": "MediaConnect",
-  "mediaconvert": "MediaConvert",
-  "medialive": "MediaLive",
-  "mediapackage": "MediaPackage",
-  "mediapackagev2": "MediaPackageV2",
-  "mediastore": "MediaStore",
-  "mediatailor": "MediaTailor",
-  "medical-imaging": "HealthImaging",
-  "memorydb": "MemoryDB",
-  "mobiletargeting": "Pinpoint",
-  "mpa": "MPA",
-  "mq": "AmazonMQ",
-  "neptune-graph": "NeptuneGraph",
-  "network-firewall": "NetworkFirewall",
-  "networkmanager": "NetworkManager",
-  "notifications": "Notifications",
-  "notifications-contacts": "NotificationsContacts",
-  "oam": "Oam",
-  "observabilityadmin": "ObservabilityAdmin",
-  "odb": "ODB",
-  "omics": "Omics",
-  "opensearch": "OpenSearchService",
-  "organizations": "Organizations",
-  "osis": "OSIS",
-  "panorama": "Panorama",
-  "payment-cryptography": "PaymentCryptography",
-  "pca-connector-ad": "PCAConnectorAD",
-  "pca-connector-scep": "PCAConnectorSCEP",
-  "pcs": "PCS",
-  "personalize": "Personalize",
-  "pipes": "Pipes",
-  "profile": "CustomerProfiles",
-  "proton": "Proton",
-  "qbusiness": "QBusiness",
-  "quicksight": "QuickSight",
-  "ram": "RAM",
-  "rbin": "Rbin",
-  "rds": "DocDB",
-  "rds-db": "RDS",
-  "redshift": "Redshift",
-  "redshift-serverless": "RedshiftServerless",
-  "refactor-spaces": "RefactorSpaces",
-  "rekognition": "Rekognition",
-  "resiliencehub": "ResilienceHub",
-  "resource-explorer-2": "ResourceExplorer2",
-  "resource-groups": "ResourceGroups",
-  "rolesanywhere": "RolesAnywhere",
-  "route53": "Route53",
-  "route53-recovery-control": "Route53RecoveryControl",
-  "route53-recovery-readiness": "Route53RecoveryReadiness",
-  "route53profiles": "Route53Profiles",
-  "route53resolver": "Route53Resolver",
-  "rum": "RUM",
-  "s3": "S3",
-  "s3-outposts": "S3Outposts",
-  "s3express": "S3Express",
-  "s3tables": "S3Tables",
-  "s3vectors": "S3Vectors",
-  "sagemaker": "SageMaker",
-  "scheduler": "Scheduler",
-  "schemas": "EventSchemas",
-  "sdb": "SDB",
-  "secretsmanager": "SecretsManager",
-  "securityhub": "SecurityHub",
-  "securitylake": "SecurityLake",
-  "servicecatalog": "ServiceCatalog",
-  "servicediscovery": "ServiceDiscovery",
-  "ses": "SES",
-  "shield": "Shield",
-  "signer": "Signer",
-  "simspaceweaver": "SimSpaceWeaver",
-  "sms-voice": "SMSVOICE",
-  "sns": "SNS",
-  "sqs": "SQS",
-  "ssm": "SSM",
-  "ssm-contacts": "SSMContacts",
-  "ssm-incidents": "SSMIncidents",
-  "ssm-quicksetup": "SSMQuickSetup",
-  "ssm-sap": "SystemsManagerSAP",
-  "sso": "SSO",
-  "states": "StepFunctions",
-  "synthetics": "Synthetics",
-  "thinclient": "WorkSpacesThinClient",
-  "timestream": "Timestream",
-  "transfer": "Transfer",
-  "verifiedpermissions": "VerifiedPermissions",
-  "voiceid": "VoiceID",
-  "vpc-lattice": "VpcLattice",
-  "waf": "WAF",
-  "waf-regional": "WAFRegional",
-  "wafv2": "WAFv2",
-  "wisdom": "Wisdom",
-  "workspaces": "WorkSpaces",
-  "workspaces-instances": "WorkspacesInstances",
-  "workspaces-web": "WorkSpacesWeb",
-  "xray": "XRay"
+  "access-analyzer": [
+    "AccessAnalyzer"
+  ],
+  "acm": [
+    "CertificateManager"
+  ],
+  "acm-pca": [
+    "ACMPCA"
+  ],
+  "aiops": [
+    "AIOps",
+    "DevOpsAgent"
+  ],
+  "airflow": [
+    "MWAA"
+  ],
+  "airflow-serverless": [
+    "MWAAServerless"
+  ],
+  "amplify": [
+    "Amplify"
+  ],
+  "amplifyuibuilder": [
+    "AmplifyUIBuilder"
+  ],
+  "aoss": [
+    "OpenSearchServerless"
+  ],
+  "apigateway": [
+    "ApiGateway",
+    "ApiGatewayV2"
+  ],
+  "app-integrations": [
+    "AppIntegrations"
+  ],
+  "appconfig": [
+    "AppConfig"
+  ],
+  "appflow": [
+    "AppFlow"
+  ],
+  "application-autoscaling": [
+    "ApplicationAutoScaling"
+  ],
+  "application-signals": [
+    "ApplicationSignals"
+  ],
+  "appmesh-preview": [
+    "AppMesh"
+  ],
+  "apprunner": [
+    "AppRunner"
+  ],
+  "appstream": [
+    "AppStream"
+  ],
+  "appsync": [
+    "AppSync"
+  ],
+  "aps": [
+    "APS"
+  ],
+  "arc-region-switch": [
+    "ARCRegionSwitch"
+  ],
+  "athena": [
+    "Athena"
+  ],
+  "auditmanager": [
+    "AuditManager"
+  ],
+  "autoscaling": [
+    "AutoScaling"
+  ],
+  "b2bi": [
+    "B2BI"
+  ],
+  "backup": [
+    "Backup"
+  ],
+  "backup-gateway": [
+    "BackupGateway"
+  ],
+  "batch": [
+    "Batch"
+  ],
+  "bcm-data-exports": [
+    "BCMDataExports"
+  ],
+  "bedrock": [
+    "Bedrock"
+  ],
+  "bedrock-agentcore": [
+    "BedrockAgentCore"
+  ],
+  "billing": [
+    "Billing"
+  ],
+  "billingconductor": [
+    "BillingConductor"
+  ],
+  "budgets": [
+    "Budgets"
+  ],
+  "cases": [
+    "Cases"
+  ],
+  "cassandra": [
+    "Cassandra"
+  ],
+  "ce": [
+    "CE"
+  ],
+  "chatbot": [
+    "Chatbot"
+  ],
+  "cleanrooms": [
+    "CleanRooms"
+  ],
+  "cleanrooms-ml": [
+    "CleanRoomsML"
+  ],
+  "cloud9": [
+    "Cloud9"
+  ],
+  "cloudformation": [
+    "CloudFormation"
+  ],
+  "cloudfront": [
+    "CloudFront"
+  ],
+  "cloudtrail": [
+    "CloudTrail"
+  ],
+  "cloudwatch": [
+    "CloudWatch"
+  ],
+  "codeartifact": [
+    "CodeArtifact"
+  ],
+  "codebuild": [
+    "CodeBuild"
+  ],
+  "codecommit": [
+    "CodeCommit"
+  ],
+  "codeconnections": [
+    "CodeConnections"
+  ],
+  "codedeploy": [
+    "CodeDeploy"
+  ],
+  "codeguru-profiler": [
+    "CodeGuruProfiler"
+  ],
+  "codeguru-reviewer": [
+    "CodeGuruReviewer"
+  ],
+  "codepipeline": [
+    "CodePipeline"
+  ],
+  "codestar-connections": [
+    "CodeStarConnections"
+  ],
+  "codestar-notifications": [
+    "CodeStarNotifications"
+  ],
+  "cognito-idp": [
+    "Cognito"
+  ],
+  "comprehend": [
+    "Comprehend"
+  ],
+  "config": [
+    "Config"
+  ],
+  "connect": [
+    "Connect"
+  ],
+  "connect-campaigns": [
+    "ConnectCampaigns",
+    "ConnectCampaignsV2"
+  ],
+  "controltower": [
+    "ControlTower"
+  ],
+  "cur": [
+    "CUR"
+  ],
+  "databrew": [
+    "DataBrew"
+  ],
+  "datapipeline": [
+    "DataPipeline"
+  ],
+  "datasync": [
+    "DataSync"
+  ],
+  "datazone": [
+    "DataZone"
+  ],
+  "dax": [
+    "DAX"
+  ],
+  "deadline": [
+    "Deadline"
+  ],
+  "detective": [
+    "Detective"
+  ],
+  "dlm": [
+    "DLM"
+  ],
+  "dms": [
+    "DMS"
+  ],
+  "docdb-elastic": [
+    "DocDBElastic"
+  ],
+  "ds": [
+    "DirectoryService"
+  ],
+  "dsql": [
+    "DSQL"
+  ],
+  "dynamodb": [
+    "DynamoDB"
+  ],
+  "ec2": [
+    "EC2"
+  ],
+  "ecr": [
+    "ECR"
+  ],
+  "ecs": [
+    "ECS"
+  ],
+  "eks": [
+    "EKS"
+  ],
+  "elasticache": [
+    "ElastiCache"
+  ],
+  "elasticbeanstalk": [
+    "ElasticBeanstalk"
+  ],
+  "elasticfilesystem": [
+    "EFS"
+  ],
+  "elasticloadbalancing": [
+    "ElasticLoadBalancing",
+    "ElasticLoadBalancingV2"
+  ],
+  "elasticmapreduce": [
+    "EMR"
+  ],
+  "emr-containers": [
+    "EMRContainers"
+  ],
+  "emr-serverless": [
+    "EMRServerless"
+  ],
+  "entityresolution": [
+    "EntityResolution"
+  ],
+  "es": [
+    "Elasticsearch"
+  ],
+  "events": [
+    "Events"
+  ],
+  "evidently": [
+    "Evidently"
+  ],
+  "evs": [
+    "EVS"
+  ],
+  "finspace": [
+    "FinSpace"
+  ],
+  "firehose": [
+    "KinesisFirehose"
+  ],
+  "fis": [
+    "FIS"
+  ],
+  "fms": [
+    "FMS"
+  ],
+  "forecast": [
+    "Forecast"
+  ],
+  "frauddetector": [
+    "FraudDetector"
+  ],
+  "fsx": [
+    "FSx"
+  ],
+  "gamelift": [
+    "GameLift"
+  ],
+  "geo": [
+    "Location"
+  ],
+  "globalaccelerator": [
+    "GlobalAccelerator"
+  ],
+  "glue": [
+    "Glue"
+  ],
+  "grafana": [
+    "Grafana"
+  ],
+  "greengrass": [
+    "Greengrass",
+    "GreengrassV2"
+  ],
+  "groundstation": [
+    "GroundStation"
+  ],
+  "guardduty": [
+    "GuardDuty"
+  ],
+  "healthlake": [
+    "HealthLake"
+  ],
+  "iam": [
+    "IAM"
+  ],
+  "identitystore": [
+    "IdentityStore"
+  ],
+  "imagebuilder": [
+    "ImageBuilder"
+  ],
+  "inspector": [
+    "Inspector"
+  ],
+  "inspector2": [
+    "InspectorV2"
+  ],
+  "internetmonitor": [
+    "InternetMonitor"
+  ],
+  "invoicing": [
+    "Invoicing"
+  ],
+  "iot": [
+    "IoT"
+  ],
+  "iotanalytics": [
+    "IoTAnalytics"
+  ],
+  "iotdeviceadvisor": [
+    "IoTCoreDeviceAdvisor"
+  ],
+  "iotevents": [
+    "IoTEvents"
+  ],
+  "iotfleetwise": [
+    "IoTFleetWise"
+  ],
+  "iotsitewise": [
+    "IoTSiteWise"
+  ],
+  "iottwinmaker": [
+    "IoTTwinMaker"
+  ],
+  "iotwireless": [
+    "IoTWireless"
+  ],
+  "ivs": [
+    "IVS"
+  ],
+  "ivschat": [
+    "IVSChat"
+  ],
+  "kafka": [
+    "MSK"
+  ],
+  "kafkaconnect": [
+    "KafkaConnect"
+  ],
+  "kendra": [
+    "Kendra"
+  ],
+  "kendra-ranking": [
+    "KendraRanking"
+  ],
+  "kinesis": [
+    "Kinesis"
+  ],
+  "kinesisanalytics": [
+    "KinesisAnalytics",
+    "KinesisAnalyticsV2"
+  ],
+  "kinesisvideo": [
+    "KinesisVideo"
+  ],
+  "kms": [
+    "KMS"
+  ],
+  "lambda": [
+    "Lambda"
+  ],
+  "launchwizard": [
+    "LaunchWizard"
+  ],
+  "lex": [
+    "Lex"
+  ],
+  "license-manager": [
+    "LicenseManager"
+  ],
+  "lightsail": [
+    "Lightsail"
+  ],
+  "logs": [
+    "Logs"
+  ],
+  "lookoutequipment": [
+    "LookoutEquipment"
+  ],
+  "m2": [
+    "M2"
+  ],
+  "macie2": [
+    "Macie"
+  ],
+  "managedblockchain": [
+    "ManagedBlockchain"
+  ],
+  "mediaconnect": [
+    "MediaConnect"
+  ],
+  "mediaconvert": [
+    "MediaConvert"
+  ],
+  "medialive": [
+    "MediaLive"
+  ],
+  "mediapackage": [
+    "MediaPackage"
+  ],
+  "mediapackagev2": [
+    "MediaPackageV2"
+  ],
+  "mediastore": [
+    "MediaStore"
+  ],
+  "mediatailor": [
+    "MediaTailor"
+  ],
+  "medical-imaging": [
+    "HealthImaging"
+  ],
+  "memorydb": [
+    "MemoryDB"
+  ],
+  "mobiletargeting": [
+    "Pinpoint"
+  ],
+  "mpa": [
+    "MPA"
+  ],
+  "mq": [
+    "AmazonMQ"
+  ],
+  "neptune-graph": [
+    "NeptuneGraph"
+  ],
+  "network-firewall": [
+    "NetworkFirewall"
+  ],
+  "networkmanager": [
+    "NetworkManager"
+  ],
+  "notifications": [
+    "Notifications"
+  ],
+  "notifications-contacts": [
+    "NotificationsContacts"
+  ],
+  "oam": [
+    "Oam"
+  ],
+  "observabilityadmin": [
+    "ObservabilityAdmin"
+  ],
+  "odb": [
+    "ODB"
+  ],
+  "omics": [
+    "Omics"
+  ],
+  "opensearch": [
+    "OpenSearchService"
+  ],
+  "organizations": [
+    "Organizations"
+  ],
+  "osis": [
+    "OSIS"
+  ],
+  "panorama": [
+    "Panorama"
+  ],
+  "payment-cryptography": [
+    "PaymentCryptography"
+  ],
+  "pca-connector-ad": [
+    "PCAConnectorAD"
+  ],
+  "pca-connector-scep": [
+    "PCAConnectorSCEP"
+  ],
+  "pcs": [
+    "PCS"
+  ],
+  "personalize": [
+    "Personalize"
+  ],
+  "pipes": [
+    "Pipes"
+  ],
+  "profile": [
+    "CustomerProfiles"
+  ],
+  "proton": [
+    "Proton"
+  ],
+  "qbusiness": [
+    "QBusiness"
+  ],
+  "quicksight": [
+    "QuickSight"
+  ],
+  "ram": [
+    "RAM"
+  ],
+  "rbin": [
+    "Rbin"
+  ],
+  "rds": [
+    "DocDB",
+    "Neptune"
+  ],
+  "rds-db": [
+    "RDS"
+  ],
+  "redshift": [
+    "Redshift"
+  ],
+  "redshift-serverless": [
+    "RedshiftServerless"
+  ],
+  "refactor-spaces": [
+    "RefactorSpaces"
+  ],
+  "rekognition": [
+    "Rekognition"
+  ],
+  "resiliencehub": [
+    "ResilienceHub"
+  ],
+  "resource-explorer-2": [
+    "ResourceExplorer2"
+  ],
+  "resource-groups": [
+    "ResourceGroups"
+  ],
+  "rolesanywhere": [
+    "RolesAnywhere"
+  ],
+  "route53": [
+    "Route53"
+  ],
+  "route53-recovery-control": [
+    "Route53RecoveryControl"
+  ],
+  "route53-recovery-readiness": [
+    "Route53RecoveryReadiness"
+  ],
+  "route53profiles": [
+    "Route53Profiles"
+  ],
+  "route53resolver": [
+    "Route53Resolver"
+  ],
+  "rum": [
+    "RUM"
+  ],
+  "s3": [
+    "S3"
+  ],
+  "s3-outposts": [
+    "S3Outposts"
+  ],
+  "s3express": [
+    "S3Express",
+    "S3ObjectLambda"
+  ],
+  "s3tables": [
+    "S3Tables"
+  ],
+  "s3vectors": [
+    "S3Vectors"
+  ],
+  "sagemaker": [
+    "SageMaker"
+  ],
+  "scheduler": [
+    "Scheduler"
+  ],
+  "schemas": [
+    "EventSchemas"
+  ],
+  "sdb": [
+    "SDB"
+  ],
+  "secretsmanager": [
+    "SecretsManager"
+  ],
+  "securityhub": [
+    "SecurityHub"
+  ],
+  "securitylake": [
+    "SecurityLake"
+  ],
+  "servicecatalog": [
+    "ServiceCatalog",
+    "ServiceCatalogAppRegistry"
+  ],
+  "servicediscovery": [
+    "ServiceDiscovery"
+  ],
+  "ses": [
+    "PinpointEmail",
+    "SES"
+  ],
+  "shield": [
+    "Shield"
+  ],
+  "signer": [
+    "Signer"
+  ],
+  "simspaceweaver": [
+    "SimSpaceWeaver"
+  ],
+  "sms-voice": [
+    "SMSVOICE"
+  ],
+  "sns": [
+    "SNS"
+  ],
+  "sqs": [
+    "SQS"
+  ],
+  "ssm": [
+    "SSM"
+  ],
+  "ssm-contacts": [
+    "SSMContacts"
+  ],
+  "ssm-incidents": [
+    "SSMIncidents"
+  ],
+  "ssm-quicksetup": [
+    "SSMQuickSetup"
+  ],
+  "ssm-sap": [
+    "SystemsManagerSAP"
+  ],
+  "sso": [
+    "SSO"
+  ],
+  "states": [
+    "StepFunctions"
+  ],
+  "synthetics": [
+    "Synthetics"
+  ],
+  "thinclient": [
+    "WorkSpacesThinClient"
+  ],
+  "timestream": [
+    "Timestream"
+  ],
+  "transfer": [
+    "Transfer"
+  ],
+  "verifiedpermissions": [
+    "VerifiedPermissions"
+  ],
+  "voiceid": [
+    "VoiceID"
+  ],
+  "vpc-lattice": [
+    "VpcLattice"
+  ],
+  "waf": [
+    "WAF"
+  ],
+  "waf-regional": [
+    "WAFRegional"
+  ],
+  "wafv2": [
+    "WAFv2"
+  ],
+  "wisdom": [
+    "Wisdom"
+  ],
+  "workspaces": [
+    "WorkSpaces"
+  ],
+  "workspaces-instances": [
+    "WorkspacesInstances"
+  ],
+  "workspaces-web": [
+    "WorkSpacesWeb"
+  ],
+  "xray": [
+    "XRay"
+  ]
 }

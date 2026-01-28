@@ -114,8 +114,8 @@ class CFNServiceIndexer:
 
         return metadata
 
-    def process(self, sdk_mapping: dict) -> dict[str, str]:
-        """Build ARN service -> CFN service mapping."""
+    def process(self, sdk_mapping: dict) -> dict[str, list[str]]:
+        """Build ARN service -> CFN services mapping."""
         spec = self.download()
         cfn_services = {rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()}
         cfn_services_excludes = self.EXCLUDES_DISCONTINUED | self.EXCLUDES_NO_SDK | self.EXCLUDES_NO_ARN
@@ -132,7 +132,7 @@ class CFNServiceIndexer:
 
         cfn_services_missing = set(cfn_services) - set(cfn_to_sdk.keys())
         if cfn_services_missing:
-            raise ValueError(f"CFN services not matched to SDK: {sorted(unmatched)}")
+            raise ValueError(f"CFN services not matched to SDK: {sorted(cfn_services_missing)}")
 
         # Reverse sdk_mapping: SDK service -> ARN service
         sdk_to_arn = {}
@@ -140,20 +140,23 @@ class CFNServiceIndexer:
             for client in clients:
                 sdk_to_arn[client] = arn_service
 
-        # Build final: ARN service -> CFN service
+        # Build final: ARN service -> CFN services (list)
         result = {}
         unmapped = []
         for cfn_service, sdk_service in cfn_to_sdk.items():
             if sdk_service in sdk_to_arn:
                 arn_service = sdk_to_arn[sdk_service]
-                result[arn_service] = cfn_service
+                if arn_service not in result:
+                    result[arn_service] = []
+                result[arn_service].append(cfn_service)
             else:
                 unmapped.append(f"{cfn_service} -> {sdk_service}")
 
         if unmapped:
             raise ValueError(f"CFN services not mapped to ARN: {sorted(unmapped)}")
 
-        result = dict(sorted(result.items()))
+        # Sort keys and values
+        result = {k: sorted(v) for k, v in sorted(result.items())}
         self.CACHE_SERVICES_FILE.write_text(json.dumps(result, indent=2))
         return result
 
