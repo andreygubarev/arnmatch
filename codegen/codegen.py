@@ -9,6 +9,7 @@ from pathlib import Path
 
 from scraper import AWSScraper
 from index_sdk import SDKServiceIndexer
+from index_sdk_resources import SDKResourceIndexer
 
 log = logging.getLogger(__name__)
 
@@ -317,6 +318,12 @@ def main():
     arn_services = {r["arn_service"] for r in resources}
     sdk_indexer = SDKServiceIndexer()
     sdk_mapping = sdk_indexer.process(arn_services)
+
+    # Validate multi-SDK services have overrides
+    for svc, clients in sdk_mapping.items():
+        if len(clients) > 1:
+            if svc not in SDKResourceIndexer.OVERRIDES_SERVICES and svc not in SDKResourceIndexer.OVERRIDES_RESOURCES:
+                raise ValueError(f"Service '{svc}' has multiple SDKs {clients} but no override")
 
     # Generate
     BUILD_DIR.mkdir(exist_ok=True)
