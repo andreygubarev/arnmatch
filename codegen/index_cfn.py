@@ -17,6 +17,7 @@ class CFNServiceIndexer:
     """Builds mapping from ARN service names to CloudFormation resource types."""
 
     CACHE_FILE = Path(__file__).parent / "cache" / "CloudFormationResourceSpecification.json"
+    CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
 
     def download(self) -> dict:
         """Download and cache CloudFormation Resource Specification."""
@@ -34,8 +35,9 @@ class CFNServiceIndexer:
     def process(self) -> list[str]:
         """Download spec and return unique service names."""
         spec = self.download()
-        services = {rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()}
-        return sorted(services)
+        services = sorted({rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()})
+        self.CACHE_SERVICES_FILE.write_text(json.dumps(services, indent=2))
+        return services
 
 
 if __name__ == "__main__":
