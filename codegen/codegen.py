@@ -159,6 +159,10 @@ def main():
     sdk_resource_indexer = SDKResourceIndexer()
     sdk_resource_indexer.process(sdk_mapping)
 
+    # Save SDK mapping to cache
+    with open(CODEGEN_DIR / "cache" / "SDKServices.json", "w") as f:
+        json.dump(sdk_mapping, f, indent=2)
+
     cfn_indexer = CFNServiceIndexer()
     cfn_indexer.process()
 
