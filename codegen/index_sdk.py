@@ -20,8 +20,25 @@ class SDKServiceIndexer:
     # Phase 3: Manual overrides for services where botocore metadata doesn't match
     # Format: "arn_service" -> ["sdk_client1", "sdk_client2", ...]
     OVERRIDES = {
+        # AI DevOps uses aiops client
+        "aidevops": ["aiops"],
+        # AppMesh preview uses appmesh client
+        "appmesh-preview": ["appmesh"],
+        # Service Catalog uses 'catalog' in ARNs but 'servicecatalog' client
+        "catalog": ["servicecatalog"],
         # CloudWatch uses 'monitoring' as endpointPrefix but 'cloudwatch' in ARNs
         "cloudwatch": ["cloudwatch"],
+        # Partner Central has multiple sub-clients
+        "partnercentral": [
+            "partnercentral-account",
+            "partnercentral-benefits",
+            "partnercentral-channel",
+            "partnercentral-selling",
+        ],
+        # AWS Private 5G uses privatenetworks client
+        "private-networks": ["privatenetworks"],
+        # RDS IAM auth uses rds client
+        "rds-db": ["rds"],
         # Route53 recovery services
         "route53-recovery-control": [
             "route53-recovery-cluster",
@@ -30,24 +47,42 @@ class SDKServiceIndexer:
         # S3 variants map to s3 client
         "s3-object-lambda": ["s3"],
         "s3express": ["s3"],
-        # RDS IAM auth uses rds client
-        "rds-db": ["rds"],
     }
 
     # Services that are deprecated/console-only and have no SDK client
     # These will be explicitly mapped to empty list
     EXCLUDES = {
         "a4b",  # Alexa for Business - discontinued
+        "appstudio",  # AWS App Studio - console only
+        "apptest",  # AWS Application Testing - no SDK
+        "bedrock-mantle",  # Bedrock inference engine - uses OpenAI SDK, not boto3
         "bugbust",  # AWS BugBust - discontinued
+        "cloudshell",  # AWS CloudShell - console only
         "codestar",  # CodeStar - discontinued
+        "codewhisperer",  # Now Q Developer - IDE extension, no SDK
         "consoleapp",  # Console Mobile App
+        "elastic-inference",  # Elastic Inference - EOL April 2024
+        "elastictranscoder",  # Replaced by MediaConvert
+        "elemental-appliances-software",  # Physical hardware - console managed
+        "elemental-support-cases",  # Elemental support tickets - console only
+        "freertos",  # FreeRTOS console config - no SDK
         "honeycode",  # Honeycode - discontinued
+        "identity-sync",  # Identity sync service - console only
+        "iotfleethub",  # IoT Fleet Hub - EOL October 2025
         "iq",  # AWS IQ
         "iq-permission",  # AWS IQ
         "lookoutmetrics",  # Lookout for Metrics - discontinued
         "lookoutvision",  # Lookout for Vision - discontinued
+        "mapcredits",  # AWS MAP credits - billing/console only
         "monitron",  # Monitron - discontinued
         "nimble",  # Nimble Studio - discontinued
+        "one",  # Amazon One Enterprise (palm recognition) - console only
+        "opsworks",  # OpsWorks Stacks - EOL May 2024
+        "opsworks-cm",  # OpsWorks for Chef/Puppet - EOL 2024
+        "payments",  # AWS billing payments - console only
+        "pricingplanmanager",  # AWS pricing plans - console only
+        "purchase-orders",  # AWS billing purchase orders - console only
+        "qdeveloper",  # Amazon Q Developer - IDE plugins only, no SDK
         "qldb",  # QLDB - end of life 2025
         "robomaker",  # RoboMaker - end of life 2025
         "worklink",  # WorkLink - discontinued
