@@ -102,8 +102,8 @@ class SDKServiceIndexer:
         """Load metadata for all boto3 clients."""
         metadata = {}
 
-        for client_name in os.listdir(self.botocore_data):
-            client_path = self.botocore_data / client_name
+        for sdk_service in os.listdir(self.botocore_data):
+            client_path = self.botocore_data / sdk_service
             if not client_path.is_dir():
                 continue
 
@@ -123,7 +123,7 @@ class SDKServiceIndexer:
             try:
                 with gzip.open(service_file) as f:
                     data = json.load(f)
-                    metadata[client_name] = data.get("metadata", {})
+                    metadata[sdk_service] = data.get("metadata", {})
             except Exception as e:
                 log.warning(f"Failed to load {service_file}: {e}")
 
@@ -134,19 +134,19 @@ class SDKServiceIndexer:
         exclude = exclude or set()
         matches = set()
 
-        for client_name, meta in metadata.items():
-            if client_name in exclude:
+        for sdk_service, meta in metadata.items():
+            if sdk_service in exclude:
                 continue
 
             # Check signingName first (more specific)
             signing_name = meta.get("signingName")
             if signing_name == arn_service:
-                matches.add(client_name)
+                matches.add(sdk_service)
                 continue
 
             # Check endpointPrefix (fallback)
             endpoint_prefix = meta.get("endpointPrefix")
             if endpoint_prefix == arn_service:
-                matches.add(client_name)
+                matches.add(sdk_service)
 
         return matches
