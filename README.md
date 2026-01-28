@@ -44,13 +44,14 @@ from arnmatch import arnmatch
 arn = "arn:aws:lambda:us-east-1:123456789012:function:my-function"
 result = arnmatch(arn)
 
-print(result.aws_service)    # lambda
-print(result.aws_region)     # us-east-1
-print(result.aws_account)    # 123456789012
-print(result.resource_type)  # function
-print(result.resource_id)    # my-function
-print(result.resource_name)  # my-function
-print(result.attributes)     # {'Partition': 'aws', 'Region': 'us-east-1', ...}
+print(result.aws_service)      # lambda
+print(result.aws_sdk_services) # ['lambda']
+print(result.aws_region)       # us-east-1
+print(result.aws_account)      # 123456789012
+print(result.resource_type)    # function
+print(result.resource_id)      # my-function
+print(result.resource_name)    # my-function
+print(result.attributes)       # {'Partition': 'aws', 'Region': 'us-east-1', ...}
 ```
 
 ## API Reference
@@ -81,6 +82,7 @@ Properties:
 |----------|-------------|
 | `resource_id` | Resource identifier (prefers groups ending in `Id`, falls back to `Name`, then last group) |
 | `resource_name` | Resource name (prefers groups ending in `Name`, falls back to `resource_id`) |
+| `aws_sdk_services` | List of boto3 client names for this service (e.g., `['elb', 'elbv2']` for elasticloadbalancing) |
 
 ### `ARNError`
 

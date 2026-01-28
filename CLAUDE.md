@@ -32,23 +32,25 @@ uv run arnmatch <arn>
 ### Core Library (`src/arnmatch/`)
 
 - `__init__.py` - Main module with `arnmatch(arn)` function and `ARN` dataclass
-- `arn_patterns.py` - Generated file containing compiled regex patterns indexed by service
+- `arn_patterns.py` - Generated file containing compiled regex patterns indexed by service and AWS SDK services mapping
 
-The `arnmatch()` function splits the ARN, looks up patterns by service, and returns an `ARN` with partition, service, region, account, resource_type, and captured groups. The `resource_id` and `resource_name` properties use heuristics (prefer groups ending in "Id" or "Name").
+The `arnmatch()` function splits the ARN, looks up patterns by service, and returns an `ARN` with partition, service, region, account, resource_type, and captured groups. The `resource_id` and `resource_name` properties use heuristics (prefer groups ending in "Id" or "Name"). The `aws_sdk_services` property returns boto3 client names for the service.
 
 ### Code Generation (`codegen/`)
 
 - `scraper.py` - Scrapes AWS service authorization reference pages, caches results with joblib
 - `codegen.py` - Processes resources and generates `arn_patterns.py`
+- `index_sdk.py` - Maps ARN service names to AWS SDK (boto3) client names
 
-Data flow: AWS docs → `scraper.py` → raw resources → `codegen.py` → `codegen/build/arn_patterns.py` → (copied by `make build`) → `src/arnmatch/arn_patterns.py`
+Data flow: AWS docs → `scraper.py` → raw resources → `codegen.py` + `index_sdk.py` → `codegen/build/arn_patterns.py` → (copied by `make build`) → `src/arnmatch/arn_patterns.py`
 
 ### Key Design Decisions
 
 1. **Pattern ordering**: Patterns sorted by specificity (more literal segments first) for correct matching
 2. **Service index**: O(1) lookup by service before pattern matching
 3. **Overrides in codegen.py**: `PATTERN_OVERRIDES` fixes AWS docs that use wildcards instead of capture groups; `PATTERN_INCLUDES` adds patterns not in docs (EKS k8s resources, Inspector legacy)
-4. **Zero runtime dependencies**: Only codegen has external deps (requests, beautifulsoup4, joblib)
+4. **SDK service mapping**: `index_sdk.py` maps ARN service names to boto3 client names using botocore metadata (signingName/endpointPrefix), with manual overrides for edge cases and excludes for discontinued/console-only services
+5. **Zero runtime dependencies**: Only codegen has external deps (requests, beautifulsoup4, joblib, boto3)
 
 ## Build Notes
 
