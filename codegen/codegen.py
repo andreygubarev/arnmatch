@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 from scraper import AWSScraper
-from sdk_services import SDKServiceIndexer
+from index_sdk import SDKServiceIndexer
 
 log = logging.getLogger(__name__)
 
