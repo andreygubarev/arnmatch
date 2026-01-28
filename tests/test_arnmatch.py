@@ -354,8 +354,8 @@ def test_rds():
     )
     assert result.resource_type == "snapshot"
     assert result.attributes["SnapshotName"] == "final-database-backup-01234567"
-    # rds maps to multiple SDK clients (rds, docdb, neptune share ARN format)
-    assert result.aws_sdk_services == ["rds", "docdb", "neptune"]
+    # rds overridden to single SDK (docdb/neptune share ARN format but are different engines)
+    assert result.aws_sdk_services == ["rds"]
 
 
 def test_route53():
@@ -427,10 +427,10 @@ def test_aws_sdk_service():
     result = arnmatch("arn:aws:lambda:us-east-1:012345678901:function:my-func")
     assert result.aws_sdk_service == "lambda"
 
-    # DynamoDB table -> dynamodb
+    # DynamoDB table -> dynamodb (has resource override)
     result = arnmatch("arn:aws:dynamodb:us-east-1:012345678901:table/my-table")
     assert result.aws_sdk_services == ["dynamodb", "dynamodbstreams"]
-    assert result.aws_sdk_service is None  # table not in overrides, ambiguous
+    assert result.aws_sdk_service == "dynamodb"
 
     # DynamoDB stream -> dynamodbstreams
     result = arnmatch(
@@ -454,7 +454,7 @@ def test_aws_sdk_service():
     assert result.aws_sdk_services == []
     assert result.aws_sdk_service is None
 
-    # RDS -> multiple SDKs, no resource override -> None
+    # RDS -> single SDK (overridden at service level)
     result = arnmatch("arn:aws:rds:us-east-1:012345678901:db:my-db")
-    assert result.aws_sdk_services == ["rds", "docdb", "neptune"]
-    assert result.aws_sdk_service is None
+    assert result.aws_sdk_services == ["rds"]
+    assert result.aws_sdk_service == "rds"

@@ -66,6 +66,18 @@ class SDKServiceIndexer:
         "rds": ["rds"],
         # RDS IAM auth uses rds client
         "rds-db": ["rds"],
+        # SageMaker - other clients are for runtime/edge/metrics
+        "sagemaker": ["sagemaker"],
+        # SES v2 is current
+        "ses": ["sesv2"],
+        # SMS Voice v2 (v1 deprecated)
+        "sms-voice": ["pinpoint-sms-voice-v2"],
+        # SSO Admin for management (sso is portal access)
+        "sso": ["sso-admin"],
+        # Timestream Write for management (query is for queries)
+        "timestream": ["timestream-write"],
+        # Wisdom / Q Connect
+        "wisdom": ["qconnect"],
         # Route53 recovery services
         "route53-recovery-control": [
             "route53-recovery-cluster",

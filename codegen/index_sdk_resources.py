@@ -283,6 +283,11 @@ class SDKResourceIndexer:
             ("routingcontrol", "route53-recovery-control-config"),
             ("safetyrule", "route53-recovery-control-config"),
         ],
+        "servicecatalog": [
+            # AppRegistry resources
+            ("Application", "servicecatalog-appregistry"),
+            ("AttributeGroup", "servicecatalog-appregistry"),
+        ],
         "s3": [
             ("accessgrant", "s3control"),
             ("accessgrantslocation", "s3control"),
