@@ -7,11 +7,8 @@
 
 import gzip
 import json
-import logging
 import os
 from pathlib import Path
-
-log = logging.getLogger(__name__)
 
 
 class SDKServiceIndexer:
@@ -134,8 +131,7 @@ class SDKServiceIndexer:
                 continue
 
             # No mapping found
-            log.warning(f"No SDK client mapping for ARN service: {arn_service}")
-            result[arn_service] = []
+            raise ValueError(f"No SDK client mapping for ARN service: {arn_service}")
 
         return result
 
@@ -161,12 +157,9 @@ class SDKServiceIndexer:
             if not service_file.exists():
                 continue
 
-            try:
-                with gzip.open(service_file) as f:
-                    data = json.load(f)
-                    metadata[sdk_service] = data.get("metadata", {})
-            except Exception as e:
-                log.warning(f"Failed to load {service_file}: {e}")
+            with gzip.open(service_file) as f:
+                data = json.load(f)
+                metadata[sdk_service] = data.get("metadata", {})
 
         return metadata
 
