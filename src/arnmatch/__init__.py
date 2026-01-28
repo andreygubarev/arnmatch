@@ -6,7 +6,7 @@ import sys
 from dataclasses import dataclass
 from functools import cached_property
 
-from .arn_patterns import ARN_PATTERNS
+from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES
 
 # Standard groups that are not resource-specific
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
@@ -76,6 +76,17 @@ class ARN:
 
         # Fall back to resource_id
         return self.resource_id
+
+    @cached_property
+    def aws_sdk_services(self) -> list[str]:
+        """Get AWS SDK (boto3) client names for this resource's service.
+
+        Returns list of client names that can interact with this resource type.
+        May return multiple clients for services with versioned APIs
+        (e.g., ['elb', 'elbv2'] for elasticloadbalancing).
+        Returns empty list if no SDK client exists.
+        """
+        return AWS_SDK_SERVICES.get(self.aws_service, [])
 
 
 def arnmatch(arn: str) -> ARN:

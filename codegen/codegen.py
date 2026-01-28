@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["requests", "joblib", "beautifulsoup4"]
+# dependencies = ["requests", "joblib", "beautifulsoup4", "boto3"]
 # ///
 
 import logging
@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 
 from scraper import AWSScraper
+from sdk_services import SDKServiceIndexer
 
 log = logging.getLogger(__name__)
 
@@ -233,8 +234,8 @@ class CodeGenerator:
         ("dms", "ReplicationSubnetGroup"): ["subgrp"],
     }
 
-    def generate(self, resources, output_path):
-        """Generate Python file with ARN patterns."""
+    def generate(self, resources, sdk_services_mapping, output_path):
+        """Generate Python file with ARN patterns and SDK services mapping."""
         # Group by service
         by_service = {}
         for r in resources:
@@ -258,9 +259,17 @@ class CodeGenerator:
                     f.write(f'        (re.compile(r"{regex}"), {type_names!r}),\n')
                 f.write("    ],\n")
 
+            f.write("}\n\n")
+
+            # Write SDK services mapping
+            f.write("# Auto-generated mapping: ARN service -> AWS SDK client names\n")
+            f.write("AWS_SDK_SERVICES = {\n")
+            for arn_svc, clients in sorted(sdk_services_mapping.items()):
+                f.write(f"    {arn_svc!r}: {clients!r},\n")
             f.write("}\n")
 
         log.info(f"Wrote {len(resources)} patterns for {len(by_service)} services to {output_path}")
+        log.info(f"Wrote SDK mapping for {len(sdk_services_mapping)} services")
 
     def pattern_to_regex(self, arn_pattern):
         """Convert ARN pattern to regex with named capture groups."""
@@ -300,14 +309,19 @@ def main():
     for svc in services:
         resources.extend(scraper.get_resources(svc["href"]))
 
-    # Process
+    # Process ARN patterns
     indexer = ARNIndexer()
     resources = indexer.process(resources)
+
+    # Build SDK services mapping
+    arn_services = {r["arn_service"] for r in resources}
+    sdk_indexer = SDKServiceIndexer()
+    sdk_mapping = sdk_indexer.build_mapping(arn_services)
 
     # Generate
     BUILD_DIR.mkdir(exist_ok=True)
     generator = CodeGenerator()
-    generator.generate(resources, BUILD_DIR / "arn_patterns.py")
+    generator.generate(resources, sdk_mapping, BUILD_DIR / "arn_patterns.py")
 
 
 if __name__ == "__main__":
