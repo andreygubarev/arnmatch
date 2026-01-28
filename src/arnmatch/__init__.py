@@ -132,6 +132,7 @@ def main() -> None:
     try:
         result = arnmatch(arn)
         print(f"aws_service: {result.aws_service}")
+        print(f"aws_sdk_services: {','.join(result.aws_sdk_services)}")
         print(f"aws_region: {result.aws_region}")
         print(f"aws_account: {result.aws_account}")
         print(f"resource_type: {result.resource_type}")
