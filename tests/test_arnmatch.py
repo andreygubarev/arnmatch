@@ -11,6 +11,7 @@ def test_acm():
     assert result.attributes["CertificateId"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
     assert result.aws_sdk_services == ["acm"]
     assert result.aws_sdk_service == "acm"
+    assert result.cloudformation_resource == "AWS::CertificateManager::Certificate"
 
 
 def test_apigateway():
@@ -113,6 +114,7 @@ def test_dynamodb():
     assert result.resource_type == "table"
     assert result.attributes["TableName"] == "table1"
     assert result.aws_sdk_service == "dynamodb"
+    assert result.cloudformation_resource == "AWS::DynamoDB::Table"
 
     # stream (override)
     result = arnmatch(
@@ -303,10 +305,12 @@ def test_iam():
     result = arnmatch("arn:aws:iam::012345678901:user/admin")
     assert result.resource_type == "user"
     assert result.attributes["AwsUserName"] == "admin"
+    assert result.cloudformation_resource == "AWS::IAM::User"
 
     result = arnmatch("arn:aws:iam::012345678901:role/lambda-execution-role")
     assert result.resource_type == "role"
     assert result.attributes["RoleNameWithPath"] == "lambda-execution-role"
+    assert result.cloudformation_resource == "AWS::IAM::Role"
 
     result = arnmatch("arn:aws:iam::012345678901:policy/custom-policy")
     assert result.resource_type == "policy"
@@ -315,10 +319,12 @@ def test_iam():
     result = arnmatch("arn:aws:iam::012345678901:group/developers")
     assert result.resource_type == "group"
     assert result.attributes["GroupNameWithPath"] == "developers"
+    assert result.cloudformation_resource == "AWS::IAM::Group"
 
     result = arnmatch("arn:aws:iam::012345678901:instance-profile/ec2-profile")
     assert result.resource_type == "instance-profile"
     assert result.attributes["InstanceProfileNameWithPath"] == "ec2-profile"
+    assert result.cloudformation_resource == "AWS::IAM::InstanceProfile"
 
 
 def test_kms():
@@ -336,6 +342,7 @@ def test_lambda():
     assert result.resource_type == "function"
     assert result.attributes["FunctionName"] == "ProcessDataHandler"
     assert result.aws_sdk_services == ["lambda"]
+    assert result.cloudformation_resource == "AWS::Lambda::Function"
 
 
 def test_logs():
@@ -391,11 +398,13 @@ def test_s3():
     assert result.attributes["BucketName"] == "example-bucket-01"
     assert result.aws_sdk_services == ["s3", "s3control"]
     assert result.aws_sdk_service == "s3"
+    assert result.cloudformation_resource == "AWS::S3::Bucket"
 
     # accesspoint (override)
     result = arnmatch("arn:aws:s3:us-east-1:012345678901:accesspoint/my-access-point")
     assert result.resource_type == "accesspoint"
     assert result.aws_sdk_service == "s3control"
+    assert result.cloudformation_resource == "AWS::S3::AccessPoint"
 
 
 def test_secretsmanager():
@@ -410,12 +419,14 @@ def test_sns():
     result = arnmatch("arn:aws:sns:us-east-1:012345678901:topic1")
     assert result.resource_type == "topic"
     assert result.attributes["TopicName"] == "topic1"
+    assert result.cloudformation_resource == "AWS::SNS::Topic"
 
 
 def test_sqs():
     result = arnmatch("arn:aws:sqs:us-east-1:012345678901:processing-queue-1")
     assert result.resource_type == "queue"
     assert result.attributes["QueueName"] == "processing-queue-1"
+    assert result.cloudformation_resource == "AWS::SQS::Queue"
 
 
 def test_ssm():

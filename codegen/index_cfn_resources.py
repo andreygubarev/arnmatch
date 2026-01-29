@@ -55,7 +55,13 @@ class CFNResourceIndexer:
             mapping.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
                 n0 = self.normalize_name(resource_type)
-                ns = {self.normalize_cloudformation_name(r): r for r in cloudformation_resource_types}
+                # Sort so CFN types whose service matches ARN service come last (win)
+                n_service = self.normalize_name(service)
+                sorted_cfn = sorted(
+                    cloudformation_resource_types,
+                    key=lambda r: self.normalize_name(r.split("::")[1]) == n_service
+                )
+                ns = {self.normalize_cloudformation_name(r): r for r in sorted_cfn}
                 if n0 in ns:
                     mapping[service][resource_type] = ns[n0]
                 else:
