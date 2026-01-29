@@ -126,9 +126,9 @@ class SDKServiceIndexer:
                 continue
 
             # Phase 2: Find via botocore metadata (signingName/endpointPrefix)
-            clients = self.metadata_match(arn_service, metadata)
-            if clients:
-                result[arn_service] = sorted(clients)
+            sdk_services = self.metadata_match(arn_service, metadata)
+            if sdk_services:
+                result[arn_service] = sorted(sdk_services)
                 continue
 
             # No mapping found
