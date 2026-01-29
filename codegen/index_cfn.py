@@ -21,6 +21,7 @@ class CFNServiceIndexer:
 
     CACHE_FILE = Path(__file__).parent / "cache" / "CloudFormationResourceSpecification.json"
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
+    CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"
 
     # Discontinued/EOL services (lowercase for comparison)
     EXCLUDES_DISCONTINUED = {
@@ -93,6 +94,13 @@ class CFNServiceIndexer:
         return data
 
     @property
+    def cloudformation_resources(self) -> list[str]:
+        """Get all CloudFormation resource types from the specification."""
+        data = self.download()
+        resources = list(sorted(data["ResourceTypes"].keys()))
+        return resources
+
+    @property
     def cloudformation_services(self) -> list[str]:
         """Get all CloudFormation services from the specification."""
         data = self.download()
@@ -122,12 +130,13 @@ class CFNServiceIndexer:
 
     def process(self, arn_to_sdk):
         """Build ARN service -> CFN services mapping."""
-        cfns: list[str] = self.cloudformation_services
+        self.CACHE_RESOURCES_FILE.write_text(json.dumps(self.cloudformation_resources, indent=2))
+
         sdk_to_names = self.sdk_to_names()
 
         cfn_to_sdk = {}
         n = lambda n: n.lower().replace("-", "").replace(" ", "")
-        for cfn in cfns:
+        for cfn in self.cloudformation_services:
             ncfn = n(cfn)
             for sdk, names in sdk_to_names.items():
                 if ncfn in names:
@@ -149,6 +158,11 @@ class CFNServiceIndexer:
             for sdk in sdks:
                 for cfn in sdk_to_cfn.get(sdk, []):
                     arn_to_cfn[arn].append(cfn)
+
+        cloudformation_services = {s for services in arn_to_cfn.values() for s in services}
+        diff = set(self.cloudformation_services) - cloudformation_services
+        if diff:
+            raise ValueError(f"CFN services with no ARN mapping: {diff}")
 
         self.save(arn_to_cfn)
         return arn_to_cfn
