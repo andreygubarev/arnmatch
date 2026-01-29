@@ -67,8 +67,14 @@ class CFNResourceIndexer:
 
                 if n0 in ns:
                     resources[service][resource_type] = ns[n0]
-                elif n0.endswith("s") and resource_type[:-1] in resources[service]:
-                    print(f"Skipping plural resource type {resource_type} for service {service}")
+                elif n0.endswith("s"):
+                    if resource_type[:-1] in resources[service]:
+                        print(f"Plural form: already mapped for {service} {resource_type}")
+                    else:
+                        if n0[:-1] in ns:
+                            resources[service][resource_type] = ns[n0[:-1]]
+                        elif n0[:-2] in ns:
+                            resources[service][resource_type] = ns[n0[:-2]]
                 else:
                     resources_missing.append({
                         "resource_service": service,
