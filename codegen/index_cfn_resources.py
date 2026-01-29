@@ -9,6 +9,7 @@ class CFNResourceIndexer:
 
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
     CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"
+    CACHE_RESOURCES_MISS_FILE = Path(__file__).parent / "cache" / "CloudFormationResourcesMissing.json"
 
     @property
     def cloudformation_services(self):
@@ -40,19 +41,19 @@ class CFNResourceIndexer:
         """Build ARN service to resource types mapping."""
         services = [service for service, cfns in arn_to_cfn.items() if cfns]
 
-        resources = {}
+        resources_registry = {}
         for service, patterns in by_service.items():
             if service not in services:
                 continue
             resource_types = set()
             for regex, r in patterns:
                 resource_types.update(r)
-            resources[service] = {r: self.cloudformation_resources[service] for r in sorted(resource_types)}
+            resources_registry[service] = {r: self.cloudformation_resources[service] for r in sorted(resource_types)}
 
-        mapping = {}
-        missing = []
-        for service, resource_types in resources.items():
-            mapping.setdefault(service, {})
+        resources = {}
+        resources_miss = []
+        for service, resource_types in resources_registry.items():
+            resources.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
                 n0 = self.normalize_name(resource_type)
                 # Sort so CFN types whose service matches ARN service come last (win)
@@ -63,18 +64,16 @@ class CFNResourceIndexer:
                 )
                 ns = {self.normalize_cloudformation_name(r): r for r in sorted_cfn}
                 if n0 in ns:
-                    mapping[service][resource_type] = ns[n0]
+                    resources[service][resource_type] = ns[n0]
                 else:
-                    missing.append((service, resource_type, cloudformation_resource_types))
+                    resources_missing.append({
+                        "resource_service": service,
+                        "resource_type": resource_type,
+                        "cloudformation_resources": cloudformation_resource_types,
+                    })
 
-        if missing:
-            # save missing mappings for review
-            missing_file = Path(__file__).parent / "cache" / "CloudFormationResourcesMissing.json"
-            missing_data = [
-                {"service": s, "resource_type": r, "cfn_resource_types": c}
-                for s, r, c in missing
-            ]
-            missing_file.write_text(json.dumps(missing_data, indent=2))
-            print(f"Wrote {len(missing)} missing CFN resource mappings to {missing_file}")
+        if resources_missing:
+            self.CACHE_RESOURCES_MISS_FILE.write_text(json.dumps(resources_missing, indent=2))
+            print(f"Wrote {len(resources_missing)} missing CFN resource mappings")
 
-        return mapping
+        return resources
