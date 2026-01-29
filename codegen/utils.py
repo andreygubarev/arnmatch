@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 
-def botocore_metadata():
+def botocore_metadata() -> dict[str, dict[str, str]]:
     """Load metadata for all botocore services.
 
     Returns:

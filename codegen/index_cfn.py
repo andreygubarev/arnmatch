@@ -7,6 +7,7 @@
 
 import json
 from pathlib import Path
+import collections
 
 import requests
 
@@ -91,40 +92,55 @@ class CFNServiceIndexer:
         self.CACHE_FILE.write_text(json.dumps(data))
         return data
 
-    def metadata_load(self):
-        """Build lookup: normalized name -> SDK client."""
-        lookup = {}
-        for sdk_service, meta in botocore_metadata().items():
-            for name in [sdk_service, meta.get("signingName"), meta.get("endpointPrefix"), meta.get("serviceId")]:
-                if name:
-                    lookup[name.lower().replace(" ", "")] = sdk_service
-        return lookup
+    @property
+    def cloudformation_services(self) -> list[str]:
+        """Get all CloudFormation services from the specification."""
+        data = self.download()
+        services = {rt.split("::")[1] for rt in data["ResourceTypes"].keys()}
+        services = {s for s in services if s.lower() not in self.excludes}
+        return list(sorted(services))
 
-    def process(self, sdk_mapping):
+    def save(self, services):
+        services = dict(sorted(services.items()))
+        self.CACHE_SERVICES_FILE.write_text(json.dumps(services, indent=2))
+
+    def sdk_to_names(self):
+        metadata = botocore_metadata()
+        n = lambda n: n.lower().replace("-", "").replace(" ", "")
+
+        sdk_to_names = collections.defaultdict(set)
+        for sdk, names in metadata.items():
+            sdk_to_names[sdk].add(n(sdk))
+            sdk_to_names[sdk].add(n(names["endpointPrefix"]))
+            sdk_to_names[sdk].add(n(names["serviceId"]))
+            sdk_to_names[sdk].add(n(names["serviceFullName"]))
+            if names.get("signingName"):
+                sdk_to_names[sdk].add(n(names["signingName"]))
+
+        return sdk_to_names
+
+
+    def process(self, arn_to_sdk):
         """Build ARN service -> CFN services mapping."""
-        cfn_services = {rt.split("::")[1] for rt in self.download().get("ResourceTypes", {}).keys()}
-        cfn_services = {s for s in cfn_services if s.lower() not in self.excludes}
+        cfns: list[str] = self.cloudformation_services
+        sdk_to_names = self.sdk_to_names()
 
-        metadata = self.metadata_load()
-        sdk_services = {}
-        for cfn_service in cfn_services:
-            metadata_service = cfn_service.lower().replace("-", "").replace(" ", "")
+        cfn_to_sdk = {}
+        n = lambda n: n.lower().replace("-", "").replace(" ", "")
+        for cfn in cfns:
+            ncfn = n(cfn)
+            for sdk, names in sdk_to_names.items():
+                if ncfn in names:
+                    cfn_to_sdk[cfn] = sdk
+                    break
+            else:
+                if cfn in self.OVERRIDES:
+                    cfn_to_sdk[cfn] = self.OVERRIDES[cfn]
+                    continue
+                raise ValueError(f"No SDK mapping for CFN service: {cfn}")
 
-            sdk_service = None
-            if cfn_service in self.OVERRIDES:
-                sdk_service = self.OVERRIDES[cfn_service]
-            elif metadata_service in metadata:
-                sdk_service = metadata[metadata_service]
 
-            if not sdk_service:
-                raise ValueError(f"No SDK client mapping for CFN service: {cfn_service}")
-
-            if cfn_service in sdk_services:
-                raise ValueError(f"Duplicate SDK client mapping for CFN service: {cfn_service}")
-            sdk_services[cfn_service] = sdk_service
-
-        sdk_services = dict(sorted(sdk_services.items()))
-        self.CACHE_SERVICES_FILE.write_text(json.dumps(sdk_services, indent=2))
+        # self.save(cfns)
         return
 
 
