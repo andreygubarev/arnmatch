@@ -9346,13 +9346,18 @@
   },
   {
     "service": "securityagent",
+    "resource_type": "AgentSpace",
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}"
+  },
+  {
+    "service": "securityagent",
     "resource_type": "Application",
     "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}"
   },
   {
     "service": "securityagent",
     "resource_type": "Artifact",
-    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}/artifact/${ArtifactId}"
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/artifact/${ArtifactId}"
   },
   {
     "service": "securityagent",
@@ -9362,7 +9367,7 @@
   {
     "service": "securityagent",
     "resource_type": "Finding",
-    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}/finding/${FindingId}"
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/finding/${FindingId}"
   },
   {
     "service": "securityagent",
@@ -9372,17 +9377,22 @@
   {
     "service": "securityagent",
     "resource_type": "Pentest",
-    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}/pentest/${PentestId}"
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest/${PentestId}"
   },
   {
     "service": "securityagent",
     "resource_type": "PentestJob",
-    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}/pentest-job/${JobId}"
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest-job/${JobId}"
   },
   {
     "service": "securityagent",
     "resource_type": "PentestTask",
-    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}/pentest-task/${TaskId}"
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest-task/${TaskId}"
+  },
+  {
+    "service": "securityagent",
+    "resource_type": "SecurityRequirement",
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:security-requirement/${SecurityRequirementId}"
   },
   {
     "service": "securityhub",
