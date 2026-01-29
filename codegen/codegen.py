@@ -11,6 +11,7 @@ from pathlib import Path
 from scraper import AWSScraper
 from index_arn import ARNIndexer
 from index_cfn import CFNServiceIndexer
+from index_cfn_resources import CFNResourceIndexer
 from index_sdk import SDKServiceIndexer
 from index_sdk_resources import SDKResourceIndexer
 
@@ -171,6 +172,10 @@ def main():
     # Generate
     generator = CodeGenerator()
     by_service = generator.process(resources)
+
+    cfn_resource_indexer = CFNResourceIndexer()
+    cfn_resource_indexer.process(by_service, cfn_mapping)
+
     generator.generate(by_service, sdk_mapping, BUILD_DIR / "arn_patterns.py")
 
 
