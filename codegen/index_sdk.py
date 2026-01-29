@@ -32,7 +32,7 @@ class SDKServiceIndexer:
         # AWS Private 5G uses privatenetworks client
         "private-networks": ["privatenetworks"],
         # RDS IAM auth uses rds client
-        "rds-db": ["rds"],
+        "rds-db": ["rds"], # has only user related actions
         # Route53 recovery services
         "route53-recovery-control": [
             "route53-recovery-cluster",

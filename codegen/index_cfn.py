@@ -145,12 +145,10 @@ class CFNServiceIndexer:
 
         arn_to_cfn = {}
         for arn, sdks in arn_to_sdk.items():
-            arn_to_cfn[arn] = {}
+            arn_to_cfn[arn] = []
             for sdk in sdks:
-                arn_to_cfn[arn][sdk] = []
                 for cfn in sdk_to_cfn.get(sdk, []):
-                    arn_to_cfn[arn][sdk].append(cfn)
-
+                    arn_to_cfn[arn].append(cfn)
 
         self.save(arn_to_cfn)
         return arn_to_cfn
