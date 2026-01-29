@@ -98,7 +98,16 @@ class CFNServiceIndexer:
         """Get all CloudFormation resource types from the specification."""
         data = self.download()
         resources = list(sorted(data["ResourceTypes"].keys()))
-        return resources
+        # create service -> [resource_types] mapping
+        service_to_resources = collections.defaultdict(list)
+        for service in self.cloudformation_services:
+            service_resources = [
+                rt for rt in resources if rt.startswith(f"AWS::{service}::")
+            ]
+            if not service_resources:
+                raise ValueError(f"No resources found for CFN service: {service}")
+            service_to_resources[service] = service_resources
+        return service_to_resources
 
     @property
     def cloudformation_services(self) -> list[str]:
