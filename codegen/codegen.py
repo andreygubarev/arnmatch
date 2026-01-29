@@ -60,7 +60,7 @@ class CodeGenerator:
             by_service[service].append((regex, type_names))
         return by_service
 
-    def generate(self, by_service, sdk_services_mapping, output_path):
+    def generate(self, by_service, sdk_services_mapping, cfn_resources_mapping, output_path):
         """Generate Python file with ARN patterns and SDK services mapping."""
         with open(output_path, "w") as f:
             f.write("# Auto-generated ARN patterns for matching\n")
@@ -95,6 +95,13 @@ class CodeGenerator:
             f.write("AWS_SDK_SERVICES_OVERRIDE = {\n")
             for arn_service, overrides in sorted(SDKResourceIndexer.OVERRIDE_SERVICE.items()):
                 f.write(f"    {arn_service!r}: {overrides!r},\n")
+            f.write("}\n\n")
+
+            # Write CloudFormation resource mappings
+            f.write("# ARN resource type -> CloudFormation resource type\n")
+            f.write("AWS_CLOUDFORMATION_RESOURCES = {\n")
+            for arn_service, resources in sorted(cfn_resources_mapping.items()):
+                f.write(f"    {arn_service!r}: {resources!r},\n")
             f.write("}\n")
 
         pattern_count = sum(len(patterns) for patterns in by_service.values())
@@ -174,9 +181,9 @@ def main():
     by_service = generator.process(resources)
 
     cfn_resource_indexer = CFNResourceIndexer()
-    cfn_resource_indexer.process(by_service, cfn_mapping)
+    cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
 
-    generator.generate(by_service, sdk_mapping, BUILD_DIR / "arn_patterns.py")
+    generator.generate(by_service, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.py")
 
 
 if __name__ == "__main__":
