@@ -5,13 +5,12 @@
 
 """Maps ARN service names to CloudFormation resource types."""
 
-import gzip
 import json
-import os
 from pathlib import Path
 
-import botocore
 import requests
+
+from utils import botocore_metadata
 
 CLOUDFORMATION_SPEC = "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 
@@ -74,7 +73,12 @@ class CFNServiceIndexer:
         "SystemsManagerSAP": "ssm-sap",
     }
 
-    def download(self) -> dict:
+    @property
+    def excludes(self):
+        return self.EXCLUDES_DISCONTINUED | self.EXCLUDES_NO_SDK | self.EXCLUDES_NO_ARN
+
+
+    def download(self):
         """Download and cache CloudFormation Resource Specification."""
         if self.CACHE_FILE.exists():
             return json.loads(self.CACHE_FILE.read_text())
@@ -87,78 +91,41 @@ class CFNServiceIndexer:
         self.CACHE_FILE.write_text(json.dumps(data))
         return data
 
-    def metadata_load(self) -> dict[str, str]:
+    def metadata_load(self):
         """Build lookup: normalized name -> SDK client."""
-        botocore_data = Path(botocore.__file__).parent / "data"
-        metadata = {}
-
-        for sdk_service in os.listdir(botocore_data):
-            client_path = botocore_data / sdk_service
-            if not client_path.is_dir():
-                continue
-
-            versions = sorted([d for d in os.listdir(client_path) if d[0].isdigit()], reverse=True)
-            if not versions:
-                continue
-
-            service_file = client_path / versions[0] / "service-2.json.gz"
-            if not service_file.exists():
-                continue
-
-            with gzip.open(service_file) as f:
-                meta = json.load(f).get("metadata", {})
-
+        lookup = {}
+        for sdk_service, meta in botocore_metadata().items():
             for name in [sdk_service, meta.get("signingName"), meta.get("endpointPrefix"), meta.get("serviceId")]:
                 if name:
-                    metadata[name.lower().replace(" ", "")] = sdk_service
+                    lookup[name.lower().replace(" ", "")] = sdk_service
+        return lookup
 
-        return metadata
-
-    def process(self, sdk_mapping: dict) -> dict[str, list[str]]:
+    def process(self, sdk_mapping):
         """Build ARN service -> CFN services mapping."""
-        spec = self.download()
-        cfn_services = {rt.split("::")[1] for rt in spec.get("ResourceTypes", {}).keys()}
-        cfn_services_excludes = self.EXCLUDES_DISCONTINUED | self.EXCLUDES_NO_SDK | self.EXCLUDES_NO_ARN
-        cfn_services = {s for s in cfn_services if s.lower() not in cfn_services_excludes}
+        cfn_services = {rt.split("::")[1] for rt in self.download().get("ResourceTypes", {}).keys()}
+        cfn_services = {s for s in cfn_services if s.lower() not in self.excludes}
 
-        # Build CFN -> SDK service mapping
         metadata = self.metadata_load()
-        cfn_to_sdk = {}
-        for cfn in cfn_services:
-            if cfn in self.OVERRIDES:
-                cfn_to_sdk[cfn] = self.OVERRIDES[cfn]
-            elif cfn.lower() in metadata:
-                cfn_to_sdk[cfn] = metadata[cfn.lower()]
+        sdk_services = {}
+        for cfn_service in cfn_services:
+            metadata_service = cfn_service.lower().replace("-", "").replace(" ", "")
 
-        cfn_services_missing = set(cfn_services) - set(cfn_to_sdk.keys())
-        if cfn_services_missing:
-            raise ValueError(f"CFN services not matched to SDK: {sorted(cfn_services_missing)}")
+            sdk_service = None
+            if cfn_service in self.OVERRIDES:
+                sdk_service = self.OVERRIDES[cfn_service]
+            elif metadata_service in metadata:
+                sdk_service = metadata[metadata_service]
 
-        # Reverse sdk_mapping: SDK service -> ARN service
-        sdk_to_arn = {}
-        for arn_service, clients in sdk_mapping.items():
-            for client in clients:
-                sdk_to_arn[client] = arn_service
+            if not sdk_service:
+                raise ValueError(f"No SDK client mapping for CFN service: {cfn_service}")
 
-        # Build final: ARN service -> CFN services (list)
-        result = {}
-        unmapped = []
-        for cfn_service, sdk_service in cfn_to_sdk.items():
-            if sdk_service in sdk_to_arn:
-                arn_service = sdk_to_arn[sdk_service]
-                if arn_service not in result:
-                    result[arn_service] = []
-                result[arn_service].append(cfn_service)
-            else:
-                unmapped.append(f"{cfn_service} -> {sdk_service}")
+            if cfn_service in sdk_services:
+                raise ValueError(f"Duplicate SDK client mapping for CFN service: {cfn_service}")
+            sdk_services[cfn_service] = sdk_service
 
-        if unmapped:
-            raise ValueError(f"CFN services not mapped to ARN: {sorted(unmapped)}")
-
-        # Sort keys and values
-        result = {k: sorted(v) for k, v in sorted(result.items())}
-        self.CACHE_SERVICES_FILE.write_text(json.dumps(result, indent=2))
-        return result
+        sdk_services = dict(sorted(sdk_services.items()))
+        self.CACHE_SERVICES_FILE.write_text(json.dumps(sdk_services, indent=2))
+        return
 
 
 if __name__ == "__main__":
