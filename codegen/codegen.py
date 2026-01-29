@@ -47,9 +47,8 @@ class CodeGenerator:
         ("dms", "ReplicationSubnetGroup"): ["subgrp"],
     }
 
-    def generate(self, resources, sdk_services_mapping, output_path):
-        """Generate Python file with ARN patterns and SDK services mapping."""
-        # Group by service
+    def process(self, resources):
+        """Process resources into service-grouped patterns with regexes."""
         by_service = {}
         for r in resources:
             service = r["arn_service"]
@@ -58,8 +57,10 @@ class CodeGenerator:
             regex = self.pattern_to_regex(r["arn_pattern"])
             type_names = self.get_type_names(service, r["resource_type"])
             by_service[service].append((regex, type_names))
+        return by_service
 
-        # Write Python file
+    def generate(self, by_service, sdk_services_mapping, output_path):
+        """Generate Python file with ARN patterns and SDK services mapping."""
         with open(output_path, "w") as f:
             f.write("# Auto-generated ARN patterns for matching\n")
             f.write("# Patterns are ordered: most specific first\n")
@@ -95,7 +96,8 @@ class CodeGenerator:
                 f.write(f"    {arn_service!r}: {overrides!r},\n")
             f.write("}\n")
 
-        log.info(f"Wrote {len(resources)} patterns for {len(by_service)} services to {output_path}")
+        pattern_count = sum(len(patterns) for patterns in by_service.values())
+        log.info(f"Wrote {pattern_count} patterns for {len(by_service)} services to {output_path}")
         log.info(f"Wrote SDK mapping for {len(sdk_services_mapping)} services")
 
     def pattern_to_regex(self, arn_pattern):
@@ -168,7 +170,8 @@ def main():
 
     # Generate
     generator = CodeGenerator()
-    generator.generate(resources, sdk_mapping, BUILD_DIR / "arn_patterns.py")
+    by_service = generator.process(resources)
+    generator.generate(by_service, sdk_mapping, BUILD_DIR / "arn_patterns.py")
 
 
 if __name__ == "__main__":
