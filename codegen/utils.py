@@ -36,7 +36,12 @@ def botocore_metadata():
             continue
 
         with gzip.open(service_file) as f:
-            data = json.load(f)
-            metadata[sdk_service] = data.get("metadata", {})
+            meta = json.load(f)["metadata"]
+            metadata[sdk_service] = {
+                "endpointPrefix": meta["endpointPrefix"],
+                "serviceFullName": meta["serviceFullName"],
+                "serviceId": meta["serviceId"],
+                "signingName": meta.get("signingName"),
+            }
 
     return metadata
