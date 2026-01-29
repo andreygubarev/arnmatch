@@ -7,6 +7,19 @@ from pathlib import Path
 class CFNResourceIndexer:
     """Maps ARN resources to CloudFormation resource types."""
 
+    # Manual overrides: service -> {resource_type -> CFN resource type}
+    # Used when ARN resource names don't match CFN resource names
+    OVERRIDES = {
+        "ec2": {
+            "dedicated-host": "AWS::EC2::Host",
+            "elastic-ip": "AWS::EC2::EIP",
+            "fleet": "AWS::EC2::EC2Fleet",
+            "spot-fleet-request": "AWS::EC2::SpotFleet",
+            "vpc-endpoint-service-permission": "AWS::EC2::VPCEndpointServicePermissions",
+            "vpc-flow-log": "AWS::EC2::FlowLog",
+        },
+    }
+
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
     CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"
     CACHE_RESOURCES_MISS_FILE = Path(__file__).parent / "cache" / "CloudFormationResourcesMissing.json"
@@ -55,6 +68,11 @@ class CFNResourceIndexer:
         for service, resource_types in resources_candidates.items():
             resources.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
+                # Check manual overrides first
+                if service in self.OVERRIDES and resource_type in self.OVERRIDES[service]:
+                    resources[service][resource_type] = self.OVERRIDES[service][resource_type]
+                    continue
+
                 n0 = self.normalize_name(resource_type)
 
                 # Sort so CFN types whose service matches ARN service come last (win)
