@@ -51,11 +51,12 @@ class CFNResourceIndexer:
             resources_registry[service] = {r: self.cloudformation_resources[service] for r in sorted(resource_types)}
 
         resources = {}
-        resources_miss = []
+        resources_missing = []
         for service, resource_types in resources_registry.items():
             resources.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
                 n0 = self.normalize_name(resource_type)
+
                 # Sort so CFN types whose service matches ARN service come last (win)
                 n_service = self.normalize_name(service)
                 sorted_cfn = sorted(
@@ -63,8 +64,11 @@ class CFNResourceIndexer:
                     key=lambda r: self.normalize_name(r.split("::")[1]) == n_service
                 )
                 ns = {self.normalize_cloudformation_name(r): r for r in sorted_cfn}
+
                 if n0 in ns:
                     resources[service][resource_type] = ns[n0]
+                elif n0.endswith("s") and resource_type[:-1] in resources[service]:
+                    print(f"Skipping plural resource type {resource_type} for service {service}")
                 else:
                     resources_missing.append({
                         "resource_service": service,
