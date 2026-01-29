@@ -1,1557 +1,857 @@
 {
-  "a4b": {},
-  "access-analyzer": {
-    "accessanalyzer": [
-      "AccessAnalyzer"
-    ]
-  },
-  "account": {
-    "account": []
-  },
-  "acm": {
-    "acm": [
-      "CertificateManager"
-    ]
-  },
-  "acm-pca": {
-    "acm-pca": [
-      "ACMPCA"
-    ]
-  },
-  "aidevops": {
-    "aiops": [
-      "AIOps",
-      "DevOpsAgent"
-    ]
-  },
-  "aiops": {
-    "aiops": [
-      "AIOps",
-      "DevOpsAgent"
-    ]
-  },
-  "airflow": {
-    "mwaa": [
-      "MWAA"
-    ]
-  },
-  "airflow-serverless": {
-    "mwaa-serverless": [
-      "MWAAServerless"
-    ]
-  },
-  "amplify": {
-    "amplify": [
-      "Amplify"
-    ]
-  },
-  "amplifybackend": {
-    "amplifybackend": []
-  },
-  "amplifyuibuilder": {
-    "amplifyuibuilder": [
-      "AmplifyUIBuilder"
-    ]
-  },
-  "aoss": {
-    "opensearchserverless": [
-      "OpenSearchServerless"
-    ]
-  },
-  "apigateway": {
-    "apigateway": [],
-    "apigatewayv2": [
-      "ApiGateway",
-      "ApiGatewayV2"
-    ]
-  },
-  "app-integrations": {
-    "appintegrations": [
-      "AppIntegrations"
-    ]
-  },
-  "appconfig": {
-    "appconfig": [
-      "AppConfig"
-    ],
-    "appconfigdata": []
-  },
-  "appfabric": {
-    "appfabric": []
-  },
-  "appflow": {
-    "appflow": [
-      "AppFlow"
-    ]
-  },
-  "application-autoscaling": {
-    "application-autoscaling": [
-      "ApplicationAutoScaling"
-    ]
-  },
-  "application-signals": {
-    "application-signals": [
-      "ApplicationSignals"
-    ]
-  },
-  "appmesh": {
-    "appmesh": [
-      "AppMesh"
-    ]
-  },
-  "appmesh-preview": {
-    "appmesh": [
-      "AppMesh"
-    ]
-  },
-  "apprunner": {
-    "apprunner": [
-      "AppRunner"
-    ]
-  },
-  "appstream": {
-    "appstream": [
-      "AppStream"
-    ]
-  },
-  "appstudio": {},
-  "appsync": {
-    "appsync": [
-      "AppSync"
-    ]
-  },
-  "apptest": {},
-  "aps": {
-    "amp": [
-      "APS"
-    ]
-  },
-  "arc-region-switch": {
-    "arc-region-switch": [
-      "ARCRegionSwitch"
-    ]
-  },
-  "artifact": {
-    "artifact": []
-  },
-  "athena": {
-    "athena": [
-      "Athena"
-    ]
-  },
-  "auditmanager": {
-    "auditmanager": [
-      "AuditManager"
-    ]
-  },
-  "autoscaling": {
-    "autoscaling": [
-      "AutoScaling"
-    ]
-  },
-  "aws-marketplace": {
-    "marketplace-agreement": [],
-    "marketplace-catalog": [],
-    "marketplace-deployment": [],
-    "marketplace-entitlement": [],
-    "marketplace-reporting": [],
-    "meteringmarketplace": []
-  },
-  "b2bi": {
-    "b2bi": [
-      "B2BI"
-    ]
-  },
-  "backup": {
-    "backup": [
-      "Backup"
-    ]
-  },
-  "backup-gateway": {
-    "backup-gateway": [
-      "BackupGateway"
-    ]
-  },
-  "backup-search": {
-    "backupsearch": []
-  },
-  "batch": {
-    "batch": [
-      "Batch"
-    ]
-  },
-  "bcm-data-exports": {
-    "bcm-data-exports": [
-      "BCMDataExports"
-    ]
-  },
-  "bcm-pricing-calculator": {
-    "bcm-pricing-calculator": []
-  },
-  "bedrock": {
-    "bedrock": [],
-    "bedrock-agent": [],
-    "bedrock-agent-runtime": [],
-    "bedrock-data-automation": [],
-    "bedrock-data-automation-runtime": [],
-    "bedrock-runtime": [
-      "Bedrock"
-    ]
-  },
-  "bedrock-agentcore": {
-    "bedrock-agentcore": [],
-    "bedrock-agentcore-control": [
-      "BedrockAgentCore"
-    ]
-  },
-  "bedrock-mantle": {},
-  "billing": {
-    "billing": [
-      "Billing"
-    ]
-  },
-  "billingconductor": {
-    "billingconductor": [
-      "BillingConductor"
-    ]
-  },
-  "braket": {
-    "braket": []
-  },
-  "budgets": {
-    "budgets": [
-      "Budgets"
-    ]
-  },
-  "bugbust": {},
-  "cases": {
-    "connectcases": [
-      "Cases"
-    ]
-  },
-  "cassandra": {
-    "keyspaces": [],
-    "keyspacesstreams": [
-      "Cassandra"
-    ]
-  },
-  "catalog": {
-    "servicecatalog": [
-      "ServiceCatalog"
-    ]
-  },
-  "ce": {
-    "ce": [
-      "CE"
-    ]
-  },
-  "chatbot": {
-    "chatbot": [
-      "Chatbot"
-    ]
-  },
-  "chime": {
-    "chime": [],
-    "chime-sdk-identity": [],
-    "chime-sdk-media-pipelines": [],
-    "chime-sdk-meetings": [],
-    "chime-sdk-messaging": [],
-    "chime-sdk-voice": []
-  },
-  "cleanrooms": {
-    "cleanrooms": [
-      "CleanRooms"
-    ]
-  },
-  "cleanrooms-ml": {
-    "cleanroomsml": [
-      "CleanRoomsML"
-    ]
-  },
-  "cloud9": {
-    "cloud9": [
-      "Cloud9"
-    ]
-  },
-  "clouddirectory": {
-    "clouddirectory": []
-  },
-  "cloudformation": {
-    "cloudformation": [
-      "CloudFormation"
-    ]
-  },
-  "cloudfront": {
-    "cloudfront": [
-      "CloudFront"
-    ]
-  },
-  "cloudhsm": {
-    "cloudhsm": [],
-    "cloudhsmv2": []
-  },
-  "cloudsearch": {
-    "cloudsearch": [],
-    "cloudsearchdomain": []
-  },
-  "cloudshell": {},
-  "cloudtrail": {
-    "cloudtrail": [
-      "CloudTrail"
-    ]
-  },
-  "cloudwatch": {
-    "cloudwatch": [
-      "CloudWatch"
-    ]
-  },
-  "codeartifact": {
-    "codeartifact": [
-      "CodeArtifact"
-    ]
-  },
-  "codebuild": {
-    "codebuild": [
-      "CodeBuild"
-    ]
-  },
-  "codecatalyst": {
-    "codecatalyst": []
-  },
-  "codecommit": {
-    "codecommit": [
-      "CodeCommit"
-    ]
-  },
-  "codeconnections": {
-    "codeconnections": [
-      "CodeConnections"
-    ]
-  },
-  "codedeploy": {
-    "codedeploy": [
-      "CodeDeploy"
-    ]
-  },
-  "codeguru-profiler": {
-    "codeguruprofiler": [
-      "CodeGuruProfiler"
-    ]
-  },
-  "codeguru-reviewer": {
-    "codeguru-reviewer": [
-      "CodeGuruReviewer"
-    ]
-  },
-  "codeguru-security": {
-    "codeguru-security": []
-  },
-  "codepipeline": {
-    "codepipeline": [
-      "CodePipeline"
-    ]
-  },
-  "codestar": {},
-  "codestar-connections": {
-    "codestar-connections": [
-      "CodeStarConnections"
-    ]
-  },
-  "codestar-notifications": {
-    "codestar-notifications": [
-      "CodeStarNotifications"
-    ]
-  },
-  "codewhisperer": {},
-  "cognito-identity": {
-    "cognito-identity": []
-  },
-  "cognito-idp": {
-    "cognito-idp": [
-      "Cognito"
-    ]
-  },
-  "cognito-sync": {
-    "cognito-sync": []
-  },
-  "comprehend": {
-    "comprehend": [
-      "Comprehend"
-    ]
-  },
-  "compute-optimizer": {
-    "compute-optimizer": []
-  },
-  "config": {
-    "config": [
-      "Config"
-    ]
-  },
-  "connect": {
-    "connect": [],
-    "connect-contact-lens": [
-      "Connect"
-    ]
-  },
-  "connect-campaigns": {
-    "connectcampaigns": [
-      "ConnectCampaigns"
-    ],
-    "connectcampaignsv2": [
-      "ConnectCampaignsV2"
-    ]
-  },
-  "consoleapp": {},
-  "controlcatalog": {
-    "controlcatalog": []
-  },
-  "controltower": {
-    "controltower": [
-      "ControlTower"
-    ]
-  },
-  "cur": {
-    "cur": [
-      "CUR"
-    ]
-  },
-  "databrew": {
-    "databrew": [
-      "DataBrew"
-    ]
-  },
-  "dataexchange": {
-    "dataexchange": []
-  },
-  "datapipeline": {
-    "datapipeline": [
-      "DataPipeline"
-    ]
-  },
-  "datasync": {
-    "datasync": [
-      "DataSync"
-    ]
-  },
-  "datazone": {
-    "datazone": [
-      "DataZone"
-    ]
-  },
-  "dax": {
-    "dax": [
-      "DAX"
-    ]
-  },
-  "deadline": {
-    "deadline": [
-      "Deadline"
-    ]
-  },
-  "detective": {
-    "detective": [
-      "Detective"
-    ]
-  },
-  "devicefarm": {
-    "devicefarm": []
-  },
-  "directconnect": {
-    "directconnect": []
-  },
-  "dlm": {
-    "dlm": [
-      "DLM"
-    ]
-  },
-  "dms": {
-    "dms": [
-      "DMS"
-    ]
-  },
-  "docdb-elastic": {
-    "docdb-elastic": [
-      "DocDBElastic"
-    ]
-  },
-  "drs": {
-    "drs": []
-  },
-  "ds": {
-    "ds": [
-      "DirectoryService"
-    ]
-  },
-  "dsql": {
-    "dsql": [
-      "DSQL"
-    ]
-  },
-  "dynamodb": {
-    "dynamodb": [
-      "DynamoDB"
-    ],
-    "dynamodbstreams": []
-  },
-  "ec2": {
-    "ec2": [
-      "EC2"
-    ]
-  },
-  "ecr": {
-    "ecr": [
-      "ECR"
-    ]
-  },
-  "ecr-public": {
-    "ecr-public": []
-  },
-  "ecs": {
-    "ecs": [
-      "ECS"
-    ]
-  },
-  "eks": {
-    "eks": [
-      "EKS"
-    ]
-  },
-  "elastic-inference": {},
-  "elasticache": {
-    "elasticache": [
-      "ElastiCache"
-    ]
-  },
-  "elasticbeanstalk": {
-    "elasticbeanstalk": [
-      "ElasticBeanstalk"
-    ]
-  },
-  "elasticfilesystem": {
-    "efs": [
-      "EFS"
-    ]
-  },
-  "elasticloadbalancing": {
-    "elb": [
-      "ElasticLoadBalancing"
-    ],
-    "elbv2": [
-      "ElasticLoadBalancingV2"
-    ]
-  },
-  "elasticmapreduce": {
-    "emr": [
-      "EMR"
-    ]
-  },
-  "elastictranscoder": {},
-  "elemental-appliances-software": {},
-  "elemental-support-cases": {},
-  "emr-containers": {
-    "emr-containers": [
-      "EMRContainers"
-    ]
-  },
-  "emr-serverless": {
-    "emr-serverless": [
-      "EMRServerless"
-    ]
-  },
-  "entityresolution": {
-    "entityresolution": [
-      "EntityResolution"
-    ]
-  },
-  "es": {
-    "es": [
-      "Elasticsearch"
-    ],
-    "opensearch": [
-      "OpenSearchService"
-    ]
-  },
-  "events": {
-    "events": [
-      "Events"
-    ]
-  },
-  "evidently": {
-    "evidently": [
-      "Evidently"
-    ]
-  },
-  "evs": {
-    "evs": [
-      "EVS"
-    ]
-  },
-  "execute-api": {
-    "apigatewaymanagementapi": [],
-    "connectparticipant": []
-  },
-  "finspace": {
-    "finspace": [
-      "FinSpace"
-    ]
-  },
-  "finspace-api": {
-    "finspace-data": []
-  },
-  "firehose": {
-    "firehose": [
-      "KinesisFirehose"
-    ]
-  },
-  "fis": {
-    "fis": [
-      "FIS"
-    ]
-  },
-  "fms": {
-    "fms": [
-      "FMS"
-    ]
-  },
-  "forecast": {
-    "forecast": [
-      "Forecast"
-    ],
-    "forecastquery": []
-  },
-  "frauddetector": {
-    "frauddetector": [
-      "FraudDetector"
-    ]
-  },
-  "freertos": {},
-  "fsx": {
-    "fsx": [
-      "FSx"
-    ]
-  },
-  "gamelift": {
-    "gamelift": [
-      "GameLift"
-    ]
-  },
-  "gameliftstreams": {
-    "gameliftstreams": []
-  },
-  "geo": {
-    "location": [
-      "Location"
-    ]
-  },
-  "geo-maps": {
-    "geo-maps": []
-  },
-  "geo-places": {
-    "geo-places": []
-  },
-  "geo-routes": {
-    "geo-routes": []
-  },
-  "glacier": {
-    "glacier": []
-  },
-  "globalaccelerator": {
-    "globalaccelerator": [
-      "GlobalAccelerator"
-    ]
-  },
-  "glue": {
-    "glue": [
-      "Glue"
-    ]
-  },
-  "grafana": {
-    "grafana": [
-      "Grafana"
-    ]
-  },
-  "greengrass": {
-    "greengrass": [],
-    "greengrassv2": [
-      "Greengrass",
-      "GreengrassV2"
-    ]
-  },
-  "groundstation": {
-    "groundstation": [
-      "GroundStation"
-    ]
-  },
-  "guardduty": {
-    "guardduty": [
-      "GuardDuty"
-    ]
-  },
-  "health": {
-    "health": []
-  },
-  "healthlake": {
-    "healthlake": [
-      "HealthLake"
-    ]
-  },
-  "honeycode": {},
-  "iam": {
-    "iam": [
-      "IAM"
-    ]
-  },
-  "identity-sync": {},
-  "identitystore": {
-    "identitystore": [
-      "IdentityStore"
-    ]
-  },
-  "imagebuilder": {
-    "imagebuilder": [
-      "ImageBuilder"
-    ]
-  },
-  "inspector": {
-    "inspector": [
-      "Inspector"
-    ]
-  },
-  "inspector2": {
-    "inspector2": [
-      "InspectorV2"
-    ]
-  },
-  "internetmonitor": {
-    "internetmonitor": [
-      "InternetMonitor"
-    ]
-  },
-  "invoicing": {
-    "invoicing": [
-      "Invoicing"
-    ]
-  },
-  "iot": {
-    "iot": [
-      "IoT"
-    ]
-  },
-  "iotanalytics": {
-    "iotanalytics": [
-      "IoTAnalytics"
-    ]
-  },
-  "iotdeviceadvisor": {
-    "iotdeviceadvisor": [
-      "IoTCoreDeviceAdvisor"
-    ]
-  },
-  "iotevents": {
-    "iotevents": [
-      "IoTEvents"
-    ]
-  },
-  "iotfleethub": {},
-  "iotfleetwise": {
-    "iotfleetwise": [
-      "IoTFleetWise"
-    ]
-  },
-  "iotmanagedintegrations": {
-    "iot-managed-integrations": []
-  },
-  "iotsitewise": {
-    "iotsitewise": [
-      "IoTSiteWise"
-    ]
-  },
-  "iottwinmaker": {
-    "iottwinmaker": [
-      "IoTTwinMaker"
-    ]
-  },
-  "iotwireless": {
-    "iotwireless": [
-      "IoTWireless"
-    ]
-  },
-  "iq": {},
-  "iq-permission": {},
-  "ivs": {
-    "ivs": [],
-    "ivs-realtime": [
-      "IVS"
-    ]
-  },
-  "ivschat": {
-    "ivschat": [
-      "IVSChat"
-    ]
-  },
-  "kafka": {
-    "kafka": [
-      "MSK"
-    ]
-  },
-  "kafkaconnect": {
-    "kafkaconnect": [
-      "KafkaConnect"
-    ]
-  },
-  "kendra": {
-    "kendra": [
-      "Kendra"
-    ]
-  },
-  "kendra-ranking": {
-    "kendra-ranking": [
-      "KendraRanking"
-    ]
-  },
-  "kinesis": {
-    "kinesis": [
-      "Kinesis"
-    ]
-  },
-  "kinesisanalytics": {
-    "kinesisanalytics": [],
-    "kinesisanalyticsv2": [
-      "KinesisAnalytics",
-      "KinesisAnalyticsV2"
-    ]
-  },
-  "kinesisvideo": {
-    "kinesisvideo": [
-      "KinesisVideo"
-    ],
-    "kinesis-video-archived-media": [],
-    "kinesis-video-media": [],
-    "kinesis-video-signaling": [],
-    "kinesis-video-webrtc-storage": []
-  },
-  "kms": {
-    "kms": [
-      "KMS"
-    ]
-  },
-  "lambda": {
-    "lambda": [
-      "Lambda"
-    ]
-  },
-  "launchwizard": {
-    "launch-wizard": [
-      "LaunchWizard"
-    ]
-  },
-  "lex": {
-    "lex-models": [],
-    "lex-runtime": [],
-    "lexv2-models": [
-      "Lex"
-    ],
-    "lexv2-runtime": []
-  },
-  "license-manager": {
-    "license-manager": [
-      "LicenseManager"
-    ]
-  },
-  "license-manager-linux-subscriptions": {
-    "license-manager-linux-subscriptions": []
-  },
-  "license-manager-user-subscriptions": {
-    "license-manager-user-subscriptions": []
-  },
-  "lightsail": {
-    "lightsail": [
-      "Lightsail"
-    ]
-  },
-  "logs": {
-    "logs": [
-      "Logs"
-    ]
-  },
-  "lookoutequipment": {
-    "lookoutequipment": [
-      "LookoutEquipment"
-    ]
-  },
-  "lookoutmetrics": {},
-  "lookoutvision": {},
-  "m2": {
-    "m2": [
-      "M2"
-    ]
-  },
-  "machinelearning": {
-    "machinelearning": []
-  },
-  "macie2": {
-    "macie2": [
-      "Macie"
-    ]
-  },
-  "managedblockchain": {
-    "managedblockchain": [
-      "ManagedBlockchain"
-    ]
-  },
-  "mapcredits": {},
-  "mediaconnect": {
-    "mediaconnect": [
-      "MediaConnect"
-    ]
-  },
-  "mediaconvert": {
-    "mediaconvert": [
-      "MediaConvert"
-    ]
-  },
-  "medialive": {
-    "medialive": [
-      "MediaLive"
-    ]
-  },
-  "mediapackage": {
-    "mediapackage": [
-      "MediaPackage"
-    ]
-  },
-  "mediapackage-vod": {
-    "mediapackage-vod": []
-  },
-  "mediapackagev2": {
-    "mediapackagev2": [
-      "MediaPackageV2"
-    ]
-  },
-  "mediastore": {
-    "mediastore": [],
-    "mediastore-data": [
-      "MediaStore"
-    ]
-  },
-  "mediatailor": {
-    "mediatailor": [
-      "MediaTailor"
-    ]
-  },
-  "medical-imaging": {
-    "medical-imaging": [
-      "HealthImaging"
-    ]
-  },
-  "memorydb": {
-    "memorydb": [
-      "MemoryDB"
-    ]
-  },
-  "mgh": {
-    "mgh": [],
-    "migrationhub-config": []
-  },
-  "mgn": {
-    "mgn": []
-  },
-  "migrationhub-orchestrator": {
-    "migrationhuborchestrator": []
-  },
-  "mobiletargeting": {
-    "pinpoint": [
-      "Pinpoint"
-    ]
-  },
-  "monitron": {},
-  "mpa": {
-    "mpa": [
-      "MPA"
-    ]
-  },
-  "mq": {
-    "mq": [
-      "AmazonMQ"
-    ]
-  },
-  "neptune-db": {
-    "neptunedata": []
-  },
-  "neptune-graph": {
-    "neptune-graph": [
-      "NeptuneGraph"
-    ]
-  },
-  "network-firewall": {
-    "network-firewall": [
-      "NetworkFirewall"
-    ]
-  },
-  "networkflowmonitor": {
-    "networkflowmonitor": []
-  },
-  "networkmanager": {
-    "networkmanager": [
-      "NetworkManager"
-    ]
-  },
-  "networkmonitor": {
-    "networkmonitor": []
-  },
-  "nimble": {},
-  "notifications": {
-    "notifications": [
-      "Notifications"
-    ]
-  },
-  "notifications-contacts": {
-    "notificationscontacts": [
-      "NotificationsContacts"
-    ]
-  },
-  "nova-act": {
-    "nova-act": []
-  },
-  "oam": {
-    "oam": [
-      "Oam"
-    ]
-  },
-  "observabilityadmin": {
-    "observabilityadmin": [
-      "ObservabilityAdmin"
-    ]
-  },
-  "odb": {
-    "odb": [
-      "ODB"
-    ]
-  },
-  "omics": {
-    "omics": [
-      "Omics"
-    ]
-  },
-  "one": {},
-  "opensearch": {
-    "opensearch": [
-      "OpenSearchService"
-    ]
-  },
-  "opsworks": {},
-  "opsworks-cm": {},
-  "organizations": {
-    "organizations": [
-      "Organizations"
-    ]
-  },
-  "osis": {
-    "osis": [
-      "OSIS"
-    ]
-  },
-  "outposts": {
-    "outposts": []
-  },
-  "panorama": {
-    "panorama": [
-      "Panorama"
-    ]
-  },
-  "partnercentral": {
-    "partnercentral-account": [],
-    "partnercentral-benefits": [],
-    "partnercentral-channel": [],
-    "partnercentral-selling": []
-  },
-  "payment-cryptography": {
-    "payment-cryptography": [
-      "PaymentCryptography"
-    ],
-    "payment-cryptography-data": []
-  },
-  "payments": {},
-  "pca-connector-ad": {
-    "pca-connector-ad": [
-      "PCAConnectorAD"
-    ]
-  },
-  "pca-connector-scep": {
-    "pca-connector-scep": [
-      "PCAConnectorSCEP"
-    ]
-  },
-  "pcs": {
-    "pcs": [
-      "PCS"
-    ]
-  },
-  "personalize": {
-    "personalize": [],
-    "personalize-events": [
-      "Personalize"
-    ],
-    "personalize-runtime": []
-  },
-  "pi": {
-    "pi": []
-  },
-  "pipes": {
-    "pipes": [
-      "Pipes"
-    ]
-  },
-  "polly": {
-    "polly": []
-  },
-  "pricingplanmanager": {},
-  "private-networks": {
-    "privatenetworks": []
-  },
-  "profile": {
-    "customer-profiles": [
-      "CustomerProfiles"
-    ]
-  },
-  "proton": {
-    "proton": [
-      "Proton"
-    ]
-  },
-  "purchase-orders": {},
-  "qapps": {
-    "qapps": []
-  },
-  "qbusiness": {
-    "qbusiness": [
-      "QBusiness"
-    ]
-  },
-  "qdeveloper": {},
-  "qldb": {},
-  "quicksight": {
-    "quicksight": [
-      "QuickSight"
-    ]
-  },
-  "ram": {
-    "ram": [
-      "RAM"
-    ]
-  },
-  "rbin": {
-    "rbin": [
-      "Rbin"
-    ]
-  },
-  "rds": {
-    "rds": [],
-    "docdb": [
-      "DocDB"
-    ],
-    "neptune": [
-      "Neptune",
-      "RDS"
-    ]
-  },
-  "rds-db": {
-    "rds": []
-  },
-  "redshift": {
-    "redshift": [
-      "Redshift"
-    ]
-  },
-  "redshift-serverless": {
-    "redshift-serverless": [
-      "RedshiftServerless"
-    ]
-  },
-  "refactor-spaces": {
-    "migration-hub-refactor-spaces": [
-      "RefactorSpaces"
-    ]
-  },
-  "rekognition": {
-    "rekognition": [
-      "Rekognition"
-    ]
-  },
-  "repostspace": {
-    "repostspace": []
-  },
-  "resiliencehub": {
-    "resiliencehub": [
-      "ResilienceHub"
-    ]
-  },
-  "resource-explorer-2": {
-    "resource-explorer-2": [
-      "ResourceExplorer2"
-    ]
-  },
-  "resource-groups": {
-    "resource-groups": [
-      "ResourceGroups"
-    ]
-  },
-  "robomaker": {},
-  "rolesanywhere": {
-    "rolesanywhere": [
-      "RolesAnywhere"
-    ]
-  },
-  "route53": {
-    "route53": [
-      "Route53"
-    ]
-  },
-  "route53-recovery-control": {
-    "route53-recovery-cluster": [],
-    "route53-recovery-control-config": [
-      "Route53RecoveryControl"
-    ]
-  },
-  "route53-recovery-readiness": {
-    "route53-recovery-readiness": [
-      "Route53RecoveryReadiness"
-    ]
-  },
-  "route53globalresolver": {
-    "route53globalresolver": []
-  },
-  "route53profiles": {
-    "route53profiles": [
-      "Route53Profiles"
-    ]
-  },
-  "route53resolver": {
-    "route53resolver": [
-      "Route53Resolver"
-    ]
-  },
-  "rum": {
-    "rum": [
-      "RUM"
-    ]
-  },
-  "s3": {
-    "s3": [
-      "S3",
-      "S3Express",
-      "S3ObjectLambda"
-    ],
-    "s3control": []
-  },
-  "s3-object-lambda": {
-    "s3": [
-      "S3",
-      "S3Express",
-      "S3ObjectLambda"
-    ]
-  },
-  "s3-outposts": {
-    "s3outposts": [
-      "S3Outposts"
-    ]
-  },
-  "s3express": {
-    "s3": [
-      "S3",
-      "S3Express",
-      "S3ObjectLambda"
-    ]
-  },
-  "s3tables": {
-    "s3tables": [
-      "S3Tables"
-    ]
-  },
-  "s3vectors": {
-    "s3vectors": [
-      "S3Vectors"
-    ]
-  },
-  "sagemaker": {
-    "sagemaker": [],
-    "sagemaker-a2i-runtime": [],
-    "sagemaker-edge": [],
-    "sagemaker-featurestore-runtime": [
-      "SageMaker"
-    ],
-    "sagemaker-metrics": [],
-    "sagemaker-runtime": []
-  },
-  "sagemaker-geospatial": {
-    "sagemaker-geospatial": []
-  },
-  "savingsplans": {
-    "savingsplans": []
-  },
-  "scheduler": {
-    "scheduler": [
-      "Scheduler"
-    ]
-  },
-  "schemas": {
-    "schemas": [
-      "EventSchemas"
-    ]
-  },
-  "scn": {
-    "supplychain": []
-  },
-  "sdb": {
-    "sdb": [
-      "SDB"
-    ]
-  },
-  "secretsmanager": {
-    "secretsmanager": [
-      "SecretsManager"
-    ]
-  },
-  "security-ir": {
-    "security-ir": []
-  },
-  "securityagent": {},
-  "securityhub": {
-    "securityhub": [
-      "SecurityHub"
-    ]
-  },
-  "securitylake": {
-    "securitylake": [
-      "SecurityLake"
-    ]
-  },
-  "serverlessrepo": {
-    "serverlessrepo": []
-  },
-  "servicecatalog": {
-    "servicecatalog": [
-      "ServiceCatalog"
-    ],
-    "servicecatalog-appregistry": [
-      "ServiceCatalogAppRegistry"
-    ]
-  },
-  "servicediscovery": {
-    "servicediscovery": [
-      "ServiceDiscovery"
-    ]
-  },
-  "servicequotas": {
-    "service-quotas": []
-  },
-  "ses": {
-    "ses": [],
-    "mailmanager": [],
-    "pinpoint-email": [
-      "PinpointEmail"
-    ],
-    "sesv2": [
-      "SES"
-    ]
-  },
-  "shield": {
-    "shield": [
-      "Shield"
-    ]
-  },
-  "signer": {
-    "signer": [
-      "Signer"
-    ]
-  },
-  "simspaceweaver": {
-    "simspaceweaver": [
-      "SimSpaceWeaver"
-    ]
-  },
-  "sms-voice": {
-    "sms-voice": [
-      "SMSVOICE"
-    ],
-    "pinpoint-sms-voice": [],
-    "pinpoint-sms-voice-v2": []
-  },
-  "snow-device-management": {
-    "snow-device-management": []
-  },
-  "sns": {
-    "sns": [
-      "SNS"
-    ]
-  },
-  "social-messaging": {
-    "socialmessaging": []
-  },
-  "sqlworkbench": {},
-  "sqs": {
-    "sqs": [
-      "SQS"
-    ]
-  },
-  "ssm": {
-    "ssm": [
-      "SSM"
-    ]
-  },
-  "ssm-contacts": {
-    "ssm-contacts": [
-      "SSMContacts"
-    ]
-  },
-  "ssm-incidents": {
-    "ssm-incidents": [
-      "SSMIncidents"
-    ]
-  },
-  "ssm-quicksetup": {
-    "ssm-quicksetup": [
-      "SSMQuickSetup"
-    ]
-  },
-  "ssm-sap": {
-    "ssm-sap": [
-      "SystemsManagerSAP"
-    ]
-  },
-  "sso": {
-    "sso": [
-      "SSO"
-    ],
-    "sso-admin": []
-  },
-  "states": {
-    "stepfunctions": [
-      "StepFunctions"
-    ]
-  },
-  "storagegateway": {
-    "storagegateway": []
-  },
-  "sts": {
-    "sts": []
-  },
-  "swf": {
-    "swf": []
-  },
-  "synthetics": {
-    "synthetics": [
-      "Synthetics"
-    ]
-  },
-  "textract": {
-    "textract": []
-  },
-  "thinclient": {
-    "workspaces-thin-client": [
-      "WorkSpacesThinClient"
-    ]
-  },
-  "timestream": {
-    "timestream-query": [],
-    "timestream-write": [
-      "Timestream"
-    ]
-  },
-  "timestream-influxdb": {
-    "timestream-influxdb": []
-  },
-  "tnb": {
-    "tnb": []
-  },
-  "transcribe": {
-    "transcribe": []
-  },
-  "transfer": {
-    "transfer": [
-      "Transfer"
-    ]
-  },
-  "transform": {},
-  "transform-custom": {},
-  "translate": {
-    "translate": []
-  },
-  "trustedadvisor": {
-    "trustedadvisor": []
-  },
-  "ts": {},
-  "vendor-insights": {},
-  "verifiedpermissions": {
-    "verifiedpermissions": [
-      "VerifiedPermissions"
-    ]
-  },
-  "voiceid": {
-    "voice-id": [
-      "VoiceID"
-    ]
-  },
-  "vpc-lattice": {
-    "vpc-lattice": [
-      "VpcLattice"
-    ]
-  },
-  "waf": {
-    "waf": [
-      "WAF"
-    ]
-  },
-  "waf-regional": {
-    "waf-regional": [
-      "WAFRegional"
-    ]
-  },
-  "wafv2": {
-    "wafv2": [
-      "WAFv2"
-    ]
-  },
-  "wellarchitected": {
-    "wellarchitected": []
-  },
-  "wickr": {
-    "wickr": []
-  },
-  "wisdom": {
-    "wisdom": [],
-    "qconnect": [
-      "Wisdom"
-    ]
-  },
-  "workdocs": {
-    "workdocs": []
-  },
-  "worklink": {},
-  "workmail": {
-    "workmail": []
-  },
-  "workmailmessageflow": {
-    "workmailmessageflow": []
-  },
-  "workspaces": {
-    "workspaces": [
-      "WorkSpaces"
-    ]
-  },
-  "workspaces-instances": {
-    "workspaces-instances": [
-      "WorkspacesInstances"
-    ]
-  },
-  "workspaces-web": {
-    "workspaces-web": [
-      "WorkSpacesWeb"
-    ]
-  },
-  "xray": {
-    "xray": [
-      "XRay"
-    ]
-  }
+  "a4b": [],
+  "access-analyzer": [
+    "AccessAnalyzer"
+  ],
+  "account": [],
+  "acm": [
+    "CertificateManager"
+  ],
+  "acm-pca": [
+    "ACMPCA"
+  ],
+  "aidevops": [
+    "AIOps",
+    "DevOpsAgent"
+  ],
+  "aiops": [
+    "AIOps",
+    "DevOpsAgent"
+  ],
+  "airflow": [
+    "MWAA"
+  ],
+  "airflow-serverless": [
+    "MWAAServerless"
+  ],
+  "amplify": [
+    "Amplify"
+  ],
+  "amplifybackend": [],
+  "amplifyuibuilder": [
+    "AmplifyUIBuilder"
+  ],
+  "aoss": [
+    "OpenSearchServerless"
+  ],
+  "apigateway": [
+    "ApiGateway",
+    "ApiGatewayV2"
+  ],
+  "app-integrations": [
+    "AppIntegrations"
+  ],
+  "appconfig": [
+    "AppConfig"
+  ],
+  "appfabric": [],
+  "appflow": [
+    "AppFlow"
+  ],
+  "application-autoscaling": [
+    "ApplicationAutoScaling"
+  ],
+  "application-signals": [
+    "ApplicationSignals"
+  ],
+  "appmesh": [
+    "AppMesh"
+  ],
+  "appmesh-preview": [
+    "AppMesh"
+  ],
+  "apprunner": [
+    "AppRunner"
+  ],
+  "appstream": [
+    "AppStream"
+  ],
+  "appstudio": [],
+  "appsync": [
+    "AppSync"
+  ],
+  "apptest": [],
+  "aps": [
+    "APS"
+  ],
+  "arc-region-switch": [
+    "ARCRegionSwitch"
+  ],
+  "artifact": [],
+  "athena": [
+    "Athena"
+  ],
+  "auditmanager": [
+    "AuditManager"
+  ],
+  "autoscaling": [
+    "AutoScaling"
+  ],
+  "aws-marketplace": [],
+  "b2bi": [
+    "B2BI"
+  ],
+  "backup": [
+    "Backup"
+  ],
+  "backup-gateway": [
+    "BackupGateway"
+  ],
+  "backup-search": [],
+  "batch": [
+    "Batch"
+  ],
+  "bcm-data-exports": [
+    "BCMDataExports"
+  ],
+  "bcm-pricing-calculator": [],
+  "bedrock": [
+    "Bedrock"
+  ],
+  "bedrock-agentcore": [
+    "BedrockAgentCore"
+  ],
+  "bedrock-mantle": [],
+  "billing": [
+    "Billing"
+  ],
+  "billingconductor": [
+    "BillingConductor"
+  ],
+  "braket": [],
+  "budgets": [
+    "Budgets"
+  ],
+  "bugbust": [],
+  "cases": [
+    "Cases"
+  ],
+  "cassandra": [
+    "Cassandra"
+  ],
+  "catalog": [
+    "ServiceCatalog"
+  ],
+  "ce": [
+    "CE"
+  ],
+  "chatbot": [
+    "Chatbot"
+  ],
+  "chime": [],
+  "cleanrooms": [
+    "CleanRooms"
+  ],
+  "cleanrooms-ml": [
+    "CleanRoomsML"
+  ],
+  "cloud9": [
+    "Cloud9"
+  ],
+  "clouddirectory": [],
+  "cloudformation": [
+    "CloudFormation"
+  ],
+  "cloudfront": [
+    "CloudFront"
+  ],
+  "cloudhsm": [],
+  "cloudsearch": [],
+  "cloudshell": [],
+  "cloudtrail": [
+    "CloudTrail"
+  ],
+  "cloudwatch": [
+    "CloudWatch"
+  ],
+  "codeartifact": [
+    "CodeArtifact"
+  ],
+  "codebuild": [
+    "CodeBuild"
+  ],
+  "codecatalyst": [],
+  "codecommit": [
+    "CodeCommit"
+  ],
+  "codeconnections": [
+    "CodeConnections"
+  ],
+  "codedeploy": [
+    "CodeDeploy"
+  ],
+  "codeguru-profiler": [
+    "CodeGuruProfiler"
+  ],
+  "codeguru-reviewer": [
+    "CodeGuruReviewer"
+  ],
+  "codeguru-security": [],
+  "codepipeline": [
+    "CodePipeline"
+  ],
+  "codestar": [],
+  "codestar-connections": [
+    "CodeStarConnections"
+  ],
+  "codestar-notifications": [
+    "CodeStarNotifications"
+  ],
+  "codewhisperer": [],
+  "cognito-identity": [],
+  "cognito-idp": [
+    "Cognito"
+  ],
+  "cognito-sync": [],
+  "comprehend": [
+    "Comprehend"
+  ],
+  "compute-optimizer": [],
+  "config": [
+    "Config"
+  ],
+  "connect": [
+    "Connect"
+  ],
+  "connect-campaigns": [
+    "ConnectCampaigns",
+    "ConnectCampaignsV2"
+  ],
+  "consoleapp": [],
+  "controlcatalog": [],
+  "controltower": [
+    "ControlTower"
+  ],
+  "cur": [
+    "CUR"
+  ],
+  "databrew": [
+    "DataBrew"
+  ],
+  "dataexchange": [],
+  "datapipeline": [
+    "DataPipeline"
+  ],
+  "datasync": [
+    "DataSync"
+  ],
+  "datazone": [
+    "DataZone"
+  ],
+  "dax": [
+    "DAX"
+  ],
+  "deadline": [
+    "Deadline"
+  ],
+  "detective": [
+    "Detective"
+  ],
+  "devicefarm": [],
+  "directconnect": [],
+  "dlm": [
+    "DLM"
+  ],
+  "dms": [
+    "DMS"
+  ],
+  "docdb-elastic": [
+    "DocDBElastic"
+  ],
+  "drs": [],
+  "ds": [
+    "DirectoryService"
+  ],
+  "dsql": [
+    "DSQL"
+  ],
+  "dynamodb": [
+    "DynamoDB"
+  ],
+  "ec2": [
+    "EC2"
+  ],
+  "ecr": [
+    "ECR"
+  ],
+  "ecr-public": [],
+  "ecs": [
+    "ECS"
+  ],
+  "eks": [
+    "EKS"
+  ],
+  "elastic-inference": [],
+  "elasticache": [
+    "ElastiCache"
+  ],
+  "elasticbeanstalk": [
+    "ElasticBeanstalk"
+  ],
+  "elasticfilesystem": [
+    "EFS"
+  ],
+  "elasticloadbalancing": [
+    "ElasticLoadBalancing",
+    "ElasticLoadBalancingV2"
+  ],
+  "elasticmapreduce": [
+    "EMR"
+  ],
+  "elastictranscoder": [],
+  "elemental-appliances-software": [],
+  "elemental-support-cases": [],
+  "emr-containers": [
+    "EMRContainers"
+  ],
+  "emr-serverless": [
+    "EMRServerless"
+  ],
+  "entityresolution": [
+    "EntityResolution"
+  ],
+  "es": [
+    "Elasticsearch",
+    "OpenSearchService"
+  ],
+  "events": [
+    "Events"
+  ],
+  "evidently": [
+    "Evidently"
+  ],
+  "evs": [
+    "EVS"
+  ],
+  "execute-api": [],
+  "finspace": [
+    "FinSpace"
+  ],
+  "finspace-api": [],
+  "firehose": [
+    "KinesisFirehose"
+  ],
+  "fis": [
+    "FIS"
+  ],
+  "fms": [
+    "FMS"
+  ],
+  "forecast": [
+    "Forecast"
+  ],
+  "frauddetector": [
+    "FraudDetector"
+  ],
+  "freertos": [],
+  "fsx": [
+    "FSx"
+  ],
+  "gamelift": [
+    "GameLift"
+  ],
+  "gameliftstreams": [],
+  "geo": [
+    "Location"
+  ],
+  "geo-maps": [],
+  "geo-places": [],
+  "geo-routes": [],
+  "glacier": [],
+  "globalaccelerator": [
+    "GlobalAccelerator"
+  ],
+  "glue": [
+    "Glue"
+  ],
+  "grafana": [
+    "Grafana"
+  ],
+  "greengrass": [
+    "Greengrass",
+    "GreengrassV2"
+  ],
+  "groundstation": [
+    "GroundStation"
+  ],
+  "guardduty": [
+    "GuardDuty"
+  ],
+  "health": [],
+  "healthlake": [
+    "HealthLake"
+  ],
+  "honeycode": [],
+  "iam": [
+    "IAM"
+  ],
+  "identity-sync": [],
+  "identitystore": [
+    "IdentityStore"
+  ],
+  "imagebuilder": [
+    "ImageBuilder"
+  ],
+  "inspector": [
+    "Inspector"
+  ],
+  "inspector2": [
+    "InspectorV2"
+  ],
+  "internetmonitor": [
+    "InternetMonitor"
+  ],
+  "invoicing": [
+    "Invoicing"
+  ],
+  "iot": [
+    "IoT"
+  ],
+  "iotanalytics": [
+    "IoTAnalytics"
+  ],
+  "iotdeviceadvisor": [
+    "IoTCoreDeviceAdvisor"
+  ],
+  "iotevents": [
+    "IoTEvents"
+  ],
+  "iotfleethub": [],
+  "iotfleetwise": [
+    "IoTFleetWise"
+  ],
+  "iotmanagedintegrations": [],
+  "iotsitewise": [
+    "IoTSiteWise"
+  ],
+  "iottwinmaker": [
+    "IoTTwinMaker"
+  ],
+  "iotwireless": [
+    "IoTWireless"
+  ],
+  "iq": [],
+  "iq-permission": [],
+  "ivs": [
+    "IVS"
+  ],
+  "ivschat": [
+    "IVSChat"
+  ],
+  "kafka": [
+    "MSK"
+  ],
+  "kafkaconnect": [
+    "KafkaConnect"
+  ],
+  "kendra": [
+    "Kendra"
+  ],
+  "kendra-ranking": [
+    "KendraRanking"
+  ],
+  "kinesis": [
+    "Kinesis"
+  ],
+  "kinesisanalytics": [
+    "KinesisAnalytics",
+    "KinesisAnalyticsV2"
+  ],
+  "kinesisvideo": [
+    "KinesisVideo"
+  ],
+  "kms": [
+    "KMS"
+  ],
+  "lambda": [
+    "Lambda"
+  ],
+  "launchwizard": [
+    "LaunchWizard"
+  ],
+  "lex": [
+    "Lex"
+  ],
+  "license-manager": [
+    "LicenseManager"
+  ],
+  "license-manager-linux-subscriptions": [],
+  "license-manager-user-subscriptions": [],
+  "lightsail": [
+    "Lightsail"
+  ],
+  "logs": [
+    "Logs"
+  ],
+  "lookoutequipment": [
+    "LookoutEquipment"
+  ],
+  "lookoutmetrics": [],
+  "lookoutvision": [],
+  "m2": [
+    "M2"
+  ],
+  "machinelearning": [],
+  "macie2": [
+    "Macie"
+  ],
+  "managedblockchain": [
+    "ManagedBlockchain"
+  ],
+  "mapcredits": [],
+  "mediaconnect": [
+    "MediaConnect"
+  ],
+  "mediaconvert": [
+    "MediaConvert"
+  ],
+  "medialive": [
+    "MediaLive"
+  ],
+  "mediapackage": [
+    "MediaPackage"
+  ],
+  "mediapackage-vod": [],
+  "mediapackagev2": [
+    "MediaPackageV2"
+  ],
+  "mediastore": [
+    "MediaStore"
+  ],
+  "mediatailor": [
+    "MediaTailor"
+  ],
+  "medical-imaging": [
+    "HealthImaging"
+  ],
+  "memorydb": [
+    "MemoryDB"
+  ],
+  "mgh": [],
+  "mgn": [],
+  "migrationhub-orchestrator": [],
+  "mobiletargeting": [
+    "Pinpoint"
+  ],
+  "monitron": [],
+  "mpa": [
+    "MPA"
+  ],
+  "mq": [
+    "AmazonMQ"
+  ],
+  "neptune-db": [],
+  "neptune-graph": [
+    "NeptuneGraph"
+  ],
+  "network-firewall": [
+    "NetworkFirewall"
+  ],
+  "networkflowmonitor": [],
+  "networkmanager": [
+    "NetworkManager"
+  ],
+  "networkmonitor": [],
+  "nimble": [],
+  "notifications": [
+    "Notifications"
+  ],
+  "notifications-contacts": [
+    "NotificationsContacts"
+  ],
+  "nova-act": [],
+  "oam": [
+    "Oam"
+  ],
+  "observabilityadmin": [
+    "ObservabilityAdmin"
+  ],
+  "odb": [
+    "ODB"
+  ],
+  "omics": [
+    "Omics"
+  ],
+  "one": [],
+  "opensearch": [
+    "OpenSearchService"
+  ],
+  "opsworks": [],
+  "opsworks-cm": [],
+  "organizations": [
+    "Organizations"
+  ],
+  "osis": [
+    "OSIS"
+  ],
+  "outposts": [],
+  "panorama": [
+    "Panorama"
+  ],
+  "partnercentral": [],
+  "payment-cryptography": [
+    "PaymentCryptography"
+  ],
+  "payments": [],
+  "pca-connector-ad": [
+    "PCAConnectorAD"
+  ],
+  "pca-connector-scep": [
+    "PCAConnectorSCEP"
+  ],
+  "pcs": [
+    "PCS"
+  ],
+  "personalize": [
+    "Personalize"
+  ],
+  "pi": [],
+  "pipes": [
+    "Pipes"
+  ],
+  "polly": [],
+  "pricingplanmanager": [],
+  "private-networks": [],
+  "profile": [
+    "CustomerProfiles"
+  ],
+  "proton": [
+    "Proton"
+  ],
+  "purchase-orders": [],
+  "qapps": [],
+  "qbusiness": [
+    "QBusiness"
+  ],
+  "qdeveloper": [],
+  "qldb": [],
+  "quicksight": [
+    "QuickSight"
+  ],
+  "ram": [
+    "RAM"
+  ],
+  "rbin": [
+    "Rbin"
+  ],
+  "rds": [
+    "DocDB",
+    "Neptune",
+    "RDS"
+  ],
+  "rds-db": [],
+  "redshift": [
+    "Redshift"
+  ],
+  "redshift-serverless": [
+    "RedshiftServerless"
+  ],
+  "refactor-spaces": [
+    "RefactorSpaces"
+  ],
+  "rekognition": [
+    "Rekognition"
+  ],
+  "repostspace": [],
+  "resiliencehub": [
+    "ResilienceHub"
+  ],
+  "resource-explorer-2": [
+    "ResourceExplorer2"
+  ],
+  "resource-groups": [
+    "ResourceGroups"
+  ],
+  "robomaker": [],
+  "rolesanywhere": [
+    "RolesAnywhere"
+  ],
+  "route53": [
+    "Route53"
+  ],
+  "route53-recovery-control": [
+    "Route53RecoveryControl"
+  ],
+  "route53-recovery-readiness": [
+    "Route53RecoveryReadiness"
+  ],
+  "route53globalresolver": [],
+  "route53profiles": [
+    "Route53Profiles"
+  ],
+  "route53resolver": [
+    "Route53Resolver"
+  ],
+  "rum": [
+    "RUM"
+  ],
+  "s3": [
+    "S3",
+    "S3Express",
+    "S3ObjectLambda"
+  ],
+  "s3-object-lambda": [
+    "S3",
+    "S3Express",
+    "S3ObjectLambda"
+  ],
+  "s3-outposts": [
+    "S3Outposts"
+  ],
+  "s3express": [
+    "S3",
+    "S3Express",
+    "S3ObjectLambda"
+  ],
+  "s3tables": [
+    "S3Tables"
+  ],
+  "s3vectors": [
+    "S3Vectors"
+  ],
+  "sagemaker": [
+    "SageMaker"
+  ],
+  "sagemaker-geospatial": [],
+  "savingsplans": [],
+  "scheduler": [
+    "Scheduler"
+  ],
+  "schemas": [
+    "EventSchemas"
+  ],
+  "scn": [],
+  "sdb": [
+    "SDB"
+  ],
+  "secretsmanager": [
+    "SecretsManager"
+  ],
+  "security-ir": [],
+  "securityagent": [],
+  "securityhub": [
+    "SecurityHub"
+  ],
+  "securitylake": [
+    "SecurityLake"
+  ],
+  "serverlessrepo": [],
+  "servicecatalog": [
+    "ServiceCatalog",
+    "ServiceCatalogAppRegistry"
+  ],
+  "servicediscovery": [
+    "ServiceDiscovery"
+  ],
+  "servicequotas": [],
+  "ses": [
+    "PinpointEmail",
+    "SES"
+  ],
+  "shield": [
+    "Shield"
+  ],
+  "signer": [
+    "Signer"
+  ],
+  "simspaceweaver": [
+    "SimSpaceWeaver"
+  ],
+  "sms-voice": [
+    "SMSVOICE"
+  ],
+  "snow-device-management": [],
+  "sns": [
+    "SNS"
+  ],
+  "social-messaging": [],
+  "sqlworkbench": [],
+  "sqs": [
+    "SQS"
+  ],
+  "ssm": [
+    "SSM"
+  ],
+  "ssm-contacts": [
+    "SSMContacts"
+  ],
+  "ssm-incidents": [
+    "SSMIncidents"
+  ],
+  "ssm-quicksetup": [
+    "SSMQuickSetup"
+  ],
+  "ssm-sap": [
+    "SystemsManagerSAP"
+  ],
+  "sso": [
+    "SSO"
+  ],
+  "states": [
+    "StepFunctions"
+  ],
+  "storagegateway": [],
+  "sts": [],
+  "swf": [],
+  "synthetics": [
+    "Synthetics"
+  ],
+  "textract": [],
+  "thinclient": [
+    "WorkSpacesThinClient"
+  ],
+  "timestream": [
+    "Timestream"
+  ],
+  "timestream-influxdb": [],
+  "tnb": [],
+  "transcribe": [],
+  "transfer": [
+    "Transfer"
+  ],
+  "transform": [],
+  "transform-custom": [],
+  "translate": [],
+  "trustedadvisor": [],
+  "ts": [],
+  "vendor-insights": [],
+  "verifiedpermissions": [
+    "VerifiedPermissions"
+  ],
+  "voiceid": [
+    "VoiceID"
+  ],
+  "vpc-lattice": [
+    "VpcLattice"
+  ],
+  "waf": [
+    "WAF"
+  ],
+  "waf-regional": [
+    "WAFRegional"
+  ],
+  "wafv2": [
+    "WAFv2"
+  ],
+  "wellarchitected": [],
+  "wickr": [],
+  "wisdom": [
+    "Wisdom"
+  ],
+  "workdocs": [],
+  "worklink": [],
+  "workmail": [],
+  "workmailmessageflow": [],
+  "workspaces": [
+    "WorkSpaces"
+  ],
+  "workspaces-instances": [
+    "WorkspacesInstances"
+  ],
+  "workspaces-web": [
+    "WorkSpacesWeb"
+  ],
+  "xray": [
+    "XRay"
+  ]
 }
