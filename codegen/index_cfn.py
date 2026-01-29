@@ -139,9 +139,21 @@ class CFNServiceIndexer:
                     continue
                 raise ValueError(f"No SDK mapping for CFN service: {cfn}")
 
+        sdk_to_cfn = {}
+        for cfn, sdk in cfn_to_sdk.items():
+            sdk_to_cfn.setdefault(sdk, []).append(cfn)
 
-        # self.save(cfns)
-        return
+        arn_to_cfn = {}
+        for arn, sdks in arn_to_sdk.items():
+            arn_to_cfn[arn] = {}
+            for sdk in sdks:
+                arn_to_cfn[arn][sdk] = []
+                for cfn in sdk_to_cfn.get(sdk, []):
+                    arn_to_cfn[arn][sdk].append(cfn)
+
+
+        self.save(arn_to_cfn)
+        return arn_to_cfn
 
 
 if __name__ == "__main__":

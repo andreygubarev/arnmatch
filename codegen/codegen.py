@@ -164,7 +164,7 @@ def main():
         json.dump(sdk_mapping, f, indent=2)
 
     cfn_indexer = CFNServiceIndexer()
-    cfn_indexer.process(sdk_mapping)
+    cfn_mapping = cfn_indexer.process(sdk_mapping)
 
     # Generate
     generator = CodeGenerator()
