@@ -8,6 +8,7 @@ from functools import cached_property
 
 from .arn_patterns import (
     ARN_PATTERNS,
+    AWS_CLOUDFORMATION_RESOURCES,
     AWS_SDK_SERVICES,
     AWS_SDK_SERVICES_DEFAULT,
     AWS_SDK_SERVICES_OVERRIDE,
@@ -113,6 +114,15 @@ class ARN:
             return AWS_SDK_SERVICES_DEFAULT.get(self.aws_service)
         return None
 
+    @cached_property
+    def cloudformation_resource(self) -> str | None:
+        """Get the CloudFormation resource type for this resource.
+
+        Returns the CFN resource type (e.g., 'AWS::S3::Bucket') or None
+        if no mapping exists.
+        """
+        return AWS_CLOUDFORMATION_RESOURCES.get(self.aws_service, {}).get(self.resource_type)
+
 
 def arnmatch(arn: str) -> ARN:
     """Match ARN against patterns.
@@ -164,6 +174,7 @@ def main() -> None:
         print(f"resource_type: {result.resource_type}")
         print(f"resource_id: {result.resource_id}")
         print(f"resource_name: {result.resource_name}")
+        print(f"cloudformation_resource: {result.cloudformation_resource}")
     except ARNError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
