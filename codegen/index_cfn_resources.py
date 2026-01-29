@@ -50,14 +50,28 @@ class CFNResourceIndexer:
             resources[service] = {r: self.cloudformation_resources[service] for r in sorted(resource_types)}
 
         mapping = {}
+        missing = []
         for service, resource_types in resources.items():
             for resource_type, cloudformation_resource_types in resource_types.items():
                 n0 = self.normalize_name(resource_type)
                 ns = {self.normalize_cloudformation_name(r): r for r in cloudformation_resource_types}
                 if n0 in ns:
                     mapping[(service, resource_type)] = ns[n0]
+                else:
+                    missing.append((service, resource_type, cloudformation_resource_types))
+        print(f"Found {len(mapping)} mapped CFN resource types, {len(missing)} missing.")
+
+        if missing:
+            # save missing mappings for review
+            missing_file = Path(__file__).parent / "cache" / "MissingCFNResources.json"
+            missing_data = [
+                {"service": s, "resource_type": r, "cfn_resource_types": c}
+                for s, r, c in missing
+            ]
+            missing_file.write_text(json.dumps(missing_data, indent=2))
+            print(f"Wrote {len(missing)} missing CFN resource mappings to {missing_file}")
 
         from pprint import pprint
-        pprint(mapping)
+        # pprint(mapping)
 
         return mapping
