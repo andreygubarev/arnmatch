@@ -41,18 +41,18 @@ class CFNResourceIndexer:
         """Build ARN service to resource types mapping."""
         services = [service for service, cfns in arn_to_cfn.items() if cfns]
 
-        resources_registry = {}
+        resources_candidates = {}
         for service, patterns in by_service.items():
             if service not in services:
                 continue
             resource_types = set()
             for regex, r in patterns:
                 resource_types.update(r)
-            resources_registry[service] = {r: self.cloudformation_resources[service] for r in sorted(resource_types)}
+            resources_candidates[service] = {r: self.cloudformation_resources[service] for r in sorted(resource_types)}
 
         resources = {}
         resources_missing = []
-        for service, resource_types in resources_registry.items():
+        for service, resource_types in resources_candidates.items():
             resources.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
                 n0 = self.normalize_name(resource_type)
