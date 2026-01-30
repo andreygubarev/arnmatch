@@ -142,6 +142,13 @@
     "servicesetting",
     "session"
   ],
+  "route53": [
+    "change",
+    "delegationset",
+    "queryloggingconfig",
+    "trafficpolicy",
+    "trafficpolicyinstance"
+  ],
   "sagemaker": [
     "action",
     "algorithm",
