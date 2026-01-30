@@ -51,13 +51,23 @@ class CodeGenerator:
     def process(self, resources):
         """Process resources into service-grouped patterns with regexes."""
         by_service = {}
+        type_aliases_count = 0
         for r in resources:
             service = r["arn_service"]
             if service not in by_service:
                 by_service[service] = []
             regex = self.pattern_to_regex(r["arn_pattern"])
             type_names = self.get_type_names(service, r["resource_type"])
+            if len(type_names) > 1:
+                type_aliases_count += 1
             by_service[service].append((regex, type_names))
+
+        self.metrics = {
+            "services": len(by_service),
+            "patterns": sum(len(p) for p in by_service.values()),
+            "type_aliases": type_aliases_count,
+        }
+
         return by_service
 
     def generate(self, by_service, sdk_services_mapping, cfn_resources_mapping, output_path):
@@ -184,6 +194,53 @@ def main():
     cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
 
     generator.generate(by_service, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.py")
+
+    # Collect and save metrics
+    metrics = {
+        "scraper": {"services": len(services), "resources_raw": len(raw_resources)},
+        "arn_indexer": indexer.metrics,
+        "sdk_service_indexer": sdk_indexer.metrics,
+        "sdk_resource_indexer": sdk_resource_indexer.metrics,
+        "cfn_service_indexer": cfn_indexer.metrics,
+        "cfn_resource_indexer": cfn_resource_indexer.metrics,
+        "generator": generator.metrics,
+    }
+    with open(BUILD_DIR / "codegen_metrics.json", "w") as f:
+        json.dump(metrics, f, indent=2)
+
+    print_summary(metrics)
+
+
+def print_summary(metrics):
+    """Print a concise summary of codegen metrics."""
+    print("\n=== Codegen Metrics ===")
+
+    s = metrics["scraper"]
+    print(f"Scrape:        {s['services']} services, {s['resources_raw']} resources")
+
+    a = metrics["arn_indexer"]
+    print(f"ARN Index:     in={a['input']} → filter=-{a['filtered_by_arn'] + a['filtered_by_resource']} "
+          f"dedupe=-{a['duplicates_removed']} override={a['overrides_applied']} "
+          f"include=+{a['includes_added']} → out={a['output']}")
+
+    sdk = metrics["sdk_service_indexer"]
+    print(f"SDK Services:  in={sdk['input']} → direct={sdk['direct_match']} meta={sdk['metadata_match']} "
+          f"override={sdk['override']} exclude={sdk['excluded']} multi={sdk['multi_sdk']} → out={sdk['output']}")
+
+    sdkr = metrics["sdk_resource_indexer"]
+    print(f"SDK Resources: multi={sdkr['multi_sdk_services']} defaults={sdkr['with_default']} "
+          f"overrides={sdkr['with_overrides']}")
+
+    cfn = metrics["cfn_service_indexer"]
+    print(f"CFN Services:  in={cfn['cfn_services_total']} → direct={cfn['direct_match']} "
+          f"override={cfn['override']} exclude={cfn['excluded']} → mapped={cfn['mapped_to_arn']}")
+
+    cfnr = metrics["cfn_resource_indexer"]
+    print(f"CFN Resources: exact={cfnr['exact_match']} plural={cfnr['plural_match']} "
+          f"override={cfnr['override']} exclude={cfnr['excluded']} missing={cfnr['missing']} → mapped={cfnr['mapped']}")
+
+    g = metrics["generator"]
+    print(f"Generator:     {g['services']} services, {g['patterns']} patterns, {g['type_aliases']} aliases")
 
 
 if __name__ == "__main__":

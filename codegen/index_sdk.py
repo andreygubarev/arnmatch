@@ -24,21 +24,28 @@ class SDKServiceIndexer:
         metadata = self.metadata_load()
 
         result = {}
+        direct_count = 0
+        metadata_count = 0
+        override_count = 0
+        excluded_count = 0
 
         for arn_service in sorted(arn_services):
             # Check manual overrides first
             if arn_service in self.OVERRIDES:
                 result[arn_service] = self.OVERRIDES[arn_service]
+                override_count += 1
                 continue
 
             # Known no-SDK services
             if arn_service in self.EXCLUDES:
                 result[arn_service] = []
+                excluded_count += 1
                 continue
 
             # Phase 1: Direct name match
             if arn_service in metadata:
                 result[arn_service] = [arn_service]
+                direct_count += 1
                 # Also check for additional clients via metadata
                 additional = self.metadata_match(
                     arn_service, metadata, exclude={arn_service}
@@ -51,10 +58,21 @@ class SDKServiceIndexer:
             sdk_services = self.metadata_match(arn_service, metadata)
             if sdk_services:
                 result[arn_service] = sorted(sdk_services)
+                metadata_count += 1
                 continue
 
             # No mapping found
             raise ValueError(f"No SDK client mapping for ARN service: {arn_service}")
+
+        self.metrics = {
+            "input": len(arn_services),
+            "direct_match": direct_count,
+            "metadata_match": metadata_count,
+            "override": override_count,
+            "excluded": excluded_count,
+            "multi_sdk": len([s for s in result.values() if len(s) > 1]),
+            "output": len(result),
+        }
 
         return result
 

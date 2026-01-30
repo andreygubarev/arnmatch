@@ -97,6 +97,8 @@ class CFNServiceIndexer:
         sdk_to_names = self.sdk_to_names()
 
         cfn_to_sdk = {}
+        direct_count = 0
+        override_count = 0
 
         def normalize(name):
             return name.lower().replace("-", "").replace(" ", "")
@@ -106,10 +108,12 @@ class CFNServiceIndexer:
             for sdk, names in sdk_to_names.items():
                 if ncfn in names:
                     cfn_to_sdk[cfn] = sdk
+                    direct_count += 1
                     break
             else:
                 if cfn in self.OVERRIDES:
                     cfn_to_sdk[cfn] = self.OVERRIDES[cfn]
+                    override_count += 1
                     continue
                 raise ValueError(f"No SDK mapping for CFN service: {cfn}")
 
@@ -130,6 +134,15 @@ class CFNServiceIndexer:
             raise ValueError(f"CFN services with no ARN mapping: {diff}")
 
         self.save(arn_to_cfn)
+
+        self.metrics = {
+            "cfn_services_total": len(self.cloudformation_services),
+            "direct_match": direct_count,
+            "override": override_count,
+            "excluded": len(self.EXCLUDES),
+            "mapped_to_arn": len([s for s in arn_to_cfn.values() if s]),
+        }
+
         return arn_to_cfn
 
 

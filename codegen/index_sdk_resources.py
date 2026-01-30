@@ -39,3 +39,9 @@ class SDKResourceIndexer:
                 missing[arn_service] = sdks
         if missing:
             raise RuntimeError(f"Missing DEFAULT_SERVICE for multi-SDK services: {missing}")
+
+        self.metrics = {
+            "multi_sdk_services": len([s for s in sdk_mapping.values() if len(s) > 1]),
+            "with_default": len(self.DEFAULT_SERVICE),
+            "with_overrides": len(self.OVERRIDE_SERVICE),
+        }

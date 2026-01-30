@@ -31,14 +31,23 @@ class ARNIndexer:
 
     def process(self, resources):
         """Process raw resources: add arn_service, apply overrides, filter, dedupe, add includes, sort."""
+        input_count = len(resources)
+
         # Add arn_service and apply overrides
+        overrides_count = 0
         for r in resources:
             r["arn_service"] = self.extract_arn_service(r["arn_pattern"])
             svc, rt = r["service"], r["resource_type"]
             if svc in self.OVERRIDES and rt in self.OVERRIDES[svc]:
                 r["arn_pattern"] = self.OVERRIDES[svc][rt]
+                overrides_count += 1
 
         # Filter
+        filtered_by_arn = sum(1 for r in resources if r["arn_pattern"] in self.EXCLUDED_ARNS)
+        filtered_by_resource = sum(
+            1 for r in resources
+            if r["resource_type"] in self.EXCLUDED_RESOURCES.get(r["service"], [])
+        )
         resources = [
             r for r in resources
             if r["arn_pattern"] not in self.EXCLUDED_ARNS
@@ -47,7 +56,9 @@ class ARNIndexer:
         log.info(f"After filtering: {len(resources)} resources")
 
         # Deduplicate
+        before_dedupe = len(resources)
         resources = self.deduplicate(resources)
+        duplicates_count = before_dedupe - len(resources)
         log.info(f"After deduplication: {len(resources)} resources")
 
         # Add included patterns
@@ -62,6 +73,16 @@ class ARNIndexer:
 
         # Sort
         resources = self.sort_by_specificity(resources)
+
+        self.metrics = {
+            "input": input_count,
+            "filtered_by_arn": filtered_by_arn,
+            "filtered_by_resource": filtered_by_resource,
+            "overrides_applied": overrides_count,
+            "duplicates_removed": duplicates_count,
+            "includes_added": len(self.INCLUDES),
+            "output": len(resources),
+        }
 
         return resources
 

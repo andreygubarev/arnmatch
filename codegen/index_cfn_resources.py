@@ -62,16 +62,23 @@ class CFNResourceIndexer:
 
         resources = {}
         resources_missing = []
+        exact_count = 0
+        plural_count = 0
+        override_count = 0
+        excluded_count = 0
+
         for service, resource_types in resources_candidates.items():
             resources.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
                 # Skip resources with no CFN equivalent
                 if service in self.EXCLUDES and resource_type in self.EXCLUDES[service]:
+                    excluded_count += 1
                     continue
 
                 # Check manual overrides
                 if service in self.OVERRIDES and resource_type in self.OVERRIDES[service]:
                     resources[service][resource_type] = self.OVERRIDES[service][resource_type]
+                    override_count += 1
                     continue
 
                 n0 = self.normalize_name(resource_type)
@@ -86,14 +93,17 @@ class CFNResourceIndexer:
 
                 if n0 in ns:
                     resources[service][resource_type] = ns[n0]
+                    exact_count += 1
                 elif n0.endswith("s"):
                     if resource_type[:-1] in resources[service]:
                         print(f"Plural form: already mapped for {service} {resource_type}")
                     else:
                         if n0[:-1] in ns:
                             resources[service][resource_type] = ns[n0[:-1]]
+                            plural_count += 1
                         elif n0[:-2] in ns:
                             resources[service][resource_type] = ns[n0[:-2]]
+                            plural_count += 1
                 else:
                     resources_missing.append({
                         "resource_service": service,
@@ -104,5 +114,15 @@ class CFNResourceIndexer:
         if resources_missing:
             self.CACHE_RESOURCES_MISS_FILE.write_text(json.dumps(resources_missing, indent=2))
             print(f"Wrote {len(resources_missing)} missing CFN resource mappings")
+
+        self.metrics = {
+            "services_with_cfn": len(services),
+            "exact_match": exact_count,
+            "plural_match": plural_count,
+            "override": override_count,
+            "excluded": excluded_count,
+            "missing": len(resources_missing),
+            "mapped": sum(len(r) for r in resources.values()),
+        }
 
         return resources

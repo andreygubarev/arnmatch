@@ -1,0 +1,50 @@
+{
+  "scraper": {
+    "services": 461,
+    "resources_raw": 2156
+  },
+  "arn_indexer": {
+    "input": 2169,
+    "filtered_by_arn": 14,
+    "filtered_by_resource": 16,
+    "overrides_applied": 28,
+    "duplicates_removed": 68,
+    "includes_added": 10,
+    "output": 2082
+  },
+  "sdk_service_indexer": {
+    "input": 355,
+    "direct_match": 269,
+    "metadata_match": 36,
+    "override": 10,
+    "excluded": 40,
+    "multi_sdk": 36,
+    "output": 355
+  },
+  "sdk_resource_indexer": {
+    "multi_sdk_services": 36,
+    "with_default": 36,
+    "with_overrides": 12
+  },
+  "cfn_service_indexer": {
+    "cfn_services_total": 248,
+    "direct_match": 232,
+    "override": 16,
+    "excluded": 16,
+    "mapped_to_arn": 241
+  },
+  "cfn_resource_indexer": {
+    "services_with_cfn": 241,
+    "exact_match": 963,
+    "plural_match": 12,
+    "override": 103,
+    "excluded": 561,
+    "missing": 0,
+    "mapped": 1078
+  },
+  "generator": {
+    "services": 355,
+    "patterns": 2082,
+    "type_aliases": 12
+  }
+}
