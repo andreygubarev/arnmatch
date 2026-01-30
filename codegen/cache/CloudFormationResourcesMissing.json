@@ -529,82 +529,6 @@
     ]
   },
   {
-    "resource_service": "datasync",
-    "resource_type": "discoveryjob",
-    "cloudformation_resources": [
-      "AWS::DataSync::Agent",
-      "AWS::DataSync::LocationAzureBlob",
-      "AWS::DataSync::LocationEFS",
-      "AWS::DataSync::LocationFSxLustre",
-      "AWS::DataSync::LocationFSxONTAP",
-      "AWS::DataSync::LocationFSxOpenZFS",
-      "AWS::DataSync::LocationFSxWindows",
-      "AWS::DataSync::LocationHDFS",
-      "AWS::DataSync::LocationNFS",
-      "AWS::DataSync::LocationObjectStorage",
-      "AWS::DataSync::LocationS3",
-      "AWS::DataSync::LocationSMB",
-      "AWS::DataSync::Task"
-    ]
-  },
-  {
-    "resource_service": "datasync",
-    "resource_type": "location",
-    "cloudformation_resources": [
-      "AWS::DataSync::Agent",
-      "AWS::DataSync::LocationAzureBlob",
-      "AWS::DataSync::LocationEFS",
-      "AWS::DataSync::LocationFSxLustre",
-      "AWS::DataSync::LocationFSxONTAP",
-      "AWS::DataSync::LocationFSxOpenZFS",
-      "AWS::DataSync::LocationFSxWindows",
-      "AWS::DataSync::LocationHDFS",
-      "AWS::DataSync::LocationNFS",
-      "AWS::DataSync::LocationObjectStorage",
-      "AWS::DataSync::LocationS3",
-      "AWS::DataSync::LocationSMB",
-      "AWS::DataSync::Task"
-    ]
-  },
-  {
-    "resource_service": "datasync",
-    "resource_type": "storagesystem",
-    "cloudformation_resources": [
-      "AWS::DataSync::Agent",
-      "AWS::DataSync::LocationAzureBlob",
-      "AWS::DataSync::LocationEFS",
-      "AWS::DataSync::LocationFSxLustre",
-      "AWS::DataSync::LocationFSxONTAP",
-      "AWS::DataSync::LocationFSxOpenZFS",
-      "AWS::DataSync::LocationFSxWindows",
-      "AWS::DataSync::LocationHDFS",
-      "AWS::DataSync::LocationNFS",
-      "AWS::DataSync::LocationObjectStorage",
-      "AWS::DataSync::LocationS3",
-      "AWS::DataSync::LocationSMB",
-      "AWS::DataSync::Task"
-    ]
-  },
-  {
-    "resource_service": "datasync",
-    "resource_type": "taskexecution",
-    "cloudformation_resources": [
-      "AWS::DataSync::Agent",
-      "AWS::DataSync::LocationAzureBlob",
-      "AWS::DataSync::LocationEFS",
-      "AWS::DataSync::LocationFSxLustre",
-      "AWS::DataSync::LocationFSxONTAP",
-      "AWS::DataSync::LocationFSxOpenZFS",
-      "AWS::DataSync::LocationFSxWindows",
-      "AWS::DataSync::LocationHDFS",
-      "AWS::DataSync::LocationNFS",
-      "AWS::DataSync::LocationObjectStorage",
-      "AWS::DataSync::LocationS3",
-      "AWS::DataSync::LocationSMB",
-      "AWS::DataSync::Task"
-    ]
-  },
-  {
     "resource_service": "dax",
     "resource_type": "application",
     "cloudformation_resources": [
@@ -738,126 +662,6 @@
     ]
   },
   {
-    "resource_service": "ecs",
-    "resource_type": "container-instance",
-    "cloudformation_resources": [
-      "AWS::ECS::CapacityProvider",
-      "AWS::ECS::Cluster",
-      "AWS::ECS::ClusterCapacityProviderAssociations",
-      "AWS::ECS::ExpressGatewayService",
-      "AWS::ECS::PrimaryTaskSet",
-      "AWS::ECS::Service",
-      "AWS::ECS::TaskDefinition",
-      "AWS::ECS::TaskSet"
-    ]
-  },
-  {
-    "resource_service": "ecs",
-    "resource_type": "service-deployment",
-    "cloudformation_resources": [
-      "AWS::ECS::CapacityProvider",
-      "AWS::ECS::Cluster",
-      "AWS::ECS::ClusterCapacityProviderAssociations",
-      "AWS::ECS::ExpressGatewayService",
-      "AWS::ECS::PrimaryTaskSet",
-      "AWS::ECS::Service",
-      "AWS::ECS::TaskDefinition",
-      "AWS::ECS::TaskSet"
-    ]
-  },
-  {
-    "resource_service": "ecs",
-    "resource_type": "service-revision",
-    "cloudformation_resources": [
-      "AWS::ECS::CapacityProvider",
-      "AWS::ECS::Cluster",
-      "AWS::ECS::ClusterCapacityProviderAssociations",
-      "AWS::ECS::ExpressGatewayService",
-      "AWS::ECS::PrimaryTaskSet",
-      "AWS::ECS::Service",
-      "AWS::ECS::TaskDefinition",
-      "AWS::ECS::TaskSet"
-    ]
-  },
-  {
-    "resource_service": "ecs",
-    "resource_type": "task",
-    "cloudformation_resources": [
-      "AWS::ECS::CapacityProvider",
-      "AWS::ECS::Cluster",
-      "AWS::ECS::ClusterCapacityProviderAssociations",
-      "AWS::ECS::ExpressGatewayService",
-      "AWS::ECS::PrimaryTaskSet",
-      "AWS::ECS::Service",
-      "AWS::ECS::TaskDefinition",
-      "AWS::ECS::TaskSet"
-    ]
-  },
-  {
-    "resource_service": "elasticache",
-    "resource_type": "cluster",
-    "cloudformation_resources": [
-      "AWS::ElastiCache::CacheCluster",
-      "AWS::ElastiCache::GlobalReplicationGroup",
-      "AWS::ElastiCache::ParameterGroup",
-      "AWS::ElastiCache::ReplicationGroup",
-      "AWS::ElastiCache::SecurityGroup",
-      "AWS::ElastiCache::SecurityGroupIngress",
-      "AWS::ElastiCache::ServerlessCache",
-      "AWS::ElastiCache::SubnetGroup",
-      "AWS::ElastiCache::User",
-      "AWS::ElastiCache::UserGroup"
-    ]
-  },
-  {
-    "resource_service": "elasticache",
-    "resource_type": "reserved-instance",
-    "cloudformation_resources": [
-      "AWS::ElastiCache::CacheCluster",
-      "AWS::ElastiCache::GlobalReplicationGroup",
-      "AWS::ElastiCache::ParameterGroup",
-      "AWS::ElastiCache::ReplicationGroup",
-      "AWS::ElastiCache::SecurityGroup",
-      "AWS::ElastiCache::SecurityGroupIngress",
-      "AWS::ElastiCache::ServerlessCache",
-      "AWS::ElastiCache::SubnetGroup",
-      "AWS::ElastiCache::User",
-      "AWS::ElastiCache::UserGroup"
-    ]
-  },
-  {
-    "resource_service": "elasticache",
-    "resource_type": "serverlesscachesnapshot",
-    "cloudformation_resources": [
-      "AWS::ElastiCache::CacheCluster",
-      "AWS::ElastiCache::GlobalReplicationGroup",
-      "AWS::ElastiCache::ParameterGroup",
-      "AWS::ElastiCache::ReplicationGroup",
-      "AWS::ElastiCache::SecurityGroup",
-      "AWS::ElastiCache::SecurityGroupIngress",
-      "AWS::ElastiCache::ServerlessCache",
-      "AWS::ElastiCache::SubnetGroup",
-      "AWS::ElastiCache::User",
-      "AWS::ElastiCache::UserGroup"
-    ]
-  },
-  {
-    "resource_service": "elasticache",
-    "resource_type": "snapshot",
-    "cloudformation_resources": [
-      "AWS::ElastiCache::CacheCluster",
-      "AWS::ElastiCache::GlobalReplicationGroup",
-      "AWS::ElastiCache::ParameterGroup",
-      "AWS::ElastiCache::ReplicationGroup",
-      "AWS::ElastiCache::SecurityGroup",
-      "AWS::ElastiCache::SecurityGroupIngress",
-      "AWS::ElastiCache::ServerlessCache",
-      "AWS::ElastiCache::SubnetGroup",
-      "AWS::ElastiCache::User",
-      "AWS::ElastiCache::UserGroup"
-    ]
-  },
-  {
     "resource_service": "elasticbeanstalk",
     "resource_type": "platform",
     "cloudformation_resources": [
@@ -903,34 +707,6 @@
       "AWS::EMR::Studio",
       "AWS::EMR::StudioSessionMapping",
       "AWS::EMR::WALWorkspace"
-    ]
-  },
-  {
-    "resource_service": "emr-containers",
-    "resource_type": "jobRun",
-    "cloudformation_resources": [
-      "AWS::EMRContainers::VirtualCluster"
-    ]
-  },
-  {
-    "resource_service": "emr-containers",
-    "resource_type": "jobTemplate",
-    "cloudformation_resources": [
-      "AWS::EMRContainers::VirtualCluster"
-    ]
-  },
-  {
-    "resource_service": "emr-containers",
-    "resource_type": "managedEndpoint",
-    "cloudformation_resources": [
-      "AWS::EMRContainers::VirtualCluster"
-    ]
-  },
-  {
-    "resource_service": "emr-containers",
-    "resource_type": "securityConfiguration",
-    "cloudformation_resources": [
-      "AWS::EMRContainers::VirtualCluster"
     ]
   },
   {
@@ -994,54 +770,6 @@
     ]
   },
   {
-    "resource_service": "fsx",
-    "resource_type": "association",
-    "cloudformation_resources": [
-      "AWS::FSx::DataRepositoryAssociation",
-      "AWS::FSx::FileSystem",
-      "AWS::FSx::S3AccessPointAttachment",
-      "AWS::FSx::Snapshot",
-      "AWS::FSx::StorageVirtualMachine",
-      "AWS::FSx::Volume"
-    ]
-  },
-  {
-    "resource_service": "fsx",
-    "resource_type": "backup",
-    "cloudformation_resources": [
-      "AWS::FSx::DataRepositoryAssociation",
-      "AWS::FSx::FileSystem",
-      "AWS::FSx::S3AccessPointAttachment",
-      "AWS::FSx::Snapshot",
-      "AWS::FSx::StorageVirtualMachine",
-      "AWS::FSx::Volume"
-    ]
-  },
-  {
-    "resource_service": "fsx",
-    "resource_type": "file-cache",
-    "cloudformation_resources": [
-      "AWS::FSx::DataRepositoryAssociation",
-      "AWS::FSx::FileSystem",
-      "AWS::FSx::S3AccessPointAttachment",
-      "AWS::FSx::Snapshot",
-      "AWS::FSx::StorageVirtualMachine",
-      "AWS::FSx::Volume"
-    ]
-  },
-  {
-    "resource_service": "fsx",
-    "resource_type": "task",
-    "cloudformation_resources": [
-      "AWS::FSx::DataRepositoryAssociation",
-      "AWS::FSx::FileSystem",
-      "AWS::FSx::S3AccessPointAttachment",
-      "AWS::FSx::Snapshot",
-      "AWS::FSx::StorageVirtualMachine",
-      "AWS::FSx::Volume"
-    ]
-  },
-  {
     "resource_service": "globalaccelerator",
     "resource_type": "attachment",
     "cloudformation_resources": [
@@ -1072,66 +800,6 @@
     "cloudformation_resources": [
       "AWS::IdentityStore::Group",
       "AWS::IdentityStore::GroupMembership"
-    ]
-  },
-  {
-    "resource_service": "imagebuilder",
-    "resource_type": "imageVersion",
-    "cloudformation_resources": [
-      "AWS::ImageBuilder::Component",
-      "AWS::ImageBuilder::ContainerRecipe",
-      "AWS::ImageBuilder::DistributionConfiguration",
-      "AWS::ImageBuilder::Image",
-      "AWS::ImageBuilder::ImagePipeline",
-      "AWS::ImageBuilder::ImageRecipe",
-      "AWS::ImageBuilder::InfrastructureConfiguration",
-      "AWS::ImageBuilder::LifecyclePolicy",
-      "AWS::ImageBuilder::Workflow"
-    ]
-  },
-  {
-    "resource_service": "imagebuilder",
-    "resource_type": "lifecycleExecution",
-    "cloudformation_resources": [
-      "AWS::ImageBuilder::Component",
-      "AWS::ImageBuilder::ContainerRecipe",
-      "AWS::ImageBuilder::DistributionConfiguration",
-      "AWS::ImageBuilder::Image",
-      "AWS::ImageBuilder::ImagePipeline",
-      "AWS::ImageBuilder::ImageRecipe",
-      "AWS::ImageBuilder::InfrastructureConfiguration",
-      "AWS::ImageBuilder::LifecyclePolicy",
-      "AWS::ImageBuilder::Workflow"
-    ]
-  },
-  {
-    "resource_service": "imagebuilder",
-    "resource_type": "workflowExecution",
-    "cloudformation_resources": [
-      "AWS::ImageBuilder::Component",
-      "AWS::ImageBuilder::ContainerRecipe",
-      "AWS::ImageBuilder::DistributionConfiguration",
-      "AWS::ImageBuilder::Image",
-      "AWS::ImageBuilder::ImagePipeline",
-      "AWS::ImageBuilder::ImageRecipe",
-      "AWS::ImageBuilder::InfrastructureConfiguration",
-      "AWS::ImageBuilder::LifecyclePolicy",
-      "AWS::ImageBuilder::Workflow"
-    ]
-  },
-  {
-    "resource_service": "imagebuilder",
-    "resource_type": "workflowStepExecution",
-    "cloudformation_resources": [
-      "AWS::ImageBuilder::Component",
-      "AWS::ImageBuilder::ContainerRecipe",
-      "AWS::ImageBuilder::DistributionConfiguration",
-      "AWS::ImageBuilder::Image",
-      "AWS::ImageBuilder::ImagePipeline",
-      "AWS::ImageBuilder::ImageRecipe",
-      "AWS::ImageBuilder::InfrastructureConfiguration",
-      "AWS::ImageBuilder::LifecyclePolicy",
-      "AWS::ImageBuilder::Workflow"
     ]
   },
   {
@@ -1317,42 +985,6 @@
     ]
   },
   {
-    "resource_service": "kendra",
-    "resource_type": "access-control-configuration",
-    "cloudformation_resources": [
-      "AWS::Kendra::DataSource",
-      "AWS::Kendra::Faq",
-      "AWS::Kendra::Index"
-    ]
-  },
-  {
-    "resource_service": "kendra",
-    "resource_type": "experience",
-    "cloudformation_resources": [
-      "AWS::Kendra::DataSource",
-      "AWS::Kendra::Faq",
-      "AWS::Kendra::Index"
-    ]
-  },
-  {
-    "resource_service": "kendra",
-    "resource_type": "featured-results-set",
-    "cloudformation_resources": [
-      "AWS::Kendra::DataSource",
-      "AWS::Kendra::Faq",
-      "AWS::Kendra::Index"
-    ]
-  },
-  {
-    "resource_service": "kendra",
-    "resource_type": "query-suggestions-block-list",
-    "cloudformation_resources": [
-      "AWS::Kendra::DataSource",
-      "AWS::Kendra::Faq",
-      "AWS::Kendra::Index"
-    ]
-  },
-  {
     "resource_service": "kendra-ranking",
     "resource_type": "rescore-execution-plan",
     "cloudformation_resources": [
@@ -1425,78 +1057,6 @@
       "AWS::Lambda::Permission",
       "AWS::Lambda::Url",
       "AWS::Lambda::Version"
-    ]
-  },
-  {
-    "resource_service": "lex",
-    "resource_type": "channel",
-    "cloudformation_resources": [
-      "AWS::Lex::Bot",
-      "AWS::Lex::BotAlias",
-      "AWS::Lex::BotVersion",
-      "AWS::Lex::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "lex",
-    "resource_type": "intent version",
-    "cloudformation_resources": [
-      "AWS::Lex::Bot",
-      "AWS::Lex::BotAlias",
-      "AWS::Lex::BotVersion",
-      "AWS::Lex::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "lex",
-    "resource_type": "slottype version",
-    "cloudformation_resources": [
-      "AWS::Lex::Bot",
-      "AWS::Lex::BotAlias",
-      "AWS::Lex::BotVersion",
-      "AWS::Lex::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "lex",
-    "resource_type": "test set",
-    "cloudformation_resources": [
-      "AWS::Lex::Bot",
-      "AWS::Lex::BotAlias",
-      "AWS::Lex::BotVersion",
-      "AWS::Lex::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "license-manager",
-    "resource_type": "license-asset-group",
-    "cloudformation_resources": [
-      "AWS::LicenseManager::Grant",
-      "AWS::LicenseManager::License"
-    ]
-  },
-  {
-    "resource_service": "license-manager",
-    "resource_type": "license-asset-ruleset",
-    "cloudformation_resources": [
-      "AWS::LicenseManager::Grant",
-      "AWS::LicenseManager::License"
-    ]
-  },
-  {
-    "resource_service": "license-manager",
-    "resource_type": "license-configuration",
-    "cloudformation_resources": [
-      "AWS::LicenseManager::Grant",
-      "AWS::LicenseManager::License"
-    ]
-  },
-  {
-    "resource_service": "license-manager",
-    "resource_type": "report-generator",
-    "cloudformation_resources": [
-      "AWS::LicenseManager::Grant",
-      "AWS::LicenseManager::License"
     ]
   },
   {

@@ -8,6 +8,55 @@
     "report",
     "sandbox"
   ],
+  "datasync": [
+    "discoveryjob",
+    "location",
+    "taskexecution"
+  ],
+  "ecs": [
+    "container-instance",
+    "service-deployment",
+    "service-revision",
+    "task"
+  ],
+  "elasticache": [
+    "reserved-instance",
+    "serverlesscachesnapshot",
+    "snapshot"
+  ],
+  "emr-containers": [
+    "jobRun",
+    "jobTemplate"
+  ],
+  "fsx": [
+    "backup",
+    "file-cache",
+    "task"
+  ],
+  "imagebuilder": [
+    "imageVersion",
+    "lifecycleExecution",
+    "workflowExecution",
+    "workflowStepExecution"
+  ],
+  "kendra": [
+    "access-control-configuration",
+    "experience",
+    "featured-results-set",
+    "query-suggestions-block-list"
+  ],
+  "lex": [
+    "channel",
+    "intent version",
+    "slottype version",
+    "test set"
+  ],
+  "license-manager": [
+    "license-asset-group",
+    "license-asset-ruleset",
+    "license-configuration",
+    "report-generator"
+  ],
   "appsync": [
     "field",
     "type"

@@ -4,6 +4,19 @@
     "FormResource": "AWS::AmplifyUIBuilder::Form",
     "ThemeResource": "AWS::AmplifyUIBuilder::Theme"
   },
+  "datasync": {
+    "storagesystem": "AWS::DataSync::StorageSystem"
+  },
+  "elasticache": {
+    "cluster": "AWS::ElastiCache::CacheCluster"
+  },
+  "emr-containers": {
+    "managedEndpoint": "AWS::EMRContainers::Endpoint",
+    "securityConfiguration": "AWS::EMRContainers::SecurityConfiguration"
+  },
+  "fsx": {
+    "association": "AWS::FSx::DataRepositoryAssociation"
+  },
   "appsync": {
     "domain": "AWS::AppSync::DomainName",
     "function": "AWS::AppSync::FunctionConfiguration",
