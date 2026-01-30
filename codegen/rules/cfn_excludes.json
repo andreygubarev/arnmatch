@@ -1,0 +1,24 @@
+{
+  "discontinued": [
+    "codestar",
+    "lookoutvision",
+    "opsworks",
+    "qldb",
+    "robomaker"
+  ],
+  "no_sdk": [
+    "ask"
+  ],
+  "no_arn": [
+    "applicationinsights",
+    "apptest",
+    "arczonalshift",
+    "autoscalingplans",
+    "devopsguru",
+    "iotthingsgraph",
+    "lakeformation",
+    "rtbfabric",
+    "ssmguiconnect",
+    "supportapp"
+  ]
+}

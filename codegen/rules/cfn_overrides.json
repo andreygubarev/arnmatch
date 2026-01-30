@@ -1,0 +1,22 @@
+{
+  "AmazonMQ": "mq",
+  "AppTest": "apptest",
+  "CertificateManager": "acm",
+  "Cognito": "cognito-idp",
+  "DevOpsAgent": "aiops",
+  "Elasticsearch": "es",
+  "EventSchemas": "schemas",
+  "HealthImaging": "medical-imaging",
+  "InspectorV2": "inspector2",
+  "IoTCoreDeviceAdvisor": "iotdeviceadvisor",
+  "KinesisFirehose": "firehose",
+  "MSK": "kafka",
+  "Macie": "macie2",
+  "OpenSearchService": "opensearch",
+  "RefactorSpaces": "migration-hub-refactor-spaces",
+  "Route53RecoveryControl": "route53-recovery-control-config",
+  "S3Express": "s3",
+  "S3ObjectLambda": "s3",
+  "SMSVOICE": "pinpoint-sms-voice",
+  "SystemsManagerSAP": "ssm-sap"
+}

@@ -5,13 +5,13 @@
 
 """Maps ARN service names to CloudFormation resource types."""
 
+import collections
 import json
 from pathlib import Path
-import collections
 
 import requests
 
-from utils import botocore_metadata
+from utils import botocore_metadata, load_rules
 
 CLOUDFORMATION_SPEC = "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
 
@@ -23,61 +23,12 @@ class CFNServiceIndexer:
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
     CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"
 
-    # Discontinued/EOL services (lowercase for comparison)
-    EXCLUDES_DISCONTINUED = {
-        "codestar",
-        "lookoutvision",
-        "opsworks",
-        "qldb",
-        "robomaker",
-    }
-
-    # CFN services with no SDK (excluded from mapping)
-    EXCLUDES_NO_SDK = {
-        "ask",  # Alexa Skills Kit - uses SMAPI
-    }
-
-    # CFN services with no ARN patterns (excluded from mapping)
-    EXCLUDES_NO_ARN = {
-        "applicationinsights",
-        "apptest",
-        "arczonalshift",
-        "autoscalingplans",
-        "devopsguru",
-        "iotthingsgraph",
-        "lakeformation",
-        "rtbfabric",
-        "ssmguiconnect",
-        "supportapp",
-    }
+    # Excluded CFN services by category
+    _EXCLUDES = load_rules("cfn_excludes.json")
+    EXCLUDES = set(_EXCLUDES["discontinued"]) | set(_EXCLUDES["no_sdk"]) | set(_EXCLUDES["no_arn"])
 
     # Manual mapping: CFN service -> SDK service (for unmatched)
-    OVERRIDES = {
-        "AmazonMQ": "mq",
-        "Macie": "macie2",
-        "AppTest": "apptest",
-        "CertificateManager": "acm",
-        "Cognito": "cognito-idp",
-        "DevOpsAgent": "aiops",
-        "Elasticsearch": "es",
-        "EventSchemas": "schemas",
-        "HealthImaging": "medical-imaging",
-        "InspectorV2": "inspector2",
-        "IoTCoreDeviceAdvisor": "iotdeviceadvisor",
-        "KinesisFirehose": "firehose",
-        "MSK": "kafka",
-        "OpenSearchService": "opensearch",
-        "RefactorSpaces": "migration-hub-refactor-spaces",
-        "Route53RecoveryControl": "route53-recovery-control-config",
-        "S3Express": "s3",
-        "S3ObjectLambda": "s3",
-        "SMSVOICE": "pinpoint-sms-voice",
-        "SystemsManagerSAP": "ssm-sap",
-    }
-
-    @property
-    def excludes(self):
-        return self.EXCLUDES_DISCONTINUED | self.EXCLUDES_NO_SDK | self.EXCLUDES_NO_ARN
+    OVERRIDES = load_rules("cfn_overrides.json")
 
 
     def download(self):
@@ -114,7 +65,7 @@ class CFNServiceIndexer:
         """Get all CloudFormation services from the specification."""
         data = self.download()
         services = {rt.split("::")[1] for rt in data["ResourceTypes"].keys()}
-        services = {s for s in services if s.lower() not in self.excludes}
+        services = {s for s in services if s.lower() not in self.EXCLUDES}
         return list(sorted(services))
 
     def save(self, services):
