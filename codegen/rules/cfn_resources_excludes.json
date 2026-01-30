@@ -112,6 +112,13 @@
     "session",
     "system-tool"
   ],
+  "ses": [
+    "custom-verification-email-template",
+    "deliverability-test-report",
+    "export-job",
+    "import-job",
+    "reputation-policy"
+  ],
   "ssm": [
     "automation-definition",
     "automation-execution",

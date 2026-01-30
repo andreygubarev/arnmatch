@@ -56,6 +56,11 @@
   "iam": {
     "mfa": "AWS::IAM::VirtualMFADevice"
   },
+  "ses": {
+    "addon-instance": "AWS::SES::MailManagerAddonInstance",
+    "addon-subscription": "AWS::SES::MailManagerAddonSubscription",
+    "mailmanager-smtp-relay": "AWS::SES::MailManagerRelay"
+  },
   "ssm": {
     "windowtarget": "AWS::SSM::MaintenanceWindowTarget",
     "windowtask": "AWS::SSM::MaintenanceWindowTask"
