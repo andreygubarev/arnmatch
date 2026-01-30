@@ -39,6 +39,21 @@
     "snapshot-tenant-database",
     "tenant-database"
   ],
+  "comprehend": [
+    "document-classification-job",
+    "document-classifier-endpoint",
+    "dominant-language-detection-job",
+    "entities-detection-job",
+    "entity-recognizer",
+    "entity-recognizer-endpoint",
+    "events-detection-job",
+    "flywheel-dataset",
+    "key-phrases-detection-job",
+    "pii-entities-detection-job",
+    "sentiment-detection-job",
+    "targeted-sentiment-detection-job",
+    "topics-detection-job"
+  ],
   "bedrock": [
     "async-invoke",
     "bedrock-marketplace-model-endpoint",
@@ -108,6 +123,38 @@
     "topic",
     "topicfilter",
     "tunnel"
+  ],
+  "personalize": [
+    "algorithm",
+    "batchInferenceJob",
+    "batchSegmentJob",
+    "campaign",
+    "dataDeletionJob",
+    "dataInsightsJob",
+    "datasetExportJob",
+    "datasetImportJob",
+    "eventTracker",
+    "featureTransformation",
+    "filter",
+    "metricAttribution",
+    "recipe",
+    "recommender"
+  ],
+  "quicksight": [
+    "account",
+    "agent",
+    "assetBundleExportJob",
+    "assetBundleImportJob",
+    "assignment",
+    "brand",
+    "customization",
+    "dashboardSnapshotJob",
+    "emailCustomizationTemplate",
+    "flow",
+    "group",
+    "ingestion",
+    "namespace",
+    "user"
   ],
   "ec2": [
     "capacity-block",
