@@ -5,36 +5,29 @@
 
 """Processes raw ARN resources into a clean, sorted index."""
 
-import json
 import logging
 import re
-from pathlib import Path
+
+from utils import load_rules
 
 log = logging.getLogger(__name__)
-
-RULES_DIR = Path(__file__).parent / "rules"
-
-
-def load_json(path: Path):
-    """Load JSON file."""
-    return json.loads(path.read_text())
 
 
 class ARNIndexer:
     """Processes raw ARN resources into a clean, sorted index."""
 
     # ARNs to exclude (have multiple resource types or other issues)
-    EXCLUDED_ARNS = set(load_json(RULES_DIR / "arn_excludes.json"))
+    EXCLUDED_ARNS = set(load_rules("arn_excludes.json"))
 
     # Specific resource types to exclude: service -> [resource_types]
-    EXCLUDED_RESOURCES = load_json(RULES_DIR / "arn_excludes_resources.json")
+    EXCLUDED_RESOURCES = load_rules("arn_excludes_resources.json")
 
     # Pattern overrides: service -> {resource_type -> corrected arn_pattern}
     # Used when AWS docs have wildcards instead of capture groups
-    OVERRIDES = load_json(RULES_DIR / "arn_overrides.json")
+    OVERRIDES = load_rules("arn_overrides.json")
 
     # Additional patterns not in AWS docs
-    INCLUDES = load_json(RULES_DIR / "arn_includes.json")
+    INCLUDES = load_rules("arn_includes.json")
 
     def process(self, resources):
         """Process raw resources: add arn_service, apply overrides, filter, dedupe, add includes, sort."""

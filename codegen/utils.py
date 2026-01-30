@@ -5,6 +5,13 @@ import json
 import os
 from pathlib import Path
 
+RULES_DIR = Path(__file__).parent / "rules"
+
+
+def load_rules(filename: str):
+    """Load JSON rules file from rules directory."""
+    return json.loads((RULES_DIR / filename).read_text())
+
 
 def botocore_metadata() -> dict[str, dict[str, str]]:
     """Load metadata for all botocore services.

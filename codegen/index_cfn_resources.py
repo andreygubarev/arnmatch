@@ -3,12 +3,7 @@
 import json
 from pathlib import Path
 
-RULES_DIR = Path(__file__).parent / "rules"
-
-
-def load_json(path: Path) -> dict:
-    """Load JSON file."""
-    return json.loads(path.read_text())
+from utils import load_rules
 
 
 class CFNResourceIndexer:
@@ -16,11 +11,11 @@ class CFNResourceIndexer:
 
     # Manual overrides: service -> {resource_type -> CFN resource type}
     # Used when ARN resource names don't match CFN resource names
-    OVERRIDES = load_json(RULES_DIR / "cfn_resources_overrides.json")
+    OVERRIDES = load_rules("cfn_resources_overrides.json")
 
     # Resources with no CloudFormation equivalent (API-only, runtime, jobs, etc.)
     # These won't appear in the missing list and return None at runtime
-    EXCLUDES = load_json(RULES_DIR / "cfn_resources_excludes.json")
+    EXCLUDES = load_rules("cfn_resources_excludes.json")
 
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
     CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"
