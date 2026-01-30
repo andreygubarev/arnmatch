@@ -32,6 +32,19 @@
     "customer-managed-view-version": "AWS::Connect::ViewVersion",
     "hierarchy-group": "AWS::Connect::UserHierarchyGroup"
   },
+  "elasticloadbalancing": {
+    "listener-rule/app": "AWS::ElasticLoadBalancingV2::ListenerRule",
+    "listener-rule/net": "AWS::ElasticLoadBalancingV2::ListenerRule",
+    "listener/app": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener/gwy": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener/net": "AWS::ElasticLoadBalancingV2::Listener",
+    "loadbalancer/app": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/app/": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/gwy": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/gwy/": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/net": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/net/": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  },
   "ec2": {
     "dedicated-host": "AWS::EC2::Host",
     "elastic-ip": "AWS::EC2::EIP",
