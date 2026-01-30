@@ -41,6 +41,48 @@
   "budgets": {
     "budgetAction": "AWS::Budgets::BudgetsAction"
   },
+  "catalog": {
+    "Product": "AWS::ServiceCatalog::CloudFormationProduct"
+  },
+  "cloud9": {
+    "environment": "AWS::Cloud9::EnvironmentEC2"
+  },
+  "controltower": {
+    "Baseline": "AWS::ControlTower::EnabledBaseline"
+  },
+  "cur": {
+    "cur": "AWS::CUR::ReportDefinition"
+  },
+  "dlm": {
+    "policy": "AWS::DLM::LifecyclePolicy"
+  },
+  "globalaccelerator": {
+    "attachment": "AWS::GlobalAccelerator::CrossAccountAttachment"
+  },
+  "healthlake": {
+    "datastore": "AWS::HealthLake::FHIRDatastore"
+  },
+  "kendra-ranking": {
+    "rescore-execution-plan": "AWS::KendraRanking::ExecutionPlan"
+  },
+  "kinesis": {
+    "consumer": "AWS::Kinesis::StreamConsumer"
+  },
+  "kinesisvideo": {
+    "channel": "AWS::KinesisVideo::SignalingChannel"
+  },
+  "notifications-contacts": {
+    "EmailContactResource": "AWS::NotificationsContacts::EmailContact"
+  },
+  "rum": {
+    "AppMonitorResource": "AWS::RUM::AppMonitor"
+  },
+  "s3-object-lambda": {
+    "objectlambdaaccesspoint": "AWS::S3ObjectLambda::AccessPoint"
+  },
+  "workspaces-instances": {
+    "WorkspaceInstanceId": "AWS::WorkspacesInstances::WorkspaceInstance"
+  },
   "amplifyuibuilder": {
     "ComponentResource": "AWS::AmplifyUIBuilder::Component",
     "FormResource": "AWS::AmplifyUIBuilder::Form",

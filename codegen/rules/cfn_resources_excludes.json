@@ -216,6 +216,111 @@
   "bcm-data-exports": [
     "table"
   ],
+  "cassandra": [
+    "stream"
+  ],
+  "chatbot": [
+    "ChatbotConfiguration"
+  ],
+  "cleanrooms": [
+    "configuredaudiencemodelassociation"
+  ],
+  "codeartifact": [
+    "package"
+  ],
+  "codedeploy": [
+    "instance"
+  ],
+  "codestar-connections": [
+    "Host"
+  ],
+  "dax": [
+    "application"
+  ],
+  "docdb-elastic": [
+    "cluster-snapshot"
+  ],
+  "ds": [
+    "directory"
+  ],
+  "emr-serverless": [
+    "jobRun"
+  ],
+  "entityresolution": [
+    "ProviderService"
+  ],
+  "inspector2": [
+    "Finding"
+  ],
+  "invoicing": [
+    "procurement-portal-preference"
+  ],
+  "iotdeviceadvisor": [
+    "Suiterun"
+  ],
+  "iottwinmaker": [
+    "metadataTransferJob"
+  ],
+  "ivs": [
+    "Composition"
+  ],
+  "kafkaconnect": [
+    "connector operation"
+  ],
+  "mediapackagev2": [
+    "HarvestJob"
+  ],
+  "medical-imaging": [
+    "imageset"
+  ],
+  "mpa": [
+    "session"
+  ],
+  "observabilityadmin": [
+    "telemetry-pipeline"
+  ],
+  "odb": [
+    "db-node"
+  ],
+  "opensearch": [
+    "datasource"
+  ],
+  "panorama": [
+    "device"
+  ],
+  "resource-explorer-2": [
+    "managed-view"
+  ],
+  "rolesanywhere": [
+    "subject"
+  ],
+  "s3-outposts": [
+    "object"
+  ],
+  "securityhub": [
+    "product"
+  ],
+  "servicediscovery": [
+    "namespace"
+  ],
+  "shield": [
+    "attack"
+  ],
+  "signer": [
+    "signing-job"
+  ],
+  "ssm-incidents": [
+    "incident-record"
+  ],
+  "transfer": [
+    "host-key"
+  ],
+  "vpc-lattice": [
+    "ResourceEndpointAssociation"
+  ],
+  "wafv2": [
+    "managedruleset"
+  ],
   "amplifyuibuilder": [
     "CodegenJobResource"
   ],
