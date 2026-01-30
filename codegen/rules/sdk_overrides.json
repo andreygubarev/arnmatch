@@ -1,0 +1,20 @@
+{
+  "aidevops": ["aiops"],
+  "appmesh-preview": ["appmesh"],
+  "catalog": ["servicecatalog"],
+  "cloudwatch": ["cloudwatch"],
+  "partnercentral": [
+    "partnercentral-account",
+    "partnercentral-benefits",
+    "partnercentral-channel",
+    "partnercentral-selling"
+  ],
+  "private-networks": ["privatenetworks"],
+  "rds-db": ["rds"],
+  "route53-recovery-control": [
+    "route53-recovery-cluster",
+    "route53-recovery-control-config"
+  ],
+  "s3-object-lambda": ["s3"],
+  "s3express": ["s3"]
+}

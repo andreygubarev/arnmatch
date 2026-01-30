@@ -5,95 +5,18 @@
 
 """Maps ARN service names to AWS SDK (boto3) client names."""
 
-from utils import botocore_metadata
+from utils import botocore_metadata, load_rules
 
 
 class SDKServiceIndexer:
     """Builds mapping from ARN service names to AWS SDK client names."""
 
-    # Phase 3: Manual overrides for services where botocore metadata doesn't match
-    # Format: "arn_service" -> ["sdk_client1", "sdk_client2", ...]
-    OVERRIDES = {
-        # AI DevOps uses aiops client
-        "aidevops": ["aiops"],
-        # AppMesh preview uses appmesh client
-        "appmesh-preview": ["appmesh"],
-        # Service Catalog uses 'catalog' in ARNs but 'servicecatalog' client
-        "catalog": ["servicecatalog"],
-        # CloudWatch uses 'monitoring' as endpointPrefix but 'cloudwatch' in ARNs
-        "cloudwatch": ["cloudwatch"],
-        # Partner Central has multiple sub-clients
-        "partnercentral": [
-            "partnercentral-account",
-            "partnercentral-benefits",
-            "partnercentral-channel",
-            "partnercentral-selling",
-        ],
-        # AWS Private 5G uses privatenetworks client
-        "private-networks": ["privatenetworks"],
-        # RDS IAM auth uses rds client
-        "rds-db": ["rds"], # has only user related actions
-        # Route53 recovery services
-        "route53-recovery-control": [
-            "route53-recovery-cluster",
-            "route53-recovery-control-config",
-        ],
-        # S3 variants map to s3 client
-        "s3-object-lambda": ["s3"],
-        "s3express": ["s3"],
-    }
+    # Manual overrides: ARN service -> SDK clients
+    OVERRIDES = load_rules("sdk_overrides.json")
 
-    # Discontinued/EOL services
-    EXCLUDES_DISCONTINUED = {
-        "a4b",  # Alexa for Business
-        "bugbust",  # AWS BugBust
-        "codestar",  # CodeStar
-        "elastic-inference",  # EOL April 2024
-        "elastictranscoder",  # Replaced by MediaConvert
-        "honeycode",  # Honeycode
-        "iotfleethub",  # EOL October 2025
-        "lookoutmetrics",  # Lookout for Metrics
-        "lookoutvision",  # Lookout for Vision
-        "monitron",  # Monitron
-        "nimble",  # Nimble Studio
-        "opsworks",  # OpsWorks Stacks - EOL May 2024
-        "opsworks-cm",  # OpsWorks Chef/Puppet - EOL 2024
-        "qldb",  # QLDB - EOL 2025
-        "robomaker",  # RoboMaker - EOL 2025
-        "worklink",  # WorkLink
-    }
-
-    # Console-only services (no SDK)
-    EXCLUDES_CONSOLE = {
-        "appstudio",  # AWS App Studio
-        "cloudshell",  # AWS CloudShell
-        "consoleapp",  # Console Mobile App
-        "elemental-appliances-software",  # Physical hardware
-        "elemental-support-cases",  # Support tickets
-        "identity-sync",  # Identity sync
-        "iq",  # AWS IQ
-        "iq-permission",  # AWS IQ
-        "mapcredits",  # AWS MAP credits
-        "one",  # Amazon One Enterprise (palm recognition)
-        "payments",  # Billing payments
-        "pricingplanmanager",  # Pricing plans
-        "purchase-orders",  # Billing purchase orders
-        "securityagent",  # AWS Security Agent (preview)
-        "sqlworkbench",  # Redshift Query Editor
-        "ts",  # AWS Diagnostic Tools
-        "vendor-insights",  # Marketplace Vendor Insights
-    }
-
-    # Services using non-boto3 SDK (IDE plugins, CLI, OpenAI SDK, etc.)
-    EXCLUDES_NOSDK = {
-        "apptest",  # AWS Application Testing
-        "bedrock-mantle",  # Uses OpenAI SDK
-        "codewhisperer",  # IDE extension (now Q Developer)
-        "freertos",  # FreeRTOS device SDK
-        "qdeveloper",  # IDE plugins only
-        "transform",  # CLI only
-        "transform-custom",  # CLI only
-    }
+    # Excluded services by category
+    _EXCLUDES = load_rules("sdk_excludes.json")
+    EXCLUDES = set(_EXCLUDES["discontinued"]) | set(_EXCLUDES["console_only"]) | set(_EXCLUDES["non_boto3"])
 
     def process(self, arn_services):
         """Build ARN service -> SDK clients mapping."""
@@ -103,14 +26,13 @@ class SDKServiceIndexer:
         result = {}
 
         for arn_service in sorted(arn_services):
-            # Phase 3: Check manual overrides first
+            # Check manual overrides first
             if arn_service in self.OVERRIDES:
                 result[arn_service] = self.OVERRIDES[arn_service]
                 continue
 
             # Known no-SDK services
-            excludes = self.EXCLUDES_DISCONTINUED | self.EXCLUDES_CONSOLE | self.EXCLUDES_NOSDK
-            if arn_service in excludes:
+            if arn_service in self.EXCLUDES:
                 result[arn_service] = []
                 continue
 

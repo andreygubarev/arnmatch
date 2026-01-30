@@ -1,0 +1,48 @@
+{
+  "discontinued": [
+    "a4b",
+    "bugbust",
+    "codestar",
+    "elastic-inference",
+    "elastictranscoder",
+    "honeycode",
+    "iotfleethub",
+    "lookoutmetrics",
+    "lookoutvision",
+    "monitron",
+    "nimble",
+    "opsworks",
+    "opsworks-cm",
+    "qldb",
+    "robomaker",
+    "worklink"
+  ],
+  "console_only": [
+    "appstudio",
+    "cloudshell",
+    "consoleapp",
+    "elemental-appliances-software",
+    "elemental-support-cases",
+    "identity-sync",
+    "iq",
+    "iq-permission",
+    "mapcredits",
+    "one",
+    "payments",
+    "pricingplanmanager",
+    "purchase-orders",
+    "securityagent",
+    "sqlworkbench",
+    "ts",
+    "vendor-insights"
+  ],
+  "non_boto3": [
+    "apptest",
+    "bedrock-mantle",
+    "codewhisperer",
+    "freertos",
+    "qdeveloper",
+    "transform",
+    "transform-custom"
+  ]
+}
