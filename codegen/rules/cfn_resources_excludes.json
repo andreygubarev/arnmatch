@@ -1,4 +1,8 @@
 {
+  "appsync": [
+    "field",
+    "type"
+  ],
   "apigateway": [
     "AuthorizersCache",
     "ExportedAPI",
@@ -218,6 +222,13 @@
     "tableversion",
     "userdefinedfunction"
   ],
+  "groundstation": [
+    "Agent",
+    "Contact",
+    "EphemerisItem",
+    "GroundStationResource",
+    "Satellite"
+  ],
   "iam": [
     "access-report",
     "assumed-role",
@@ -334,6 +345,13 @@
     "predictorBacktestExportJob",
     "whatIfForecast",
     "whatIfForecastExport"
+  ],
+  "dynamodb": [
+    "backup",
+    "export",
+    "import",
+    "index",
+    "stream"
   ],
   "eks": [
     "access-policy",

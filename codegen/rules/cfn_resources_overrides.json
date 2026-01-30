@@ -1,4 +1,9 @@
 {
+  "appsync": {
+    "domain": "AWS::AppSync::DomainName",
+    "function": "AWS::AppSync::FunctionConfiguration",
+    "mergedApiAssociation": "AWS::AppSync::SourceApiAssociation"
+  },
   "apigateway": {
     "PrivateBasePathMapping": "AWS::ApiGateway::BasePathMappingV2",
     "PrivateDomainName": "AWS::ApiGateway::DomainNameV2"

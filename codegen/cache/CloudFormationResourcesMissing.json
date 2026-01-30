@@ -170,96 +170,6 @@
     ]
   },
   {
-    "resource_service": "appsync",
-    "resource_type": "domain",
-    "cloudformation_resources": [
-      "AWS::AppSync::Api",
-      "AWS::AppSync::ApiCache",
-      "AWS::AppSync::ApiKey",
-      "AWS::AppSync::ChannelNamespace",
-      "AWS::AppSync::DataSource",
-      "AWS::AppSync::DomainName",
-      "AWS::AppSync::DomainNameApiAssociation",
-      "AWS::AppSync::FunctionConfiguration",
-      "AWS::AppSync::GraphQLApi",
-      "AWS::AppSync::GraphQLSchema",
-      "AWS::AppSync::Resolver",
-      "AWS::AppSync::SourceApiAssociation"
-    ]
-  },
-  {
-    "resource_service": "appsync",
-    "resource_type": "field",
-    "cloudformation_resources": [
-      "AWS::AppSync::Api",
-      "AWS::AppSync::ApiCache",
-      "AWS::AppSync::ApiKey",
-      "AWS::AppSync::ChannelNamespace",
-      "AWS::AppSync::DataSource",
-      "AWS::AppSync::DomainName",
-      "AWS::AppSync::DomainNameApiAssociation",
-      "AWS::AppSync::FunctionConfiguration",
-      "AWS::AppSync::GraphQLApi",
-      "AWS::AppSync::GraphQLSchema",
-      "AWS::AppSync::Resolver",
-      "AWS::AppSync::SourceApiAssociation"
-    ]
-  },
-  {
-    "resource_service": "appsync",
-    "resource_type": "function",
-    "cloudformation_resources": [
-      "AWS::AppSync::Api",
-      "AWS::AppSync::ApiCache",
-      "AWS::AppSync::ApiKey",
-      "AWS::AppSync::ChannelNamespace",
-      "AWS::AppSync::DataSource",
-      "AWS::AppSync::DomainName",
-      "AWS::AppSync::DomainNameApiAssociation",
-      "AWS::AppSync::FunctionConfiguration",
-      "AWS::AppSync::GraphQLApi",
-      "AWS::AppSync::GraphQLSchema",
-      "AWS::AppSync::Resolver",
-      "AWS::AppSync::SourceApiAssociation"
-    ]
-  },
-  {
-    "resource_service": "appsync",
-    "resource_type": "mergedApiAssociation",
-    "cloudformation_resources": [
-      "AWS::AppSync::Api",
-      "AWS::AppSync::ApiCache",
-      "AWS::AppSync::ApiKey",
-      "AWS::AppSync::ChannelNamespace",
-      "AWS::AppSync::DataSource",
-      "AWS::AppSync::DomainName",
-      "AWS::AppSync::DomainNameApiAssociation",
-      "AWS::AppSync::FunctionConfiguration",
-      "AWS::AppSync::GraphQLApi",
-      "AWS::AppSync::GraphQLSchema",
-      "AWS::AppSync::Resolver",
-      "AWS::AppSync::SourceApiAssociation"
-    ]
-  },
-  {
-    "resource_service": "appsync",
-    "resource_type": "type",
-    "cloudformation_resources": [
-      "AWS::AppSync::Api",
-      "AWS::AppSync::ApiCache",
-      "AWS::AppSync::ApiKey",
-      "AWS::AppSync::ChannelNamespace",
-      "AWS::AppSync::DataSource",
-      "AWS::AppSync::DomainName",
-      "AWS::AppSync::DomainNameApiAssociation",
-      "AWS::AppSync::FunctionConfiguration",
-      "AWS::AppSync::GraphQLApi",
-      "AWS::AppSync::GraphQLSchema",
-      "AWS::AppSync::Resolver",
-      "AWS::AppSync::SourceApiAssociation"
-    ]
-  },
-  {
     "resource_service": "athena",
     "resource_type": "session",
     "cloudformation_resources": [
@@ -904,46 +814,6 @@
     ]
   },
   {
-    "resource_service": "dynamodb",
-    "resource_type": "backup",
-    "cloudformation_resources": [
-      "AWS::DynamoDB::GlobalTable",
-      "AWS::DynamoDB::Table"
-    ]
-  },
-  {
-    "resource_service": "dynamodb",
-    "resource_type": "export",
-    "cloudformation_resources": [
-      "AWS::DynamoDB::GlobalTable",
-      "AWS::DynamoDB::Table"
-    ]
-  },
-  {
-    "resource_service": "dynamodb",
-    "resource_type": "import",
-    "cloudformation_resources": [
-      "AWS::DynamoDB::GlobalTable",
-      "AWS::DynamoDB::Table"
-    ]
-  },
-  {
-    "resource_service": "dynamodb",
-    "resource_type": "index",
-    "cloudformation_resources": [
-      "AWS::DynamoDB::GlobalTable",
-      "AWS::DynamoDB::Table"
-    ]
-  },
-  {
-    "resource_service": "dynamodb",
-    "resource_type": "stream",
-    "cloudformation_resources": [
-      "AWS::DynamoDB::GlobalTable",
-      "AWS::DynamoDB::Table"
-    ]
-  },
-  {
     "resource_service": "ecs",
     "resource_type": "container-instance",
     "cloudformation_resources": [
@@ -1255,56 +1125,6 @@
       "AWS::GlobalAccelerator::CrossAccountAttachment",
       "AWS::GlobalAccelerator::EndpointGroup",
       "AWS::GlobalAccelerator::Listener"
-    ]
-  },
-  {
-    "resource_service": "groundstation",
-    "resource_type": "Agent",
-    "cloudformation_resources": [
-      "AWS::GroundStation::Config",
-      "AWS::GroundStation::DataflowEndpointGroup",
-      "AWS::GroundStation::DataflowEndpointGroupV2",
-      "AWS::GroundStation::MissionProfile"
-    ]
-  },
-  {
-    "resource_service": "groundstation",
-    "resource_type": "Contact",
-    "cloudformation_resources": [
-      "AWS::GroundStation::Config",
-      "AWS::GroundStation::DataflowEndpointGroup",
-      "AWS::GroundStation::DataflowEndpointGroupV2",
-      "AWS::GroundStation::MissionProfile"
-    ]
-  },
-  {
-    "resource_service": "groundstation",
-    "resource_type": "EphemerisItem",
-    "cloudformation_resources": [
-      "AWS::GroundStation::Config",
-      "AWS::GroundStation::DataflowEndpointGroup",
-      "AWS::GroundStation::DataflowEndpointGroupV2",
-      "AWS::GroundStation::MissionProfile"
-    ]
-  },
-  {
-    "resource_service": "groundstation",
-    "resource_type": "GroundStationResource",
-    "cloudformation_resources": [
-      "AWS::GroundStation::Config",
-      "AWS::GroundStation::DataflowEndpointGroup",
-      "AWS::GroundStation::DataflowEndpointGroupV2",
-      "AWS::GroundStation::MissionProfile"
-    ]
-  },
-  {
-    "resource_service": "groundstation",
-    "resource_type": "Satellite",
-    "cloudformation_resources": [
-      "AWS::GroundStation::Config",
-      "AWS::GroundStation::DataflowEndpointGroup",
-      "AWS::GroundStation::DataflowEndpointGroupV2",
-      "AWS::GroundStation::MissionProfile"
     ]
   },
   {
