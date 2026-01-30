@@ -1100,34 +1100,6 @@
     ]
   },
   {
-    "resource_service": "lookoutequipment",
-    "resource_type": "dataset",
-    "cloudformation_resources": [
-      "AWS::LookoutEquipment::InferenceScheduler"
-    ]
-  },
-  {
-    "resource_service": "lookoutequipment",
-    "resource_type": "label-group",
-    "cloudformation_resources": [
-      "AWS::LookoutEquipment::InferenceScheduler"
-    ]
-  },
-  {
-    "resource_service": "lookoutequipment",
-    "resource_type": "model",
-    "cloudformation_resources": [
-      "AWS::LookoutEquipment::InferenceScheduler"
-    ]
-  },
-  {
-    "resource_service": "lookoutequipment",
-    "resource_type": "model-version",
-    "cloudformation_resources": [
-      "AWS::LookoutEquipment::InferenceScheduler"
-    ]
-  },
-  {
     "resource_service": "macie2",
     "resource_type": "ClassificationJob",
     "cloudformation_resources": [
@@ -1190,86 +1162,6 @@
       "AWS::MediaConvert::JobTemplate",
       "AWS::MediaConvert::Preset",
       "AWS::MediaConvert::Queue"
-    ]
-  },
-  {
-    "resource_service": "medialive",
-    "resource_type": "input-device",
-    "cloudformation_resources": [
-      "AWS::MediaLive::Channel",
-      "AWS::MediaLive::ChannelPlacementGroup",
-      "AWS::MediaLive::CloudWatchAlarmTemplate",
-      "AWS::MediaLive::CloudWatchAlarmTemplateGroup",
-      "AWS::MediaLive::Cluster",
-      "AWS::MediaLive::EventBridgeRuleTemplate",
-      "AWS::MediaLive::EventBridgeRuleTemplateGroup",
-      "AWS::MediaLive::Input",
-      "AWS::MediaLive::InputSecurityGroup",
-      "AWS::MediaLive::Multiplex",
-      "AWS::MediaLive::Multiplexprogram",
-      "AWS::MediaLive::Network",
-      "AWS::MediaLive::SdiSource",
-      "AWS::MediaLive::SignalMap"
-    ]
-  },
-  {
-    "resource_service": "medialive",
-    "resource_type": "node",
-    "cloudformation_resources": [
-      "AWS::MediaLive::Channel",
-      "AWS::MediaLive::ChannelPlacementGroup",
-      "AWS::MediaLive::CloudWatchAlarmTemplate",
-      "AWS::MediaLive::CloudWatchAlarmTemplateGroup",
-      "AWS::MediaLive::Cluster",
-      "AWS::MediaLive::EventBridgeRuleTemplate",
-      "AWS::MediaLive::EventBridgeRuleTemplateGroup",
-      "AWS::MediaLive::Input",
-      "AWS::MediaLive::InputSecurityGroup",
-      "AWS::MediaLive::Multiplex",
-      "AWS::MediaLive::Multiplexprogram",
-      "AWS::MediaLive::Network",
-      "AWS::MediaLive::SdiSource",
-      "AWS::MediaLive::SignalMap"
-    ]
-  },
-  {
-    "resource_service": "medialive",
-    "resource_type": "offering",
-    "cloudformation_resources": [
-      "AWS::MediaLive::Channel",
-      "AWS::MediaLive::ChannelPlacementGroup",
-      "AWS::MediaLive::CloudWatchAlarmTemplate",
-      "AWS::MediaLive::CloudWatchAlarmTemplateGroup",
-      "AWS::MediaLive::Cluster",
-      "AWS::MediaLive::EventBridgeRuleTemplate",
-      "AWS::MediaLive::EventBridgeRuleTemplateGroup",
-      "AWS::MediaLive::Input",
-      "AWS::MediaLive::InputSecurityGroup",
-      "AWS::MediaLive::Multiplex",
-      "AWS::MediaLive::Multiplexprogram",
-      "AWS::MediaLive::Network",
-      "AWS::MediaLive::SdiSource",
-      "AWS::MediaLive::SignalMap"
-    ]
-  },
-  {
-    "resource_service": "medialive",
-    "resource_type": "reservation",
-    "cloudformation_resources": [
-      "AWS::MediaLive::Channel",
-      "AWS::MediaLive::ChannelPlacementGroup",
-      "AWS::MediaLive::CloudWatchAlarmTemplate",
-      "AWS::MediaLive::CloudWatchAlarmTemplateGroup",
-      "AWS::MediaLive::Cluster",
-      "AWS::MediaLive::EventBridgeRuleTemplate",
-      "AWS::MediaLive::EventBridgeRuleTemplateGroup",
-      "AWS::MediaLive::Input",
-      "AWS::MediaLive::InputSecurityGroup",
-      "AWS::MediaLive::Multiplex",
-      "AWS::MediaLive::Multiplexprogram",
-      "AWS::MediaLive::Network",
-      "AWS::MediaLive::SdiSource",
-      "AWS::MediaLive::SignalMap"
     ]
   },
   {
@@ -1463,58 +1355,6 @@
     ]
   },
   {
-    "resource_service": "notifications",
-    "resource_type": "ManagedNotificationChildEvent",
-    "cloudformation_resources": [
-      "AWS::Notifications::ChannelAssociation",
-      "AWS::Notifications::EventRule",
-      "AWS::Notifications::ManagedNotificationAccountContactAssociation",
-      "AWS::Notifications::ManagedNotificationAdditionalChannelAssociation",
-      "AWS::Notifications::NotificationConfiguration",
-      "AWS::Notifications::NotificationHub",
-      "AWS::Notifications::OrganizationalUnitAssociation"
-    ]
-  },
-  {
-    "resource_service": "notifications",
-    "resource_type": "ManagedNotificationConfiguration",
-    "cloudformation_resources": [
-      "AWS::Notifications::ChannelAssociation",
-      "AWS::Notifications::EventRule",
-      "AWS::Notifications::ManagedNotificationAccountContactAssociation",
-      "AWS::Notifications::ManagedNotificationAdditionalChannelAssociation",
-      "AWS::Notifications::NotificationConfiguration",
-      "AWS::Notifications::NotificationHub",
-      "AWS::Notifications::OrganizationalUnitAssociation"
-    ]
-  },
-  {
-    "resource_service": "notifications",
-    "resource_type": "ManagedNotificationEvent",
-    "cloudformation_resources": [
-      "AWS::Notifications::ChannelAssociation",
-      "AWS::Notifications::EventRule",
-      "AWS::Notifications::ManagedNotificationAccountContactAssociation",
-      "AWS::Notifications::ManagedNotificationAdditionalChannelAssociation",
-      "AWS::Notifications::NotificationConfiguration",
-      "AWS::Notifications::NotificationHub",
-      "AWS::Notifications::OrganizationalUnitAssociation"
-    ]
-  },
-  {
-    "resource_service": "notifications",
-    "resource_type": "NotificationEvent",
-    "cloudformation_resources": [
-      "AWS::Notifications::ChannelAssociation",
-      "AWS::Notifications::EventRule",
-      "AWS::Notifications::ManagedNotificationAccountContactAssociation",
-      "AWS::Notifications::ManagedNotificationAdditionalChannelAssociation",
-      "AWS::Notifications::NotificationConfiguration",
-      "AWS::Notifications::NotificationHub",
-      "AWS::Notifications::OrganizationalUnitAssociation"
-    ]
-  },
-  {
     "resource_service": "notifications-contacts",
     "resource_type": "EmailContactResource",
     "cloudformation_resources": [
@@ -1549,50 +1389,6 @@
     "cloudformation_resources": [
       "AWS::OpenSearchService::Application",
       "AWS::OpenSearchService::Domain"
-    ]
-  },
-  {
-    "resource_service": "organizations",
-    "resource_type": "awspolicy",
-    "cloudformation_resources": [
-      "AWS::Organizations::Account",
-      "AWS::Organizations::Organization",
-      "AWS::Organizations::OrganizationalUnit",
-      "AWS::Organizations::Policy",
-      "AWS::Organizations::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "organizations",
-    "resource_type": "handshake",
-    "cloudformation_resources": [
-      "AWS::Organizations::Account",
-      "AWS::Organizations::Organization",
-      "AWS::Organizations::OrganizationalUnit",
-      "AWS::Organizations::Policy",
-      "AWS::Organizations::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "organizations",
-    "resource_type": "responsibilitytransfer",
-    "cloudformation_resources": [
-      "AWS::Organizations::Account",
-      "AWS::Organizations::Organization",
-      "AWS::Organizations::OrganizationalUnit",
-      "AWS::Organizations::Policy",
-      "AWS::Organizations::ResourcePolicy"
-    ]
-  },
-  {
-    "resource_service": "organizations",
-    "resource_type": "root",
-    "cloudformation_resources": [
-      "AWS::Organizations::Account",
-      "AWS::Organizations::Organization",
-      "AWS::Organizations::OrganizationalUnit",
-      "AWS::Organizations::Policy",
-      "AWS::Organizations::ResourcePolicy"
     ]
   },
   {

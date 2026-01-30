@@ -57,6 +57,30 @@
     "license-configuration",
     "report-generator"
   ],
+  "lookoutequipment": [
+    "dataset",
+    "label-group",
+    "model",
+    "model-version"
+  ],
+  "medialive": [
+    "input-device",
+    "node",
+    "offering",
+    "reservation"
+  ],
+  "notifications": [
+    "ManagedNotificationChildEvent",
+    "ManagedNotificationConfiguration",
+    "ManagedNotificationEvent",
+    "NotificationEvent"
+  ],
+  "organizations": [
+    "awspolicy",
+    "handshake",
+    "responsibilitytransfer",
+    "root"
+  ],
   "appsync": [
     "field",
     "type"
