@@ -1,4 +1,18 @@
 {
+  "apigateway": [
+    "AuthorizersCache",
+    "ExportedAPI",
+    "MethodResponse",
+    "ModelTemplate",
+    "Portal",
+    "PortalProduct",
+    "ProductPage",
+    "ProductRestEndpointPage",
+    "RouteRequestParameter",
+    "Sdk",
+    "Template",
+    "apigateway"
+  ],
   "redshift": [
     "datashare",
     "dbgroup",
