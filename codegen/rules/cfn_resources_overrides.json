@@ -1,4 +1,28 @@
 {
+  "redshift": {
+    "parametergroup": "AWS::Redshift::ClusterParameterGroup",
+    "securitygroup": "AWS::Redshift::ClusterSecurityGroup",
+    "securitygroupingress-cidr": "AWS::Redshift::ClusterSecurityGroupIngress",
+    "securitygroupingress-ec2securitygroup": "AWS::Redshift::ClusterSecurityGroupIngress",
+    "subnetgroup": "AWS::Redshift::ClusterSubnetGroup"
+  },
+  "rds": {
+    "cev": "AWS::RDS::CustomDBEngineVersion",
+    "cluster": "AWS::RDS::DBCluster",
+    "cluster-pg": "AWS::RDS::DBClusterParameterGroup",
+    "db": "AWS::RDS::DBInstance",
+    "og": "AWS::RDS::OptionGroup",
+    "pg": "AWS::RDS::DBParameterGroup",
+    "proxy": "AWS::RDS::DBProxy",
+    "proxy-endpoint": "AWS::RDS::DBProxyEndpoint",
+    "secgrp": "AWS::RDS::DBSecurityGroup",
+    "shardgrp": "AWS::RDS::DBShardGroup",
+    "subgrp": "AWS::RDS::DBSubnetGroup",
+    "target-group": "AWS::RDS::DBProxyTargetGroup"
+  },
+  "bedrock": {
+    "default-prompt-router": "AWS::Bedrock::IntelligentPromptRouter"
+  },
   "ec2": {
     "dedicated-host": "AWS::EC2::Host",
     "elastic-ip": "AWS::EC2::EIP",
