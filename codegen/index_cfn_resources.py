@@ -3,63 +3,24 @@
 import json
 from pathlib import Path
 
+RULES_DIR = Path(__file__).parent / "rules"
+
+
+def load_json(path: Path) -> dict:
+    """Load JSON file."""
+    return json.loads(path.read_text())
+
 
 class CFNResourceIndexer:
     """Maps ARN resources to CloudFormation resource types."""
 
     # Manual overrides: service -> {resource_type -> CFN resource type}
     # Used when ARN resource names don't match CFN resource names
-    OVERRIDES = {
-        "ec2": {
-            "dedicated-host": "AWS::EC2::Host",
-            "elastic-ip": "AWS::EC2::EIP",
-            "fleet": "AWS::EC2::EC2Fleet",
-            "spot-fleet-request": "AWS::EC2::SpotFleet",
-            "vpc-endpoint-service-permission": "AWS::EC2::VPCEndpointServicePermissions",
-            "vpc-flow-log": "AWS::EC2::FlowLog",
-        },
-    }
+    OVERRIDES = load_json(RULES_DIR / "cfn_resources_overrides.json")
 
     # Resources with no CloudFormation equivalent (API-only, runtime, jobs, etc.)
     # These won't appear in the missing list and return None at runtime
-    EXCLUDES = {
-        # EC2: AMIs, snapshots, async tasks, runtime resources
-        "ec2": [
-            "capacity-block",
-            "coip-pool",
-            "declarative-policies-report",
-            "elastic-gpu",
-            "export-image-task",
-            "export-instance-task",
-            "fpga-image",
-            "host-reservation",
-            "image",
-            "image-usage-report",
-            "import-image-task",
-            "import-snapshot-task",
-            "instance-event-window",
-            "ipam-external-resource-verification-token",
-            "ipam-policy",
-            "ipam-prefix-list-resolver",
-            "ipam-prefix-list-resolver-target",
-            "ipv4pool-ec2",
-            "ipv6pool-ec2",
-            "local-gateway",
-            "mac-modification-task",
-            "outpost-lag",
-            "replace-root-volume-task",
-            "security-group-rule",  # child of SecurityGroup
-            "snapshot",
-            "spot-instances-request",
-            "subnet-cidr-reservation",
-            "transit-gateway-policy-table",
-            "transit-gateway-route-table-announcement",
-            "verified-access-endpoint-target",
-            "verified-access-policy",
-            "vpc-endpoint-connection",
-            "vpn-connection-device-type",
-        ],
-    }
+    EXCLUDES = load_json(RULES_DIR / "cfn_resources_excludes.json")
 
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
     CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"

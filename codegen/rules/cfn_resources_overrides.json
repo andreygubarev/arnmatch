@@ -1,0 +1,10 @@
+{
+  "ec2": {
+    "dedicated-host": "AWS::EC2::Host",
+    "elastic-ip": "AWS::EC2::EIP",
+    "fleet": "AWS::EC2::EC2Fleet",
+    "spot-fleet-request": "AWS::EC2::SpotFleet",
+    "vpc-endpoint-service-permission": "AWS::EC2::VPCEndpointServicePermissions",
+    "vpc-flow-log": "AWS::EC2::FlowLog"
+  }
+}
