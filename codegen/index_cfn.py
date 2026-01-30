@@ -74,16 +74,18 @@ class CFNServiceIndexer:
 
     def sdk_to_names(self):
         metadata = botocore_metadata()
-        n = lambda n: n.lower().replace("-", "").replace(" ", "")
+
+        def normalize(name):
+            return name.lower().replace("-", "").replace(" ", "")
 
         sdk_to_names = collections.defaultdict(set)
         for sdk, names in metadata.items():
-            sdk_to_names[sdk].add(n(sdk))
-            sdk_to_names[sdk].add(n(names["endpointPrefix"]))
-            sdk_to_names[sdk].add(n(names["serviceId"]))
-            sdk_to_names[sdk].add(n(names["serviceFullName"]))
+            sdk_to_names[sdk].add(normalize(sdk))
+            sdk_to_names[sdk].add(normalize(names["endpointPrefix"]))
+            sdk_to_names[sdk].add(normalize(names["serviceId"]))
+            sdk_to_names[sdk].add(normalize(names["serviceFullName"]))
             if names.get("signingName"):
-                sdk_to_names[sdk].add(n(names["signingName"]))
+                sdk_to_names[sdk].add(normalize(names["signingName"]))
 
         return sdk_to_names
 
@@ -95,9 +97,12 @@ class CFNServiceIndexer:
         sdk_to_names = self.sdk_to_names()
 
         cfn_to_sdk = {}
-        n = lambda n: n.lower().replace("-", "").replace(" ", "")
+
+        def normalize(name):
+            return name.lower().replace("-", "").replace(" ", "")
+
         for cfn in self.cloudformation_services:
-            ncfn = n(cfn)
+            ncfn = normalize(cfn)
             for sdk, names in sdk_to_names.items():
                 if ncfn in names:
                     cfn_to_sdk[cfn] = sdk
