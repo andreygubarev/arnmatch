@@ -35,6 +35,12 @@
   "ram": {
     "customer-managed-permission": "AWS::RAM::Permission"
   },
+  "application-signals": {
+    "slo": "AWS::ApplicationSignals::ServiceLevelObjective"
+  },
+  "budgets": {
+    "budgetAction": "AWS::Budgets::BudgetsAction"
+  },
   "amplifyuibuilder": {
     "ComponentResource": "AWS::AmplifyUIBuilder::Component",
     "FormResource": "AWS::AmplifyUIBuilder::Form",

@@ -192,6 +192,30 @@
   "access-analyzer": [
     "ArchiveRule"
   ],
+  "airflow": [
+    "rbac-role"
+  ],
+  "aoss": [
+    "CollectionGroup"
+  ],
+  "appconfig": [
+    "configuration"
+  ],
+  "apprunner": [
+    "connection"
+  ],
+  "appstream": [
+    "image"
+  ],
+  "athena": [
+    "session"
+  ],
+  "backup": [
+    "legalHold"
+  ],
+  "bcm-data-exports": [
+    "table"
+  ],
   "amplifyuibuilder": [
     "CodegenJobResource"
   ],
