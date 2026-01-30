@@ -51,6 +51,14 @@
     "use-case",
     "vocabulary"
   ],
+  "cloudformation": [
+    "changeset",
+    "generatedtemplate",
+    "resourcescan",
+    "stackset-target",
+    "type",
+    "typeHook"
+  ],
   "cleanrooms-ml": [
     "ConfiguredModelAlgorithm",
     "ConfiguredModelAlgorithmAssociation",
@@ -166,6 +174,13 @@
     "training-plan",
     "transform-job",
     "workforce"
+  ],
+  "lightsail": [
+    "CloudFormationStackRecord",
+    "ContactMethod",
+    "ExportSnapshotRecord",
+    "KeyPair",
+    "RelationalDatabaseSnapshot"
   ],
   "mobiletargeting": [
     "attribute",

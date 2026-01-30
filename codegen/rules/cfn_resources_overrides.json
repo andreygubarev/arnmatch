@@ -56,6 +56,10 @@
   "iam": {
     "mfa": "AWS::IAM::VirtualMFADevice"
   },
+  "lightsail": {
+    "ContainerService": "AWS::Lightsail::Container",
+    "RelationalDatabase": "AWS::Lightsail::Database"
+  },
   "ses": {
     "addon-instance": "AWS::SES::MailManagerAddonInstance",
     "addon-subscription": "AWS::SES::MailManagerAddonSubscription",
