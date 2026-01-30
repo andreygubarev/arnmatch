@@ -159,9 +159,9 @@ class CodeGenerator:
         overrides = SDKResourceIndexer.OVERRIDE_SERVICE.get(arn_service, {})
         if resource_type in overrides:
             return overrides[resource_type]
-        return SDKResourceIndexer.DEFAULT_SERVICE.get(arn_service)
+        return SDKResourceIndexer.DEFAULT_SERVICE[arn_service]
 
-    def export_yaml(self, resources, sdk_mapping, cfn_resources_mapping, output_path):
+    def export(self, resources, sdk_mapping, cfn_resources_mapping, output_path):
         """Export patterns to YAML source of truth format."""
         # Group resources by (arn_service, resource_type) to collect multiple ARN patterns
         grouped = {}
@@ -273,7 +273,7 @@ def main():
     cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
 
     generator.generate(by_service, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.py")
-    generator.export_yaml(resources, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.yaml")
+    generator.export(resources, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.yaml")
 
     # Collect and save metrics
     metrics = {
