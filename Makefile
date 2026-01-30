@@ -26,4 +26,4 @@ publish: build ## Publish package to PyPI
 
 .PHONY: clean
 clean: ## Clean build artifacts
-	rm -rf dist/ __pycache__/ .pytest_cache/ .ruff_cache/
+	rm -rf dist/ __pycache__/ .pytest_cache/ .ruff_cache/ .cache/
