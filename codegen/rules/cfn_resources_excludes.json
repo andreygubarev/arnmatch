@@ -25,6 +25,34 @@
     "action",
     "stage"
   ],
+  "deadline": [
+    "budget",
+    "job",
+    "worker"
+  ],
+  "dms": [
+    "ReplicationTaskAssessmentRun",
+    "ReplicationTaskIndividualAssessment"
+  ],
+  "fis": [
+    "action",
+    "experiment",
+    "safety-lever"
+  ],
+  "kafka": [
+    "group",
+    "topic",
+    "transactional-id"
+  ],
+  "lambda": [
+    "durable execution",
+    "layer"
+  ],
+  "managedblockchain": [
+    "invitation",
+    "network",
+    "proposal"
+  ],
   "amplifyuibuilder": [
     "CodegenJobResource"
   ],

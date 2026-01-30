@@ -9,6 +9,17 @@
   "codepipeline": {
     "actiontype": "AWS::CodePipeline::CustomActionType"
   },
+  "dms": {
+    "subgrp": "AWS::DMS::ReplicationSubnetGroup"
+  },
+  "iotwireless": {
+    "ImportTask": "AWS::IoTWireless::WirelessDeviceImportTask",
+    "SidewalkAccount": "AWS::IoTWireless::PartnerAccount",
+    "WirelessGatewayTaskDefinition": "AWS::IoTWireless::TaskDefinition"
+  },
+  "lambda": {
+    "function version": "AWS::Lambda::Version"
+  },
   "amplifyuibuilder": {
     "ComponentResource": "AWS::AmplifyUIBuilder::Component",
     "FormResource": "AWS::AmplifyUIBuilder::Form",

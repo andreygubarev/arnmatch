@@ -322,112 +322,10 @@
     ]
   },
   {
-    "resource_service": "deadline",
-    "resource_type": "budget",
-    "cloudformation_resources": [
-      "AWS::Deadline::Farm",
-      "AWS::Deadline::Fleet",
-      "AWS::Deadline::LicenseEndpoint",
-      "AWS::Deadline::Limit",
-      "AWS::Deadline::MeteredProduct",
-      "AWS::Deadline::Monitor",
-      "AWS::Deadline::Queue",
-      "AWS::Deadline::QueueEnvironment",
-      "AWS::Deadline::QueueFleetAssociation",
-      "AWS::Deadline::QueueLimitAssociation",
-      "AWS::Deadline::StorageProfile"
-    ]
-  },
-  {
-    "resource_service": "deadline",
-    "resource_type": "job",
-    "cloudformation_resources": [
-      "AWS::Deadline::Farm",
-      "AWS::Deadline::Fleet",
-      "AWS::Deadline::LicenseEndpoint",
-      "AWS::Deadline::Limit",
-      "AWS::Deadline::MeteredProduct",
-      "AWS::Deadline::Monitor",
-      "AWS::Deadline::Queue",
-      "AWS::Deadline::QueueEnvironment",
-      "AWS::Deadline::QueueFleetAssociation",
-      "AWS::Deadline::QueueLimitAssociation",
-      "AWS::Deadline::StorageProfile"
-    ]
-  },
-  {
-    "resource_service": "deadline",
-    "resource_type": "worker",
-    "cloudformation_resources": [
-      "AWS::Deadline::Farm",
-      "AWS::Deadline::Fleet",
-      "AWS::Deadline::LicenseEndpoint",
-      "AWS::Deadline::Limit",
-      "AWS::Deadline::MeteredProduct",
-      "AWS::Deadline::Monitor",
-      "AWS::Deadline::Queue",
-      "AWS::Deadline::QueueEnvironment",
-      "AWS::Deadline::QueueFleetAssociation",
-      "AWS::Deadline::QueueLimitAssociation",
-      "AWS::Deadline::StorageProfile"
-    ]
-  },
-  {
     "resource_service": "dlm",
     "resource_type": "policy",
     "cloudformation_resources": [
       "AWS::DLM::LifecyclePolicy"
-    ]
-  },
-  {
-    "resource_service": "dms",
-    "resource_type": "ReplicationTaskAssessmentRun",
-    "cloudformation_resources": [
-      "AWS::DMS::Certificate",
-      "AWS::DMS::DataMigration",
-      "AWS::DMS::DataProvider",
-      "AWS::DMS::Endpoint",
-      "AWS::DMS::EventSubscription",
-      "AWS::DMS::InstanceProfile",
-      "AWS::DMS::MigrationProject",
-      "AWS::DMS::ReplicationConfig",
-      "AWS::DMS::ReplicationInstance",
-      "AWS::DMS::ReplicationSubnetGroup",
-      "AWS::DMS::ReplicationTask"
-    ]
-  },
-  {
-    "resource_service": "dms",
-    "resource_type": "ReplicationTaskIndividualAssessment",
-    "cloudformation_resources": [
-      "AWS::DMS::Certificate",
-      "AWS::DMS::DataMigration",
-      "AWS::DMS::DataProvider",
-      "AWS::DMS::Endpoint",
-      "AWS::DMS::EventSubscription",
-      "AWS::DMS::InstanceProfile",
-      "AWS::DMS::MigrationProject",
-      "AWS::DMS::ReplicationConfig",
-      "AWS::DMS::ReplicationInstance",
-      "AWS::DMS::ReplicationSubnetGroup",
-      "AWS::DMS::ReplicationTask"
-    ]
-  },
-  {
-    "resource_service": "dms",
-    "resource_type": "subgrp",
-    "cloudformation_resources": [
-      "AWS::DMS::Certificate",
-      "AWS::DMS::DataMigration",
-      "AWS::DMS::DataProvider",
-      "AWS::DMS::Endpoint",
-      "AWS::DMS::EventSubscription",
-      "AWS::DMS::InstanceProfile",
-      "AWS::DMS::MigrationProject",
-      "AWS::DMS::ReplicationConfig",
-      "AWS::DMS::ReplicationInstance",
-      "AWS::DMS::ReplicationSubnetGroup",
-      "AWS::DMS::ReplicationTask"
     ]
   },
   {
@@ -509,30 +407,6 @@
       "AWS::EntityResolution::MatchingWorkflow",
       "AWS::EntityResolution::PolicyStatement",
       "AWS::EntityResolution::SchemaMapping"
-    ]
-  },
-  {
-    "resource_service": "fis",
-    "resource_type": "action",
-    "cloudformation_resources": [
-      "AWS::FIS::ExperimentTemplate",
-      "AWS::FIS::TargetAccountConfiguration"
-    ]
-  },
-  {
-    "resource_service": "fis",
-    "resource_type": "experiment",
-    "cloudformation_resources": [
-      "AWS::FIS::ExperimentTemplate",
-      "AWS::FIS::TargetAccountConfiguration"
-    ]
-  },
-  {
-    "resource_service": "fis",
-    "resource_type": "safety-lever",
-    "cloudformation_resources": [
-      "AWS::FIS::ExperimentTemplate",
-      "AWS::FIS::TargetAccountConfiguration"
     ]
   },
   {
@@ -654,57 +528,6 @@
     ]
   },
   {
-    "resource_service": "iotwireless",
-    "resource_type": "ImportTask",
-    "cloudformation_resources": [
-      "AWS::IoTWireless::Destination",
-      "AWS::IoTWireless::DeviceProfile",
-      "AWS::IoTWireless::FuotaTask",
-      "AWS::IoTWireless::MulticastGroup",
-      "AWS::IoTWireless::NetworkAnalyzerConfiguration",
-      "AWS::IoTWireless::PartnerAccount",
-      "AWS::IoTWireless::ServiceProfile",
-      "AWS::IoTWireless::TaskDefinition",
-      "AWS::IoTWireless::WirelessDevice",
-      "AWS::IoTWireless::WirelessDeviceImportTask",
-      "AWS::IoTWireless::WirelessGateway"
-    ]
-  },
-  {
-    "resource_service": "iotwireless",
-    "resource_type": "SidewalkAccount",
-    "cloudformation_resources": [
-      "AWS::IoTWireless::Destination",
-      "AWS::IoTWireless::DeviceProfile",
-      "AWS::IoTWireless::FuotaTask",
-      "AWS::IoTWireless::MulticastGroup",
-      "AWS::IoTWireless::NetworkAnalyzerConfiguration",
-      "AWS::IoTWireless::PartnerAccount",
-      "AWS::IoTWireless::ServiceProfile",
-      "AWS::IoTWireless::TaskDefinition",
-      "AWS::IoTWireless::WirelessDevice",
-      "AWS::IoTWireless::WirelessDeviceImportTask",
-      "AWS::IoTWireless::WirelessGateway"
-    ]
-  },
-  {
-    "resource_service": "iotwireless",
-    "resource_type": "WirelessGatewayTaskDefinition",
-    "cloudformation_resources": [
-      "AWS::IoTWireless::Destination",
-      "AWS::IoTWireless::DeviceProfile",
-      "AWS::IoTWireless::FuotaTask",
-      "AWS::IoTWireless::MulticastGroup",
-      "AWS::IoTWireless::NetworkAnalyzerConfiguration",
-      "AWS::IoTWireless::PartnerAccount",
-      "AWS::IoTWireless::ServiceProfile",
-      "AWS::IoTWireless::TaskDefinition",
-      "AWS::IoTWireless::WirelessDevice",
-      "AWS::IoTWireless::WirelessDeviceImportTask",
-      "AWS::IoTWireless::WirelessGateway"
-    ]
-  },
-  {
     "resource_service": "ivs",
     "resource_type": "Composition",
     "cloudformation_resources": [
@@ -718,45 +541,6 @@
       "AWS::IVS::Stage",
       "AWS::IVS::StorageConfiguration",
       "AWS::IVS::StreamKey"
-    ]
-  },
-  {
-    "resource_service": "kafka",
-    "resource_type": "group",
-    "cloudformation_resources": [
-      "AWS::MSK::BatchScramSecret",
-      "AWS::MSK::Cluster",
-      "AWS::MSK::ClusterPolicy",
-      "AWS::MSK::Configuration",
-      "AWS::MSK::Replicator",
-      "AWS::MSK::ServerlessCluster",
-      "AWS::MSK::VpcConnection"
-    ]
-  },
-  {
-    "resource_service": "kafka",
-    "resource_type": "topic",
-    "cloudformation_resources": [
-      "AWS::MSK::BatchScramSecret",
-      "AWS::MSK::Cluster",
-      "AWS::MSK::ClusterPolicy",
-      "AWS::MSK::Configuration",
-      "AWS::MSK::Replicator",
-      "AWS::MSK::ServerlessCluster",
-      "AWS::MSK::VpcConnection"
-    ]
-  },
-  {
-    "resource_service": "kafka",
-    "resource_type": "transactional-id",
-    "cloudformation_resources": [
-      "AWS::MSK::BatchScramSecret",
-      "AWS::MSK::Cluster",
-      "AWS::MSK::ClusterPolicy",
-      "AWS::MSK::Configuration",
-      "AWS::MSK::Replicator",
-      "AWS::MSK::ServerlessCluster",
-      "AWS::MSK::VpcConnection"
     ]
   },
   {
@@ -790,57 +574,6 @@
     "cloudformation_resources": [
       "AWS::KinesisVideo::SignalingChannel",
       "AWS::KinesisVideo::Stream"
-    ]
-  },
-  {
-    "resource_service": "lambda",
-    "resource_type": "durable execution",
-    "cloudformation_resources": [
-      "AWS::Lambda::Alias",
-      "AWS::Lambda::CapacityProvider",
-      "AWS::Lambda::CodeSigningConfig",
-      "AWS::Lambda::EventInvokeConfig",
-      "AWS::Lambda::EventSourceMapping",
-      "AWS::Lambda::Function",
-      "AWS::Lambda::LayerVersion",
-      "AWS::Lambda::LayerVersionPermission",
-      "AWS::Lambda::Permission",
-      "AWS::Lambda::Url",
-      "AWS::Lambda::Version"
-    ]
-  },
-  {
-    "resource_service": "lambda",
-    "resource_type": "function version",
-    "cloudformation_resources": [
-      "AWS::Lambda::Alias",
-      "AWS::Lambda::CapacityProvider",
-      "AWS::Lambda::CodeSigningConfig",
-      "AWS::Lambda::EventInvokeConfig",
-      "AWS::Lambda::EventSourceMapping",
-      "AWS::Lambda::Function",
-      "AWS::Lambda::LayerVersion",
-      "AWS::Lambda::LayerVersionPermission",
-      "AWS::Lambda::Permission",
-      "AWS::Lambda::Url",
-      "AWS::Lambda::Version"
-    ]
-  },
-  {
-    "resource_service": "lambda",
-    "resource_type": "layer",
-    "cloudformation_resources": [
-      "AWS::Lambda::Alias",
-      "AWS::Lambda::CapacityProvider",
-      "AWS::Lambda::CodeSigningConfig",
-      "AWS::Lambda::EventInvokeConfig",
-      "AWS::Lambda::EventSourceMapping",
-      "AWS::Lambda::Function",
-      "AWS::Lambda::LayerVersion",
-      "AWS::Lambda::LayerVersionPermission",
-      "AWS::Lambda::Permission",
-      "AWS::Lambda::Url",
-      "AWS::Lambda::Version"
     ]
   },
   {
@@ -901,33 +634,6 @@
       "AWS::Macie::CustomDataIdentifier",
       "AWS::Macie::FindingsFilter",
       "AWS::Macie::Session"
-    ]
-  },
-  {
-    "resource_service": "managedblockchain",
-    "resource_type": "invitation",
-    "cloudformation_resources": [
-      "AWS::ManagedBlockchain::Accessor",
-      "AWS::ManagedBlockchain::Member",
-      "AWS::ManagedBlockchain::Node"
-    ]
-  },
-  {
-    "resource_service": "managedblockchain",
-    "resource_type": "network",
-    "cloudformation_resources": [
-      "AWS::ManagedBlockchain::Accessor",
-      "AWS::ManagedBlockchain::Member",
-      "AWS::ManagedBlockchain::Node"
-    ]
-  },
-  {
-    "resource_service": "managedblockchain",
-    "resource_type": "proposal",
-    "cloudformation_resources": [
-      "AWS::ManagedBlockchain::Accessor",
-      "AWS::ManagedBlockchain::Member",
-      "AWS::ManagedBlockchain::Node"
     ]
   },
   {
