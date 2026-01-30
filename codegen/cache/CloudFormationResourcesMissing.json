@@ -106,20 +106,6 @@
     ]
   },
   {
-    "resource_service": "backup-gateway",
-    "resource_type": "gateway",
-    "cloudformation_resources": [
-      "AWS::BackupGateway::Hypervisor"
-    ]
-  },
-  {
-    "resource_service": "backup-gateway",
-    "resource_type": "virtualmachine",
-    "cloudformation_resources": [
-      "AWS::BackupGateway::Hypervisor"
-    ]
-  },
-  {
     "resource_service": "bcm-data-exports",
     "resource_type": "table",
     "cloudformation_resources": [
@@ -132,28 +118,6 @@
     "cloudformation_resources": [
       "AWS::Budgets::Budget",
       "AWS::Budgets::BudgetsAction"
-    ]
-  },
-  {
-    "resource_service": "cases",
-    "resource_type": "Case",
-    "cloudformation_resources": [
-      "AWS::Cases::CaseRule",
-      "AWS::Cases::Domain",
-      "AWS::Cases::Field",
-      "AWS::Cases::Layout",
-      "AWS::Cases::Template"
-    ]
-  },
-  {
-    "resource_service": "cases",
-    "resource_type": "RelatedItem",
-    "cloudformation_resources": [
-      "AWS::Cases::CaseRule",
-      "AWS::Cases::Domain",
-      "AWS::Cases::Field",
-      "AWS::Cases::Layout",
-      "AWS::Cases::Template"
     ]
   },
   {
@@ -218,30 +182,6 @@
     ]
   },
   {
-    "resource_service": "cloudwatch",
-    "resource_type": "service",
-    "cloudformation_resources": [
-      "AWS::CloudWatch::Alarm",
-      "AWS::CloudWatch::AnomalyDetector",
-      "AWS::CloudWatch::CompositeAlarm",
-      "AWS::CloudWatch::Dashboard",
-      "AWS::CloudWatch::InsightRule",
-      "AWS::CloudWatch::MetricStream"
-    ]
-  },
-  {
-    "resource_service": "cloudwatch",
-    "resource_type": "slo",
-    "cloudformation_resources": [
-      "AWS::CloudWatch::Alarm",
-      "AWS::CloudWatch::AnomalyDetector",
-      "AWS::CloudWatch::CompositeAlarm",
-      "AWS::CloudWatch::Dashboard",
-      "AWS::CloudWatch::InsightRule",
-      "AWS::CloudWatch::MetricStream"
-    ]
-  },
-  {
     "resource_service": "codeartifact",
     "resource_type": "package",
     "cloudformation_resources": [
@@ -251,40 +191,12 @@
     ]
   },
   {
-    "resource_service": "codeconnections",
-    "resource_type": "Host",
-    "cloudformation_resources": [
-      "AWS::CodeConnections::Connection"
-    ]
-  },
-  {
-    "resource_service": "codeconnections",
-    "resource_type": "RepositoryLink",
-    "cloudformation_resources": [
-      "AWS::CodeConnections::Connection"
-    ]
-  },
-  {
     "resource_service": "codedeploy",
     "resource_type": "instance",
     "cloudformation_resources": [
       "AWS::CodeDeploy::Application",
       "AWS::CodeDeploy::DeploymentConfig",
       "AWS::CodeDeploy::DeploymentGroup"
-    ]
-  },
-  {
-    "resource_service": "codeguru-reviewer",
-    "resource_type": "association",
-    "cloudformation_resources": [
-      "AWS::CodeGuruReviewer::RepositoryAssociation"
-    ]
-  },
-  {
-    "resource_service": "codeguru-reviewer",
-    "resource_type": "codereview",
-    "cloudformation_resources": [
-      "AWS::CodeGuruReviewer::RepositoryAssociation"
     ]
   },
   {
@@ -344,54 +256,6 @@
     ]
   },
   {
-    "resource_service": "elasticbeanstalk",
-    "resource_type": "platform",
-    "cloudformation_resources": [
-      "AWS::ElasticBeanstalk::Application",
-      "AWS::ElasticBeanstalk::ApplicationVersion",
-      "AWS::ElasticBeanstalk::ConfigurationTemplate",
-      "AWS::ElasticBeanstalk::Environment"
-    ]
-  },
-  {
-    "resource_service": "elasticbeanstalk",
-    "resource_type": "solutionstack",
-    "cloudformation_resources": [
-      "AWS::ElasticBeanstalk::Application",
-      "AWS::ElasticBeanstalk::ApplicationVersion",
-      "AWS::ElasticBeanstalk::ConfigurationTemplate",
-      "AWS::ElasticBeanstalk::Environment"
-    ]
-  },
-  {
-    "resource_service": "elasticmapreduce",
-    "resource_type": "editor",
-    "cloudformation_resources": [
-      "AWS::EMR::Cluster",
-      "AWS::EMR::InstanceFleetConfig",
-      "AWS::EMR::InstanceGroupConfig",
-      "AWS::EMR::SecurityConfiguration",
-      "AWS::EMR::Step",
-      "AWS::EMR::Studio",
-      "AWS::EMR::StudioSessionMapping",
-      "AWS::EMR::WALWorkspace"
-    ]
-  },
-  {
-    "resource_service": "elasticmapreduce",
-    "resource_type": "notebook-execution",
-    "cloudformation_resources": [
-      "AWS::EMR::Cluster",
-      "AWS::EMR::InstanceFleetConfig",
-      "AWS::EMR::InstanceGroupConfig",
-      "AWS::EMR::SecurityConfiguration",
-      "AWS::EMR::Step",
-      "AWS::EMR::Studio",
-      "AWS::EMR::StudioSessionMapping",
-      "AWS::EMR::WALWorkspace"
-    ]
-  },
-  {
     "resource_service": "emr-serverless",
     "resource_type": "jobRun",
     "cloudformation_resources": [
@@ -407,24 +271,6 @@
       "AWS::EntityResolution::MatchingWorkflow",
       "AWS::EntityResolution::PolicyStatement",
       "AWS::EntityResolution::SchemaMapping"
-    ]
-  },
-  {
-    "resource_service": "fms",
-    "resource_type": "applications-list",
-    "cloudformation_resources": [
-      "AWS::FMS::NotificationChannel",
-      "AWS::FMS::Policy",
-      "AWS::FMS::ResourceSet"
-    ]
-  },
-  {
-    "resource_service": "fms",
-    "resource_type": "protocols-list",
-    "cloudformation_resources": [
-      "AWS::FMS::NotificationChannel",
-      "AWS::FMS::Policy",
-      "AWS::FMS::ResourceSet"
     ]
   },
   {
@@ -445,40 +291,6 @@
     ]
   },
   {
-    "resource_service": "identitystore",
-    "resource_type": "Identitystore",
-    "cloudformation_resources": [
-      "AWS::IdentityStore::Group",
-      "AWS::IdentityStore::GroupMembership"
-    ]
-  },
-  {
-    "resource_service": "identitystore",
-    "resource_type": "User",
-    "cloudformation_resources": [
-      "AWS::IdentityStore::Group",
-      "AWS::IdentityStore::GroupMembership"
-    ]
-  },
-  {
-    "resource_service": "inspector",
-    "resource_type": "target-template",
-    "cloudformation_resources": [
-      "AWS::Inspector::AssessmentTarget",
-      "AWS::Inspector::AssessmentTemplate",
-      "AWS::Inspector::ResourceGroup"
-    ]
-  },
-  {
-    "resource_service": "inspector",
-    "resource_type": "target/template",
-    "cloudformation_resources": [
-      "AWS::Inspector::AssessmentTarget",
-      "AWS::Inspector::AssessmentTemplate",
-      "AWS::Inspector::ResourceGroup"
-    ]
-  },
-  {
     "resource_service": "inspector2",
     "resource_type": "Finding",
     "cloudformation_resources": [
@@ -486,20 +298,6 @@
       "AWS::InspectorV2::CodeSecurityIntegration",
       "AWS::InspectorV2::CodeSecurityScanConfiguration",
       "AWS::InspectorV2::Filter"
-    ]
-  },
-  {
-    "resource_service": "internetmonitor",
-    "resource_type": "HealthEvent",
-    "cloudformation_resources": [
-      "AWS::InternetMonitor::Monitor"
-    ]
-  },
-  {
-    "resource_service": "internetmonitor",
-    "resource_type": "InternetEvent",
-    "cloudformation_resources": [
-      "AWS::InternetMonitor::Monitor"
     ]
   },
   {
@@ -577,84 +375,6 @@
     ]
   },
   {
-    "resource_service": "logs",
-    "resource_type": "anomaly-detector",
-    "cloudformation_resources": [
-      "AWS::Logs::AccountPolicy",
-      "AWS::Logs::Delivery",
-      "AWS::Logs::DeliveryDestination",
-      "AWS::Logs::DeliverySource",
-      "AWS::Logs::Destination",
-      "AWS::Logs::Integration",
-      "AWS::Logs::LogAnomalyDetector",
-      "AWS::Logs::LogGroup",
-      "AWS::Logs::LogStream",
-      "AWS::Logs::MetricFilter",
-      "AWS::Logs::QueryDefinition",
-      "AWS::Logs::ResourcePolicy",
-      "AWS::Logs::SubscriptionFilter",
-      "AWS::Logs::Transformer"
-    ]
-  },
-  {
-    "resource_service": "logs",
-    "resource_type": "scheduled-query",
-    "cloudformation_resources": [
-      "AWS::Logs::AccountPolicy",
-      "AWS::Logs::Delivery",
-      "AWS::Logs::DeliveryDestination",
-      "AWS::Logs::DeliverySource",
-      "AWS::Logs::Destination",
-      "AWS::Logs::Integration",
-      "AWS::Logs::LogAnomalyDetector",
-      "AWS::Logs::LogGroup",
-      "AWS::Logs::LogStream",
-      "AWS::Logs::MetricFilter",
-      "AWS::Logs::QueryDefinition",
-      "AWS::Logs::ResourcePolicy",
-      "AWS::Logs::SubscriptionFilter",
-      "AWS::Logs::Transformer"
-    ]
-  },
-  {
-    "resource_service": "macie2",
-    "resource_type": "ClassificationJob",
-    "cloudformation_resources": [
-      "AWS::Macie::AllowList",
-      "AWS::Macie::CustomDataIdentifier",
-      "AWS::Macie::FindingsFilter",
-      "AWS::Macie::Session"
-    ]
-  },
-  {
-    "resource_service": "macie2",
-    "resource_type": "Member",
-    "cloudformation_resources": [
-      "AWS::Macie::AllowList",
-      "AWS::Macie::CustomDataIdentifier",
-      "AWS::Macie::FindingsFilter",
-      "AWS::Macie::Session"
-    ]
-  },
-  {
-    "resource_service": "mediaconvert",
-    "resource_type": "CertificateAssociation",
-    "cloudformation_resources": [
-      "AWS::MediaConvert::JobTemplate",
-      "AWS::MediaConvert::Preset",
-      "AWS::MediaConvert::Queue"
-    ]
-  },
-  {
-    "resource_service": "mediaconvert",
-    "resource_type": "Job",
-    "cloudformation_resources": [
-      "AWS::MediaConvert::JobTemplate",
-      "AWS::MediaConvert::Preset",
-      "AWS::MediaConvert::Queue"
-    ]
-  },
-  {
     "resource_service": "mediapackagev2",
     "resource_type": "HarvestJob",
     "cloudformation_resources": [
@@ -666,84 +386,10 @@
     ]
   },
   {
-    "resource_service": "mediastore",
-    "resource_type": "folder",
-    "cloudformation_resources": [
-      "AWS::MediaStore::Container"
-    ]
-  },
-  {
-    "resource_service": "mediastore",
-    "resource_type": "object",
-    "cloudformation_resources": [
-      "AWS::MediaStore::Container"
-    ]
-  },
-  {
-    "resource_service": "mediatailor",
-    "resource_type": "prefetchSchedule",
-    "cloudformation_resources": [
-      "AWS::MediaTailor::Channel",
-      "AWS::MediaTailor::ChannelPolicy",
-      "AWS::MediaTailor::LiveSource",
-      "AWS::MediaTailor::PlaybackConfiguration",
-      "AWS::MediaTailor::SourceLocation",
-      "AWS::MediaTailor::VodSource"
-    ]
-  },
-  {
-    "resource_service": "mediatailor",
-    "resource_type": "program",
-    "cloudformation_resources": [
-      "AWS::MediaTailor::Channel",
-      "AWS::MediaTailor::ChannelPolicy",
-      "AWS::MediaTailor::LiveSource",
-      "AWS::MediaTailor::PlaybackConfiguration",
-      "AWS::MediaTailor::SourceLocation",
-      "AWS::MediaTailor::VodSource"
-    ]
-  },
-  {
     "resource_service": "medical-imaging",
     "resource_type": "imageset",
     "cloudformation_resources": [
       "AWS::HealthImaging::Datastore"
-    ]
-  },
-  {
-    "resource_service": "memorydb",
-    "resource_type": "multiregionparametergroup",
-    "cloudformation_resources": [
-      "AWS::MemoryDB::ACL",
-      "AWS::MemoryDB::Cluster",
-      "AWS::MemoryDB::MultiRegionCluster",
-      "AWS::MemoryDB::ParameterGroup",
-      "AWS::MemoryDB::SubnetGroup",
-      "AWS::MemoryDB::User"
-    ]
-  },
-  {
-    "resource_service": "memorydb",
-    "resource_type": "reservednode",
-    "cloudformation_resources": [
-      "AWS::MemoryDB::ACL",
-      "AWS::MemoryDB::Cluster",
-      "AWS::MemoryDB::MultiRegionCluster",
-      "AWS::MemoryDB::ParameterGroup",
-      "AWS::MemoryDB::SubnetGroup",
-      "AWS::MemoryDB::User"
-    ]
-  },
-  {
-    "resource_service": "memorydb",
-    "resource_type": "snapshot",
-    "cloudformation_resources": [
-      "AWS::MemoryDB::ACL",
-      "AWS::MemoryDB::Cluster",
-      "AWS::MemoryDB::MultiRegionCluster",
-      "AWS::MemoryDB::ParameterGroup",
-      "AWS::MemoryDB::SubnetGroup",
-      "AWS::MemoryDB::User"
     ]
   },
   {
@@ -752,96 +398,6 @@
     "cloudformation_resources": [
       "AWS::MPA::ApprovalTeam",
       "AWS::MPA::IdentitySource"
-    ]
-  },
-  {
-    "resource_service": "neptune-graph",
-    "resource_type": "export-task",
-    "cloudformation_resources": [
-      "AWS::NeptuneGraph::Graph",
-      "AWS::NeptuneGraph::PrivateGraphEndpoint"
-    ]
-  },
-  {
-    "resource_service": "neptune-graph",
-    "resource_type": "graph-snapshot",
-    "cloudformation_resources": [
-      "AWS::NeptuneGraph::Graph",
-      "AWS::NeptuneGraph::PrivateGraphEndpoint"
-    ]
-  },
-  {
-    "resource_service": "neptune-graph",
-    "resource_type": "import-task",
-    "cloudformation_resources": [
-      "AWS::NeptuneGraph::Graph",
-      "AWS::NeptuneGraph::PrivateGraphEndpoint"
-    ]
-  },
-  {
-    "resource_service": "networkmanager",
-    "resource_type": "attachment",
-    "cloudformation_resources": [
-      "AWS::NetworkManager::ConnectAttachment",
-      "AWS::NetworkManager::ConnectPeer",
-      "AWS::NetworkManager::CoreNetwork",
-      "AWS::NetworkManager::CoreNetworkPrefixListAssociation",
-      "AWS::NetworkManager::CustomerGatewayAssociation",
-      "AWS::NetworkManager::Device",
-      "AWS::NetworkManager::DirectConnectGatewayAttachment",
-      "AWS::NetworkManager::GlobalNetwork",
-      "AWS::NetworkManager::Link",
-      "AWS::NetworkManager::LinkAssociation",
-      "AWS::NetworkManager::Site",
-      "AWS::NetworkManager::SiteToSiteVpnAttachment",
-      "AWS::NetworkManager::TransitGatewayPeering",
-      "AWS::NetworkManager::TransitGatewayRegistration",
-      "AWS::NetworkManager::TransitGatewayRouteTableAttachment",
-      "AWS::NetworkManager::VpcAttachment"
-    ]
-  },
-  {
-    "resource_service": "networkmanager",
-    "resource_type": "connection",
-    "cloudformation_resources": [
-      "AWS::NetworkManager::ConnectAttachment",
-      "AWS::NetworkManager::ConnectPeer",
-      "AWS::NetworkManager::CoreNetwork",
-      "AWS::NetworkManager::CoreNetworkPrefixListAssociation",
-      "AWS::NetworkManager::CustomerGatewayAssociation",
-      "AWS::NetworkManager::Device",
-      "AWS::NetworkManager::DirectConnectGatewayAttachment",
-      "AWS::NetworkManager::GlobalNetwork",
-      "AWS::NetworkManager::Link",
-      "AWS::NetworkManager::LinkAssociation",
-      "AWS::NetworkManager::Site",
-      "AWS::NetworkManager::SiteToSiteVpnAttachment",
-      "AWS::NetworkManager::TransitGatewayPeering",
-      "AWS::NetworkManager::TransitGatewayRegistration",
-      "AWS::NetworkManager::TransitGatewayRouteTableAttachment",
-      "AWS::NetworkManager::VpcAttachment"
-    ]
-  },
-  {
-    "resource_service": "networkmanager",
-    "resource_type": "peering",
-    "cloudformation_resources": [
-      "AWS::NetworkManager::ConnectAttachment",
-      "AWS::NetworkManager::ConnectPeer",
-      "AWS::NetworkManager::CoreNetwork",
-      "AWS::NetworkManager::CoreNetworkPrefixListAssociation",
-      "AWS::NetworkManager::CustomerGatewayAssociation",
-      "AWS::NetworkManager::Device",
-      "AWS::NetworkManager::DirectConnectGatewayAttachment",
-      "AWS::NetworkManager::GlobalNetwork",
-      "AWS::NetworkManager::Link",
-      "AWS::NetworkManager::LinkAssociation",
-      "AWS::NetworkManager::Site",
-      "AWS::NetworkManager::SiteToSiteVpnAttachment",
-      "AWS::NetworkManager::TransitGatewayPeering",
-      "AWS::NetworkManager::TransitGatewayRegistration",
-      "AWS::NetworkManager::TransitGatewayRouteTableAttachment",
-      "AWS::NetworkManager::VpcAttachment"
     ]
   },
   {
@@ -882,144 +438,12 @@
     ]
   },
   {
-    "resource_service": "osis",
-    "resource_type": "pipeline-blueprint",
-    "cloudformation_resources": [
-      "AWS::OSIS::Pipeline"
-    ]
-  },
-  {
-    "resource_service": "osis",
-    "resource_type": "pipeline-endpoint",
-    "cloudformation_resources": [
-      "AWS::OSIS::Pipeline"
-    ]
-  },
-  {
     "resource_service": "panorama",
     "resource_type": "device",
     "cloudformation_resources": [
       "AWS::Panorama::ApplicationInstance",
       "AWS::Panorama::Package",
       "AWS::Panorama::PackageVersion"
-    ]
-  },
-  {
-    "resource_service": "qbusiness",
-    "resource_type": "chat-response-configuration",
-    "cloudformation_resources": [
-      "AWS::QBusiness::Application",
-      "AWS::QBusiness::DataAccessor",
-      "AWS::QBusiness::DataSource",
-      "AWS::QBusiness::Index",
-      "AWS::QBusiness::Permission",
-      "AWS::QBusiness::Plugin",
-      "AWS::QBusiness::Retriever",
-      "AWS::QBusiness::WebExperience"
-    ]
-  },
-  {
-    "resource_service": "qbusiness",
-    "resource_type": "integration",
-    "cloudformation_resources": [
-      "AWS::QBusiness::Application",
-      "AWS::QBusiness::DataAccessor",
-      "AWS::QBusiness::DataSource",
-      "AWS::QBusiness::Index",
-      "AWS::QBusiness::Permission",
-      "AWS::QBusiness::Plugin",
-      "AWS::QBusiness::Retriever",
-      "AWS::QBusiness::WebExperience"
-    ]
-  },
-  {
-    "resource_service": "qbusiness",
-    "resource_type": "subscription",
-    "cloudformation_resources": [
-      "AWS::QBusiness::Application",
-      "AWS::QBusiness::DataAccessor",
-      "AWS::QBusiness::DataSource",
-      "AWS::QBusiness::Index",
-      "AWS::QBusiness::Permission",
-      "AWS::QBusiness::Plugin",
-      "AWS::QBusiness::Retriever",
-      "AWS::QBusiness::WebExperience"
-    ]
-  },
-  {
-    "resource_service": "ram",
-    "resource_type": "customer-managed-permission",
-    "cloudformation_resources": [
-      "AWS::RAM::Permission",
-      "AWS::RAM::ResourceShare"
-    ]
-  },
-  {
-    "resource_service": "ram",
-    "resource_type": "resource-share-invitation",
-    "cloudformation_resources": [
-      "AWS::RAM::Permission",
-      "AWS::RAM::ResourceShare"
-    ]
-  },
-  {
-    "resource_service": "redshift-serverless",
-    "resource_type": "managed-workgroup",
-    "cloudformation_resources": [
-      "AWS::RedshiftServerless::Namespace",
-      "AWS::RedshiftServerless::Snapshot",
-      "AWS::RedshiftServerless::Workgroup"
-    ]
-  },
-  {
-    "resource_service": "redshift-serverless",
-    "resource_type": "recoveryPoint",
-    "cloudformation_resources": [
-      "AWS::RedshiftServerless::Namespace",
-      "AWS::RedshiftServerless::Snapshot",
-      "AWS::RedshiftServerless::Workgroup"
-    ]
-  },
-  {
-    "resource_service": "rekognition",
-    "resource_type": "dataset",
-    "cloudformation_resources": [
-      "AWS::Rekognition::Collection",
-      "AWS::Rekognition::Project",
-      "AWS::Rekognition::StreamProcessor"
-    ]
-  },
-  {
-    "resource_service": "rekognition",
-    "resource_type": "projectversion",
-    "cloudformation_resources": [
-      "AWS::Rekognition::Collection",
-      "AWS::Rekognition::Project",
-      "AWS::Rekognition::StreamProcessor"
-    ]
-  },
-  {
-    "resource_service": "resiliencehub",
-    "resource_type": "app-assessment",
-    "cloudformation_resources": [
-      "AWS::ResilienceHub::App",
-      "AWS::ResilienceHub::ResiliencyPolicy"
-    ]
-  },
-  {
-    "resource_service": "resiliencehub",
-    "resource_type": "application",
-    "cloudformation_resources": [
-      "AWS::ResilienceHub::App",
-      "AWS::ResilienceHub::ResiliencyPolicy"
-    ]
-  },
-  {
-    "resource_service": "resiliencehub",
-    "resource_type": "recommendation-template",
-    "cloudformation_resources": [
-      "AWS::ResilienceHub::App",
-      "AWS::ResilienceHub::ResiliencyPolicy"
     ]
   },
   {
@@ -1038,57 +462,6 @@
       "AWS::RolesAnywhere::CRL",
       "AWS::RolesAnywhere::Profile",
       "AWS::RolesAnywhere::TrustAnchor"
-    ]
-  },
-  {
-    "resource_service": "route53resolver",
-    "resource_type": "autodefined-rule",
-    "cloudformation_resources": [
-      "AWS::Route53Resolver::FirewallDomainList",
-      "AWS::Route53Resolver::FirewallRuleGroup",
-      "AWS::Route53Resolver::FirewallRuleGroupAssociation",
-      "AWS::Route53Resolver::OutpostResolver",
-      "AWS::Route53Resolver::ResolverConfig",
-      "AWS::Route53Resolver::ResolverDNSSECConfig",
-      "AWS::Route53Resolver::ResolverEndpoint",
-      "AWS::Route53Resolver::ResolverQueryLoggingConfig",
-      "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
-      "AWS::Route53Resolver::ResolverRule",
-      "AWS::Route53Resolver::ResolverRuleAssociation"
-    ]
-  },
-  {
-    "resource_service": "route53resolver",
-    "resource_type": "firewall-config",
-    "cloudformation_resources": [
-      "AWS::Route53Resolver::FirewallDomainList",
-      "AWS::Route53Resolver::FirewallRuleGroup",
-      "AWS::Route53Resolver::FirewallRuleGroupAssociation",
-      "AWS::Route53Resolver::OutpostResolver",
-      "AWS::Route53Resolver::ResolverConfig",
-      "AWS::Route53Resolver::ResolverDNSSECConfig",
-      "AWS::Route53Resolver::ResolverEndpoint",
-      "AWS::Route53Resolver::ResolverQueryLoggingConfig",
-      "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
-      "AWS::Route53Resolver::ResolverRule",
-      "AWS::Route53Resolver::ResolverRuleAssociation"
-    ]
-  },
-  {
-    "resource_service": "route53resolver",
-    "resource_type": "resolver-query-log-config",
-    "cloudformation_resources": [
-      "AWS::Route53Resolver::FirewallDomainList",
-      "AWS::Route53Resolver::FirewallRuleGroup",
-      "AWS::Route53Resolver::FirewallRuleGroupAssociation",
-      "AWS::Route53Resolver::OutpostResolver",
-      "AWS::Route53Resolver::ResolverConfig",
-      "AWS::Route53Resolver::ResolverDNSSECConfig",
-      "AWS::Route53Resolver::ResolverEndpoint",
-      "AWS::Route53Resolver::ResolverQueryLoggingConfig",
-      "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
-      "AWS::Route53Resolver::ResolverRule",
-      "AWS::Route53Resolver::ResolverRuleAssociation"
     ]
   },
   {
@@ -1180,125 +553,11 @@
     ]
   },
   {
-    "resource_service": "ssm-contacts",
-    "resource_type": "engagement",
-    "cloudformation_resources": [
-      "AWS::SSMContacts::Contact",
-      "AWS::SSMContacts::ContactChannel",
-      "AWS::SSMContacts::Plan",
-      "AWS::SSMContacts::Rotation"
-    ]
-  },
-  {
-    "resource_service": "ssm-contacts",
-    "resource_type": "page",
-    "cloudformation_resources": [
-      "AWS::SSMContacts::Contact",
-      "AWS::SSMContacts::ContactChannel",
-      "AWS::SSMContacts::Plan",
-      "AWS::SSMContacts::Rotation"
-    ]
-  },
-  {
     "resource_service": "ssm-incidents",
     "resource_type": "incident-record",
     "cloudformation_resources": [
       "AWS::SSMIncidents::ReplicationSet",
       "AWS::SSMIncidents::ResponsePlan"
-    ]
-  },
-  {
-    "resource_service": "ssm-sap",
-    "resource_type": "component",
-    "cloudformation_resources": [
-      "AWS::SystemsManagerSAP::Application"
-    ]
-  },
-  {
-    "resource_service": "ssm-sap",
-    "resource_type": "database",
-    "cloudformation_resources": [
-      "AWS::SystemsManagerSAP::Application"
-    ]
-  },
-  {
-    "resource_service": "sso",
-    "resource_type": "Account",
-    "cloudformation_resources": [
-      "AWS::SSO::Application",
-      "AWS::SSO::ApplicationAssignment",
-      "AWS::SSO::Assignment",
-      "AWS::SSO::Instance",
-      "AWS::SSO::InstanceAccessControlAttributeConfiguration",
-      "AWS::SSO::PermissionSet"
-    ]
-  },
-  {
-    "resource_service": "sso",
-    "resource_type": "ApplicationProvider",
-    "cloudformation_resources": [
-      "AWS::SSO::Application",
-      "AWS::SSO::ApplicationAssignment",
-      "AWS::SSO::Assignment",
-      "AWS::SSO::Instance",
-      "AWS::SSO::InstanceAccessControlAttributeConfiguration",
-      "AWS::SSO::PermissionSet"
-    ]
-  },
-  {
-    "resource_service": "sso",
-    "resource_type": "TrustedTokenIssuer",
-    "cloudformation_resources": [
-      "AWS::SSO::Application",
-      "AWS::SSO::ApplicationAssignment",
-      "AWS::SSO::Assignment",
-      "AWS::SSO::Instance",
-      "AWS::SSO::InstanceAccessControlAttributeConfiguration",
-      "AWS::SSO::PermissionSet"
-    ]
-  },
-  {
-    "resource_service": "states",
-    "resource_type": "execution",
-    "cloudformation_resources": [
-      "AWS::StepFunctions::Activity",
-      "AWS::StepFunctions::StateMachine",
-      "AWS::StepFunctions::StateMachineAlias",
-      "AWS::StepFunctions::StateMachineVersion"
-    ]
-  },
-  {
-    "resource_service": "states",
-    "resource_type": "labelled execution",
-    "cloudformation_resources": [
-      "AWS::StepFunctions::Activity",
-      "AWS::StepFunctions::StateMachine",
-      "AWS::StepFunctions::StateMachineAlias",
-      "AWS::StepFunctions::StateMachineVersion"
-    ]
-  },
-  {
-    "resource_service": "states",
-    "resource_type": "maprun",
-    "cloudformation_resources": [
-      "AWS::StepFunctions::Activity",
-      "AWS::StepFunctions::StateMachine",
-      "AWS::StepFunctions::StateMachineAlias",
-      "AWS::StepFunctions::StateMachineVersion"
-    ]
-  },
-  {
-    "resource_service": "thinclient",
-    "resource_type": "device",
-    "cloudformation_resources": [
-      "AWS::WorkSpacesThinClient::Environment"
-    ]
-  },
-  {
-    "resource_service": "thinclient",
-    "resource_type": "softwareset",
-    "cloudformation_resources": [
-      "AWS::WorkSpacesThinClient::Environment"
     ]
   },
   {
@@ -1336,40 +595,6 @@
     ]
   },
   {
-    "resource_service": "waf-regional",
-    "resource_type": "regexmatchset",
-    "cloudformation_resources": [
-      "AWS::WAFRegional::ByteMatchSet",
-      "AWS::WAFRegional::GeoMatchSet",
-      "AWS::WAFRegional::IPSet",
-      "AWS::WAFRegional::RateBasedRule",
-      "AWS::WAFRegional::RegexPatternSet",
-      "AWS::WAFRegional::Rule",
-      "AWS::WAFRegional::SizeConstraintSet",
-      "AWS::WAFRegional::SqlInjectionMatchSet",
-      "AWS::WAFRegional::WebACL",
-      "AWS::WAFRegional::WebACLAssociation",
-      "AWS::WAFRegional::XssMatchSet"
-    ]
-  },
-  {
-    "resource_service": "waf-regional",
-    "resource_type": "rulegroup",
-    "cloudformation_resources": [
-      "AWS::WAFRegional::ByteMatchSet",
-      "AWS::WAFRegional::GeoMatchSet",
-      "AWS::WAFRegional::IPSet",
-      "AWS::WAFRegional::RateBasedRule",
-      "AWS::WAFRegional::RegexPatternSet",
-      "AWS::WAFRegional::Rule",
-      "AWS::WAFRegional::SizeConstraintSet",
-      "AWS::WAFRegional::SqlInjectionMatchSet",
-      "AWS::WAFRegional::WebACL",
-      "AWS::WAFRegional::WebACLAssociation",
-      "AWS::WAFRegional::XssMatchSet"
-    ]
-  },
-  {
     "resource_service": "wafv2",
     "resource_type": "managedruleset",
     "cloudformation_resources": [
@@ -1379,60 +604,6 @@
       "AWS::WAFv2::RuleGroup",
       "AWS::WAFv2::WebACL",
       "AWS::WAFv2::WebACLAssociation"
-    ]
-  },
-  {
-    "resource_service": "wisdom",
-    "resource_type": "Content",
-    "cloudformation_resources": [
-      "AWS::Wisdom::AIAgent",
-      "AWS::Wisdom::AIAgentVersion",
-      "AWS::Wisdom::AIGuardrail",
-      "AWS::Wisdom::AIGuardrailVersion",
-      "AWS::Wisdom::AIPrompt",
-      "AWS::Wisdom::AIPromptVersion",
-      "AWS::Wisdom::Assistant",
-      "AWS::Wisdom::AssistantAssociation",
-      "AWS::Wisdom::KnowledgeBase",
-      "AWS::Wisdom::MessageTemplate",
-      "AWS::Wisdom::MessageTemplateVersion",
-      "AWS::Wisdom::QuickResponse"
-    ]
-  },
-  {
-    "resource_service": "wisdom",
-    "resource_type": "ContentAssociation",
-    "cloudformation_resources": [
-      "AWS::Wisdom::AIAgent",
-      "AWS::Wisdom::AIAgentVersion",
-      "AWS::Wisdom::AIGuardrail",
-      "AWS::Wisdom::AIGuardrailVersion",
-      "AWS::Wisdom::AIPrompt",
-      "AWS::Wisdom::AIPromptVersion",
-      "AWS::Wisdom::Assistant",
-      "AWS::Wisdom::AssistantAssociation",
-      "AWS::Wisdom::KnowledgeBase",
-      "AWS::Wisdom::MessageTemplate",
-      "AWS::Wisdom::MessageTemplateVersion",
-      "AWS::Wisdom::QuickResponse"
-    ]
-  },
-  {
-    "resource_service": "wisdom",
-    "resource_type": "Session",
-    "cloudformation_resources": [
-      "AWS::Wisdom::AIAgent",
-      "AWS::Wisdom::AIAgentVersion",
-      "AWS::Wisdom::AIGuardrail",
-      "AWS::Wisdom::AIGuardrailVersion",
-      "AWS::Wisdom::AIPrompt",
-      "AWS::Wisdom::AIPromptVersion",
-      "AWS::Wisdom::Assistant",
-      "AWS::Wisdom::AssistantAssociation",
-      "AWS::Wisdom::KnowledgeBase",
-      "AWS::Wisdom::MessageTemplate",
-      "AWS::Wisdom::MessageTemplateVersion",
-      "AWS::Wisdom::QuickResponse"
     ]
   },
   {

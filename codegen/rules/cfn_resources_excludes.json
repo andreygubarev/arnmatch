@@ -53,6 +53,145 @@
     "network",
     "proposal"
   ],
+  "memorydb": [
+    "multiregionparametergroup",
+    "reservednode",
+    "snapshot"
+  ],
+  "neptune-graph": [
+    "export-task",
+    "graph-snapshot",
+    "import-task"
+  ],
+  "networkmanager": [
+    "attachment",
+    "connection",
+    "peering"
+  ],
+  "qbusiness": [
+    "chat-response-configuration",
+    "integration",
+    "subscription"
+  ],
+  "resiliencehub": [
+    "app-assessment",
+    "recommendation-template"
+  ],
+  "route53resolver": [
+    "autodefined-rule",
+    "firewall-config"
+  ],
+  "sso": [
+    "Account",
+    "ApplicationProvider",
+    "TrustedTokenIssuer"
+  ],
+  "states": [
+    "execution",
+    "labelled execution",
+    "maprun"
+  ],
+  "wisdom": [
+    "Content",
+    "ContentAssociation",
+    "Session"
+  ],
+  "backup-gateway": [
+    "gateway",
+    "virtualmachine"
+  ],
+  "cases": [
+    "Case",
+    "RelatedItem"
+  ],
+  "cloudwatch": [
+    "service",
+    "slo"
+  ],
+  "codeconnections": [
+    "Host",
+    "RepositoryLink"
+  ],
+  "codeguru-reviewer": [
+    "codereview"
+  ],
+  "elasticbeanstalk": [
+    "platform",
+    "solutionstack"
+  ],
+  "elasticmapreduce": [
+    "editor",
+    "notebook-execution"
+  ],
+  "fms": [
+    "applications-list",
+    "protocols-list"
+  ],
+  "identitystore": [
+    "Identitystore",
+    "User"
+  ],
+  "inspector": [
+    "target-template",
+    "target/template"
+  ],
+  "internetmonitor": [
+    "HealthEvent",
+    "InternetEvent"
+  ],
+  "logs": [
+    "scheduled-query"
+  ],
+  "macie2": [
+    "ClassificationJob",
+    "Member"
+  ],
+  "mediaconvert": [
+    "CertificateAssociation",
+    "Job"
+  ],
+  "mediastore": [
+    "folder",
+    "object"
+  ],
+  "mediatailor": [
+    "prefetchSchedule",
+    "program"
+  ],
+  "osis": [
+    "pipeline-blueprint",
+    "pipeline-endpoint"
+  ],
+  "ram": [
+    "resource-share-invitation"
+  ],
+  "redshift-serverless": [
+    "managed-workgroup",
+    "recoveryPoint"
+  ],
+  "rekognition": [
+    "dataset",
+    "projectversion"
+  ],
+  "ssm-contacts": [
+    "engagement",
+    "page"
+  ],
+  "ssm-sap": [
+    "component",
+    "database"
+  ],
+  "thinclient": [
+    "device",
+    "softwareset"
+  ],
+  "waf-regional": [
+    "regexmatchset",
+    "rulegroup"
+  ],
+  "access-analyzer": [
+    "ArchiveRule"
+  ],
   "amplifyuibuilder": [
     "CodegenJobResource"
   ],

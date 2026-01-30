@@ -20,6 +20,21 @@
   "lambda": {
     "function version": "AWS::Lambda::Version"
   },
+  "resiliencehub": {
+    "application": "AWS::ResilienceHub::App"
+  },
+  "route53resolver": {
+    "resolver-query-log-config": "AWS::Route53Resolver::ResolverQueryLoggingConfig"
+  },
+  "codeguru-reviewer": {
+    "association": "AWS::CodeGuruReviewer::RepositoryAssociation"
+  },
+  "logs": {
+    "anomaly-detector": "AWS::Logs::LogAnomalyDetector"
+  },
+  "ram": {
+    "customer-managed-permission": "AWS::RAM::Permission"
+  },
   "amplifyuibuilder": {
     "ComponentResource": "AWS::AmplifyUIBuilder::Component",
     "FormResource": "AWS::AmplifyUIBuilder::Form",
