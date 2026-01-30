@@ -181,6 +181,15 @@
     "user",
     "verify-otp"
   ],
+  "glue": [
+    "blueprint",
+    "catalog",
+    "completion",
+    "rootcatalog",
+    "session",
+    "tableversion",
+    "userdefinedfunction"
+  ],
   "iam": [
     "access-report",
     "assumed-role",
@@ -258,6 +267,15 @@
     "kxUser",
     "kxVolume",
     "user"
+  ],
+  "frauddetector": [
+    "batch-import",
+    "batch-prediction",
+    "detector-version",
+    "external-model",
+    "model",
+    "model-version",
+    "rule"
   ],
   "forecast": [
     "algorithm",
