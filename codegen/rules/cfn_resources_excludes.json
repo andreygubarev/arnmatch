@@ -153,6 +153,18 @@
     "user",
     "verify-otp"
   ],
+  "iam": [
+    "access-report",
+    "assumed-role",
+    "context-provider",
+    "delegation-request",
+    "es_role",
+    "federated-user",
+    "iam-role",
+    "opensearchservice_role",
+    "root-user",
+    "sms-mfa"
+  ],
   "iot": [
     "client",
     "index",

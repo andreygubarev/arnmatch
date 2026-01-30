@@ -53,6 +53,9 @@
     "vpc-endpoint-service-permission": "AWS::EC2::VPCEndpointServicePermissions",
     "vpc-flow-log": "AWS::EC2::FlowLog"
   },
+  "iam": {
+    "mfa": "AWS::IAM::VirtualMFADevice"
+  },
   "iot": {
     "cacert": "AWS::IoT::CACertificate",
     "cert": "AWS::IoT::Certificate",
