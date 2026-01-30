@@ -56,6 +56,10 @@
   "iam": {
     "mfa": "AWS::IAM::VirtualMFADevice"
   },
+  "ssm": {
+    "windowtarget": "AWS::SSM::MaintenanceWindowTarget",
+    "windowtask": "AWS::SSM::MaintenanceWindowTask"
+  },
   "iot": {
     "cacert": "AWS::IoT::CACertificate",
     "cert": "AWS::IoT::Certificate",

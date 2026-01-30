@@ -3433,7 +3433,7 @@ AWS_CLOUDFORMATION_RESOURCES = {
     'sms-voice': {'ConfigurationSet': 'AWS::SMSVOICE::ConfigurationSet', 'OptOutList': 'AWS::SMSVOICE::OptOutList', 'PhoneNumber': 'AWS::SMSVOICE::PhoneNumber', 'Pool': 'AWS::SMSVOICE::Pool', 'ProtectConfiguration': 'AWS::SMSVOICE::ProtectConfiguration', 'SenderId': 'AWS::SMSVOICE::SenderId'},
     'sns': {'topic': 'AWS::SNS::Topic'},
     'sqs': {'queue': 'AWS::SQS::Queue'},
-    'ssm': {'association': 'AWS::SSM::Association', 'document': 'AWS::SSM::Document', 'maintenancewindow': 'AWS::SSM::MaintenanceWindow', 'parameter': 'AWS::SSM::Parameter', 'patchbaseline': 'AWS::SSM::PatchBaseline', 'resource-data-sync': 'AWS::SSM::ResourceDataSync', 'resourcedatasync': 'AWS::SSM::ResourceDataSync'},
+    'ssm': {'association': 'AWS::SSM::Association', 'document': 'AWS::SSM::Document', 'maintenancewindow': 'AWS::SSM::MaintenanceWindow', 'parameter': 'AWS::SSM::Parameter', 'patchbaseline': 'AWS::SSM::PatchBaseline', 'resource-data-sync': 'AWS::SSM::ResourceDataSync', 'resourcedatasync': 'AWS::SSM::ResourceDataSync', 'windowtarget': 'AWS::SSM::MaintenanceWindowTarget', 'windowtask': 'AWS::SSM::MaintenanceWindowTask'},
     'ssm-contacts': {'contact': 'AWS::SSMContacts::Contact', 'contactchannel': 'AWS::SSMContacts::ContactChannel', 'rotation': 'AWS::SSMContacts::Rotation'},
     'ssm-incidents': {'replication-set': 'AWS::SSMIncidents::ReplicationSet', 'response-plan': 'AWS::SSMIncidents::ResponsePlan'},
     'ssm-quicksetup': {'configuration-manager': 'AWS::SSMQuickSetup::ConfigurationManager'},

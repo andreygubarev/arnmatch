@@ -102,6 +102,17 @@
     "session",
     "system-tool"
   ],
+  "ssm": [
+    "automation-definition",
+    "automation-execution",
+    "managed-instance",
+    "managed-instance-inventory",
+    "opsitem",
+    "opsitemgroup",
+    "opsmetadata",
+    "servicesetting",
+    "session"
+  ],
   "sagemaker": [
     "action",
     "algorithm",
