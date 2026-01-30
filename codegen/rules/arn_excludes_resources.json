@@ -1,0 +1,15 @@
+{
+  "backup": ["recoveryPoint"],
+  "connect": [
+    "wildcard-agent-status",
+    "wildcard-contact-flow",
+    "wildcard-legacy-phone-number",
+    "wildcard-phone-number",
+    "wildcard-queue",
+    "wildcard-quick-connect"
+  ],
+  "ebs": ["snapshot"],
+  "identitystore": ["AllGroupMemberships", "AllGroups", "AllUsers"],
+  "imagebuilder": ["allComponentBuildVersions", "allImageBuildVersions", "allWorkflowBuildVersions"],
+  "mobiletargeting": ["apps", "recommenders"]
+}

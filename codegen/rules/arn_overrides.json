@@ -1,0 +1,42 @@
+{
+  "amplifybackend": {
+    "api": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/api/${ApiId}",
+    "auth": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/auth/${AuthId}",
+    "backend": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/${SubResourceId}",
+    "config": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/config/${ConfigId}",
+    "created-backend": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${BackendId}",
+    "environment": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/environments/${EnvironmentId}",
+    "job": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/job/${JobId}",
+    "storage": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/storage/${StorageId}",
+    "token": "arn:${Partition}:amplifybackend:${Region}:${Account}:/backend/${AppId}/challenge/${ChallengeId}"
+  },
+  "artifact": {
+    "agreement": "arn:${Partition}:artifact:::agreement/${AgreementId}",
+    "customer-agreement": "arn:${Partition}:artifact::${Account}:customer-agreement/${CustomerAgreementId}"
+  },
+  "dms": {
+    "Certificate": "arn:${Partition}:dms:${Region}:${Account}:cert:${CertificateId}",
+    "DataMigration": "arn:${Partition}:dms:${Region}:${Account}:data-migration:${DataMigrationId}",
+    "DataProvider": "arn:${Partition}:dms:${Region}:${Account}:data-provider:${DataProviderId}",
+    "Endpoint": "arn:${Partition}:dms:${Region}:${Account}:endpoint:${EndpointId}",
+    "EventSubscription": "arn:${Partition}:dms:${Region}:${Account}:es:${EventSubscriptionId}",
+    "InstanceProfile": "arn:${Partition}:dms:${Region}:${Account}:instance-profile:${InstanceProfileId}",
+    "MigrationProject": "arn:${Partition}:dms:${Region}:${Account}:migration-project:${MigrationProjectId}",
+    "ReplicationConfig": "arn:${Partition}:dms:${Region}:${Account}:replication-config:${ReplicationConfigId}",
+    "ReplicationInstance": "arn:${Partition}:dms:${Region}:${Account}:rep:${ReplicationInstanceId}",
+    "ReplicationSubnetGroup": "arn:${Partition}:dms:${Region}:${Account}:subgrp:${SubnetGroupName}",
+    "ReplicationTask": "arn:${Partition}:dms:${Region}:${Account}:task:${TaskId}",
+    "ReplicationTaskAssessmentRun": "arn:${Partition}:dms:${Region}:${Account}:assessment-run:${AssessmentRunId}",
+    "ReplicationTaskIndividualAssessment": "arn:${Partition}:dms:${Region}:${Account}:individual-assessment:${IndividualAssessmentId}"
+  },
+  "ec2": {
+    "image": "arn:${Partition}:ec2:${Region}:${Account}:image/${ImageId}",
+    "snapshot": "arn:${Partition}:ec2:${Region}:${Account}:snapshot/${SnapshotId}"
+  },
+  "health": {
+    "event": "arn:${Partition}:health:${Region}:${Account}:event/${Service}/${EventTypeCode}/${EventId}"
+  },
+  "neptune-db": {
+    "database": "arn:${Partition}:neptune-db:${Region}:${Account}:${ClusterResourceId}/${DatabaseId}"
+  }
+}

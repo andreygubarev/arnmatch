@@ -1,0 +1,12 @@
+[
+  {"service": "eks", "resource_type": "daemonset", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:daemonset/${ClusterName}/${Namespace}/${DaemonSetName}/${UUID}"},
+  {"service": "eks", "resource_type": "deployment", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:deployment/${ClusterName}/${Namespace}/${DeploymentName}/${UUID}"},
+  {"service": "eks", "resource_type": "endpointslice", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:endpointslice/${ClusterName}/${Namespace}/${EndpointSliceName}/${UUID}"},
+  {"service": "eks", "resource_type": "ingress", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:ingress/${ClusterName}/${Namespace}/${IngressName}/${UUID}"},
+  {"service": "eks", "resource_type": "namespace", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:namespace/${ClusterName}/${NamespaceName}/${UUID}"},
+  {"service": "eks", "resource_type": "persistentvolume", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:persistentvolume/${ClusterName}/${PersistentVolumeName}/${UUID}"},
+  {"service": "eks", "resource_type": "replicaset", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:replicaset/${ClusterName}/${Namespace}/${ReplicaSetName}/${UUID}"},
+  {"service": "eks", "resource_type": "service", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:service/${ClusterName}/${Namespace}/${ServiceName}/${UUID}"},
+  {"service": "eks", "resource_type": "statefulset", "arn_pattern": "arn:${Partition}:eks:${Region}:${Account}:statefulset/${ClusterName}/${Namespace}/${StatefulSetName}/${UUID}"},
+  {"service": "inspector", "resource_type": "target-template", "arn_pattern": "arn:${Partition}:inspector:${Region}:${Account}:target/${TargetId}/template/${TemplateId}"}
+]
