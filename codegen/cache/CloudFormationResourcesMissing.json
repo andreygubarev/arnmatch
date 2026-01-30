@@ -1380,62 +1380,6 @@
     ]
   },
   {
-    "resource_service": "finspace",
-    "resource_type": "kxCluster",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "kxDatabase",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "kxDataview",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "kxEnvironment",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "kxScalingGroup",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "kxUser",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "kxVolume",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
-    "resource_service": "finspace",
-    "resource_type": "user",
-    "cloudformation_resources": [
-      "AWS::FinSpace::Environment"
-    ]
-  },
-  {
     "resource_service": "fis",
     "resource_type": "action",
     "cloudformation_resources": [

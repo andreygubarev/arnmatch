@@ -242,6 +242,16 @@
     "namespace",
     "user"
   ],
+  "finspace": [
+    "kxCluster",
+    "kxDatabase",
+    "kxDataview",
+    "kxEnvironment",
+    "kxScalingGroup",
+    "kxUser",
+    "kxVolume",
+    "user"
+  ],
   "forecast": [
     "algorithm",
     "datasetImportJob",
