@@ -99,6 +99,16 @@
     "transform-job",
     "workforce"
   ],
+  "iot": [
+    "client",
+    "index",
+    "job",
+    "otaupdate",
+    "stream",
+    "topic",
+    "topicfilter",
+    "tunnel"
+  ],
   "ec2": [
     "capacity-block",
     "coip-pool",

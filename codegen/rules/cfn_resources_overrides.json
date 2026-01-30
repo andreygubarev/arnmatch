@@ -34,5 +34,13 @@
     "spot-fleet-request": "AWS::EC2::SpotFleet",
     "vpc-endpoint-service-permission": "AWS::EC2::VPCEndpointServicePermissions",
     "vpc-flow-log": "AWS::EC2::FlowLog"
+  },
+  "iot": {
+    "cacert": "AWS::IoT::CACertificate",
+    "cert": "AWS::IoT::Certificate",
+    "destination": "AWS::IoT::TopicRuleDestination",
+    "package": "AWS::IoT::SoftwarePackage",
+    "packageversion": "AWS::IoT::SoftwarePackageVersion",
+    "rule": "AWS::IoT::TopicRule"
   }
 }
