@@ -72,5 +72,9 @@
     "package": "AWS::IoT::SoftwarePackage",
     "packageversion": "AWS::IoT::SoftwarePackageVersion",
     "rule": "AWS::IoT::TopicRule"
+  },
+  "workspaces": {
+    "workspaceid": "AWS::WorkSpaces::Workspace",
+    "workspacespoolid": "AWS::WorkSpaces::WorkspacesPool"
   }
 }

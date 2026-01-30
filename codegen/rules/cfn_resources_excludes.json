@@ -286,6 +286,14 @@
     "service",
     "statefulset"
   ],
+  "workspaces": [
+    "certificateid",
+    "directoryid",
+    "workspaceapplication",
+    "workspacebundle",
+    "workspaceimage",
+    "workspaceipgroup"
+  ],
   "ec2": [
     "capacity-block",
     "coip-pool",
