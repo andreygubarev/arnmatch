@@ -182,6 +182,11 @@
     "KeyPair",
     "RelationalDatabaseSnapshot"
   ],
+  "mediaconnect": [
+    "GatewayInstance",
+    "Offering",
+    "Reservation"
+  ],
   "mobiletargeting": [
     "attribute",
     "channel",
@@ -195,6 +200,14 @@
     "template",
     "user",
     "verify-otp"
+  ],
+  "greengrass": [
+    "bulkDeployment",
+    "certificateAuthority",
+    "component",
+    "connectivityInfo",
+    "coreDevice",
+    "thingRuntimeConfig"
   ],
   "glue": [
     "blueprint",
@@ -226,6 +239,14 @@
     "topic",
     "topicfilter",
     "tunnel"
+  ],
+  "omics": [
+    "AnnotationStoreVersion",
+    "TaskResource",
+    "readSet",
+    "reference",
+    "run",
+    "runCache"
   ],
   "personalize": [
     "algorithm",
@@ -272,6 +293,14 @@
     "ingestion",
     "namespace",
     "user"
+  ],
+  "events": [
+    "create-snapshot",
+    "event-source",
+    "reboot-instance",
+    "replay",
+    "stop-instance",
+    "terminate-instance"
   ],
   "finspace": [
     "kxCluster",

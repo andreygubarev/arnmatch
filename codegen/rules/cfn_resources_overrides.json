@@ -60,6 +60,11 @@
     "ContainerService": "AWS::Lightsail::Container",
     "RelationalDatabase": "AWS::Lightsail::Database"
   },
+  "mediaconnect": {
+    "Entitlement": "AWS::MediaConnect::FlowEntitlement",
+    "Output": "AWS::MediaConnect::FlowOutput",
+    "Source": "AWS::MediaConnect::FlowSource"
+  },
   "ses": {
     "addon-instance": "AWS::SES::MailManagerAddonInstance",
     "addon-subscription": "AWS::SES::MailManagerAddonSubscription",
