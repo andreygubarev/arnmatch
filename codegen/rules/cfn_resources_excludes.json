@@ -251,6 +251,11 @@
     "topicfilter",
     "tunnel"
   ],
+  "network-firewall": [
+    "Proxy",
+    "ProxyConfiguration",
+    "ProxyRuleGroup"
+  ],
   "omics": [
     "AnnotationStoreVersion",
     "TaskResource",

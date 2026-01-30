@@ -70,6 +70,10 @@
     "Output": "AWS::MediaConnect::FlowOutput",
     "Source": "AWS::MediaConnect::FlowSource"
   },
+  "network-firewall": {
+    "StatefulRuleGroup": "AWS::NetworkFirewall::RuleGroup",
+    "StatelessRuleGroup": "AWS::NetworkFirewall::RuleGroup"
+  },
   "ses": {
     "addon-instance": "AWS::SES::MailManagerAddonInstance",
     "addon-subscription": "AWS::SES::MailManagerAddonSubscription",

@@ -3372,7 +3372,7 @@ AWS_CLOUDFORMATION_RESOURCES = {
     'mpa': {'approval-team': 'AWS::MPA::ApprovalTeam', 'identity-source': 'AWS::MPA::IdentitySource'},
     'mq': {'brokers': 'AWS::AmazonMQ::Broker', 'configuration': 'AWS::AmazonMQ::Configuration'},
     'neptune-graph': {'graph': 'AWS::NeptuneGraph::Graph'},
-    'network-firewall': {'Firewall': 'AWS::NetworkFirewall::Firewall', 'FirewallPolicy': 'AWS::NetworkFirewall::FirewallPolicy', 'TLSInspectionConfiguration': 'AWS::NetworkFirewall::TLSInspectionConfiguration', 'VpcEndpointAssociation': 'AWS::NetworkFirewall::VpcEndpointAssociation'},
+    'network-firewall': {'Firewall': 'AWS::NetworkFirewall::Firewall', 'FirewallPolicy': 'AWS::NetworkFirewall::FirewallPolicy', 'StatefulRuleGroup': 'AWS::NetworkFirewall::RuleGroup', 'StatelessRuleGroup': 'AWS::NetworkFirewall::RuleGroup', 'TLSInspectionConfiguration': 'AWS::NetworkFirewall::TLSInspectionConfiguration', 'VpcEndpointAssociation': 'AWS::NetworkFirewall::VpcEndpointAssociation'},
     'networkmanager': {'connect-peer': 'AWS::NetworkManager::ConnectPeer', 'core-network': 'AWS::NetworkManager::CoreNetwork', 'device': 'AWS::NetworkManager::Device', 'global-network': 'AWS::NetworkManager::GlobalNetwork', 'link': 'AWS::NetworkManager::Link', 'site': 'AWS::NetworkManager::Site'},
     'notifications': {'EventRule': 'AWS::Notifications::EventRule', 'NotificationConfiguration': 'AWS::Notifications::NotificationConfiguration'},
     'notifications-contacts': {},

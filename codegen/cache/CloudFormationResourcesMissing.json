@@ -1913,66 +1913,6 @@
     ]
   },
   {
-    "resource_service": "network-firewall",
-    "resource_type": "Proxy",
-    "cloudformation_resources": [
-      "AWS::NetworkFirewall::Firewall",
-      "AWS::NetworkFirewall::FirewallPolicy",
-      "AWS::NetworkFirewall::LoggingConfiguration",
-      "AWS::NetworkFirewall::RuleGroup",
-      "AWS::NetworkFirewall::TLSInspectionConfiguration",
-      "AWS::NetworkFirewall::VpcEndpointAssociation"
-    ]
-  },
-  {
-    "resource_service": "network-firewall",
-    "resource_type": "ProxyConfiguration",
-    "cloudformation_resources": [
-      "AWS::NetworkFirewall::Firewall",
-      "AWS::NetworkFirewall::FirewallPolicy",
-      "AWS::NetworkFirewall::LoggingConfiguration",
-      "AWS::NetworkFirewall::RuleGroup",
-      "AWS::NetworkFirewall::TLSInspectionConfiguration",
-      "AWS::NetworkFirewall::VpcEndpointAssociation"
-    ]
-  },
-  {
-    "resource_service": "network-firewall",
-    "resource_type": "ProxyRuleGroup",
-    "cloudformation_resources": [
-      "AWS::NetworkFirewall::Firewall",
-      "AWS::NetworkFirewall::FirewallPolicy",
-      "AWS::NetworkFirewall::LoggingConfiguration",
-      "AWS::NetworkFirewall::RuleGroup",
-      "AWS::NetworkFirewall::TLSInspectionConfiguration",
-      "AWS::NetworkFirewall::VpcEndpointAssociation"
-    ]
-  },
-  {
-    "resource_service": "network-firewall",
-    "resource_type": "StatefulRuleGroup",
-    "cloudformation_resources": [
-      "AWS::NetworkFirewall::Firewall",
-      "AWS::NetworkFirewall::FirewallPolicy",
-      "AWS::NetworkFirewall::LoggingConfiguration",
-      "AWS::NetworkFirewall::RuleGroup",
-      "AWS::NetworkFirewall::TLSInspectionConfiguration",
-      "AWS::NetworkFirewall::VpcEndpointAssociation"
-    ]
-  },
-  {
-    "resource_service": "network-firewall",
-    "resource_type": "StatelessRuleGroup",
-    "cloudformation_resources": [
-      "AWS::NetworkFirewall::Firewall",
-      "AWS::NetworkFirewall::FirewallPolicy",
-      "AWS::NetworkFirewall::LoggingConfiguration",
-      "AWS::NetworkFirewall::RuleGroup",
-      "AWS::NetworkFirewall::TLSInspectionConfiguration",
-      "AWS::NetworkFirewall::VpcEndpointAssociation"
-    ]
-  },
-  {
     "resource_service": "networkmanager",
     "resource_type": "attachment",
     "cloudformation_resources": [
