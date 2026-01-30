@@ -1,12 +1,15 @@
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["requests", "joblib", "beautifulsoup4", "boto3"]
+# dependencies = ["requests", "joblib", "beautifulsoup4", "boto3", "ruamel.yaml"]
 # ///
 
 import json
 import logging
 import re
 from pathlib import Path
+
+from ruamel.yaml import YAML
+from ruamel.yaml.scalarstring import LiteralScalarString
 
 from scraper import AWSScraper
 from index_arn import ARNIndexer
@@ -145,6 +148,82 @@ class CodeGenerator:
         types.extend(aliases)
         return types
 
+    def get_botoclient(self, arn_service, resource_type, sdk_mapping):
+        """Get the boto3 client for a resource type."""
+        clients = sdk_mapping.get(arn_service, [])
+        if not clients:
+            return None
+        if len(clients) == 1:
+            return clients[0]
+        # Multi-SDK: check override first, then default
+        overrides = SDKResourceIndexer.OVERRIDE_SERVICE.get(arn_service, {})
+        if resource_type in overrides:
+            return overrides[resource_type]
+        return SDKResourceIndexer.DEFAULT_SERVICE.get(arn_service)
+
+    def export_yaml(self, resources, sdk_mapping, cfn_resources_mapping, output_path):
+        """Export patterns to YAML source of truth format."""
+        # Group resources by (arn_service, resource_type) to collect multiple ARN patterns
+        grouped = {}
+        for r in resources:
+            key = (r["arn_service"], r["resource_type"])
+            if key not in grouped:
+                grouped[key] = []
+            grouped[key].append(r["arn_pattern"])
+
+        # Build structure grouped by arn_service
+        by_service = {}
+        for (arn_service, resource_type), arns in grouped.items():
+            if arn_service not in by_service:
+                by_service[arn_service] = []
+
+            # Get type names (canonical + aliases)
+            names = self.get_type_names(arn_service, resource_type)
+
+            # Get botoclient
+            botoclient = self.get_botoclient(arn_service, resource_type, sdk_mapping)
+
+            # Get cloudformation type
+            cfn_type = cfn_resources_mapping.get(arn_service, {}).get(resource_type)
+
+            entry = {
+                "name": resource_type,
+                "names": names,
+                "arns": arns,
+                "botoclient": botoclient,
+                "cloudformation": cfn_type,
+            }
+            by_service[arn_service].append(entry)
+
+        # Sort services alphabetically, resources alphabetically by name
+        from ruamel.yaml.comments import CommentedMap, CommentedSeq
+
+        output = CommentedMap()
+        sorted_services = sorted(by_service.keys())
+        for i, service in enumerate(sorted_services):
+            # Add blank line before each service (except first)
+            if i > 0:
+                output.yaml_set_comment_before_after_key(service, before="\n")
+            entries = sorted(by_service[service], key=lambda r: r["name"])
+            service_list = CommentedSeq()
+            for entry in entries:
+                item = CommentedMap()
+                item["name"] = entry["name"]
+                item["names"] = CommentedSeq(entry["names"])
+                item["arns"] = CommentedSeq(entry["arns"])
+                item["botoclient"] = entry["botoclient"]
+                item["cloudformation"] = entry["cloudformation"]
+                service_list.append(item)
+            output[service] = service_list
+
+        yml = YAML()
+        yml.default_flow_style = False
+        yml.indent(mapping=2, sequence=4, offset=2)
+        with open(output_path, "w") as f:
+            yml.dump(output, f)
+
+        log.info(f"Wrote {output_path}")
+
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -194,6 +273,7 @@ def main():
     cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
 
     generator.generate(by_service, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.py")
+    generator.export_yaml(resources, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.yaml")
 
     # Collect and save metrics
     metrics = {
