@@ -19,7 +19,7 @@ make clean      # Remove build artifacts
 
 Run codegen to regenerate patterns from AWS docs:
 ```bash
-cd codegen && uv run codegen.py
+uv run codegen/codegen.py
 ```
 
 Test locally:
