@@ -66,6 +66,19 @@
     "targeted-sentiment-detection-job",
     "topics-detection-job"
   ],
+  "bedrock-agentcore": [
+    "apikeycredentialprovider",
+    "browser",
+    "code-interpreter",
+    "evaluator",
+    "oauth2credentialprovider",
+    "online-evaluation-config",
+    "policy",
+    "policy-engine",
+    "policy-generation",
+    "token-vault",
+    "workload-identity-directory"
+  ],
   "bedrock": [
     "async-invoke",
     "bedrock-marketplace-model-endpoint",
@@ -126,6 +139,20 @@
     "transform-job",
     "workforce"
   ],
+  "mobiletargeting": [
+    "attribute",
+    "channel",
+    "endpoint",
+    "export-job",
+    "import-job",
+    "journey",
+    "otp",
+    "phone-number-validate",
+    "recommender",
+    "template",
+    "user",
+    "verify-otp"
+  ],
   "iot": [
     "client",
     "index",
@@ -151,6 +178,20 @@
     "metricAttribution",
     "recipe",
     "recommender"
+  ],
+  "proton": [
+    "component",
+    "deployment",
+    "environment",
+    "environment-template-major-version",
+    "environment-template-minor-version",
+    "environment-template-version",
+    "repository",
+    "service",
+    "service-instance",
+    "service-template-major-version",
+    "service-template-minor-version",
+    "service-template-version"
   ],
   "quicksight": [
     "account",
@@ -181,6 +222,19 @@
     "predictorBacktestExportJob",
     "whatIfForecast",
     "whatIfForecastExport"
+  ],
+  "eks": [
+    "access-policy",
+    "daemonset",
+    "dashboard",
+    "deployment",
+    "eks-anywhere-subscription",
+    "endpointslice",
+    "namespace",
+    "persistentvolume",
+    "replicaset",
+    "service",
+    "statefulset"
   ],
   "ec2": [
     "capacity-block",
