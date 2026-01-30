@@ -1,4 +1,14 @@
 {
+  "aidevops": {
+    "AgentSpaceResource": "AWS::DevOpsAgent::AgentSpace",
+    "AssociationResource": "AWS::DevOpsAgent::Association"
+  },
+  "cloudfront": {
+    "origin-access-identity": "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+  },
+  "codepipeline": {
+    "actiontype": "AWS::CodePipeline::CustomActionType"
+  },
   "amplifyuibuilder": {
     "ComponentResource": "AWS::AmplifyUIBuilder::Component",
     "FormResource": "AWS::AmplifyUIBuilder::Form",

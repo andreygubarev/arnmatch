@@ -1,4 +1,30 @@
 {
+  "aidevops": [
+    "ServiceResource"
+  ],
+  "app-integrations": [
+    "application-association",
+    "data-integration-association",
+    "event-integration-association"
+  ],
+  "auditmanager": [
+    "assessmentControlSet",
+    "assessmentFramework",
+    "control"
+  ],
+  "batch": [
+    "job",
+    "job-definition-revision",
+    "service-job"
+  ],
+  "cloudfront": [
+    "field-level-encryption-config",
+    "field-level-encryption-profile"
+  ],
+  "codepipeline": [
+    "action",
+    "stage"
+  ],
   "amplifyuibuilder": [
     "CodegenJobResource"
   ],
@@ -80,6 +106,12 @@
     "handshake",
     "responsibilitytransfer",
     "root"
+  ],
+  "sms-voice": [
+    "Message",
+    "Registration",
+    "RegistrationAttachment",
+    "VerifiedDestinationNumber"
   ],
   "appsync": [
     "field",

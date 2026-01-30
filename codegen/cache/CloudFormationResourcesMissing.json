@@ -7,33 +7,6 @@
     ]
   },
   {
-    "resource_service": "aidevops",
-    "resource_type": "AgentSpaceResource",
-    "cloudformation_resources": [
-      "AWS::AIOps::InvestigationGroup",
-      "AWS::DevOpsAgent::AgentSpace",
-      "AWS::DevOpsAgent::Association"
-    ]
-  },
-  {
-    "resource_service": "aidevops",
-    "resource_type": "AssociationResource",
-    "cloudformation_resources": [
-      "AWS::AIOps::InvestigationGroup",
-      "AWS::DevOpsAgent::AgentSpace",
-      "AWS::DevOpsAgent::Association"
-    ]
-  },
-  {
-    "resource_service": "aidevops",
-    "resource_type": "ServiceResource",
-    "cloudformation_resources": [
-      "AWS::AIOps::InvestigationGroup",
-      "AWS::DevOpsAgent::AgentSpace",
-      "AWS::DevOpsAgent::Association"
-    ]
-  },
-  {
     "resource_service": "airflow",
     "resource_type": "rbac-role",
     "cloudformation_resources": [
@@ -51,33 +24,6 @@
       "AWS::OpenSearchServerless::SecurityConfig",
       "AWS::OpenSearchServerless::SecurityPolicy",
       "AWS::OpenSearchServerless::VpcEndpoint"
-    ]
-  },
-  {
-    "resource_service": "app-integrations",
-    "resource_type": "application-association",
-    "cloudformation_resources": [
-      "AWS::AppIntegrations::Application",
-      "AWS::AppIntegrations::DataIntegration",
-      "AWS::AppIntegrations::EventIntegration"
-    ]
-  },
-  {
-    "resource_service": "app-integrations",
-    "resource_type": "data-integration-association",
-    "cloudformation_resources": [
-      "AWS::AppIntegrations::Application",
-      "AWS::AppIntegrations::DataIntegration",
-      "AWS::AppIntegrations::EventIntegration"
-    ]
-  },
-  {
-    "resource_service": "app-integrations",
-    "resource_type": "event-integration-association",
-    "cloudformation_resources": [
-      "AWS::AppIntegrations::Application",
-      "AWS::AppIntegrations::DataIntegration",
-      "AWS::AppIntegrations::EventIntegration"
     ]
   },
   {
@@ -145,27 +91,6 @@
     ]
   },
   {
-    "resource_service": "auditmanager",
-    "resource_type": "assessmentControlSet",
-    "cloudformation_resources": [
-      "AWS::AuditManager::Assessment"
-    ]
-  },
-  {
-    "resource_service": "auditmanager",
-    "resource_type": "assessmentFramework",
-    "cloudformation_resources": [
-      "AWS::AuditManager::Assessment"
-    ]
-  },
-  {
-    "resource_service": "auditmanager",
-    "resource_type": "control",
-    "cloudformation_resources": [
-      "AWS::AuditManager::Assessment"
-    ]
-  },
-  {
     "resource_service": "backup",
     "resource_type": "legalHold",
     "cloudformation_resources": [
@@ -192,42 +117,6 @@
     "resource_type": "virtualmachine",
     "cloudformation_resources": [
       "AWS::BackupGateway::Hypervisor"
-    ]
-  },
-  {
-    "resource_service": "batch",
-    "resource_type": "job",
-    "cloudformation_resources": [
-      "AWS::Batch::ComputeEnvironment",
-      "AWS::Batch::ConsumableResource",
-      "AWS::Batch::JobDefinition",
-      "AWS::Batch::JobQueue",
-      "AWS::Batch::SchedulingPolicy",
-      "AWS::Batch::ServiceEnvironment"
-    ]
-  },
-  {
-    "resource_service": "batch",
-    "resource_type": "job-definition-revision",
-    "cloudformation_resources": [
-      "AWS::Batch::ComputeEnvironment",
-      "AWS::Batch::ConsumableResource",
-      "AWS::Batch::JobDefinition",
-      "AWS::Batch::JobQueue",
-      "AWS::Batch::SchedulingPolicy",
-      "AWS::Batch::ServiceEnvironment"
-    ]
-  },
-  {
-    "resource_service": "batch",
-    "resource_type": "service-job",
-    "cloudformation_resources": [
-      "AWS::Batch::ComputeEnvironment",
-      "AWS::Batch::ConsumableResource",
-      "AWS::Batch::JobDefinition",
-      "AWS::Batch::JobQueue",
-      "AWS::Batch::SchedulingPolicy",
-      "AWS::Batch::ServiceEnvironment"
     ]
   },
   {
@@ -329,84 +218,6 @@
     ]
   },
   {
-    "resource_service": "cloudfront",
-    "resource_type": "field-level-encryption-config",
-    "cloudformation_resources": [
-      "AWS::CloudFront::AnycastIpList",
-      "AWS::CloudFront::CachePolicy",
-      "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-      "AWS::CloudFront::ConnectionFunction",
-      "AWS::CloudFront::ConnectionGroup",
-      "AWS::CloudFront::ContinuousDeploymentPolicy",
-      "AWS::CloudFront::Distribution",
-      "AWS::CloudFront::DistributionTenant",
-      "AWS::CloudFront::Function",
-      "AWS::CloudFront::KeyGroup",
-      "AWS::CloudFront::KeyValueStore",
-      "AWS::CloudFront::MonitoringSubscription",
-      "AWS::CloudFront::OriginAccessControl",
-      "AWS::CloudFront::OriginRequestPolicy",
-      "AWS::CloudFront::PublicKey",
-      "AWS::CloudFront::RealtimeLogConfig",
-      "AWS::CloudFront::ResponseHeadersPolicy",
-      "AWS::CloudFront::StreamingDistribution",
-      "AWS::CloudFront::TrustStore",
-      "AWS::CloudFront::VpcOrigin"
-    ]
-  },
-  {
-    "resource_service": "cloudfront",
-    "resource_type": "field-level-encryption-profile",
-    "cloudformation_resources": [
-      "AWS::CloudFront::AnycastIpList",
-      "AWS::CloudFront::CachePolicy",
-      "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-      "AWS::CloudFront::ConnectionFunction",
-      "AWS::CloudFront::ConnectionGroup",
-      "AWS::CloudFront::ContinuousDeploymentPolicy",
-      "AWS::CloudFront::Distribution",
-      "AWS::CloudFront::DistributionTenant",
-      "AWS::CloudFront::Function",
-      "AWS::CloudFront::KeyGroup",
-      "AWS::CloudFront::KeyValueStore",
-      "AWS::CloudFront::MonitoringSubscription",
-      "AWS::CloudFront::OriginAccessControl",
-      "AWS::CloudFront::OriginRequestPolicy",
-      "AWS::CloudFront::PublicKey",
-      "AWS::CloudFront::RealtimeLogConfig",
-      "AWS::CloudFront::ResponseHeadersPolicy",
-      "AWS::CloudFront::StreamingDistribution",
-      "AWS::CloudFront::TrustStore",
-      "AWS::CloudFront::VpcOrigin"
-    ]
-  },
-  {
-    "resource_service": "cloudfront",
-    "resource_type": "origin-access-identity",
-    "cloudformation_resources": [
-      "AWS::CloudFront::AnycastIpList",
-      "AWS::CloudFront::CachePolicy",
-      "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-      "AWS::CloudFront::ConnectionFunction",
-      "AWS::CloudFront::ConnectionGroup",
-      "AWS::CloudFront::ContinuousDeploymentPolicy",
-      "AWS::CloudFront::Distribution",
-      "AWS::CloudFront::DistributionTenant",
-      "AWS::CloudFront::Function",
-      "AWS::CloudFront::KeyGroup",
-      "AWS::CloudFront::KeyValueStore",
-      "AWS::CloudFront::MonitoringSubscription",
-      "AWS::CloudFront::OriginAccessControl",
-      "AWS::CloudFront::OriginRequestPolicy",
-      "AWS::CloudFront::PublicKey",
-      "AWS::CloudFront::RealtimeLogConfig",
-      "AWS::CloudFront::ResponseHeadersPolicy",
-      "AWS::CloudFront::StreamingDistribution",
-      "AWS::CloudFront::TrustStore",
-      "AWS::CloudFront::VpcOrigin"
-    ]
-  },
-  {
     "resource_service": "cloudwatch",
     "resource_type": "service",
     "cloudformation_resources": [
@@ -474,33 +285,6 @@
     "resource_type": "codereview",
     "cloudformation_resources": [
       "AWS::CodeGuruReviewer::RepositoryAssociation"
-    ]
-  },
-  {
-    "resource_service": "codepipeline",
-    "resource_type": "action",
-    "cloudformation_resources": [
-      "AWS::CodePipeline::CustomActionType",
-      "AWS::CodePipeline::Pipeline",
-      "AWS::CodePipeline::Webhook"
-    ]
-  },
-  {
-    "resource_service": "codepipeline",
-    "resource_type": "actiontype",
-    "cloudformation_resources": [
-      "AWS::CodePipeline::CustomActionType",
-      "AWS::CodePipeline::Pipeline",
-      "AWS::CodePipeline::Webhook"
-    ]
-  },
-  {
-    "resource_service": "codepipeline",
-    "resource_type": "stage",
-    "cloudformation_resources": [
-      "AWS::CodePipeline::CustomActionType",
-      "AWS::CodePipeline::Pipeline",
-      "AWS::CodePipeline::Webhook"
     ]
   },
   {
@@ -1687,58 +1471,6 @@
     "cloudformation_resources": [
       "AWS::Signer::ProfilePermission",
       "AWS::Signer::SigningProfile"
-    ]
-  },
-  {
-    "resource_service": "sms-voice",
-    "resource_type": "Message",
-    "cloudformation_resources": [
-      "AWS::SMSVOICE::ConfigurationSet",
-      "AWS::SMSVOICE::OptOutList",
-      "AWS::SMSVOICE::PhoneNumber",
-      "AWS::SMSVOICE::Pool",
-      "AWS::SMSVOICE::ProtectConfiguration",
-      "AWS::SMSVOICE::ResourcePolicy",
-      "AWS::SMSVOICE::SenderId"
-    ]
-  },
-  {
-    "resource_service": "sms-voice",
-    "resource_type": "Registration",
-    "cloudformation_resources": [
-      "AWS::SMSVOICE::ConfigurationSet",
-      "AWS::SMSVOICE::OptOutList",
-      "AWS::SMSVOICE::PhoneNumber",
-      "AWS::SMSVOICE::Pool",
-      "AWS::SMSVOICE::ProtectConfiguration",
-      "AWS::SMSVOICE::ResourcePolicy",
-      "AWS::SMSVOICE::SenderId"
-    ]
-  },
-  {
-    "resource_service": "sms-voice",
-    "resource_type": "RegistrationAttachment",
-    "cloudformation_resources": [
-      "AWS::SMSVOICE::ConfigurationSet",
-      "AWS::SMSVOICE::OptOutList",
-      "AWS::SMSVOICE::PhoneNumber",
-      "AWS::SMSVOICE::Pool",
-      "AWS::SMSVOICE::ProtectConfiguration",
-      "AWS::SMSVOICE::ResourcePolicy",
-      "AWS::SMSVOICE::SenderId"
-    ]
-  },
-  {
-    "resource_service": "sms-voice",
-    "resource_type": "VerifiedDestinationNumber",
-    "cloudformation_resources": [
-      "AWS::SMSVOICE::ConfigurationSet",
-      "AWS::SMSVOICE::OptOutList",
-      "AWS::SMSVOICE::PhoneNumber",
-      "AWS::SMSVOICE::Pool",
-      "AWS::SMSVOICE::ProtectConfiguration",
-      "AWS::SMSVOICE::ResourcePolicy",
-      "AWS::SMSVOICE::SenderId"
     ]
   },
   {
