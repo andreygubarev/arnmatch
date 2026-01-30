@@ -20,6 +20,47 @@ class CFNResourceIndexer:
         },
     }
 
+    # Resources with no CloudFormation equivalent (API-only, runtime, jobs, etc.)
+    # These won't appear in the missing list and return None at runtime
+    EXCLUDES = {
+        # EC2: AMIs, snapshots, async tasks, runtime resources
+        "ec2": [
+            "capacity-block",
+            "coip-pool",
+            "declarative-policies-report",
+            "elastic-gpu",
+            "export-image-task",
+            "export-instance-task",
+            "fpga-image",
+            "host-reservation",
+            "image",
+            "image-usage-report",
+            "import-image-task",
+            "import-snapshot-task",
+            "instance-event-window",
+            "ipam-external-resource-verification-token",
+            "ipam-policy",
+            "ipam-prefix-list-resolver",
+            "ipam-prefix-list-resolver-target",
+            "ipv4pool-ec2",
+            "ipv6pool-ec2",
+            "local-gateway",
+            "mac-modification-task",
+            "outpost-lag",
+            "replace-root-volume-task",
+            "security-group-rule",  # child of SecurityGroup
+            "snapshot",
+            "spot-instances-request",
+            "subnet-cidr-reservation",
+            "transit-gateway-policy-table",
+            "transit-gateway-route-table-announcement",
+            "verified-access-endpoint-target",
+            "verified-access-policy",
+            "vpc-endpoint-connection",
+            "vpn-connection-device-type",
+        ],
+    }
+
     CACHE_SERVICES_FILE = Path(__file__).parent / "cache" / "CloudFormationServices.json"
     CACHE_RESOURCES_FILE = Path(__file__).parent / "cache" / "CloudFormationResources.json"
     CACHE_RESOURCES_MISS_FILE = Path(__file__).parent / "cache" / "CloudFormationResourcesMissing.json"
@@ -68,7 +109,11 @@ class CFNResourceIndexer:
         for service, resource_types in resources_candidates.items():
             resources.setdefault(service, {})
             for resource_type, cloudformation_resource_types in resource_types.items():
-                # Check manual overrides first
+                # Skip resources with no CFN equivalent
+                if service in self.EXCLUDES and resource_type in self.EXCLUDES[service]:
+                    continue
+
+                # Check manual overrides
                 if service in self.OVERRIDES and resource_type in self.OVERRIDES[service]:
                     resources[service][resource_type] = self.OVERRIDES[service][resource_type]
                     continue
