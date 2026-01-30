@@ -1,8 +1,16 @@
 {
+  "amplifyuibuilder": {
+    "ComponentResource": "AWS::AmplifyUIBuilder::Component",
+    "FormResource": "AWS::AmplifyUIBuilder::Form",
+    "ThemeResource": "AWS::AmplifyUIBuilder::Theme"
+  },
   "appsync": {
     "domain": "AWS::AppSync::DomainName",
     "function": "AWS::AppSync::FunctionConfiguration",
     "mergedApiAssociation": "AWS::AppSync::SourceApiAssociation"
+  },
+  "s3": {
+    "storagelensconfiguration": "AWS::S3::StorageLens"
   },
   "apigateway": {
     "PrivateBasePathMapping": "AWS::ApiGateway::BasePathMappingV2",

@@ -1,7 +1,29 @@
 {
+  "amplifyuibuilder": [
+    "CodegenJobResource"
+  ],
+  "codebuild": [
+    "build",
+    "build-batch",
+    "report",
+    "sandbox"
+  ],
   "appsync": [
     "field",
     "type"
+  ],
+  "s3": [
+    "accesspointobject",
+    "job",
+    "multiregionaccesspointrequestarn",
+    "object"
+  ],
+  "waf": [
+    "geomatchset",
+    "ratebasedrule",
+    "regexmatchset",
+    "regexpatternset",
+    "rulegroup"
   ],
   "apigateway": [
     "AuthorizersCache",

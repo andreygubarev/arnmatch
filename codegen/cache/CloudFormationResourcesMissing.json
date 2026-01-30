@@ -41,42 +41,6 @@
     ]
   },
   {
-    "resource_service": "amplifyuibuilder",
-    "resource_type": "CodegenJobResource",
-    "cloudformation_resources": [
-      "AWS::AmplifyUIBuilder::Component",
-      "AWS::AmplifyUIBuilder::Form",
-      "AWS::AmplifyUIBuilder::Theme"
-    ]
-  },
-  {
-    "resource_service": "amplifyuibuilder",
-    "resource_type": "ComponentResource",
-    "cloudformation_resources": [
-      "AWS::AmplifyUIBuilder::Component",
-      "AWS::AmplifyUIBuilder::Form",
-      "AWS::AmplifyUIBuilder::Theme"
-    ]
-  },
-  {
-    "resource_service": "amplifyuibuilder",
-    "resource_type": "FormResource",
-    "cloudformation_resources": [
-      "AWS::AmplifyUIBuilder::Component",
-      "AWS::AmplifyUIBuilder::Form",
-      "AWS::AmplifyUIBuilder::Theme"
-    ]
-  },
-  {
-    "resource_service": "amplifyuibuilder",
-    "resource_type": "ThemeResource",
-    "cloudformation_resources": [
-      "AWS::AmplifyUIBuilder::Component",
-      "AWS::AmplifyUIBuilder::Form",
-      "AWS::AmplifyUIBuilder::Theme"
-    ]
-  },
-  {
     "resource_service": "aoss",
     "resource_type": "CollectionGroup",
     "cloudformation_resources": [
@@ -473,46 +437,6 @@
       "AWS::CodeArtifact::Domain",
       "AWS::CodeArtifact::PackageGroup",
       "AWS::CodeArtifact::Repository"
-    ]
-  },
-  {
-    "resource_service": "codebuild",
-    "resource_type": "build",
-    "cloudformation_resources": [
-      "AWS::CodeBuild::Fleet",
-      "AWS::CodeBuild::Project",
-      "AWS::CodeBuild::ReportGroup",
-      "AWS::CodeBuild::SourceCredential"
-    ]
-  },
-  {
-    "resource_service": "codebuild",
-    "resource_type": "build-batch",
-    "cloudformation_resources": [
-      "AWS::CodeBuild::Fleet",
-      "AWS::CodeBuild::Project",
-      "AWS::CodeBuild::ReportGroup",
-      "AWS::CodeBuild::SourceCredential"
-    ]
-  },
-  {
-    "resource_service": "codebuild",
-    "resource_type": "report",
-    "cloudformation_resources": [
-      "AWS::CodeBuild::Fleet",
-      "AWS::CodeBuild::Project",
-      "AWS::CodeBuild::ReportGroup",
-      "AWS::CodeBuild::SourceCredential"
-    ]
-  },
-  {
-    "resource_service": "codebuild",
-    "resource_type": "sandbox",
-    "cloudformation_resources": [
-      "AWS::CodeBuild::Fleet",
-      "AWS::CodeBuild::Project",
-      "AWS::CodeBuild::ReportGroup",
-      "AWS::CodeBuild::SourceCredential"
     ]
   },
   {
@@ -2329,111 +2253,6 @@
     ]
   },
   {
-    "resource_service": "s3",
-    "resource_type": "accesspointobject",
-    "cloudformation_resources": [
-      "AWS::S3::AccessGrant",
-      "AWS::S3::AccessGrantsInstance",
-      "AWS::S3::AccessGrantsLocation",
-      "AWS::S3::AccessPoint",
-      "AWS::S3::Bucket",
-      "AWS::S3::BucketPolicy",
-      "AWS::S3::MultiRegionAccessPoint",
-      "AWS::S3::MultiRegionAccessPointPolicy",
-      "AWS::S3::StorageLens",
-      "AWS::S3::StorageLensGroup",
-      "AWS::S3Express::AccessPoint",
-      "AWS::S3Express::BucketPolicy",
-      "AWS::S3Express::DirectoryBucket",
-      "AWS::S3ObjectLambda::AccessPoint",
-      "AWS::S3ObjectLambda::AccessPointPolicy"
-    ]
-  },
-  {
-    "resource_service": "s3",
-    "resource_type": "job",
-    "cloudformation_resources": [
-      "AWS::S3::AccessGrant",
-      "AWS::S3::AccessGrantsInstance",
-      "AWS::S3::AccessGrantsLocation",
-      "AWS::S3::AccessPoint",
-      "AWS::S3::Bucket",
-      "AWS::S3::BucketPolicy",
-      "AWS::S3::MultiRegionAccessPoint",
-      "AWS::S3::MultiRegionAccessPointPolicy",
-      "AWS::S3::StorageLens",
-      "AWS::S3::StorageLensGroup",
-      "AWS::S3Express::AccessPoint",
-      "AWS::S3Express::BucketPolicy",
-      "AWS::S3Express::DirectoryBucket",
-      "AWS::S3ObjectLambda::AccessPoint",
-      "AWS::S3ObjectLambda::AccessPointPolicy"
-    ]
-  },
-  {
-    "resource_service": "s3",
-    "resource_type": "multiregionaccesspointrequestarn",
-    "cloudformation_resources": [
-      "AWS::S3::AccessGrant",
-      "AWS::S3::AccessGrantsInstance",
-      "AWS::S3::AccessGrantsLocation",
-      "AWS::S3::AccessPoint",
-      "AWS::S3::Bucket",
-      "AWS::S3::BucketPolicy",
-      "AWS::S3::MultiRegionAccessPoint",
-      "AWS::S3::MultiRegionAccessPointPolicy",
-      "AWS::S3::StorageLens",
-      "AWS::S3::StorageLensGroup",
-      "AWS::S3Express::AccessPoint",
-      "AWS::S3Express::BucketPolicy",
-      "AWS::S3Express::DirectoryBucket",
-      "AWS::S3ObjectLambda::AccessPoint",
-      "AWS::S3ObjectLambda::AccessPointPolicy"
-    ]
-  },
-  {
-    "resource_service": "s3",
-    "resource_type": "object",
-    "cloudformation_resources": [
-      "AWS::S3::AccessGrant",
-      "AWS::S3::AccessGrantsInstance",
-      "AWS::S3::AccessGrantsLocation",
-      "AWS::S3::AccessPoint",
-      "AWS::S3::Bucket",
-      "AWS::S3::BucketPolicy",
-      "AWS::S3::MultiRegionAccessPoint",
-      "AWS::S3::MultiRegionAccessPointPolicy",
-      "AWS::S3::StorageLens",
-      "AWS::S3::StorageLensGroup",
-      "AWS::S3Express::AccessPoint",
-      "AWS::S3Express::BucketPolicy",
-      "AWS::S3Express::DirectoryBucket",
-      "AWS::S3ObjectLambda::AccessPoint",
-      "AWS::S3ObjectLambda::AccessPointPolicy"
-    ]
-  },
-  {
-    "resource_service": "s3",
-    "resource_type": "storagelensconfiguration",
-    "cloudformation_resources": [
-      "AWS::S3::AccessGrant",
-      "AWS::S3::AccessGrantsInstance",
-      "AWS::S3::AccessGrantsLocation",
-      "AWS::S3::AccessPoint",
-      "AWS::S3::Bucket",
-      "AWS::S3::BucketPolicy",
-      "AWS::S3::MultiRegionAccessPoint",
-      "AWS::S3::MultiRegionAccessPointPolicy",
-      "AWS::S3::StorageLens",
-      "AWS::S3::StorageLensGroup",
-      "AWS::S3Express::AccessPoint",
-      "AWS::S3Express::BucketPolicy",
-      "AWS::S3Express::DirectoryBucket",
-      "AWS::S3ObjectLambda::AccessPoint",
-      "AWS::S3ObjectLambda::AccessPointPolicy"
-    ]
-  },
-  {
     "resource_service": "s3-object-lambda",
     "resource_type": "objectlambdaaccesspoint",
     "cloudformation_resources": [
@@ -2720,71 +2539,6 @@
       "AWS::VpcLattice::ServiceNetworkServiceAssociation",
       "AWS::VpcLattice::ServiceNetworkVpcAssociation",
       "AWS::VpcLattice::TargetGroup"
-    ]
-  },
-  {
-    "resource_service": "waf",
-    "resource_type": "geomatchset",
-    "cloudformation_resources": [
-      "AWS::WAF::ByteMatchSet",
-      "AWS::WAF::IPSet",
-      "AWS::WAF::Rule",
-      "AWS::WAF::SizeConstraintSet",
-      "AWS::WAF::SqlInjectionMatchSet",
-      "AWS::WAF::WebACL",
-      "AWS::WAF::XssMatchSet"
-    ]
-  },
-  {
-    "resource_service": "waf",
-    "resource_type": "ratebasedrule",
-    "cloudformation_resources": [
-      "AWS::WAF::ByteMatchSet",
-      "AWS::WAF::IPSet",
-      "AWS::WAF::Rule",
-      "AWS::WAF::SizeConstraintSet",
-      "AWS::WAF::SqlInjectionMatchSet",
-      "AWS::WAF::WebACL",
-      "AWS::WAF::XssMatchSet"
-    ]
-  },
-  {
-    "resource_service": "waf",
-    "resource_type": "regexmatchset",
-    "cloudformation_resources": [
-      "AWS::WAF::ByteMatchSet",
-      "AWS::WAF::IPSet",
-      "AWS::WAF::Rule",
-      "AWS::WAF::SizeConstraintSet",
-      "AWS::WAF::SqlInjectionMatchSet",
-      "AWS::WAF::WebACL",
-      "AWS::WAF::XssMatchSet"
-    ]
-  },
-  {
-    "resource_service": "waf",
-    "resource_type": "regexpatternset",
-    "cloudformation_resources": [
-      "AWS::WAF::ByteMatchSet",
-      "AWS::WAF::IPSet",
-      "AWS::WAF::Rule",
-      "AWS::WAF::SizeConstraintSet",
-      "AWS::WAF::SqlInjectionMatchSet",
-      "AWS::WAF::WebACL",
-      "AWS::WAF::XssMatchSet"
-    ]
-  },
-  {
-    "resource_service": "waf",
-    "resource_type": "rulegroup",
-    "cloudformation_resources": [
-      "AWS::WAF::ByteMatchSet",
-      "AWS::WAF::IPSet",
-      "AWS::WAF::Rule",
-      "AWS::WAF::SizeConstraintSet",
-      "AWS::WAF::SqlInjectionMatchSet",
-      "AWS::WAF::WebACL",
-      "AWS::WAF::XssMatchSet"
     ]
   },
   {
