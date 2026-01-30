@@ -27,6 +27,11 @@
   "bedrock": {
     "default-prompt-router": "AWS::Bedrock::IntelligentPromptRouter"
   },
+  "connect": {
+    "customer-managed-view": "AWS::Connect::View",
+    "customer-managed-view-version": "AWS::Connect::ViewVersion",
+    "hierarchy-group": "AWS::Connect::UserHierarchyGroup"
+  },
   "ec2": {
     "dedicated-host": "AWS::EC2::Host",
     "elastic-ip": "AWS::EC2::EIP",

@@ -39,6 +39,18 @@
     "snapshot-tenant-database",
     "tenant-database"
   ],
+  "connect": [
+    "attached-file",
+    "authentication-profile",
+    "aws-managed-view",
+    "contact",
+    "contact-evaluation",
+    "legacy-phone-number",
+    "qualified-aws-managed-view",
+    "qualified-customer-managed-view",
+    "use-case",
+    "vocabulary"
+  ],
   "comprehend": [
     "document-classification-job",
     "document-classifier-endpoint",
@@ -155,6 +167,20 @@
     "ingestion",
     "namespace",
     "user"
+  ],
+  "forecast": [
+    "algorithm",
+    "datasetImportJob",
+    "endpoint",
+    "explainability",
+    "explainabilityExport",
+    "forecast",
+    "forecastExport",
+    "monitor",
+    "predictor",
+    "predictorBacktestExportJob",
+    "whatIfForecast",
+    "whatIfForecastExport"
   ],
   "ec2": [
     "capacity-block",
