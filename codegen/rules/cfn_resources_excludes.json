@@ -51,6 +51,16 @@
     "use-case",
     "vocabulary"
   ],
+  "cleanrooms-ml": [
+    "ConfiguredModelAlgorithm",
+    "ConfiguredModelAlgorithmAssociation",
+    "MLInputChannel",
+    "TrainedModel",
+    "TrainedModelInferenceJob",
+    "audiencegenerationjob",
+    "audiencemodel",
+    "configuredaudiencemodel"
+  ],
   "comprehend": [
     "document-classification-job",
     "document-classifier-endpoint",

@@ -448,62 +448,6 @@
     ]
   },
   {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "ConfiguredModelAlgorithm",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "ConfiguredModelAlgorithmAssociation",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "MLInputChannel",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "TrainedModel",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "TrainedModelInferenceJob",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "audiencegenerationjob",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "audiencemodel",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
-    "resource_service": "cleanrooms-ml",
-    "resource_type": "configuredaudiencemodel",
-    "cloudformation_resources": [
-      "AWS::CleanRoomsML::TrainingDataset"
-    ]
-  },
-  {
     "resource_service": "cloud9",
     "resource_type": "environment",
     "cloudformation_resources": [
