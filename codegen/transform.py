@@ -26,7 +26,11 @@ class Transformer:
             Transformed name in kebab-case.
         """
         self.total_count += 1
-        result = self.process_camel_case(name)
+        result = name
+        result = self.process_camel_case(result)
+        result = self.process_spaces(result)
+        result = self.process_underscores(result)
+        result = self.process_slashes(result)
         if result != name:
             self.transformed_count += 1
         return result
@@ -54,6 +58,40 @@ class Transformer:
         # Split between lowercase/digit and uppercase (backupVault -> backup-Vault, EC2Instance -> EC2-Instance)
         result = re.sub(r"([a-z\d])([A-Z])", r"\1-\2", result)
         return result.lower()
+
+    def process_spaces(self, name):
+        """Replace spaces with hyphens.
+
+        Examples:
+            bot alias -> bot-alias
+            code signing config -> code-signing-config
+        """
+        if " " not in name:
+            return name
+        return name.replace(" ", "-")
+
+    def process_underscores(self, name):
+        """Replace underscores with hyphens.
+
+        Examples:
+            es_role -> es-role
+            harvest_jobs -> harvest-jobs
+        """
+        if "_" not in name:
+            return name
+        return name.replace("_", "-")
+
+    def process_slashes(self, name):
+        """Replace slashes with hyphens and strip trailing hyphens.
+
+        Examples:
+            loadbalancer/app/ -> loadbalancer-app
+            listener/net -> listener-net
+            listener-rule/app -> listener-rule-app
+        """
+        if "/" not in name:
+            return name
+        return name.replace("/", "-").rstrip("-")
 
     @property
     def metrics(self):
