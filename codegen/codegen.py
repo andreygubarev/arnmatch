@@ -17,6 +17,7 @@ from index_cfn import CFNServiceIndexer
 from index_cfn_resources import CFNResourceIndexer
 from index_sdk import SDKServiceIndexer
 from index_sdk_resources import SDKResourceIndexer
+from transform import Transformer
 
 log = logging.getLogger(__name__)
 
@@ -265,6 +266,10 @@ def main():
     cfn_indexer = CFNServiceIndexer()
     cfn_mapping = cfn_indexer.process(sdk_mapping)
 
+    # Transform resource names
+    transformer = Transformer()
+    resources = transformer.process(resources)
+
     # Generate
     generator = CodeGenerator()
     by_service = generator.process(resources)
@@ -282,6 +287,7 @@ def main():
         "sdk_service_indexer": sdk_indexer.metrics,
         "sdk_resource_indexer": sdk_resource_indexer.metrics,
         "cfn_service_indexer": cfn_indexer.metrics,
+        "transformer": transformer.metrics,
         "cfn_resource_indexer": cfn_resource_indexer.metrics,
         "generator": generator.metrics,
     }
@@ -314,6 +320,9 @@ def print_summary(metrics):
     cfn = metrics["cfn_service_indexer"]
     print(f"CFN Services:  in={cfn['cfn_services_total']} → direct={cfn['direct_match']} "
           f"override={cfn['override']} exclude={cfn['excluded']} → mapped={cfn['mapped_to_arn']}")
+
+    t = metrics["transformer"]
+    print(f"Transform:     in={t['input']} → transformed={t['transformed']} → out={t['output']}")
 
     cfnr = metrics["cfn_resource_indexer"]
     print(f"CFN Resources: exact={cfnr['exact_match']} plural={cfnr['plural_match']} "
