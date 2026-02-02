@@ -1595,9 +1595,9 @@ auditmanager:
     cloudformation:
 
 autoscaling:
-  - name: auto-scaling-group
+  - name: autoscaling-group
     names:
-      - auto-scaling-group
+      - autoscaling-group
       - autoScalingGroup
     arns:
       - arn:${Partition}:autoscaling:${Region}:${Account}:autoScalingGroup:${GroupId}:autoScalingGroupName/${GroupFriendlyName}

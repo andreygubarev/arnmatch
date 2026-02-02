@@ -9,7 +9,6 @@ import re
 from pathlib import Path
 
 from ruamel.yaml import YAML
-from ruamel.yaml.scalarstring import LiteralScalarString
 
 from scraper import AWSScraper
 from index_arn import ARNIndexer
