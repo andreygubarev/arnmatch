@@ -3,10 +3,14 @@
 This module normalizes resource type names to kebab-case for consistency.
 """
 
+import json
 import logging
 import re
+from pathlib import Path
 
 log = logging.getLogger(__name__)
+
+RULES_DIR = Path(__file__).parent / "rules"
 
 
 class Transformer:
@@ -15,6 +19,15 @@ class Transformer:
     def __init__(self):
         self.transformed_count = 0
         self.total_count = 0
+        self.lowercase_transforms = self._load_lowercase_transforms()
+
+    def _load_lowercase_transforms(self):
+        """Load lowercase compound word transforms from rules file."""
+        path = RULES_DIR / "lowercase_transforms.json"
+        with open(path) as f:
+            data = json.load(f)
+        # Filter out empty values (no transform needed)
+        return {k: v for k, v in data.items() if v}
 
     def process(self, name):
         """Transform a resource type name through all phases.
@@ -31,6 +44,7 @@ class Transformer:
         result = self.process_spaces(result)
         result = self.process_underscores(result)
         result = self.process_slashes(result)
+        result = self.process_lowercase(result)
         if result != name:
             self.transformed_count += 1
         return result
@@ -92,6 +106,16 @@ class Transformer:
         if "/" not in name:
             return name
         return name.replace("/", "-").rstrip("-")
+
+    def process_lowercase(self, name):
+        """Transform all-lowercase compound words using rules file.
+
+        Examples:
+            accesspoint -> access-point
+            loadbalancer -> load-balancer
+            storagelensconfiguration -> storage-lens-configuration
+        """
+        return self.lowercase_transforms.get(name, name)
 
     @property
     def metrics(self):
