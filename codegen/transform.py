@@ -16,19 +16,25 @@ class Transformer:
         """Convert camelCase or PascalCase to kebab-case.
 
         Only transforms if the name contains uppercase letters [A-Z].
-        Inserts hyphen before each uppercase letter and lowercases all.
+        Handles abbreviations by treating consecutive uppercase as a unit.
 
         Examples:
             backupVault -> backup-vault
             Analyzer -> analyzer
             CodeSigningConfig -> code-signing-config
+            API -> api
+            APIGateway -> api-gateway
+            EC2Instance -> ec2-instance
             bucket -> bucket (unchanged)
             certificate-authority -> certificate-authority (unchanged)
         """
         if not re.search(r"[A-Z]", name):
             return name
-        result = re.sub(r"([A-Z])", r"-\1", name).lower().lstrip("-")
-        return result
+        # Split before last char of uppercase sequence followed by lowercase (APIGateway -> API-Gateway)
+        result = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1-\2", name)
+        # Split between lowercase/digit and uppercase (backupVault -> backup-Vault, EC2Instance -> EC2-Instance)
+        result = re.sub(r"([a-z\d])([A-Z])", r"\1-\2", result)
+        return result.lower()
 
     def process(self, resources):
         """Transform resources, normalizing resource_type names.
