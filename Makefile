@@ -15,6 +15,10 @@ test: ## Run tests
 .PHONY: check
 check: lint test ## Run lint and test
 
+.PHONY: generate
+generate: ## Generate ARN patterns
+	uv run codegen/codegen.py
+
 .PHONY: build
 build: ## Build package
 	cp codegen/build/arn_patterns.py src/arnmatch/arn_patterns.py
