@@ -12,6 +12,10 @@ lint: ## Run linter
 test: ## Run tests
 	uv run pytest tests/
 
+.PHONY: test-integration
+test-integration: ## Run integration test (requires AWS credentials + Resource Explorer)
+	uv run --with boto3 tests/integration/test_resource_explorer.py
+
 .PHONY: check
 check: lint test ## Run lint and test
 
