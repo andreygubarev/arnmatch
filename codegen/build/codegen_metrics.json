@@ -43,9 +43,8 @@
     "mapped": 1078
   },
   "transformer": {
-    "input": 2082,
-    "transformed": 552,
-    "output": 2082
+    "total": 7310,
+    "transformed": 1932
   },
   "generator": {
     "services": 355,

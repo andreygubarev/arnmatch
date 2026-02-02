@@ -10,7 +10,26 @@ log = logging.getLogger(__name__)
 
 
 class Transformer:
-    """Transforms resource data before code generation."""
+    """Transforms resource type names at export time."""
+
+    def __init__(self):
+        self.transformed_count = 0
+        self.total_count = 0
+
+    def process(self, name):
+        """Transform a resource type name through all phases.
+
+        Args:
+            name: Original resource type name.
+
+        Returns:
+            Transformed name in kebab-case.
+        """
+        self.total_count += 1
+        result = self.process_camel_case(name)
+        if result != name:
+            self.transformed_count += 1
+        return result
 
     def process_camel_case(self, name):
         """Convert camelCase or PascalCase to kebab-case.
@@ -36,47 +55,9 @@ class Transformer:
         result = re.sub(r"([a-z\d])([A-Z])", r"\1-\2", result)
         return result.lower()
 
-    def process(self, resources):
-        """Transform resources, normalizing resource_type names.
-
-        Args:
-            resources: List of resource dicts with keys:
-                - service, arn_service, resource_type, arn_pattern
-
-        Returns:
-            List of transformed resource dicts.
-        """
-        transformed_count = 0
-        result = []
-        for r in resources:
-            original = r["resource_type"]
-            normalized = self.process_camel_case(original)
-            if normalized != original:
-                transformed_count += 1
-                r = {**r, "resource_type": normalized}
-            result.append(r)
-
-        self.metrics = {
-            "input": len(resources),
-            "transformed": transformed_count,
-            "output": len(result),
+    @property
+    def metrics(self):
+        return {
+            "total": self.total_count,
+            "transformed": self.transformed_count,
         }
-
-        return result
-
-    def process_by_service(self, by_service):
-        """Transform type_names in the by_service structure.
-
-        Args:
-            by_service: Dict of service -> list of (regex, type_names) tuples
-
-        Returns:
-            Transformed by_service dict with normalized type_names.
-        """
-        result = {}
-        for service, patterns in by_service.items():
-            result[service] = [
-                (regex, [self.process_camel_case(name) for name in type_names])
-                for regex, type_names in patterns
-            ]
-        return result

@@ -74,7 +74,7 @@ class CodeGenerator:
 
         return by_service
 
-    def generate(self, by_service, sdk_services_mapping, cfn_resources_mapping, output_path):
+    def generate(self, by_service, sdk_services_mapping, cfn_resources_mapping, transformer, output_path):
         """Generate Python file with ARN patterns and SDK services mapping."""
         with open(output_path, "w") as f:
             f.write("# Auto-generated ARN patterns for matching\n")
@@ -85,7 +85,15 @@ class CodeGenerator:
             for service, patterns in by_service.items():
                 f.write(f"    {service!r}: [\n")
                 for regex, type_names in patterns:
-                    f.write(f'        (re.compile(r"{regex}"), {type_names!r}),\n')
+                    # Build names list: transformed first, then originals (deduplicated)
+                    all_names = []
+                    for n in type_names:
+                        transformed = transformer.process(n)
+                        all_names.append(transformed)
+                        if transformed != n:
+                            all_names.append(n)
+                    all_names = list(dict.fromkeys(all_names))  # Dedupe
+                    f.write(f'        (re.compile(r"{regex}"), {all_names!r}),\n')
                 f.write("    ],\n")
 
             f.write("}\n\n")
@@ -115,7 +123,11 @@ class CodeGenerator:
             f.write("# ARN resource type -> CloudFormation resource type\n")
             f.write("AWS_CLOUDFORMATION_RESOURCES = {\n")
             for arn_service, resources in sorted(cfn_resources_mapping.items()):
-                f.write(f"    {arn_service!r}: {resources!r},\n")
+                transformed_resources = {
+                    transformer.process(rt): cfn_type
+                    for rt, cfn_type in resources.items()
+                }
+                f.write(f"    {arn_service!r}: {transformed_resources!r},\n")
             f.write("}\n")
 
         pattern_count = sum(len(patterns) for patterns in by_service.values())
@@ -162,7 +174,7 @@ class CodeGenerator:
             return overrides[resource_type]
         return SDKResourceIndexer.DEFAULT_SERVICE[arn_service]
 
-    def export(self, resources, sdk_mapping, cfn_resources_mapping, output_path):
+    def export(self, resources, sdk_mapping, cfn_resources_mapping, transformer, output_path):
         """Export patterns to YAML source of truth format."""
         # Group resources by (arn_service, resource_type) to collect multiple ARN patterns
         grouped = {}
@@ -179,16 +191,27 @@ class CodeGenerator:
                 by_service[arn_service] = []
 
             # Get type names (canonical + aliases)
-            names = self.get_type_names(arn_service, resource_type)
+            original_names = self.get_type_names(arn_service, resource_type)
+            # Build names list: transformed first, then originals (deduplicated)
+            names = []
+            for n in original_names:
+                transformed = transformer.process(n)
+                names.append(transformed)
+                if transformed != n:
+                    names.append(n)
+            names = list(dict.fromkeys(names))  # Dedupe preserving order
 
             # Get botoclient
             botoclient = self.get_botoclient(arn_service, resource_type, sdk_mapping)
 
-            # Get cloudformation type
+            # Get cloudformation type (lookup with original name)
             cfn_type = cfn_resources_mapping.get(arn_service, {}).get(resource_type)
 
+            # Transform resource_type for output
+            transformed_type = transformer.process(resource_type)
+
             entry = {
-                "name": resource_type,
+                "name": transformed_type,
                 "names": names,
                 "arns": arns,
                 "botoclient": botoclient,
@@ -273,13 +296,11 @@ def main():
     cfn_resource_indexer = CFNResourceIndexer()
     cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
 
-    # Transform resource names (after all processing, before export)
+    # Transform resource names at export time
     transformer = Transformer()
-    resources = transformer.process(resources)
-    by_service = transformer.process_by_service(by_service)
 
-    generator.generate(by_service, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.py")
-    generator.export(resources, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.yaml")
+    generator.generate(by_service, sdk_mapping, cfn_resources_mapping, transformer, BUILD_DIR / "arn_patterns.py")
+    generator.export(resources, sdk_mapping, cfn_resources_mapping, transformer, BUILD_DIR / "arn_patterns.yaml")
 
     # Collect and save metrics
     metrics = {
@@ -327,7 +348,7 @@ def print_summary(metrics):
           f"override={cfnr['override']} exclude={cfnr['excluded']} missing={cfnr['missing']} → mapped={cfnr['mapped']}")
 
     t = metrics["transformer"]
-    print(f"Transform:     in={t['input']} → transformed={t['transformed']} → out={t['output']}")
+    print(f"Transform:     total={t['total']} transformed={t['transformed']}")
 
     g = metrics["generator"]
     print(f"Generator:     {g['services']} services, {g['patterns']} patterns, {g['type_aliases']} aliases")
