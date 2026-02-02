@@ -42,6 +42,10 @@
     "missing": 0,
     "mapped": 1078
   },
+  "transformer": {
+    "total": 7310,
+    "transformed": 2818
+  },
   "generator": {
     "services": 355,
     "patterns": 2082,
