@@ -43,7 +43,7 @@ def test_arns(arns):
     results = {
         "success": [],
         "failed": [],
-        "by_service": defaultdict(lambda: {"success": 0, "failed": 0}),
+        "by_service": defaultdict(lambda: {"success": 0, "failed": 0, "types": {}}),
     }
 
     for arn in arns:
@@ -54,7 +54,13 @@ def test_arns(arns):
             results["by_service"][service]["failed"] += 1
         else:
             results["success"].append((arn, parsed))
-            results["by_service"][parsed.aws_service]["success"] += 1
+            svc = results["by_service"][parsed.aws_service]
+            svc["success"] += 1
+            if parsed.resource_type not in svc["types"]:
+                svc["types"][parsed.resource_type] = {
+                    "sdk": parsed.aws_sdk_service,
+                    "cfn": parsed.cloudformation_resource,
+                }
 
     return results
 
@@ -76,18 +82,43 @@ def print_report(results):
         print("\n" + "-" * 60)
         print("FAILED ARNs:")
         print("-" * 60)
-        for arn, error in results["failed"]:
+        for arn in results["failed"]:
             print(f"  {arn}")
-            print(f"    Error: {error}")
 
-    print("\n" + "-" * 60)
-    print("RESULTS BY SERVICE:")
-    print("-" * 60)
+    print("\n" + "-" * 70)
+    print(f"{'SERVICE':<25} {'ARNS':>8} {'TYPES':>8} {'SDK':>10} {'CFN':>10}")
+    print("-" * 70)
+    missing_sdk = []
+    missing_cfn = []
     for service in sorted(results["by_service"].keys()):
         stats = results["by_service"][service]
-        total_svc = stats["success"] + stats["failed"]
-        status = "OK" if stats["failed"] == 0 else "FAIL"
-        print(f"  {service:30} {stats['success']:4}/{total_svc:<4} [{status}]")
+        total_arns = stats["success"] + stats["failed"]
+        types = stats["types"]
+        total_types = len(types)
+        with_sdk = sum(1 for t in types.values() if t["sdk"])
+        with_cfn = sum(1 for t in types.values() if t["cfn"])
+        sdk_str = f"{with_sdk}/{total_types}"
+        cfn_str = f"{with_cfn}/{total_types}"
+        print(f"  {service:<23} {total_arns:>8} {total_types:>8} {sdk_str:>10} {cfn_str:>10}")
+        for rtype, info in types.items():
+            if not info["sdk"]:
+                missing_sdk.append(f"{service}:{rtype}")
+            if not info["cfn"]:
+                missing_cfn.append(f"{service}:{rtype}")
+
+    if missing_sdk:
+        print("\n" + "-" * 70)
+        print(f"MISSING SDK ({len(missing_sdk)}):")
+        print("-" * 70)
+        for item in sorted(missing_sdk):
+            print(f"  {item}")
+
+    if missing_cfn:
+        print("\n" + "-" * 70)
+        print(f"MISSING CFN ({len(missing_cfn)}):")
+        print("-" * 70)
+        for item in sorted(missing_cfn):
+            print(f"  {item}")
 
     print("\n" + "=" * 60)
     return failed_count == 0
