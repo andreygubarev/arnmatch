@@ -18,7 +18,7 @@ check: lint test ## Run lint and test
 .PHONY: generate
 generate: ## Generate ARN patterns
 	uv run codegen/codegen.py
-	uv run codegen/generate_python.py
+	uv run codegen/codegen_python.py
 
 .PHONY: build
 build: ## Build package
