@@ -85,15 +85,17 @@ a4b:
     cloudformation:
 
 access-analyzer:
-  - name: Analyzer
+  - name: analyzer
     names:
+      - analyzer
       - Analyzer
     arns:
       - arn:${Partition}:access-analyzer:${Region}:${Account}:analyzer/${AnalyzerName}
     botoclient: accessanalyzer
     cloudformation: AWS::AccessAnalyzer::Analyzer
-  - name: ArchiveRule
+  - name: archive-rule
     names:
+      - archive-rule
       - ArchiveRule
     arns:
       - arn:${Partition}:access-analyzer:${Region}:${Account}:analyzer/${AnalyzerName}/archive-rule/${RuleName}
@@ -108,8 +110,9 @@ account:
       - arn:${Partition}:account::${Account}:account
     botoclient: account
     cloudformation:
-  - name: accountInOrganization
+  - name: account-in-organization
     names:
+      - account-in-organization
       - accountInOrganization
     arns:
       - arn:${Partition}:account::${ManagementAccountId}:account/o-${OrganizationId}/${MemberAccountId}
@@ -135,22 +138,25 @@ acm-pca:
     cloudformation: AWS::ACMPCA::CertificateAuthority
 
 aidevops:
-  - name: AgentSpaceResource
+  - name: agent-space-resource
     names:
+      - agent-space-resource
       - AgentSpaceResource
     arns:
       - arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}
     botoclient: aiops
     cloudformation: AWS::DevOpsAgent::AgentSpace
-  - name: AssociationResource
+  - name: association-resource
     names:
+      - association-resource
       - AssociationResource
     arns:
       - arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/associations/${AssociationId}
     botoclient: aiops
     cloudformation: AWS::DevOpsAgent::Association
-  - name: ServiceResource
+  - name: service-resource
     names:
+      - service-resource
       - ServiceResource
     arns:
       - arn:${Partition}:aidevops:${Region}:${Account}:service/${ServiceId}
@@ -183,8 +189,9 @@ airflow:
     cloudformation:
 
 airflow-serverless:
-  - name: Workflow
+  - name: workflow
     names:
+      - workflow
       - Workflow
     arns:
       - arn:${Partition}:airflow-serverless:${Region}:${Account}:workflow/${WorkflowId}
@@ -294,29 +301,33 @@ amplifybackend:
     cloudformation:
 
 amplifyuibuilder:
-  - name: CodegenJobResource
+  - name: codegen-job-resource
     names:
+      - codegen-job-resource
       - CodegenJobResource
     arns:
       - arn:${Partition}:amplifyuibuilder:${Region}:${Account}:app/${AppId}/environment/${EnvironmentName}/codegen-jobs/${Id}
     botoclient: amplifyuibuilder
     cloudformation:
-  - name: ComponentResource
+  - name: component-resource
     names:
+      - component-resource
       - ComponentResource
     arns:
       - arn:${Partition}:amplifyuibuilder:${Region}:${Account}:app/${AppId}/environment/${EnvironmentName}/components/${Id}
     botoclient: amplifyuibuilder
     cloudformation: AWS::AmplifyUIBuilder::Component
-  - name: FormResource
+  - name: form-resource
     names:
+      - form-resource
       - FormResource
     arns:
       - arn:${Partition}:amplifyuibuilder:${Region}:${Account}:app/${AppId}/environment/${EnvironmentName}/forms/${Id}
     botoclient: amplifyuibuilder
     cloudformation: AWS::AmplifyUIBuilder::Form
-  - name: ThemeResource
+  - name: theme-resource
     names:
+      - theme-resource
       - ThemeResource
     arns:
       - arn:${Partition}:amplifyuibuilder:${Region}:${Account}:app/${AppId}/environment/${EnvironmentName}/themes/${Id}
@@ -324,22 +335,25 @@ amplifyuibuilder:
     cloudformation: AWS::AmplifyUIBuilder::Theme
 
 aoss:
-  - name: Collection
+  - name: collection
     names:
+      - collection
       - Collection
     arns:
       - arn:${Partition}:aoss:${Region}:${Account}:collection/${CollectionId}
     botoclient: opensearchserverless
     cloudformation: AWS::OpenSearchServerless::Collection
-  - name: CollectionGroup
+  - name: collection-group
     names:
+      - collection-group
       - CollectionGroup
     arns:
       - arn:${Partition}:aoss:${Region}:${Account}:collection-group/${CollectionGroupId}
     botoclient: opensearchserverless
     cloudformation:
-  - name: Dashboards
+  - name: dashboards
     names:
+      - dashboards
       - Dashboards
     arns:
       - arn:${Partition}:aoss:${Region}:${Account}:dashboards/default
@@ -347,504 +361,573 @@ aoss:
     cloudformation:
 
 apigateway:
-  - name: AccessLogSettings
+  - name: access-log-settings
     names:
+      - access-log-settings
       - AccessLogSettings
     arns:
       - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/accesslogsettings
     botoclient: apigateway
     cloudformation:
-  - name: Account
+  - name: account
     names:
+      - account
       - Account
     arns:
       - arn:${Partition}:apigateway:${Region}::/account
     botoclient: apigateway
     cloudformation: AWS::ApiGateway::Account
-  - name: Api
+  - name: api
     names:
+      - api
       - Api
     arns:
       - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}
     botoclient: apigatewayv2
     cloudformation: AWS::ApiGatewayV2::Api
-  - name: ApiKey
+  - name: api-key
     names:
+      - api-key
       - ApiKey
     arns:
       - arn:${Partition}:apigateway:${Region}::/apikeys/${ApiKeyId}
     botoclient: apigateway
     cloudformation: AWS::ApiGateway::ApiKey
-  - name: ApiKeys
+  - name: api-keys
     names:
+      - api-keys
       - ApiKeys
     arns:
       - arn:${Partition}:apigateway:${Region}::/apikeys
     botoclient: apigateway
     cloudformation:
-  - name: ApiMapping
+  - name: api-mapping
     names:
+      - api-mapping
       - ApiMapping
     arns:
       - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/apimappings/${ApiMappingId}
     botoclient: apigatewayv2
     cloudformation: AWS::ApiGatewayV2::ApiMapping
-  - name: ApiMappings
+  - name: api-mappings
     names:
+      - api-mappings
       - ApiMappings
     arns:
       - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/apimappings
     botoclient: apigatewayv2
-    cloudformation:
-  - name: Apis
-    names:
-      - Apis
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: Authorizer
-    names:
-      - Authorizer
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/authorizers/${AuthorizerId}
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers/${AuthorizerId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::Authorizer
-  - name: Authorizers
-    names:
-      - Authorizers
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/authorizers
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers
-    botoclient: apigateway
-    cloudformation:
-  - name: AuthorizersCache
-    names:
-      - AuthorizersCache
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/cache/authorizers
-    botoclient: apigateway
-    cloudformation:
-  - name: BasePathMapping
-    names:
-      - BasePathMapping
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/basepathmappings/${BasePath}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::BasePathMapping
-  - name: BasePathMappings
-    names:
-      - BasePathMappings
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/basepathmappings
-    botoclient: apigateway
-    cloudformation:
-  - name: ClientCertificate
-    names:
-      - ClientCertificate
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/clientcertificates/${ClientCertificateId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::ClientCertificate
-  - name: ClientCertificates
-    names:
-      - ClientCertificates
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/clientcertificates
-    botoclient: apigateway
-    cloudformation:
-  - name: Cors
-    names:
-      - Cors
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/cors
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: Deployment
-    names:
-      - Deployment
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/deployments/${DeploymentId}
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments/${DeploymentId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::Deployment
-  - name: Deployments
-    names:
-      - Deployments
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/deployments
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments
-    botoclient: apigateway
-    cloudformation:
-  - name: DocumentationPart
-    names:
-      - DocumentationPart
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/parts/${DocumentationPartId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::DocumentationPart
-  - name: DocumentationParts
-    names:
-      - DocumentationParts
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/parts
-    botoclient: apigateway
-    cloudformation:
-  - name: DocumentationVersion
-    names:
-      - DocumentationVersion
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/versions/${DocumentationVersionId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::DocumentationVersion
-  - name: DocumentationVersions
-    names:
-      - DocumentationVersions
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/versions
-    botoclient: apigateway
-    cloudformation:
-  - name: DomainName
-    names:
-      - DomainName
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::DomainName
-  - name: DomainNameAccessAssociation
-    names:
-      - DomainNameAccessAssociation
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations/domainname/${DomainName}/${SourceType}/${SourceId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::DomainNameAccessAssociation
-  - name: DomainNameAccessAssociations
-    names:
-      - DomainNameAccessAssociations
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations
-    botoclient: apigateway
-    cloudformation:
-  - name: DomainNames
-    names:
-      - DomainNames
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/domainnames
-    botoclient: apigateway
-    cloudformation:
-  - name: ExportedAPI
-    names:
-      - ExportedAPI
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/exports/${Specification}
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: GatewayResponse
-    names:
-      - GatewayResponse
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/gatewayresponses/${ResponseType}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::GatewayResponse
-  - name: GatewayResponses
-    names:
-      - GatewayResponses
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/gatewayresponses
-    botoclient: apigateway
-    cloudformation:
-  - name: Integration
-    names:
-      - Integration
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGatewayV2::Integration
-  - name: IntegrationResponse
-    names:
-      - IntegrationResponse
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration/responses/${StatusCode}
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}/integrationresponses/${IntegrationResponseId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGatewayV2::IntegrationResponse
-  - name: IntegrationResponses
-    names:
-      - IntegrationResponses
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}/integrationresponses
-    botoclient: apigateway
-    cloudformation:
-  - name: Integrations
-    names:
-      - Integrations
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: Method
-    names:
-      - Method
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::Method
-  - name: MethodResponse
-    names:
-      - MethodResponse
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/responses/${StatusCode}
-    botoclient: apigateway
-    cloudformation:
-  - name: Model
-    names:
-      - Model
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models/${ModelId}
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models/${ModelName}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::Model
-  - name: ModelTemplate
-    names:
-      - ModelTemplate
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models/${ModelId}/template
-    botoclient: apigateway
-    cloudformation:
-  - name: Models
-    names:
-      - Models
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models
-    botoclient: apigateway
-    cloudformation:
-  - name: Portal
-    names:
-      - Portal
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/portals/${PortalId}
-    botoclient: apigateway
-    cloudformation:
-  - name: PortalProduct
-    names:
-      - PortalProduct
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}
-    botoclient: apigateway
-    cloudformation:
-  - name: PrivateBasePathMapping
-    names:
-      - PrivateBasePathMapping
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}+${DomainIdentifier}/basepathmappings/${BasePath}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::BasePathMappingV2
-  - name: PrivateBasePathMappings
-    names:
-      - PrivateBasePathMappings
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}+${DomainIdentifier}/basepathmappings
-    botoclient: apigateway
-    cloudformation:
-  - name: PrivateDomainName
-    names:
-      - PrivateDomainName
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}+${DomainIdentifier}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::DomainNameV2
-  - name: ProductPage
-    names:
-      - ProductPage
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}/productpages/${ProductPageId}
-    botoclient: apigateway
-    cloudformation:
-  - name: ProductRestEndpointPage
-    names:
-      - ProductRestEndpointPage
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}/productrestendpointpages/${ProductRestEndpointPageId}
-    botoclient: apigateway
-    cloudformation:
-  - name: RequestValidator
-    names:
-      - RequestValidator
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/requestvalidators/${RequestValidatorId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::RequestValidator
-  - name: RequestValidators
-    names:
-      - RequestValidators
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/requestvalidators
-    botoclient: apigateway
-    cloudformation:
-  - name: Resource
-    names:
-      - Resource
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::Resource
-  - name: Resources
-    names:
-      - Resources
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources
-    botoclient: apigateway
-    cloudformation:
-  - name: RestApi
-    names:
-      - RestApi
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::RestApi
-  - name: RestApis
-    names:
-      - RestApis
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis
-    botoclient: apigateway
-    cloudformation:
-  - name: Route
-    names:
-      - Route
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}
-    botoclient: apigatewayv2
-    cloudformation: AWS::ApiGatewayV2::Route
-  - name: RouteRequestParameter
-    names:
-      - RouteRequestParameter
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/requestparameters/${RequestParameterKey}
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: RouteResponse
-    names:
-      - RouteResponse
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses/${RouteResponseId}
-    botoclient: apigatewayv2
-    cloudformation: AWS::ApiGatewayV2::RouteResponse
-  - name: RouteResponses
-    names:
-      - RouteResponses
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: RouteSettings
-    names:
-      - RouteSettings
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/routesettings/${RouteKey}
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: Routes
-    names:
-      - Routes
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes
-    botoclient: apigatewayv2
-    cloudformation:
-  - name: RoutingRule
-    names:
-      - RoutingRule
-    arns:
-      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}/routingrules/${RoutingRuleId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGatewayV2::RoutingRule
-  - name: Sdk
-    names:
-      - Sdk
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}/sdks/${SdkType}
-    botoclient: apigateway
-    cloudformation:
-  - name: Stage
-    names:
-      - Stage
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::Stage
-  - name: Stages
-    names:
-      - Stages
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages
-      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages
-    botoclient: apigateway
-    cloudformation:
-  - name: Tags
-    names:
-      - Tags
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/tags/${UrlEncodedResourceARN}
-    botoclient: apigateway
-    cloudformation:
-  - name: Template
-    names:
-      - Template
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/restapis/models/${ModelName}/template
-    botoclient: apigateway
-    cloudformation:
-  - name: UsagePlan
-    names:
-      - UsagePlan
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::UsagePlan
-  - name: UsagePlanKey
-    names:
-      - UsagePlanKey
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}/keys/${Id}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::UsagePlanKey
-  - name: UsagePlanKeys
-    names:
-      - UsagePlanKeys
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}/keys
-    botoclient: apigateway
-    cloudformation:
-  - name: UsagePlans
-    names:
-      - UsagePlans
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/usageplans
-    botoclient: apigateway
-    cloudformation:
-  - name: VpcLink
-    names:
-      - VpcLink
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/vpclinks/${VpcLinkId}
-    botoclient: apigateway
-    cloudformation: AWS::ApiGateway::VpcLink
-  - name: VpcLinks
-    names:
-      - VpcLinks
-    arns:
-      - arn:${Partition}:apigateway:${Region}::/vpclinks
-    botoclient: apigateway
     cloudformation:
   - name: apigateway
     names:
       - apigateway
     arns:
       - arn:${Partition}:apigateway:${Region}::/restapis/${ApiId}/stages/${StageName}
+    botoclient: apigateway
+    cloudformation:
+  - name: apis
+    names:
+      - apis
+      - Apis
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: authorizer
+    names:
+      - authorizer
+      - Authorizer
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/authorizers/${AuthorizerId}
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers/${AuthorizerId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::Authorizer
+  - name: authorizers
+    names:
+      - authorizers
+      - Authorizers
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/authorizers
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/authorizers
+    botoclient: apigateway
+    cloudformation:
+  - name: authorizers-cache
+    names:
+      - authorizers-cache
+      - AuthorizersCache
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/cache/authorizers
+    botoclient: apigateway
+    cloudformation:
+  - name: base-path-mapping
+    names:
+      - base-path-mapping
+      - BasePathMapping
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/basepathmappings/${BasePath}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::BasePathMapping
+  - name: base-path-mappings
+    names:
+      - base-path-mappings
+      - BasePathMappings
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}/basepathmappings
+    botoclient: apigateway
+    cloudformation:
+  - name: client-certificate
+    names:
+      - client-certificate
+      - ClientCertificate
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/clientcertificates/${ClientCertificateId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::ClientCertificate
+  - name: client-certificates
+    names:
+      - client-certificates
+      - ClientCertificates
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/clientcertificates
+    botoclient: apigateway
+    cloudformation:
+  - name: cors
+    names:
+      - cors
+      - Cors
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/cors
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: deployment
+    names:
+      - deployment
+      - Deployment
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/deployments/${DeploymentId}
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments/${DeploymentId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::Deployment
+  - name: deployments
+    names:
+      - deployments
+      - Deployments
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/deployments
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/deployments
+    botoclient: apigateway
+    cloudformation:
+  - name: documentation-part
+    names:
+      - documentation-part
+      - DocumentationPart
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/parts/${DocumentationPartId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::DocumentationPart
+  - name: documentation-parts
+    names:
+      - documentation-parts
+      - DocumentationParts
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/parts
+    botoclient: apigateway
+    cloudformation:
+  - name: documentation-version
+    names:
+      - documentation-version
+      - DocumentationVersion
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/versions/${DocumentationVersionId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::DocumentationVersion
+  - name: documentation-versions
+    names:
+      - documentation-versions
+      - DocumentationVersions
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/documentation/versions
+    botoclient: apigateway
+    cloudformation:
+  - name: domain-name
+    names:
+      - domain-name
+      - DomainName
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::DomainName
+  - name: domain-name-access-association
+    names:
+      - domain-name-access-association
+      - DomainNameAccessAssociation
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations/domainname/${DomainName}/${SourceType}/${SourceId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::DomainNameAccessAssociation
+  - name: domain-name-access-associations
+    names:
+      - domain-name-access-associations
+      - DomainNameAccessAssociations
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnameaccessassociations
+    botoclient: apigateway
+    cloudformation:
+  - name: domain-names
+    names:
+      - domain-names
+      - DomainNames
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/domainnames
+    botoclient: apigateway
+    cloudformation:
+  - name: exported-api
+    names:
+      - exported-api
+      - ExportedAPI
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/exports/${Specification}
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: gateway-response
+    names:
+      - gateway-response
+      - GatewayResponse
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/gatewayresponses/${ResponseType}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::GatewayResponse
+  - name: gateway-responses
+    names:
+      - gateway-responses
+      - GatewayResponses
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/gatewayresponses
+    botoclient: apigateway
+    cloudformation:
+  - name: integration
+    names:
+      - integration
+      - Integration
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGatewayV2::Integration
+  - name: integration-response
+    names:
+      - integration-response
+      - IntegrationResponse
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/integration/responses/${StatusCode}
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}/integrationresponses/${IntegrationResponseId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGatewayV2::IntegrationResponse
+  - name: integration-responses
+    names:
+      - integration-responses
+      - IntegrationResponses
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations/${IntegrationId}/integrationresponses
+    botoclient: apigateway
+    cloudformation:
+  - name: integrations
+    names:
+      - integrations
+      - Integrations
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/integrations
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: method
+    names:
+      - method
+      - Method
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::Method
+  - name: method-response
+    names:
+      - method-response
+      - MethodResponse
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}/methods/${HttpMethodType}/responses/${StatusCode}
+    botoclient: apigateway
+    cloudformation:
+  - name: model
+    names:
+      - model
+      - Model
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models/${ModelId}
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models/${ModelName}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::Model
+  - name: model-template
+    names:
+      - model-template
+      - ModelTemplate
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models/${ModelId}/template
+    botoclient: apigateway
+    cloudformation:
+  - name: models
+    names:
+      - models
+      - Models
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/models
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/models
+    botoclient: apigateway
+    cloudformation:
+  - name: portal
+    names:
+      - portal
+      - Portal
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/portals/${PortalId}
+    botoclient: apigateway
+    cloudformation:
+  - name: portal-product
+    names:
+      - portal-product
+      - PortalProduct
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}
+    botoclient: apigateway
+    cloudformation:
+  - name: private-base-path-mapping
+    names:
+      - private-base-path-mapping
+      - PrivateBasePathMapping
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}+${DomainIdentifier}/basepathmappings/${BasePath}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::BasePathMappingV2
+  - name: private-base-path-mappings
+    names:
+      - private-base-path-mappings
+      - PrivateBasePathMappings
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/domainnames/${DomainName}+${DomainIdentifier}/basepathmappings
+    botoclient: apigateway
+    cloudformation:
+  - name: private-domain-name
+    names:
+      - private-domain-name
+      - PrivateDomainName
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}+${DomainIdentifier}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::DomainNameV2
+  - name: product-page
+    names:
+      - product-page
+      - ProductPage
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}/productpages/${ProductPageId}
+    botoclient: apigateway
+    cloudformation:
+  - name: product-rest-endpoint-page
+    names:
+      - product-rest-endpoint-page
+      - ProductRestEndpointPage
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/portalproducts/${PortalProductId}/productrestendpointpages/${ProductRestEndpointPageId}
+    botoclient: apigateway
+    cloudformation:
+  - name: request-validator
+    names:
+      - request-validator
+      - RequestValidator
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/requestvalidators/${RequestValidatorId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::RequestValidator
+  - name: request-validators
+    names:
+      - request-validators
+      - RequestValidators
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/requestvalidators
+    botoclient: apigateway
+    cloudformation:
+  - name: resource
+    names:
+      - resource
+      - Resource
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources/${ResourceId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::Resource
+  - name: resources
+    names:
+      - resources
+      - Resources
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/resources
+    botoclient: apigateway
+    cloudformation:
+  - name: rest-api
+    names:
+      - rest-api
+      - RestApi
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::RestApi
+  - name: rest-apis
+    names:
+      - rest-apis
+      - RestApis
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis
+    botoclient: apigateway
+    cloudformation:
+  - name: route
+    names:
+      - route
+      - Route
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}
+    botoclient: apigatewayv2
+    cloudformation: AWS::ApiGatewayV2::Route
+  - name: route-request-parameter
+    names:
+      - route-request-parameter
+      - RouteRequestParameter
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/requestparameters/${RequestParameterKey}
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: route-response
+    names:
+      - route-response
+      - RouteResponse
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses/${RouteResponseId}
+    botoclient: apigatewayv2
+    cloudformation: AWS::ApiGatewayV2::RouteResponse
+  - name: route-responses
+    names:
+      - route-responses
+      - RouteResponses
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes/${RouteId}/routeresponses
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: route-settings
+    names:
+      - route-settings
+      - RouteSettings
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}/routesettings/${RouteKey}
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: routes
+    names:
+      - routes
+      - Routes
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/routes
+    botoclient: apigatewayv2
+    cloudformation:
+  - name: routing-rule
+    names:
+      - routing-rule
+      - RoutingRule
+    arns:
+      - arn:${Partition}:apigateway:${Region}:${Account}:/domainnames/${DomainName}/routingrules/${RoutingRuleId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGatewayV2::RoutingRule
+  - name: sdk
+    names:
+      - sdk
+      - Sdk
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}/sdks/${SdkType}
+    botoclient: apigateway
+    cloudformation:
+  - name: stage
+    names:
+      - stage
+      - Stage
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages/${StageName}
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages/${StageName}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::Stage
+  - name: stages
+    names:
+      - stages
+      - Stages
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/apis/${ApiId}/stages
+      - arn:${Partition}:apigateway:${Region}::/restapis/${RestApiId}/stages
+    botoclient: apigateway
+    cloudformation:
+  - name: tags
+    names:
+      - tags
+      - Tags
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/tags/${UrlEncodedResourceARN}
+    botoclient: apigateway
+    cloudformation:
+  - name: template
+    names:
+      - template
+      - Template
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/restapis/models/${ModelName}/template
+    botoclient: apigateway
+    cloudformation:
+  - name: usage-plan
+    names:
+      - usage-plan
+      - UsagePlan
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::UsagePlan
+  - name: usage-plan-key
+    names:
+      - usage-plan-key
+      - UsagePlanKey
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}/keys/${Id}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::UsagePlanKey
+  - name: usage-plan-keys
+    names:
+      - usage-plan-keys
+      - UsagePlanKeys
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/usageplans/${UsagePlanId}/keys
+    botoclient: apigateway
+    cloudformation:
+  - name: usage-plans
+    names:
+      - usage-plans
+      - UsagePlans
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/usageplans
+    botoclient: apigateway
+    cloudformation:
+  - name: vpc-link
+    names:
+      - vpc-link
+      - VpcLink
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/vpclinks/${VpcLinkId}
+    botoclient: apigateway
+    cloudformation: AWS::ApiGateway::VpcLink
+  - name: vpc-links
+    names:
+      - vpc-links
+      - VpcLinks
+    arns:
+      - arn:${Partition}:apigateway:${Region}::/vpclinks
     botoclient: apigateway
     cloudformation:
 
@@ -1011,8 +1094,9 @@ appflow:
     cloudformation: AWS::AppFlow::Flow
 
 application-autoscaling:
-  - name: ScalableTarget
+  - name: scalable-target
     names:
+      - scalable-target
       - ScalableTarget
     arns:
       - arn:${Partition}:application-autoscaling:${Region}:${Account}:scalable-target/${ResourceId}
@@ -1029,8 +1113,9 @@ application-signals:
     cloudformation: AWS::ApplicationSignals::ServiceLevelObjective
 
 appmesh:
-  - name: gatewayRoute
+  - name: gateway-route
     names:
+      - gateway-route
       - gatewayRoute
     arns:
       - arn:${Partition}:appmesh:${Region}:${Account}:mesh/${MeshName}/virtualGateway/${VirtualGatewayName}/gatewayRoute/${GatewayRouteName}
@@ -1050,29 +1135,33 @@ appmesh:
       - arn:${Partition}:appmesh:${Region}:${Account}:mesh/${MeshName}/virtualRouter/${VirtualRouterName}/route/${RouteName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::Route
-  - name: virtualGateway
+  - name: virtual-gateway
     names:
+      - virtual-gateway
       - virtualGateway
     arns:
       - arn:${Partition}:appmesh:${Region}:${Account}:mesh/${MeshName}/virtualGateway/${VirtualGatewayName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::VirtualGateway
-  - name: virtualNode
+  - name: virtual-node
     names:
+      - virtual-node
       - virtualNode
     arns:
       - arn:${Partition}:appmesh:${Region}:${Account}:mesh/${MeshName}/virtualNode/${VirtualNodeName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::VirtualNode
-  - name: virtualRouter
+  - name: virtual-router
     names:
+      - virtual-router
       - virtualRouter
     arns:
       - arn:${Partition}:appmesh:${Region}:${Account}:mesh/${MeshName}/virtualRouter/${VirtualRouterName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::VirtualRouter
-  - name: virtualService
+  - name: virtual-service
     names:
+      - virtual-service
       - virtualService
     arns:
       - arn:${Partition}:appmesh:${Region}:${Account}:mesh/${MeshName}/virtualService/${VirtualServiceName}
@@ -1080,8 +1169,9 @@ appmesh:
     cloudformation: AWS::AppMesh::VirtualService
 
 appmesh-preview:
-  - name: gatewayRoute
+  - name: gateway-route
     names:
+      - gateway-route
       - gatewayRoute
     arns:
       - arn:${Partition}:appmesh-preview:${Region}:${Account}:mesh/${MeshName}/virtualGateway/${VirtualGatewayName}/gatewayRoute/${GatewayRouteName}
@@ -1101,29 +1191,33 @@ appmesh-preview:
       - arn:${Partition}:appmesh-preview:${Region}:${Account}:mesh/${MeshName}/virtualRouter/${VirtualRouterName}/route/${RouteName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::Route
-  - name: virtualGateway
+  - name: virtual-gateway
     names:
+      - virtual-gateway
       - virtualGateway
     arns:
       - arn:${Partition}:appmesh-preview:${Region}:${Account}:mesh/${MeshName}/virtualGateway/${VirtualGatewayName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::VirtualGateway
-  - name: virtualNode
+  - name: virtual-node
     names:
+      - virtual-node
       - virtualNode
     arns:
       - arn:${Partition}:appmesh-preview:${Region}:${Account}:mesh/${MeshName}/virtualNode/${VirtualNodeName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::VirtualNode
-  - name: virtualRouter
+  - name: virtual-router
     names:
+      - virtual-router
       - virtualRouter
     arns:
       - arn:${Partition}:appmesh-preview:${Region}:${Account}:mesh/${MeshName}/virtualRouter/${VirtualRouterName}
     botoclient: appmesh
     cloudformation: AWS::AppMesh::VirtualRouter
-  - name: virtualService
+  - name: virtual-service
     names:
+      - virtual-service
       - virtualService
     arns:
       - arn:${Partition}:appmesh-preview:${Region}:${Account}:mesh/${MeshName}/virtualService/${VirtualServiceName}
@@ -1256,8 +1350,9 @@ appsync:
       - arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}
     botoclient: appsync
     cloudformation: AWS::AppSync::Api
-  - name: channelNamespace
+  - name: channel-namespace
     names:
+      - channel-namespace
       - channelNamespace
     arns:
       - arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}/channelNamespace/${ChannelNamespaceName}
@@ -1298,15 +1393,17 @@ appsync:
       - arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}
     botoclient: appsync
     cloudformation: AWS::AppSync::GraphQLApi
-  - name: mergedApiAssociation
+  - name: merged-api-association
     names:
+      - merged-api-association
       - mergedApiAssociation
     arns:
       - arn:${Partition}:appsync:${Region}:${Account}:apis/${SourceGraphQLAPIId}/mergedApiAssociations/${Associationid}
     botoclient: appsync
     cloudformation: AWS::AppSync::SourceApiAssociation
-  - name: sourceApiAssociation
+  - name: source-api-association
     names:
+      - source-api-association
       - sourceApiAssociation
     arns:
       - arn:${Partition}:appsync:${Region}:${Account}:apis/${MergedGraphQLAPIId}/sourceApiAssociations/${Associationid}
@@ -1321,29 +1418,33 @@ appsync:
     cloudformation:
 
 apptest:
-  - name: TestCase
+  - name: test-case
     names:
+      - test-case
       - TestCase
     arns:
       - arn:${Partition}:apptest:${Region}:${Account}:testcase/${TestCaseId}
     botoclient:
     cloudformation:
-  - name: TestConfiguration
+  - name: test-configuration
     names:
+      - test-configuration
       - TestConfiguration
     arns:
       - arn:${Partition}:apptest:${Region}:${Account}:testconfiguration/${TestConfigurationId}
     botoclient:
     cloudformation:
-  - name: TestRun
+  - name: test-run
     names:
+      - test-run
       - TestRun
     arns:
       - arn:${Partition}:apptest:${Region}:${Account}:testrun/${TestRunId}
     botoclient:
     cloudformation:
-  - name: TestSuite
+  - name: test-suite
     names:
+      - test-suite
       - TestSuite
     arns:
       - arn:${Partition}:apptest:${Region}:${Account}:testsuite/${TestSuiteId}
@@ -1450,15 +1551,17 @@ auditmanager:
       - arn:${Partition}:auditmanager:${Region}:${Account}:assessment/${AssessmentId}
     botoclient: auditmanager
     cloudformation: AWS::AuditManager::Assessment
-  - name: assessmentControlSet
+  - name: assessment-control-set
     names:
+      - assessment-control-set
       - assessmentControlSet
     arns:
       - arn:${Partition}:auditmanager:${Region}:${Account}:assessment/${AssessmentId}/controlSet/${ControlSetId}
     botoclient: auditmanager
     cloudformation:
-  - name: assessmentFramework
+  - name: assessment-framework
     names:
+      - assessment-framework
       - assessmentFramework
     arns:
       - arn:${Partition}:auditmanager:${Region}:${Account}:assessmentFramework/${AssessmentFrameworkId}
@@ -1473,15 +1576,17 @@ auditmanager:
     cloudformation:
 
 autoscaling:
-  - name: autoScalingGroup
+  - name: auto-scaling-group
     names:
+      - auto-scaling-group
       - autoScalingGroup
     arns:
       - arn:${Partition}:autoscaling:${Region}:${Account}:autoScalingGroup:${GroupId}:autoScalingGroupName/${GroupFriendlyName}
     botoclient: autoscaling
     cloudformation: AWS::AutoScaling::AutoScalingGroup
-  - name: launchConfiguration
+  - name: launch-configuration
     names:
+      - launch-configuration
       - launchConfiguration
     arns:
       - arn:${Partition}:autoscaling:${Region}:${Account}:launchConfiguration:${Id}:launchConfigurationName/${LaunchConfigurationName}
@@ -1489,22 +1594,25 @@ autoscaling:
     cloudformation: AWS::AutoScaling::LaunchConfiguration
 
 aws-marketplace:
-  - name: ChangeSet
+  - name: change-set
     names:
+      - change-set
       - ChangeSet
     arns:
       - arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/ChangeSet/${ResourceId}
     botoclient: marketplace-catalog
     cloudformation:
-  - name: DeploymentParameter
+  - name: deployment-parameter
     names:
+      - deployment-parameter
       - DeploymentParameter
     arns:
       - arn:${Partition}:aws-marketplace:${Region}:${Account}:DeploymentParameter:catalogs/${CatalogName}/products/${ProductId}/${ResourceId}
     botoclient: marketplace-catalog
     cloudformation:
-  - name: Entity
+  - name: entity
     names:
+      - entity
       - Entity
     arns:
       - arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/${EntityType}/${ResourceId}
@@ -1542,18 +1650,18 @@ b2bi:
     cloudformation: AWS::B2BI::Transformer
 
 backup:
-  - name: backupPlan
+  - name: backup-plan
     names:
-      - backupPlan
       - backup-plan
+      - backupPlan
     arns:
       - arn:${Partition}:backup:${Region}:${Account}:backup-plan:${BackupPlanId}
     botoclient: backup
     cloudformation: AWS::Backup::BackupPlan
-  - name: backupVault
+  - name: backup-vault
     names:
-      - backupVault
       - backup-vault
+      - backupVault
     arns:
       - arn:${Partition}:backup:${Region}:${Account}:backup-vault:${BackupVaultName}
     botoclient: backup
@@ -1565,29 +1673,33 @@ backup:
       - arn:${Partition}:backup:${Region}:${Account}:framework:${FrameworkName}-${FrameworkId}
     botoclient: backup
     cloudformation: AWS::Backup::Framework
-  - name: legalHold
+  - name: legal-hold
     names:
+      - legal-hold
       - legalHold
     arns:
       - arn:${Partition}:backup:${Region}:${Account}:legal-hold:${LegalHoldId}
     botoclient: backup
     cloudformation:
-  - name: reportPlan
+  - name: report-plan
     names:
+      - report-plan
       - reportPlan
     arns:
       - arn:${Partition}:backup:${Region}:${Account}:report-plan:${ReportPlanName}-${ReportPlanId}
     botoclient: backup
     cloudformation: AWS::Backup::ReportPlan
-  - name: restoreTestingPlan
+  - name: restore-testing-plan
     names:
+      - restore-testing-plan
       - restoreTestingPlan
     arns:
       - arn:${Partition}:backup:${Region}:${Account}:restore-testing-plan:${RestoreTestingPlanName}-${RestoreTestingPlanId}
     botoclient: backup
     cloudformation: AWS::Backup::RestoreTestingPlan
-  - name: tieringConfiguration
+  - name: tiering-configuration
     names:
+      - tiering-configuration
       - tieringConfiguration
     arns:
       - arn:${Partition}:backup:${Region}:${Account}:tiering-configuration:${TieringConfigurationName}-${TieringConfigurationId}
@@ -1618,15 +1730,17 @@ backup-gateway:
     cloudformation:
 
 backup-search:
-  - name: searchExportJob
+  - name: search-export-job
     names:
+      - search-export-job
       - searchExportJob
     arns:
       - arn:${Partition}:backup-search:${Region}:${Account}:search-export-job/${ResourceId}
     botoclient: backupsearch
     cloudformation:
-  - name: searchJob
+  - name: search-job
     names:
+      - search-job
       - searchJob
     arns:
       - arn:${Partition}:backup-search:${Region}:${Account}:search-job/${ResourceId}
@@ -2191,8 +2305,9 @@ budgets:
       - arn:${Partition}:budgets::${Account}:budget/${BudgetName}
     botoclient: budgets
     cloudformation: AWS::Budgets::Budget
-  - name: budgetAction
+  - name: budget-action
     names:
+      - budget-action
       - budgetAction
     arns:
       - arn:${Partition}:budgets::${Account}:budget/${BudgetName}/action/${ActionId}
@@ -2200,8 +2315,9 @@ budgets:
     cloudformation: AWS::Budgets::BudgetsAction
 
 bugbust:
-  - name: Event
+  - name: event
     names:
+      - event
       - Event
     arns:
       - arn:${Partition}:bugbust:${Region}:${Account}:events/${EventId}
@@ -2209,50 +2325,57 @@ bugbust:
     cloudformation:
 
 cases:
-  - name: Case
+  - name: case
     names:
+      - case
       - Case
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}/case/${CaseId}
     botoclient: connectcases
     cloudformation:
-  - name: CaseRule
+  - name: case-rule
     names:
+      - case-rule
       - CaseRule
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}/case-rule/${CaseRuleId}
     botoclient: connectcases
     cloudformation: AWS::Cases::CaseRule
-  - name: Domain
+  - name: domain
     names:
+      - domain
       - Domain
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}
     botoclient: connectcases
     cloudformation: AWS::Cases::Domain
-  - name: Field
+  - name: field
     names:
+      - field
       - Field
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}/field/${FieldId}
     botoclient: connectcases
     cloudformation: AWS::Cases::Field
-  - name: Layout
+  - name: layout
     names:
+      - layout
       - Layout
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}/layout/${LayoutId}
     botoclient: connectcases
     cloudformation: AWS::Cases::Layout
-  - name: RelatedItem
+  - name: related-item
     names:
+      - related-item
       - RelatedItem
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}/case/${CaseId}/related-item/${RelatedItemId}
     botoclient: connectcases
     cloudformation:
-  - name: Template
+  - name: template
     names:
+      - template
       - Template
     arns:
       - arn:${Partition}:cases:${Region}:${Account}:domain/${DomainId}/template/${TemplateId}
@@ -2283,15 +2406,17 @@ cassandra:
     cloudformation: AWS::Cassandra::Table
 
 catalog:
-  - name: Portfolio
+  - name: portfolio
     names:
+      - portfolio
       - Portfolio
     arns:
       - arn:${Partition}:catalog:${Region}:${Account}:portfolio/${PortfolioId}
     botoclient: servicecatalog
     cloudformation: AWS::ServiceCatalog::Portfolio
-  - name: Product
+  - name: product
     names:
+      - product
       - Product
     arns:
       - arn:${Partition}:catalog:${Region}:${Account}:product/${ProductId}
@@ -2322,8 +2447,9 @@ ce:
     cloudformation: AWS::CE::CostCategory
 
 chatbot:
-  - name: ChatbotConfiguration
+  - name: chatbot-configuration
     names:
+      - chatbot-configuration
       - ChatbotConfiguration
     arns:
       - arn:${Partition}:chatbot::${Account}:chat-configuration/${ConfigurationType}/${ChatbotConfigurationName}
@@ -2496,41 +2622,6 @@ cleanrooms:
     cloudformation: AWS::CleanRooms::PrivacyBudgetTemplate
 
 cleanrooms-ml:
-  - name: ConfiguredModelAlgorithm
-    names:
-      - ConfiguredModelAlgorithm
-    arns:
-      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:configured-model-algorithm/${ResourceId}
-    botoclient: cleanroomsml
-    cloudformation:
-  - name: ConfiguredModelAlgorithmAssociation
-    names:
-      - ConfiguredModelAlgorithmAssociation
-    arns:
-      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/configured-model-algorithm-association/${ResourceId}
-    botoclient: cleanroomsml
-    cloudformation:
-  - name: MLInputChannel
-    names:
-      - MLInputChannel
-    arns:
-      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/ml-input-channel/${ResourceId}
-    botoclient: cleanroomsml
-    cloudformation:
-  - name: TrainedModel
-    names:
-      - TrainedModel
-    arns:
-      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/trained-model/${ResourceId}
-    botoclient: cleanroomsml
-    cloudformation:
-  - name: TrainedModelInferenceJob
-    names:
-      - TrainedModelInferenceJob
-    arns:
-      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/trained-model-inference-job/${ResourceId}
-    botoclient: cleanroomsml
-    cloudformation:
   - name: audiencegenerationjob
     names:
       - audiencegenerationjob
@@ -2545,11 +2636,51 @@ cleanrooms-ml:
       - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:audience-model/${ResourceId}
     botoclient: cleanroomsml
     cloudformation:
+  - name: configured-model-algorithm
+    names:
+      - configured-model-algorithm
+      - ConfiguredModelAlgorithm
+    arns:
+      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:configured-model-algorithm/${ResourceId}
+    botoclient: cleanroomsml
+    cloudformation:
+  - name: configured-model-algorithm-association
+    names:
+      - configured-model-algorithm-association
+      - ConfiguredModelAlgorithmAssociation
+    arns:
+      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/configured-model-algorithm-association/${ResourceId}
+    botoclient: cleanroomsml
+    cloudformation:
   - name: configuredaudiencemodel
     names:
       - configuredaudiencemodel
     arns:
       - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:configured-audience-model/${ResourceId}
+    botoclient: cleanroomsml
+    cloudformation:
+  - name: ml-input-channel
+    names:
+      - ml-input-channel
+      - MLInputChannel
+    arns:
+      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/ml-input-channel/${ResourceId}
+    botoclient: cleanroomsml
+    cloudformation:
+  - name: trained-model
+    names:
+      - trained-model
+      - TrainedModel
+    arns:
+      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/trained-model/${ResourceId}
+    botoclient: cleanroomsml
+    cloudformation:
+  - name: trained-model-inference-job
+    names:
+      - trained-model-inference-job
+      - TrainedModelInferenceJob
+    arns:
+      - arn:${Partition}:cleanrooms-ml:${Region}:${Account}:membership/${MembershipId}/trained-model-inference-job/${ResourceId}
     botoclient: cleanroomsml
     cloudformation:
   - name: trainingdataset
@@ -2570,15 +2701,17 @@ cloud9:
     cloudformation: AWS::Cloud9::EnvironmentEC2
 
 clouddirectory:
-  - name: appliedSchema
+  - name: applied-schema
     names:
+      - applied-schema
       - appliedSchema
     arns:
       - arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId}/schema/${SchemaName}/${Version}
     botoclient: clouddirectory
     cloudformation:
-  - name: developmentSchema
+  - name: development-schema
     names:
+      - development-schema
       - developmentSchema
     arns:
       - arn:${Partition}:clouddirectory:${Region}:${Account}:schema/development/${SchemaName}
@@ -2591,8 +2724,9 @@ clouddirectory:
       - arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId}
     botoclient: clouddirectory
     cloudformation:
-  - name: publishedSchema
+  - name: published-schema
     names:
+      - published-schema
       - publishedSchema
     arns:
       - arn:${Partition}:clouddirectory:${Region}:${Account}:schema/published/${SchemaName}/${Version}
@@ -2649,8 +2783,9 @@ cloudformation:
       - arn:${Partition}:cloudformation:${Region}:${Account}:type/resource/${Type}
     botoclient: cloudformation
     cloudformation:
-  - name: typeHook
+  - name: type-hook
     names:
+      - type-hook
       - typeHook
     arns:
       - arn:${Partition}:cloudformation:${Region}:${Account}:type/hook/${Type}
@@ -2819,8 +2954,9 @@ cloudsearch:
     cloudformation:
 
 cloudshell:
-  - name: Environment
+  - name: environment
     names:
+      - environment
       - Environment
     arns:
       - arn:${Partition}:cloudshell:${Region}:${Account}:environment/${EnvironmentId}
@@ -3022,22 +3158,25 @@ codecommit:
     cloudformation: AWS::CodeCommit::Repository
 
 codeconnections:
-  - name: Connection
+  - name: connection
     names:
+      - connection
       - Connection
     arns:
       - arn:${Partition}:codeconnections:${Region}:${Account}:connection/${ConnectionId}
     botoclient: codeconnections
     cloudformation: AWS::CodeConnections::Connection
-  - name: Host
+  - name: host
     names:
+      - host
       - Host
     arns:
       - arn:${Partition}:codeconnections:${Region}:${Account}:host/${HostId}
     botoclient: codeconnections
     cloudformation:
-  - name: RepositoryLink
+  - name: repository-link
     names:
+      - repository-link
       - RepositoryLink
     arns:
       - arn:${Partition}:codeconnections:${Region}:${Account}:repository-link/${RepositoryLinkId}
@@ -3075,8 +3214,9 @@ codedeploy:
     cloudformation:
 
 codeguru-profiler:
-  - name: ProfilingGroup
+  - name: profiling-group
     names:
+      - profiling-group
       - ProfilingGroup
     arns:
       - arn:${Partition}:codeguru-profiler:${Region}:${Account}:profilingGroup/${ProfilingGroupName}
@@ -3100,8 +3240,9 @@ codeguru-reviewer:
     cloudformation:
 
 codeguru-security:
-  - name: ScanName
+  - name: scan-name
     names:
+      - scan-name
       - ScanName
     arns:
       - arn:${Partition}:codeguru-security:${Region}:${Account}:scans/${ScanName}
@@ -3155,22 +3296,25 @@ codestar:
     cloudformation:
 
 codestar-connections:
-  - name: Connection
+  - name: connection
     names:
+      - connection
       - Connection
     arns:
       - arn:${Partition}:codestar-connections:${Region}:${Account}:connection/${ConnectionId}
     botoclient: codestar-connections
     cloudformation: AWS::CodeStarConnections::Connection
-  - name: Host
+  - name: host
     names:
+      - host
       - Host
     arns:
       - arn:${Partition}:codestar-connections:${Region}:${Account}:host/${HostId}
     botoclient: codestar-connections
     cloudformation:
-  - name: RepositoryLink
+  - name: repository-link
     names:
+      - repository-link
       - RepositoryLink
     arns:
       - arn:${Partition}:codestar-connections:${Region}:${Account}:repository-link/${RepositoryLinkId}
@@ -3351,8 +3495,9 @@ comprehend:
     cloudformation:
 
 compute-optimizer:
-  - name: AutomationRule
+  - name: automation-rule
     names:
+      - automation-rule
       - AutomationRule
     arns:
       - arn:${Partition}:compute-optimizer::${Account}:automation-rule/${RuleId}
@@ -3360,64 +3505,73 @@ compute-optimizer:
     cloudformation:
 
 config:
-  - name: AggregationAuthorization
+  - name: aggregation-authorization
     names:
+      - aggregation-authorization
       - AggregationAuthorization
     arns:
       - arn:${Partition}:config:${Region}:${Account}:aggregation-authorization/${AggregatorAccount}/${AggregatorRegion}
     botoclient: config
     cloudformation: AWS::Config::AggregationAuthorization
-  - name: ConfigRule
+  - name: config-rule
     names:
+      - config-rule
       - ConfigRule
     arns:
       - arn:${Partition}:config:${Region}:${Account}:config-rule/${ConfigRuleId}
     botoclient: config
     cloudformation: AWS::Config::ConfigRule
-  - name: ConfigurationAggregator
+  - name: configuration-aggregator
     names:
+      - configuration-aggregator
       - ConfigurationAggregator
     arns:
       - arn:${Partition}:config:${Region}:${Account}:config-aggregator/${AggregatorId}
     botoclient: config
     cloudformation: AWS::Config::ConfigurationAggregator
-  - name: ConfigurationRecorder
+  - name: configuration-recorder
     names:
+      - configuration-recorder
       - ConfigurationRecorder
     arns:
       - arn:${Partition}:config:${Region}:${Account}:configuration-recorder/${RecorderName}/${RecorderId}
     botoclient: config
     cloudformation: AWS::Config::ConfigurationRecorder
-  - name: ConformancePack
+  - name: conformance-pack
     names:
+      - conformance-pack
       - ConformancePack
     arns:
       - arn:${Partition}:config:${Region}:${Account}:conformance-pack/${ConformancePackName}/${ConformancePackId}
     botoclient: config
     cloudformation: AWS::Config::ConformancePack
-  - name: OrganizationConfigRule
+  - name: organization-config-rule
     names:
+      - organization-config-rule
       - OrganizationConfigRule
     arns:
       - arn:${Partition}:config:${Region}:${Account}:organization-config-rule/${OrganizationConfigRuleId}
     botoclient: config
     cloudformation: AWS::Config::OrganizationConfigRule
-  - name: OrganizationConformancePack
+  - name: organization-conformance-pack
     names:
+      - organization-conformance-pack
       - OrganizationConformancePack
     arns:
       - arn:${Partition}:config:${Region}:${Account}:organization-conformance-pack/${OrganizationConformancePackId}
     botoclient: config
     cloudformation: AWS::Config::OrganizationConformancePack
-  - name: RemediationConfiguration
+  - name: remediation-configuration
     names:
+      - remediation-configuration
       - RemediationConfiguration
     arns:
       - arn:${Partition}:config:${Region}:${Account}:remediation-configuration/${RemediationConfigurationId}
     botoclient: config
     cloudformation: AWS::Config::RemediationConfiguration
-  - name: StoredQuery
+  - name: stored-query
     names:
+      - stored-query
       - StoredQuery
     arns:
       - arn:${Partition}:config:${Region}:${Account}:stored-query/${StoredQueryName}/${StoredQueryId}
@@ -3667,8 +3821,9 @@ connect-campaigns:
     cloudformation: AWS::ConnectCampaigns::Campaign
 
 consoleapp:
-  - name: DeviceIdentity
+  - name: device-identity
     names:
+      - device-identity
       - DeviceIdentity
     arns:
       - arn:${Partition}:consoleapp::${Account}:device/${DeviceId}/identity/${IdentityId}
@@ -3706,29 +3861,33 @@ controlcatalog:
     cloudformation:
 
 controltower:
-  - name: Baseline
+  - name: baseline
     names:
+      - baseline
       - Baseline
     arns:
       - arn:${Partition}:controltower:${Region}::baseline/${BaselineId}
     botoclient: controltower
     cloudformation: AWS::ControlTower::EnabledBaseline
-  - name: EnabledBaseline
+  - name: enabled-baseline
     names:
+      - enabled-baseline
       - EnabledBaseline
     arns:
       - arn:${Partition}:controltower:${Region}:${Account}:enabledbaseline/${EnabledBaselineId}
     botoclient: controltower
     cloudformation: AWS::ControlTower::EnabledBaseline
-  - name: EnabledControl
+  - name: enabled-control
     names:
+      - enabled-control
       - EnabledControl
     arns:
       - arn:${Partition}:controltower:${Region}:${Account}:enabledcontrol/${EnabledControlId}
     botoclient: controltower
     cloudformation: AWS::ControlTower::EnabledControl
-  - name: LandingZone
+  - name: landing-zone
     names:
+      - landing-zone
       - LandingZone
     arns:
       - arn:${Partition}:controltower:${Region}:${Account}:landingzone/${LandingZoneId}
@@ -3745,43 +3904,49 @@ cur:
     cloudformation: AWS::CUR::ReportDefinition
 
 databrew:
-  - name: Dataset
+  - name: dataset
     names:
+      - dataset
       - Dataset
     arns:
       - arn:${Partition}:databrew:${Region}:${Account}:dataset/${ResourceId}
     botoclient: databrew
     cloudformation: AWS::DataBrew::Dataset
-  - name: Job
+  - name: job
     names:
+      - job
       - Job
     arns:
       - arn:${Partition}:databrew:${Region}:${Account}:job/${ResourceId}
     botoclient: databrew
     cloudformation: AWS::DataBrew::Job
-  - name: Project
+  - name: project
     names:
+      - project
       - Project
     arns:
       - arn:${Partition}:databrew:${Region}:${Account}:project/${ResourceId}
     botoclient: databrew
     cloudformation: AWS::DataBrew::Project
-  - name: Recipe
+  - name: recipe
     names:
+      - recipe
       - Recipe
     arns:
       - arn:${Partition}:databrew:${Region}:${Account}:recipe/${ResourceId}
     botoclient: databrew
     cloudformation: AWS::DataBrew::Recipe
-  - name: Ruleset
+  - name: ruleset
     names:
+      - ruleset
       - Ruleset
     arns:
       - arn:${Partition}:databrew:${Region}:${Account}:ruleset/${ResourceId}
     botoclient: databrew
     cloudformation: AWS::DataBrew::Ruleset
-  - name: Schedule
+  - name: schedule
     names:
+      - schedule
       - Schedule
     arns:
       - arn:${Partition}:databrew:${Region}:${Account}:schedule/${ResourceId}
@@ -3983,8 +4148,9 @@ deadline:
     cloudformation:
 
 detective:
-  - name: Graph
+  - name: graph
     names:
+      - graph
       - Graph
     arns:
       - arn:${Partition}:detective:${Region}:${Account}:graph:${ResourceId}
@@ -4152,93 +4318,106 @@ dlm:
     cloudformation: AWS::DLM::LifecyclePolicy
 
 dms:
-  - name: Certificate
+  - name: certificate
     names:
+      - certificate
       - Certificate
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:cert:${CertificateId}
     botoclient: dms
     cloudformation: AWS::DMS::Certificate
-  - name: DataMigration
+  - name: data-migration
     names:
+      - data-migration
       - DataMigration
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:data-migration:${DataMigrationId}
     botoclient: dms
     cloudformation: AWS::DMS::DataMigration
-  - name: DataProvider
+  - name: data-provider
     names:
+      - data-provider
       - DataProvider
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:data-provider:${DataProviderId}
     botoclient: dms
     cloudformation: AWS::DMS::DataProvider
-  - name: Endpoint
+  - name: endpoint
     names:
+      - endpoint
       - Endpoint
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:endpoint:${EndpointId}
     botoclient: dms
     cloudformation: AWS::DMS::Endpoint
-  - name: EventSubscription
+  - name: event-subscription
     names:
+      - event-subscription
       - EventSubscription
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:es:${EventSubscriptionId}
     botoclient: dms
     cloudformation: AWS::DMS::EventSubscription
-  - name: InstanceProfile
+  - name: instance-profile
     names:
+      - instance-profile
       - InstanceProfile
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:instance-profile:${InstanceProfileId}
     botoclient: dms
     cloudformation: AWS::DMS::InstanceProfile
-  - name: MigrationProject
+  - name: migration-project
     names:
+      - migration-project
       - MigrationProject
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:migration-project:${MigrationProjectId}
     botoclient: dms
     cloudformation: AWS::DMS::MigrationProject
-  - name: ReplicationConfig
+  - name: replication-config
     names:
+      - replication-config
       - ReplicationConfig
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:replication-config:${ReplicationConfigId}
     botoclient: dms
     cloudformation: AWS::DMS::ReplicationConfig
-  - name: ReplicationInstance
+  - name: replication-instance
     names:
+      - replication-instance
       - ReplicationInstance
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:rep:${ReplicationInstanceId}
     botoclient: dms
     cloudformation: AWS::DMS::ReplicationInstance
-  - name: ReplicationSubnetGroup
+  - name: replication-subnet-group
     names:
+      - replication-subnet-group
       - ReplicationSubnetGroup
       - subgrp
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:subgrp:${SubnetGroupName}
     botoclient: dms
     cloudformation: AWS::DMS::ReplicationSubnetGroup
-  - name: ReplicationTask
+  - name: replication-task
     names:
+      - replication-task
       - ReplicationTask
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:task:${TaskId}
     botoclient: dms
     cloudformation: AWS::DMS::ReplicationTask
-  - name: ReplicationTaskAssessmentRun
+  - name: replication-task-assessment-run
     names:
+      - replication-task-assessment-run
       - ReplicationTaskAssessmentRun
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:assessment-run:${AssessmentRunId}
     botoclient: dms
     cloudformation:
-  - name: ReplicationTaskIndividualAssessment
+  - name: replication-task-individual-assessment
     names:
+      - replication-task-individual-assessment
       - ReplicationTaskIndividualAssessment
     arns:
       - arn:${Partition}:dms:${Region}:${Account}:individual-assessment:${IndividualAssessmentId}
@@ -4262,43 +4441,49 @@ docdb-elastic:
     cloudformation:
 
 drs:
-  - name: JobResource
+  - name: job-resource
     names:
+      - job-resource
       - JobResource
     arns:
       - arn:${Partition}:drs:${Region}:${Account}:job/${JobID}
     botoclient: drs
     cloudformation:
-  - name: LaunchConfigurationTemplateResource
+  - name: launch-configuration-template-resource
     names:
+      - launch-configuration-template-resource
       - LaunchConfigurationTemplateResource
     arns:
       - arn:${Partition}:drs:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID}
     botoclient: drs
     cloudformation:
-  - name: RecoveryInstanceResource
+  - name: recovery-instance-resource
     names:
+      - recovery-instance-resource
       - RecoveryInstanceResource
     arns:
       - arn:${Partition}:drs:${Region}:${Account}:recovery-instance/${RecoveryInstanceID}
     botoclient: drs
     cloudformation:
-  - name: ReplicationConfigurationTemplateResource
+  - name: replication-configuration-template-resource
     names:
+      - replication-configuration-template-resource
       - ReplicationConfigurationTemplateResource
     arns:
       - arn:${Partition}:drs:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID}
     botoclient: drs
     cloudformation:
-  - name: SourceNetworkResource
+  - name: source-network-resource
     names:
+      - source-network-resource
       - SourceNetworkResource
     arns:
       - arn:${Partition}:drs:${Region}:${Account}:source-network/${SourceNetworkID}
     botoclient: drs
     cloudformation:
-  - name: SourceServerResource
+  - name: source-server-resource
     names:
+      - source-server-resource
       - SourceServerResource
     arns:
       - arn:${Partition}:drs:${Region}:${Account}:source-server/${SourceServerID}
@@ -4315,8 +4500,9 @@ ds:
     cloudformation:
 
 dsql:
-  - name: Cluster
+  - name: cluster
     names:
+      - cluster
       - Cluster
     arns:
       - arn:${Partition}:dsql:${Region}:${Account}:cluster/${Identifier}
@@ -5480,41 +5666,46 @@ elasticfilesystem:
     cloudformation: AWS::EFS::FileSystem
 
 elasticloadbalancing:
-  - name: listener-rule/app
+  - name: listener-app
     names:
-      - listener-rule/app
-    arns:
-      - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener-rule/app/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}
-    botoclient: elbv2
-    cloudformation: AWS::ElasticLoadBalancingV2::ListenerRule
-  - name: listener-rule/net
-    names:
-      - listener-rule/net
-    arns:
-      - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener-rule/net/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}
-    botoclient: elbv2
-    cloudformation: AWS::ElasticLoadBalancingV2::ListenerRule
-  - name: listener/app
-    names:
+      - listener-app
       - listener/app
     arns:
       - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener/app/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}
     botoclient: elbv2
     cloudformation: AWS::ElasticLoadBalancingV2::Listener
-  - name: listener/gwy
+  - name: listener-gwy
     names:
+      - listener-gwy
       - listener/gwy
     arns:
       - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener/gwy/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}
     botoclient: elbv2
     cloudformation: AWS::ElasticLoadBalancingV2::Listener
-  - name: listener/net
+  - name: listener-net
     names:
+      - listener-net
       - listener/net
     arns:
       - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener/net/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}
     botoclient: elbv2
     cloudformation: AWS::ElasticLoadBalancingV2::Listener
+  - name: listener-rule-app
+    names:
+      - listener-rule-app
+      - listener-rule/app
+    arns:
+      - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener-rule/app/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}
+    botoclient: elbv2
+    cloudformation: AWS::ElasticLoadBalancingV2::ListenerRule
+  - name: listener-rule-net
+    names:
+      - listener-rule-net
+      - listener-rule/net
+    arns:
+      - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:listener-rule/net/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}
+    botoclient: elbv2
+    cloudformation: AWS::ElasticLoadBalancingV2::ListenerRule
   - name: loadbalancer
     names:
       - loadbalancer
@@ -5522,24 +5713,27 @@ elasticloadbalancing:
       - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/${LoadBalancerName}
     botoclient: elb
     cloudformation: AWS::ElasticLoadBalancing::LoadBalancer
-  - name: loadbalancer/app/
+  - name: loadbalancer-app
     names:
+      - loadbalancer-app
       - loadbalancer/app/
       - loadbalancer/app
     arns:
       - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/app/${LoadBalancerName}/${LoadBalancerId}
     botoclient: elbv2
     cloudformation: AWS::ElasticLoadBalancingV2::LoadBalancer
-  - name: loadbalancer/gwy/
+  - name: loadbalancer-gwy
     names:
+      - loadbalancer-gwy
       - loadbalancer/gwy/
       - loadbalancer/gwy
     arns:
       - arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/gwy/${LoadBalancerName}/${LoadBalancerId}
     botoclient: elbv2
     cloudformation: AWS::ElasticLoadBalancingV2::LoadBalancer
-  - name: loadbalancer/net/
+  - name: loadbalancer-net
     names:
+      - loadbalancer-net
       - loadbalancer/net/
       - loadbalancer/net
     arns:
@@ -5633,36 +5827,41 @@ elemental-support-cases:
     cloudformation:
 
 emr-containers:
-  - name: jobRun
+  - name: job-run
     names:
+      - job-run
       - jobRun
     arns:
       - arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}/jobruns/${JobRunId}
     botoclient: emr-containers
     cloudformation:
-  - name: jobTemplate
+  - name: job-template
     names:
+      - job-template
       - jobTemplate
     arns:
       - arn:${Partition}:emr-containers:${Region}:${Account}:/jobtemplates/${JobTemplateId}
     botoclient: emr-containers
     cloudformation:
-  - name: managedEndpoint
+  - name: managed-endpoint
     names:
+      - managed-endpoint
       - managedEndpoint
     arns:
       - arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}/endpoints/${EndpointId}
     botoclient: emr-containers
     cloudformation: AWS::EMRContainers::Endpoint
-  - name: securityConfiguration
+  - name: security-configuration
     names:
+      - security-configuration
       - securityConfiguration
     arns:
       - arn:${Partition}:emr-containers:${Region}:${Account}:/securityconfigurations/${SecurityConfigurationId}
     botoclient: emr-containers
     cloudformation: AWS::EMRContainers::SecurityConfiguration
-  - name: virtualCluster
+  - name: virtual-cluster
     names:
+      - virtual-cluster
       - virtualCluster
     arns:
       - arn:${Partition}:emr-containers:${Region}:${Account}:/virtualclusters/${VirtualClusterId}
@@ -5677,8 +5876,9 @@ emr-serverless:
       - arn:${Partition}:emr-serverless:${Region}:${Account}:/applications/${ApplicationId}
     botoclient: emr-serverless
     cloudformation: AWS::EMRServerless::Application
-  - name: jobRun
+  - name: job-run
     names:
+      - job-run
       - jobRun
     arns:
       - arn:${Partition}:emr-serverless:${Region}:${Account}:/applications/${ApplicationId}/jobruns/${JobRunId}
@@ -5686,36 +5886,41 @@ emr-serverless:
     cloudformation:
 
 entityresolution:
-  - name: IdMappingWorkflow
+  - name: id-mapping-workflow
     names:
+      - id-mapping-workflow
       - IdMappingWorkflow
     arns:
       - arn:${Partition}:entityresolution:${Region}:${Account}:idmappingworkflow/${WorkflowName}
     botoclient: entityresolution
     cloudformation: AWS::EntityResolution::IdMappingWorkflow
-  - name: IdNamespace
+  - name: id-namespace
     names:
+      - id-namespace
       - IdNamespace
     arns:
       - arn:${Partition}:entityresolution:${Region}:${Account}:idnamespace/${IdNamespaceName}
     botoclient: entityresolution
     cloudformation: AWS::EntityResolution::IdNamespace
-  - name: MatchingWorkflow
+  - name: matching-workflow
     names:
+      - matching-workflow
       - MatchingWorkflow
     arns:
       - arn:${Partition}:entityresolution:${Region}:${Account}:matchingworkflow/${WorkflowName}
     botoclient: entityresolution
     cloudformation: AWS::EntityResolution::MatchingWorkflow
-  - name: ProviderService
+  - name: provider-service
     names:
+      - provider-service
       - ProviderService
     arns:
       - arn:${Partition}:entityresolution:${Region}:${Account}:providerservice/${ProviderName}/${ProviderServiceName}
     botoclient: entityresolution
     cloudformation:
-  - name: SchemaMapping
+  - name: schema-mapping
     names:
+      - schema-mapping
       - SchemaMapping
     arns:
       - arn:${Partition}:entityresolution:${Region}:${Account}:schemamapping/${SchemaName}
@@ -5826,36 +6031,41 @@ events:
     cloudformation:
 
 evidently:
-  - name: Experiment
+  - name: experiment
     names:
+      - experiment
       - Experiment
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}/experiment/${ExperimentName}
     botoclient: evidently
     cloudformation: AWS::Evidently::Experiment
-  - name: Feature
+  - name: feature
     names:
+      - feature
       - Feature
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}/feature/${FeatureName}
     botoclient: evidently
     cloudformation: AWS::Evidently::Feature
-  - name: Launch
+  - name: launch
     names:
+      - launch
       - Launch
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}/launch/${LaunchName}
     botoclient: evidently
     cloudformation: AWS::Evidently::Launch
-  - name: Project
+  - name: project
     names:
+      - project
       - Project
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}
     botoclient: evidently
     cloudformation: AWS::Evidently::Project
-  - name: Segment
+  - name: segment
     names:
+      - segment
       - Segment
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:segment/${SegmentName}
@@ -5895,50 +6105,57 @@ finspace:
       - arn:${Partition}:finspace:${Region}:${Account}:environment/${EnvironmentId}
     botoclient: finspace
     cloudformation: AWS::FinSpace::Environment
-  - name: kxCluster
+  - name: kx-cluster
     names:
+      - kx-cluster
       - kxCluster
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}/kxCluster/${KxCluster}
     botoclient: finspace
     cloudformation:
-  - name: kxDatabase
+  - name: kx-database
     names:
+      - kx-database
       - kxDatabase
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}/kxDatabase/${KxDatabase}
     botoclient: finspace
     cloudformation:
-  - name: kxDataview
+  - name: kx-dataview
     names:
+      - kx-dataview
       - kxDataview
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}/kxDatabase/${KxDatabase}/kxDataview/${KxDataview}
     botoclient: finspace
     cloudformation:
-  - name: kxEnvironment
+  - name: kx-environment
     names:
+      - kx-environment
       - kxEnvironment
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}
     botoclient: finspace
     cloudformation:
-  - name: kxScalingGroup
+  - name: kx-scaling-group
     names:
+      - kx-scaling-group
       - kxScalingGroup
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}/kxScalingGroup/${KxScalingGroup}
     botoclient: finspace
     cloudformation:
-  - name: kxUser
+  - name: kx-user
     names:
+      - kx-user
       - kxUser
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}/kxUser/${UserName}
     botoclient: finspace
     cloudformation:
-  - name: kxVolume
+  - name: kx-volume
     names:
+      - kx-volume
       - kxVolume
     arns:
       - arn:${Partition}:finspace:${Region}:${Account}:kxEnvironment/${EnvironmentId}/kxVolume/${KxVolume}
@@ -6045,15 +6262,17 @@ forecast:
       - arn:${Partition}:forecast:${Region}:${Account}:dataset/${ResourceId}
     botoclient: forecast
     cloudformation: AWS::Forecast::Dataset
-  - name: datasetGroup
+  - name: dataset-group
     names:
+      - dataset-group
       - datasetGroup
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:dataset-group/${ResourceId}
     botoclient: forecast
     cloudformation: AWS::Forecast::DatasetGroup
-  - name: datasetImportJob
+  - name: dataset-import-job
     names:
+      - dataset-import-job
       - datasetImportJob
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:dataset-import-job/${ResourceId}
@@ -6073,8 +6292,9 @@ forecast:
       - arn:${Partition}:forecast:${Region}:${Account}:explainability/${ResourceId}
     botoclient: forecast
     cloudformation:
-  - name: explainabilityExport
+  - name: explainability-export
     names:
+      - explainability-export
       - explainabilityExport
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:explainability-export/${ResourceId}
@@ -6087,8 +6307,9 @@ forecast:
       - arn:${Partition}:forecast:${Region}:${Account}:forecast/${ResourceId}
     botoclient: forecast
     cloudformation:
-  - name: forecastExport
+  - name: forecast-export
     names:
+      - forecast-export
       - forecastExport
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:forecast-export-job/${ResourceId}
@@ -6108,29 +6329,33 @@ forecast:
       - arn:${Partition}:forecast:${Region}:${Account}:predictor/${ResourceId}
     botoclient: forecast
     cloudformation:
-  - name: predictorBacktestExportJob
+  - name: predictor-backtest-export-job
     names:
+      - predictor-backtest-export-job
       - predictorBacktestExportJob
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:predictor-backtest-export-job/${ResourceId}
     botoclient: forecast
     cloudformation:
-  - name: whatIfAnalysis
+  - name: what-if-analysis
     names:
+      - what-if-analysis
       - whatIfAnalysis
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:what-if-analysis/${ResourceId}
     botoclient: forecast
     cloudformation:
-  - name: whatIfForecast
+  - name: what-if-forecast
     names:
+      - what-if-forecast
       - whatIfForecast
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:what-if-forecast/${ResourceId}
     botoclient: forecast
     cloudformation:
-  - name: whatIfForecastExport
+  - name: what-if-forecast-export
     names:
+      - what-if-forecast-export
       - whatIfForecastExport
     arns:
       - arn:${Partition}:forecast:${Region}:${Account}:what-if-forecast-export/${ResourceId}
@@ -6326,15 +6551,17 @@ gamelift:
       - arn:${Partition}:gamelift:${Region}:${Account}:build/${BuildId}
     botoclient: gamelift
     cloudformation: AWS::GameLift::Build
-  - name: containerFleet
+  - name: container-fleet
     names:
+      - container-fleet
       - containerFleet
     arns:
       - arn:${Partition}:gamelift:${Region}:${Account}:containerfleet/${FleetId}
     botoclient: gamelift
     cloudformation: AWS::GameLift::ContainerFleet
-  - name: containerGroupDefinition
+  - name: container-group-definition
     names:
+      - container-group-definition
       - containerGroupDefinition
     arns:
       - arn:${Partition}:gamelift:${Region}:${Account}:containergroupdefinition/${Name}
@@ -6347,15 +6574,17 @@ gamelift:
       - arn:${Partition}:gamelift:${Region}:${Account}:fleet/${FleetId}
     botoclient: gamelift
     cloudformation: AWS::GameLift::Fleet
-  - name: gameServerGroup
+  - name: game-server-group
     names:
+      - game-server-group
       - gameServerGroup
     arns:
       - arn:${Partition}:gamelift:${Region}:${Account}:gameservergroup/${GameServerGroupName}
     botoclient: gamelift
     cloudformation: AWS::GameLift::GameServerGroup
-  - name: gameSessionQueue
+  - name: game-session-queue
     names:
+      - game-session-queue
       - gameSessionQueue
     arns:
       - arn:${Partition}:gamelift:${Region}:${Account}:gamesessionqueue/${GameSessionQueueName}
@@ -6368,15 +6597,17 @@ gamelift:
       - arn:${Partition}:gamelift:${Region}:${Account}:location/${LocationId}
     botoclient: gamelift
     cloudformation: AWS::GameLift::Location
-  - name: matchmakingConfiguration
+  - name: matchmaking-configuration
     names:
+      - matchmaking-configuration
       - matchmakingConfiguration
     arns:
       - arn:${Partition}:gamelift:${Region}:${Account}:matchmakingconfiguration/${MatchmakingConfigurationName}
     botoclient: gamelift
     cloudformation: AWS::GameLift::MatchmakingConfiguration
-  - name: matchmakingRuleSet
+  - name: matchmaking-rule-set
     names:
+      - matchmaking-rule-set
       - matchmakingRuleSet
     arns:
       - arn:${Partition}:gamelift:${Region}:${Account}:matchmakingruleset/${MatchmakingRuleSetName}
@@ -6398,8 +6629,9 @@ gameliftstreams:
       - arn:${Partition}:gameliftstreams:${Region}:${Account}:application/${ApplicationId}
     botoclient: gameliftstreams
     cloudformation:
-  - name: stream group
+  - name: stream-group
     names:
+      - stream-group
       - stream group
     arns:
       - arn:${Partition}:gameliftstreams:${Region}:${Account}:streamgroup/${StreamGroupId}
@@ -6552,15 +6784,17 @@ glue:
       - arn:${Partition}:glue:${Region}:${Account}:crawler/${CrawlerName}
     botoclient: glue
     cloudformation: AWS::Glue::Crawler
-  - name: customEntityType
+  - name: custom-entity-type
     names:
+      - custom-entity-type
       - customEntityType
     arns:
       - arn:${Partition}:glue:${Region}:${Account}:customEntityType/${CustomEntityTypeId}
     botoclient: glue
     cloudformation: AWS::Glue::CustomEntityType
-  - name: dataQualityRuleset
+  - name: data-quality-ruleset
     names:
+      - data-quality-ruleset
       - dataQualityRuleset
     arns:
       - arn:${Partition}:glue:${Region}:${Account}:dataQualityRuleset/${RulesetName}
@@ -6594,8 +6828,9 @@ glue:
       - arn:${Partition}:glue:${Region}:${Account}:job/${JobName}
     botoclient: glue
     cloudformation: AWS::Glue::Job
-  - name: mlTransform
+  - name: ml-transform
     names:
+      - ml-transform
       - mlTransform
     arns:
       - arn:${Partition}:glue:${Region}:${Account}:mlTransform/${TransformId}
@@ -6650,8 +6885,9 @@ glue:
       - arn:${Partition}:glue:${Region}:${Account}:trigger/${TriggerName}
     botoclient: glue
     cloudformation: AWS::Glue::Trigger
-  - name: usageProfile
+  - name: usage-profile
     names:
+      - usage-profile
       - usageProfile
     arns:
       - arn:${Partition}:glue:${Region}:${Account}:usageProfile/${UsageProfileId}
@@ -6682,15 +6918,17 @@ grafana:
     cloudformation: AWS::Grafana::Workspace
 
 greengrass:
-  - name: bulkDeployment
+  - name: bulk-deployment
     names:
+      - bulk-deployment
       - bulkDeployment
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/bulk/deployments/${BulkDeploymentId}
     botoclient: greengrass
     cloudformation:
-  - name: certificateAuthority
+  - name: certificate-authority
     names:
+      - certificate-authority
       - certificateAuthority
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/certificateauthorities/${CertificateAuthorityId}
@@ -6703,50 +6941,57 @@ greengrass:
       - arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName}
     botoclient: greengrassv2
     cloudformation:
-  - name: componentVersion
+  - name: component-version
     names:
+      - component-version
       - componentVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName}:versions:${ComponentVersion}
     botoclient: greengrassv2
     cloudformation: AWS::GreengrassV2::ComponentVersion
-  - name: connectivityInfo
+  - name: connectivity-info
     names:
+      - connectivity-info
       - connectivityInfo
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/things/${ThingName}/connectivityInfo
     botoclient: greengrass
     cloudformation:
-  - name: connectorDefinition
+  - name: connector-definition
     names:
+      - connector-definition
       - connectorDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/connectors/${ConnectorDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::ConnectorDefinition
-  - name: connectorDefinitionVersion
+  - name: connector-definition-version
     names:
+      - connector-definition-version
       - connectorDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/connectors/${ConnectorDefinitionId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::ConnectorDefinitionVersion
-  - name: coreDefinition
+  - name: core-definition
     names:
+      - core-definition
       - coreDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/cores/${CoreDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::CoreDefinition
-  - name: coreDefinitionVersion
+  - name: core-definition-version
     names:
+      - core-definition-version
       - coreDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/cores/${CoreDefinitionId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::CoreDefinitionVersion
-  - name: coreDevice
+  - name: core-device
     names:
+      - core-device
       - coreDevice
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:coreDevices:${CoreDeviceThingName}
@@ -6760,29 +7005,33 @@ greengrass:
       - arn:${Partition}:greengrass:${Region}:${Account}:deployments:${DeploymentId}
     botoclient: greengrassv2
     cloudformation: AWS::GreengrassV2::Deployment
-  - name: deviceDefinition
+  - name: device-definition
     names:
+      - device-definition
       - deviceDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::DeviceDefinition
-  - name: deviceDefinitionVersion
+  - name: device-definition-version
     names:
+      - device-definition-version
       - deviceDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::DeviceDefinitionVersion
-  - name: functionDefinition
+  - name: function-definition
     names:
+      - function-definition
       - functionDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/functions/${FunctionDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::FunctionDefinition
-  - name: functionDefinitionVersion
+  - name: function-definition-version
     names:
+      - function-definition-version
       - functionDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/functions/${FunctionDefinitionId}/versions/${VersionId}
@@ -6795,57 +7044,65 @@ greengrass:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::Group
-  - name: groupVersion
+  - name: group-version
     names:
+      - group-version
       - groupVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::GroupVersion
-  - name: loggerDefinition
+  - name: logger-definition
     names:
+      - logger-definition
       - loggerDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/loggers/${LoggerDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::LoggerDefinition
-  - name: loggerDefinitionVersion
+  - name: logger-definition-version
     names:
+      - logger-definition-version
       - loggerDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/loggers/${LoggerDefinitionId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::LoggerDefinitionVersion
-  - name: resourceDefinition
+  - name: resource-definition
     names:
+      - resource-definition
       - resourceDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/resources/${ResourceDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::ResourceDefinition
-  - name: resourceDefinitionVersion
+  - name: resource-definition-version
     names:
+      - resource-definition-version
       - resourceDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/resources/${ResourceDefinitionId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::ResourceDefinitionVersion
-  - name: subscriptionDefinition
+  - name: subscription-definition
     names:
+      - subscription-definition
       - subscriptionDefinition
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/subscriptions/${SubscriptionDefinitionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::SubscriptionDefinition
-  - name: subscriptionDefinitionVersion
+  - name: subscription-definition-version
     names:
+      - subscription-definition-version
       - subscriptionDefinitionVersion
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/definition/subscriptions/${SubscriptionDefinitionId}/versions/${VersionId}
     botoclient: greengrass
     cloudformation: AWS::Greengrass::SubscriptionDefinitionVersion
-  - name: thingRuntimeConfig
+  - name: thing-runtime-config
     names:
+      - thing-runtime-config
       - thingRuntimeConfig
     arns:
       - arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/things/${ThingName}/runtimeconfig
@@ -6853,57 +7110,65 @@ greengrass:
     cloudformation:
 
 groundstation:
-  - name: Agent
+  - name: agent
     names:
+      - agent
       - Agent
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:agent/${AgentId}
     botoclient: groundstation
     cloudformation:
-  - name: Config
+  - name: config
     names:
+      - config
       - Config
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:config/${ConfigType}/${ConfigId}
     botoclient: groundstation
     cloudformation: AWS::GroundStation::Config
-  - name: Contact
+  - name: contact
     names:
+      - contact
       - Contact
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:contact/${ContactId}
     botoclient: groundstation
     cloudformation:
-  - name: DataflowEndpointGroup
+  - name: dataflow-endpoint-group
     names:
+      - dataflow-endpoint-group
       - DataflowEndpointGroup
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:dataflow-endpoint-group/${DataflowEndpointGroupId}
     botoclient: groundstation
     cloudformation: AWS::GroundStation::DataflowEndpointGroup
-  - name: EphemerisItem
+  - name: ephemeris-item
     names:
+      - ephemeris-item
       - EphemerisItem
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:ephemeris/${EphemerisId}
     botoclient: groundstation
     cloudformation:
-  - name: GroundStationResource
+  - name: ground-station-resource
     names:
+      - ground-station-resource
       - GroundStationResource
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:groundstation:${GroundStationId}
     botoclient: groundstation
     cloudformation:
-  - name: MissionProfile
+  - name: mission-profile
     names:
+      - mission-profile
       - MissionProfile
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:mission-profile/${MissionProfileId}
     botoclient: groundstation
     cloudformation: AWS::GroundStation::MissionProfile
-  - name: Satellite
+  - name: satellite
     names:
+      - satellite
       - Satellite
     arns:
       - arn:${Partition}:groundstation:${Region}:${Account}:satellite/${SatelliteId}
@@ -6939,8 +7204,9 @@ guardduty:
       - arn:${Partition}:guardduty:${Region}:${Account}:malware-protection-plan/${MalwareProtectionPlanId}
     botoclient: guardduty
     cloudformation: AWS::GuardDuty::MalwareProtectionPlan
-  - name: publishingDestination
+  - name: publishing-destination
     names:
+      - publishing-destination
       - publishingDestination
     arns:
       - arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/publishingdestination/${PublishingDestinationId}
@@ -7045,8 +7311,9 @@ iam:
       - arn:${Partition}:iam::${Account}:delegation-request/${DelegationRequestId}
     botoclient: iam
     cloudformation:
-  - name: es_role
+  - name: es-role
     names:
+      - es-role
       - es_role
     arns:
       - arn:${Partition}:iam::${Account}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService
@@ -7094,8 +7361,9 @@ iam:
       - arn:${Partition}:iam::${Account}:oidc-provider/${OidcProviderName}
     botoclient: iam
     cloudformation: AWS::IAM::OIDCProvider
-  - name: opensearchservice_role
+  - name: opensearchservice-role
     names:
+      - opensearchservice-role
       - opensearchservice_role
     arns:
       - arn:${Partition}:iam::${Account}:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService
@@ -7153,15 +7421,17 @@ iam:
     cloudformation: AWS::IAM::User
 
 identity-sync:
-  - name: SyncProfileResource
+  - name: sync-profile-resource
     names:
+      - sync-profile-resource
       - SyncProfileResource
     arns:
       - arn:${Partition}:identity-sync:${Region}:${Account}:profile/${SyncProfileName}
     botoclient:
     cloudformation:
-  - name: SyncTargetResource
+  - name: sync-target-resource
     names:
+      - sync-target-resource
       - SyncTargetResource
     arns:
       - arn:${Partition}:identity-sync:${Region}:${Account}:target/${SyncProfileName}/${SyncTargetName}
@@ -7169,29 +7439,33 @@ identity-sync:
     cloudformation:
 
 identitystore:
-  - name: Group
+  - name: group
     names:
+      - group
       - Group
     arns:
       - arn:${Partition}:identitystore:::group/${GroupId}
     botoclient: identitystore
     cloudformation: AWS::IdentityStore::Group
-  - name: GroupMembership
+  - name: group-membership
     names:
+      - group-membership
       - GroupMembership
     arns:
       - arn:${Partition}:identitystore:::membership/${MembershipId}
     botoclient: identitystore
     cloudformation: AWS::IdentityStore::GroupMembership
-  - name: Identitystore
+  - name: identitystore
     names:
+      - identitystore
       - Identitystore
     arns:
       - arn:${Partition}:identitystore::${Account}:identitystore/${IdentityStoreId}
     botoclient: identitystore
     cloudformation:
-  - name: User
+  - name: user
     names:
+      - user
       - User
     arns:
       - arn:${Partition}:identitystore:::user/${UserId}
@@ -7206,15 +7480,17 @@ imagebuilder:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:component/${ComponentName}/${ComponentVersion}/${ComponentBuildVersion}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::Component
-  - name: containerRecipe
+  - name: container-recipe
     names:
+      - container-recipe
       - containerRecipe
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:container-recipe/${ContainerRecipeName}/${ContainerRecipeVersion}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::ContainerRecipe
-  - name: distributionConfiguration
+  - name: distribution-configuration
     names:
+      - distribution-configuration
       - distributionConfiguration
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:distribution-configuration/${DistributionConfigurationName}
@@ -7227,43 +7503,49 @@ imagebuilder:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}/${ImageBuildVersion}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::Image
-  - name: imagePipeline
+  - name: image-pipeline
     names:
+      - image-pipeline
       - imagePipeline
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:image-pipeline/${ImagePipelineName}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::ImagePipeline
-  - name: imageRecipe
+  - name: image-recipe
     names:
+      - image-recipe
       - imageRecipe
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:image-recipe/${ImageRecipeName}/${ImageRecipeVersion}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::ImageRecipe
-  - name: imageVersion
+  - name: image-version
     names:
+      - image-version
       - imageVersion
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageName}/${ImageVersion}
     botoclient: imagebuilder
     cloudformation:
-  - name: infrastructureConfiguration
+  - name: infrastructure-configuration
     names:
+      - infrastructure-configuration
       - infrastructureConfiguration
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:infrastructure-configuration/${ResourceId}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::InfrastructureConfiguration
-  - name: lifecycleExecution
+  - name: lifecycle-execution
     names:
+      - lifecycle-execution
       - lifecycleExecution
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:lifecycle-execution/${LifecycleExecutionId}
     botoclient: imagebuilder
     cloudformation:
-  - name: lifecyclePolicy
+  - name: lifecycle-policy
     names:
+      - lifecycle-policy
       - lifecyclePolicy
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:lifecycle-policy/${LifecyclePolicyName}
@@ -7276,15 +7558,17 @@ imagebuilder:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:workflow/${WorkflowType}/${WorkflowName}/${WorkflowVersion}/${WorkflowBuildVersion}
     botoclient: imagebuilder
     cloudformation: AWS::ImageBuilder::Workflow
-  - name: workflowExecution
+  - name: workflow-execution
     names:
+      - workflow-execution
       - workflowExecution
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:workflow-execution/${WorkflowExecutionId}
     botoclient: imagebuilder
     cloudformation:
-  - name: workflowStepExecution
+  - name: workflow-step-execution
     names:
+      - workflow-step-execution
       - workflowStepExecution
     arns:
       - arn:${Partition}:imagebuilder:${Region}:${Account}:workflow-step-execution/${WorkflowStepExecutionId}
@@ -7302,36 +7586,41 @@ inspector:
     cloudformation:
 
 inspector2:
-  - name: CIS Scan Configuration
+  - name: cis-scan-configuration
     names:
+      - cis-scan-configuration
       - CIS Scan Configuration
     arns:
       - arn:${Partition}:inspector2:${Region}:${Account}:owner/${OwnerId}/cis-configuration/${CISScanConfigurationId}
     botoclient: inspector2
     cloudformation: AWS::InspectorV2::CisScanConfiguration
-  - name: Code Security Integration
+  - name: code-security-integration
     names:
+      - code-security-integration
       - Code Security Integration
     arns:
       - arn:${Partition}:inspector2:${Region}:${Account}:codesecurity-integration/${CodeSecurityIntegrationId}
     botoclient: inspector2
     cloudformation: AWS::InspectorV2::CodeSecurityIntegration
-  - name: Code Security Scan Configuration
+  - name: code-security-scan-configuration
     names:
+      - code-security-scan-configuration
       - Code Security Scan Configuration
     arns:
       - arn:${Partition}:inspector2:${Region}:${Account}:owner/${OwnerId}/codesecurity-configuration/${CodeSecurityScanConfigurationId}
     botoclient: inspector2
     cloudformation: AWS::InspectorV2::CodeSecurityScanConfiguration
-  - name: Filter
+  - name: filter
     names:
+      - filter
       - Filter
     arns:
       - arn:${Partition}:inspector2:${Region}:${Account}:owner/${OwnerId}/filter/${FilterId}
     botoclient: inspector2
     cloudformation: AWS::InspectorV2::Filter
-  - name: Finding
+  - name: finding
     names:
+      - finding
       - Finding
     arns:
       - arn:${Partition}:inspector2:${Region}:${Account}:finding/${FindingId}
@@ -7339,22 +7628,25 @@ inspector2:
     cloudformation:
 
 internetmonitor:
-  - name: HealthEvent
+  - name: health-event
     names:
+      - health-event
       - HealthEvent
     arns:
       - arn:${Partition}:internetmonitor:${Region}:${Account}:monitor/${MonitorName}/health-event/${EventId}
     botoclient: internetmonitor
     cloudformation:
-  - name: InternetEvent
+  - name: internet-event
     names:
+      - internet-event
       - InternetEvent
     arns:
       - arn:${Partition}:internetmonitor::${Account}:internet-event/${InternetEventId}
     botoclient: internetmonitor
     cloudformation:
-  - name: Monitor
+  - name: monitor
     names:
+      - monitor
       - Monitor
     arns:
       - arn:${Partition}:internetmonitor:${Region}:${Account}:monitor/${MonitorName}
@@ -7627,15 +7919,17 @@ iotanalytics:
     cloudformation: AWS::IoTAnalytics::Pipeline
 
 iotdeviceadvisor:
-  - name: Suitedefinition
+  - name: suitedefinition
     names:
+      - suitedefinition
       - Suitedefinition
     arns:
       - arn:${Partition}:iotdeviceadvisor:${Region}:${Account}:suitedefinition/${SuiteDefinitionId}
     botoclient: iotdeviceadvisor
     cloudformation: AWS::IoTCoreDeviceAdvisor::SuiteDefinition
-  - name: Suiterun
+  - name: suiterun
     names:
+      - suiterun
       - Suiterun
     arns:
       - arn:${Partition}:iotdeviceadvisor:${Region}:${Account}:suiterun/${SuiteDefinitionId}/${SuiteRunId}
@@ -7643,15 +7937,17 @@ iotdeviceadvisor:
     cloudformation:
 
 iotevents:
-  - name: alarmModel
+  - name: alarm-model
     names:
+      - alarm-model
       - alarmModel
     arns:
       - arn:${Partition}:iotevents:${Region}:${Account}:alarmModel/${AlarmModelName}
     botoclient: iotevents
     cloudformation: AWS::IoTEvents::AlarmModel
-  - name: detectorModel
+  - name: detector-model
     names:
+      - detector-model
       - detectorModel
     arns:
       - arn:${Partition}:iotevents:${Region}:${Account}:detectorModel/${DetectorModelName}
@@ -7835,8 +8131,9 @@ iotsitewise:
     cloudformation:
 
 iottwinmaker:
-  - name: componentType
+  - name: component-type
     names:
+      - component-type
       - componentType
     arns:
       - arn:${Partition}:iottwinmaker:${Region}:${Account}:workspace/${WorkspaceId}/component-type/${ComponentTypeId}
@@ -7849,8 +8146,9 @@ iottwinmaker:
       - arn:${Partition}:iottwinmaker:${Region}:${Account}:workspace/${WorkspaceId}/entity/${EntityId}
     botoclient: iottwinmaker
     cloudformation: AWS::IoTTwinMaker::Entity
-  - name: metadataTransferJob
+  - name: metadata-transfer-job
     names:
+      - metadata-transfer-job
       - metadataTransferJob
     arns:
       - arn:${Partition}:iottwinmaker:${Region}:${Account}:metadata-transfer-job/${MetadataTransferJobId}
@@ -7863,8 +8161,9 @@ iottwinmaker:
       - arn:${Partition}:iottwinmaker:${Region}:${Account}:workspace/${WorkspaceId}/scene/${SceneId}
     botoclient: iottwinmaker
     cloudformation: AWS::IoTTwinMaker::Scene
-  - name: syncJob
+  - name: sync-job
     names:
+      - sync-job
       - syncJob
     arns:
       - arn:${Partition}:iottwinmaker:${Region}:${Account}:workspace/${WorkspaceId}/sync-job/${SyncJobId}
@@ -7879,78 +8178,89 @@ iottwinmaker:
     cloudformation: AWS::IoTTwinMaker::Workspace
 
 iotwireless:
-  - name: Destination
+  - name: destination
     names:
+      - destination
       - Destination
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:Destination/${DestinationName}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::Destination
-  - name: DeviceProfile
+  - name: device-profile
     names:
+      - device-profile
       - DeviceProfile
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:DeviceProfile/${DeviceProfileId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::DeviceProfile
-  - name: FuotaTask
+  - name: fuota-task
     names:
+      - fuota-task
       - FuotaTask
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:FuotaTask/${FuotaTaskId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::FuotaTask
-  - name: ImportTask
+  - name: import-task
     names:
+      - import-task
       - ImportTask
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:ImportTask/${ImportTaskId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::WirelessDeviceImportTask
-  - name: MulticastGroup
+  - name: multicast-group
     names:
+      - multicast-group
       - MulticastGroup
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:MulticastGroup/${MulticastGroupId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::MulticastGroup
-  - name: NetworkAnalyzerConfiguration
+  - name: network-analyzer-configuration
     names:
+      - network-analyzer-configuration
       - NetworkAnalyzerConfiguration
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:NetworkAnalyzerConfiguration/${NetworkAnalyzerConfigurationName}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::NetworkAnalyzerConfiguration
-  - name: ServiceProfile
+  - name: service-profile
     names:
+      - service-profile
       - ServiceProfile
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:ServiceProfile/${ServiceProfileId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::ServiceProfile
-  - name: SidewalkAccount
+  - name: sidewalk-account
     names:
+      - sidewalk-account
       - SidewalkAccount
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:SidewalkAccount/${SidewalkAccountId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::PartnerAccount
-  - name: WirelessDevice
+  - name: wireless-device
     names:
+      - wireless-device
       - WirelessDevice
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:WirelessDevice/${WirelessDeviceId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::WirelessDevice
-  - name: WirelessGateway
+  - name: wireless-gateway
     names:
+      - wireless-gateway
       - WirelessGateway
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:WirelessGateway/${WirelessGatewayId}
     botoclient: iotwireless
     cloudformation: AWS::IoTWireless::WirelessGateway
-  - name: WirelessGatewayTaskDefinition
+  - name: wireless-gateway-task-definition
     names:
+      - wireless-gateway-task-definition
       - WirelessGatewayTaskDefinition
     arns:
       - arn:${Partition}:iotwireless:${Region}:${Account}:WirelessGatewayTaskDefinition/${WirelessGatewayTaskDefinitionId}
@@ -8007,15 +8317,17 @@ iq:
       - arn:${Partition}:iq:${Region}::listing/${ListingId}
     botoclient:
     cloudformation:
-  - name: paymentRequest
+  - name: payment-request
     names:
+      - payment-request
       - paymentRequest
     arns:
       - arn:${Partition}:iq:${Region}::paymentRequest/${ConversationId}/${ProposalId}/${PaymentRequestId}
     botoclient:
     cloudformation:
-  - name: paymentSchedule
+  - name: payment-schedule
     names:
+      - payment-schedule
       - paymentSchedule
     arns:
       - arn:${Partition}:iq:${Region}::paymentSchedule/${ConversationId}/${ProposalId}/${VersionId}
@@ -8060,78 +8372,89 @@ iq-permission:
     cloudformation:
 
 ivs:
-  - name: Channel
+  - name: channel
     names:
+      - channel
       - Channel
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:channel/${ResourceId}
     botoclient: ivs
     cloudformation: AWS::IVS::Channel
-  - name: Composition
+  - name: composition
     names:
+      - composition
       - Composition
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:composition/${ResourceId}
     botoclient: ivs-realtime
     cloudformation:
-  - name: Encoder-Configuration
+  - name: encoder-configuration
     names:
+      - encoder-configuration
       - Encoder-Configuration
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:encoder-configuration/${ResourceId}
     botoclient: ivs-realtime
     cloudformation: AWS::IVS::EncoderConfiguration
-  - name: Ingest-Configuration
+  - name: ingest-configuration
     names:
+      - ingest-configuration
       - Ingest-Configuration
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:ingest-configuration/${ResourceId}
     botoclient: ivs-realtime
     cloudformation: AWS::IVS::IngestConfiguration
-  - name: Playback-Key-Pair
+  - name: playback-key-pair
     names:
+      - playback-key-pair
       - Playback-Key-Pair
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:playback-key/${ResourceId}
     botoclient: ivs
     cloudformation: AWS::IVS::PlaybackKeyPair
-  - name: Playback-Restriction-Policy
+  - name: playback-restriction-policy
     names:
+      - playback-restriction-policy
       - Playback-Restriction-Policy
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:playback-restriction-policy/${ResourceId}
     botoclient: ivs
     cloudformation: AWS::IVS::PlaybackRestrictionPolicy
-  - name: Public-Key
+  - name: public-key
     names:
+      - public-key
       - Public-Key
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:public-key/${ResourceId}
     botoclient: ivs-realtime
     cloudformation: AWS::IVS::PublicKey
-  - name: Recording-Configuration
+  - name: recording-configuration
     names:
+      - recording-configuration
       - Recording-Configuration
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:recording-configuration/${ResourceId}
     botoclient: ivs
     cloudformation: AWS::IVS::RecordingConfiguration
-  - name: Stage
+  - name: stage
     names:
+      - stage
       - Stage
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:stage/${ResourceId}
     botoclient: ivs-realtime
     cloudformation: AWS::IVS::Stage
-  - name: Storage-Configuration
+  - name: storage-configuration
     names:
+      - storage-configuration
       - Storage-Configuration
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:storage-configuration/${ResourceId}
     botoclient: ivs-realtime
     cloudformation: AWS::IVS::StorageConfiguration
-  - name: Stream-Key
+  - name: stream-key
     names:
+      - stream-key
       - Stream-Key
     arns:
       - arn:${Partition}:ivs:${Region}:${Account}:stream-key/${ResourceId}
@@ -8139,15 +8462,17 @@ ivs:
     cloudformation: AWS::IVS::StreamKey
 
 ivschat:
-  - name: Logging-Configuration
+  - name: logging-configuration
     names:
+      - logging-configuration
       - Logging-Configuration
     arns:
       - arn:${Partition}:ivschat:${Region}:${Account}:logging-configuration/${ResourceId}
     botoclient: ivschat
     cloudformation: AWS::IVSChat::LoggingConfiguration
-  - name: Room
+  - name: room
     names:
+      - room
       - Room
     arns:
       - arn:${Partition}:ivschat:${Region}:${Account}:room/${ResourceId}
@@ -8214,22 +8539,25 @@ kafkaconnect:
       - arn:${Partition}:kafkaconnect:${Region}:${Account}:connector/${ConnectorName}/${UUID}
     botoclient: kafkaconnect
     cloudformation: AWS::KafkaConnect::Connector
-  - name: connector operation
+  - name: connector-operation
     names:
+      - connector-operation
       - connector operation
     arns:
       - arn:${Partition}:kafkaconnect:${Region}:${Account}:connector-operation/${ConnectorName}/${ConnectorUUID}/${UUID}
     botoclient: kafkaconnect
     cloudformation:
-  - name: custom plugin
+  - name: custom-plugin
     names:
+      - custom-plugin
       - custom plugin
     arns:
       - arn:${Partition}:kafkaconnect:${Region}:${Account}:custom-plugin/${CustomPluginName}/${UUID}
     botoclient: kafkaconnect
     cloudformation: AWS::KafkaConnect::CustomPlugin
-  - name: worker configuration
+  - name: worker-configuration
     names:
+      - worker-configuration
       - worker configuration
     arns:
       - arn:${Partition}:kafkaconnect:${Region}:${Account}:worker-configuration/${WorkerConfigurationName}/${UUID}
@@ -8361,29 +8689,33 @@ kms:
     cloudformation: AWS::KMS::Key
 
 lambda:
-  - name: capacityProvider
+  - name: capacity-provider
     names:
+      - capacity-provider
       - capacityProvider
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:capacity-provider:${CapacityProviderName}
     botoclient: lambda
     cloudformation: AWS::Lambda::CapacityProvider
-  - name: code signing config
+  - name: code-signing-config
     names:
+      - code-signing-config
       - code signing config
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:code-signing-config:${CodeSigningConfigId}
     botoclient: lambda
     cloudformation: AWS::Lambda::CodeSigningConfig
-  - name: durable execution
+  - name: durable-execution
     names:
+      - durable-execution
       - durable execution
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}/durable-execution/${ExecutionName}/${ExecutionId}
     botoclient: lambda
     cloudformation:
-  - name: eventSourceMapping
+  - name: event-source-mapping
     names:
+      - event-source-mapping
       - eventSourceMapping
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:event-source-mapping:${UUID}
@@ -8396,15 +8728,17 @@ lambda:
       - arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
     botoclient: lambda
     cloudformation: AWS::Lambda::Function
-  - name: function alias
+  - name: function-alias
     names:
+      - function-alias
       - function alias
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Alias}
     botoclient: lambda
     cloudformation:
-  - name: function version
+  - name: function-version
     names:
+      - function-version
       - function version
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}
@@ -8417,8 +8751,9 @@ lambda:
       - arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}
     botoclient: lambda
     cloudformation:
-  - name: layerVersion
+  - name: layer-version
     names:
+      - layer-version
       - layerVersion
     arns:
       - arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion}
@@ -8443,16 +8778,18 @@ lex:
       - arn:${Partition}:lex:${Region}:${Account}:bot/${BotId}
     botoclient: lexv2-models
     cloudformation: AWS::Lex::Bot
-  - name: bot alias
+  - name: bot-alias
     names:
+      - bot-alias
       - bot alias
     arns:
       - arn:${Partition}:lex:${Region}:${Account}:bot:${BotName}:${BotAlias}
       - arn:${Partition}:lex:${Region}:${Account}:bot-alias/${BotId}/${BotAliasId}
     botoclient: lexv2-models
     cloudformation: AWS::Lex::BotAlias
-  - name: bot version
+  - name: bot-version
     names:
+      - bot-version
       - bot version
     arns:
       - arn:${Partition}:lex:${Region}:${Account}:bot:${BotName}:${BotVersion}
@@ -8465,22 +8802,25 @@ lex:
       - arn:${Partition}:lex:${Region}:${Account}:bot-channel:${BotName}:${BotAlias}:${ChannelName}
     botoclient: lex-models
     cloudformation:
-  - name: intent version
+  - name: intent-version
     names:
+      - intent-version
       - intent version
     arns:
       - arn:${Partition}:lex:${Region}:${Account}:intent:${IntentName}:${IntentVersion}
     botoclient: lex-models
     cloudformation:
-  - name: slottype version
+  - name: slottype-version
     names:
+      - slottype-version
       - slottype version
     arns:
       - arn:${Partition}:lex:${Region}:${Account}:slottype:${SlotName}:${SlotVersion}
     botoclient: lex-models
     cloudformation:
-  - name: test set
+  - name: test-set
     names:
+      - test-set
       - test set
     arns:
       - arn:${Partition}:lex:${Region}:${Account}:test-set/${TestSetId}
@@ -8571,134 +8911,153 @@ license-manager-user-subscriptions:
     cloudformation:
 
 lightsail:
-  - name: Alarm
+  - name: alarm
     names:
+      - alarm
       - Alarm
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Alarm/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Alarm
-  - name: Bucket
+  - name: bucket
     names:
+      - bucket
       - Bucket
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Bucket/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Bucket
-  - name: Certificate
+  - name: certificate
     names:
+      - certificate
       - Certificate
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Certificate/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Certificate
-  - name: CloudFormationStackRecord
+  - name: cloud-formation-stack-record
     names:
+      - cloud-formation-stack-record
       - CloudFormationStackRecord
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:CloudFormationStackRecord/${Id}
     botoclient: lightsail
     cloudformation:
-  - name: ContactMethod
+  - name: contact-method
     names:
+      - contact-method
       - ContactMethod
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:ContactMethod/${Id}
     botoclient: lightsail
     cloudformation:
-  - name: ContainerService
+  - name: container-service
     names:
+      - container-service
       - ContainerService
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:ContainerService/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Container
-  - name: Disk
+  - name: disk
     names:
+      - disk
       - Disk
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Disk/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Disk
-  - name: DiskSnapshot
+  - name: disk-snapshot
     names:
+      - disk-snapshot
       - DiskSnapshot
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:DiskSnapshot/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::DiskSnapshot
-  - name: Distribution
+  - name: distribution
     names:
+      - distribution
       - Distribution
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Distribution/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Distribution
-  - name: Domain
+  - name: domain
     names:
+      - domain
       - Domain
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Domain/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Domain
-  - name: ExportSnapshotRecord
+  - name: export-snapshot-record
     names:
+      - export-snapshot-record
       - ExportSnapshotRecord
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:ExportSnapshotRecord/${Id}
     botoclient: lightsail
     cloudformation:
-  - name: Instance
+  - name: instance
     names:
+      - instance
       - Instance
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:Instance/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Instance
-  - name: InstanceSnapshot
+  - name: instance-snapshot
     names:
+      - instance-snapshot
       - InstanceSnapshot
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:InstanceSnapshot/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::InstanceSnapshot
-  - name: KeyPair
+  - name: key-pair
     names:
+      - key-pair
       - KeyPair
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:KeyPair/${Id}
     botoclient: lightsail
     cloudformation:
-  - name: LoadBalancer
+  - name: load-balancer
     names:
+      - load-balancer
       - LoadBalancer
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:LoadBalancer/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::LoadBalancer
-  - name: LoadBalancerTlsCertificate
+  - name: load-balancer-tls-certificate
     names:
+      - load-balancer-tls-certificate
       - LoadBalancerTlsCertificate
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:LoadBalancerTlsCertificate/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::LoadBalancerTlsCertificate
-  - name: RelationalDatabase
+  - name: relational-database
     names:
+      - relational-database
       - RelationalDatabase
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:RelationalDatabase/${Id}
     botoclient: lightsail
     cloudformation: AWS::Lightsail::Database
-  - name: RelationalDatabaseSnapshot
+  - name: relational-database-snapshot
     names:
+      - relational-database-snapshot
       - RelationalDatabaseSnapshot
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:RelationalDatabaseSnapshot/${Id}
     botoclient: lightsail
     cloudformation:
-  - name: StaticIp
+  - name: static-ip
     names:
+      - static-ip
       - StaticIp
     arns:
       - arn:${Partition}:lightsail:${Region}:${Account}:StaticIp/${Id}
@@ -8801,22 +9160,25 @@ lookoutequipment:
     cloudformation:
 
 lookoutmetrics:
-  - name: Alert
+  - name: alert
     names:
+      - alert
       - Alert
     arns:
       - arn:${Partition}:lookoutmetrics:${Region}:${Account}:Alert:${AlertName}
     botoclient:
     cloudformation:
-  - name: AnomalyDetector
+  - name: anomaly-detector
     names:
+      - anomaly-detector
       - AnomalyDetector
     arns:
       - arn:${Partition}:lookoutmetrics:${Region}:${Account}:AnomalyDetector:${AnomalyDetectorName}
     botoclient:
     cloudformation:
-  - name: MetricSet
+  - name: metric-set
     names:
+      - metric-set
       - MetricSet
     arns:
       - arn:${Partition}:lookoutmetrics:${Region}:${Account}:MetricSet/${AnomalyDetectorName}/${MetricSetName}
@@ -8840,15 +9202,17 @@ lookoutvision:
     cloudformation:
 
 m2:
-  - name: Application
+  - name: application
     names:
+      - application
       - Application
     arns:
       - arn:${Partition}:m2:${Region}:${Account}:app/${ApplicationId}
     botoclient: m2
     cloudformation: AWS::M2::Application
-  - name: Environment
+  - name: environment
     names:
+      - environment
       - Environment
     arns:
       - arn:${Partition}:m2:${Region}:${Account}:env/${EnvironmentId}
@@ -8886,36 +9250,41 @@ machinelearning:
     cloudformation:
 
 macie2:
-  - name: AllowList
+  - name: allow-list
     names:
+      - allow-list
       - AllowList
     arns:
       - arn:${Partition}:macie2:${Region}:${Account}:allow-list/${ResourceId}
     botoclient: macie2
     cloudformation: AWS::Macie::AllowList
-  - name: ClassificationJob
+  - name: classification-job
     names:
+      - classification-job
       - ClassificationJob
     arns:
       - arn:${Partition}:macie2:${Region}:${Account}:classification-job/${ResourceId}
     botoclient: macie2
     cloudformation:
-  - name: CustomDataIdentifier
+  - name: custom-data-identifier
     names:
+      - custom-data-identifier
       - CustomDataIdentifier
     arns:
       - arn:${Partition}:macie2:${Region}:${Account}:custom-data-identifier/${ResourceId}
     botoclient: macie2
     cloudformation: AWS::Macie::CustomDataIdentifier
-  - name: FindingsFilter
+  - name: findings-filter
     names:
+      - findings-filter
       - FindingsFilter
     arns:
       - arn:${Partition}:macie2:${Region}:${Account}:findings-filter/${ResourceId}
     botoclient: macie2
     cloudformation: AWS::Macie::FindingsFilter
-  - name: Member
+  - name: member
     names:
+      - member
       - Member
     arns:
       - arn:${Partition}:macie2:${Region}:${Account}:member/${ResourceId}
@@ -8976,85 +9345,97 @@ mapcredits:
     cloudformation:
 
 mediaconnect:
-  - name: Bridge
+  - name: bridge
     names:
+      - bridge
       - Bridge
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:bridge:${BridgeId}:${BridgeName}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::Bridge
-  - name: Entitlement
+  - name: entitlement
     names:
+      - entitlement
       - Entitlement
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:entitlement:${FlowId}:${EntitlementName}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::FlowEntitlement
-  - name: Flow
+  - name: flow
     names:
+      - flow
       - Flow
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::Flow
-  - name: Gateway
+  - name: gateway
     names:
+      - gateway
       - Gateway
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::Gateway
-  - name: GatewayInstance
+  - name: gateway-instance
     names:
+      - gateway-instance
       - GatewayInstance
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName}:instance:${InstanceId}
     botoclient: mediaconnect
     cloudformation:
-  - name: Offering
+  - name: offering
     names:
+      - offering
       - Offering
     arns:
       - arn:${Partition}:mediaconnect:${Region}:offering:${OfferingId}
     botoclient: mediaconnect
     cloudformation:
-  - name: Output
+  - name: output
     names:
+      - output
       - Output
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:output:${OutputId}:${OutputName}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::FlowOutput
-  - name: Reservation
+  - name: reservation
     names:
+      - reservation
       - Reservation
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:reservation:${ReservationId}:${ReservationName}
     botoclient: mediaconnect
     cloudformation:
-  - name: RouterInput
+  - name: router-input
     names:
+      - router-input
       - RouterInput
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:routerInput:${RouterInputId}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::RouterInput
-  - name: RouterNetworkInterface
+  - name: router-network-interface
     names:
+      - router-network-interface
       - RouterNetworkInterface
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:routerNetworkInterface:${RouterNetworkInterfaceId}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::RouterNetworkInterface
-  - name: RouterOutput
+  - name: router-output
     names:
+      - router-output
       - RouterOutput
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:routerOutput:${RouterOutputId}
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::RouterOutput
-  - name: Source
+  - name: source
     names:
+      - source
       - Source
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:source:${SourceId}:${SourceName}
@@ -9062,36 +9443,41 @@ mediaconnect:
     cloudformation: AWS::MediaConnect::FlowSource
 
 mediaconvert:
-  - name: CertificateAssociation
+  - name: certificate-association
     names:
+      - certificate-association
       - CertificateAssociation
     arns:
       - arn:${Partition}:mediaconvert:${Region}:${Account}:certificates/${CertificateArn}
     botoclient: mediaconvert
     cloudformation:
-  - name: Job
+  - name: job
     names:
+      - job
       - Job
     arns:
       - arn:${Partition}:mediaconvert:${Region}:${Account}:jobs/${JobId}
     botoclient: mediaconvert
     cloudformation:
-  - name: JobTemplate
+  - name: job-template
     names:
+      - job-template
       - JobTemplate
     arns:
       - arn:${Partition}:mediaconvert:${Region}:${Account}:jobTemplates/${JobTemplateName}
     botoclient: mediaconvert
     cloudformation: AWS::MediaConvert::JobTemplate
-  - name: Preset
+  - name: preset
     names:
+      - preset
       - Preset
     arns:
       - arn:${Partition}:mediaconvert:${Region}:${Account}:presets/${PresetName}
     botoclient: mediaconvert
     cloudformation: AWS::MediaConvert::Preset
-  - name: Queue
+  - name: queue
     names:
+      - queue
       - Queue
     arns:
       - arn:${Partition}:mediaconvert:${Region}:${Account}:queues/${QueueName}
@@ -9227,15 +9613,17 @@ mediapackage:
       - arn:${Partition}:mediapackage:${Region}:${Account}:channels/${ChannelIdentifier}
     botoclient: mediapackage
     cloudformation: AWS::MediaPackage::Channel
-  - name: harvest_jobs
+  - name: harvest-jobs
     names:
+      - harvest-jobs
       - harvest_jobs
     arns:
       - arn:${Partition}:mediapackage:${Region}:${Account}:harvest_jobs/${HarvestJobIdentifier}
     botoclient: mediapackage
     cloudformation:
-  - name: origin_endpoints
+  - name: origin-endpoints
     names:
+      - origin-endpoints
       - origin_endpoints
     arns:
       - arn:${Partition}:mediapackage:${Region}:${Account}:origin_endpoints/${OriginEndpointIdentifier}
@@ -9266,15 +9654,17 @@ mediapackage-vod:
     cloudformation:
 
 mediapackagev2:
-  - name: ChannelGroup
+  - name: channel-group
     names:
+      - channel-group
       - ChannelGroup
     arns:
       - arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}
     botoclient: mediapackagev2
     cloudformation: AWS::MediaPackageV2::ChannelGroup
-  - name: HarvestJob
+  - name: harvest-job
     names:
+      - harvest-job
       - HarvestJob
     arns:
       - arn:${Partition}:mediapackagev2:${Region}:${Account}:channelGroup/${ChannelGroupName}/channel/${ChannelName}/originEndpoint/${OriginEndpointName}/harvestJob/${HarvestJobName}
@@ -9312,22 +9702,25 @@ mediatailor:
       - arn:${Partition}:mediatailor:${Region}:${Account}:channel/${ChannelName}
     botoclient: mediatailor
     cloudformation: AWS::MediaTailor::Channel
-  - name: liveSource
+  - name: live-source
     names:
+      - live-source
       - liveSource
     arns:
       - arn:${Partition}:mediatailor:${Region}:${Account}:liveSource/${SourceLocationName}/${LiveSourceName}
     botoclient: mediatailor
     cloudformation: AWS::MediaTailor::LiveSource
-  - name: playbackConfiguration
+  - name: playback-configuration
     names:
+      - playback-configuration
       - playbackConfiguration
     arns:
       - arn:${Partition}:mediatailor:${Region}:${Account}:playbackConfiguration/${ResourceId}
     botoclient: mediatailor
     cloudformation: AWS::MediaTailor::PlaybackConfiguration
-  - name: prefetchSchedule
+  - name: prefetch-schedule
     names:
+      - prefetch-schedule
       - prefetchSchedule
     arns:
       - arn:${Partition}:mediatailor:${Region}:${Account}:prefetchSchedule/${ResourceId}
@@ -9340,15 +9733,17 @@ mediatailor:
       - arn:${Partition}:mediatailor:${Region}:${Account}:program/${ChannelName}/${ProgramName}
     botoclient: mediatailor
     cloudformation:
-  - name: sourceLocation
+  - name: source-location
     names:
+      - source-location
       - sourceLocation
     arns:
       - arn:${Partition}:mediatailor:${Region}:${Account}:sourceLocation/${SourceLocationName}
     botoclient: mediatailor
     cloudformation: AWS::MediaTailor::SourceLocation
-  - name: vodSource
+  - name: vod-source
     names:
+      - vod-source
       - vodSource
     arns:
       - arn:${Partition}:mediatailor:${Region}:${Account}:vodSource/${SourceLocationName}/${VodSourceName}
@@ -9437,36 +9832,41 @@ memorydb:
     cloudformation: AWS::MemoryDB::User
 
 mgh:
-  - name: AutomationRunResource
+  - name: automation-run-resource
     names:
+      - automation-run-resource
       - AutomationRunResource
     arns:
       - arn:${Partition}:mgh:${Region}:${Account}:automation-run/${RunID}
     botoclient: mgh
     cloudformation:
-  - name: AutomationUnitResource
+  - name: automation-unit-resource
     names:
+      - automation-unit-resource
       - AutomationUnitResource
     arns:
       - arn:${Partition}:mgh:${Region}:${Account}:automation-unit/${AutomationUnitId}
     botoclient: mgh
     cloudformation:
-  - name: ConnectionResource
+  - name: connection-resource
     names:
+      - connection-resource
       - ConnectionResource
     arns:
       - arn:${Partition}:mgh:${Region}:${Account}:${ConnectionArn}
     botoclient: mgh
     cloudformation:
-  - name: migrationTask
+  - name: migration-task
     names:
+      - migration-task
       - migrationTask
     arns:
       - arn:${Partition}:mgh:${Region}:${Account}:progressUpdateStream/${Stream}/migrationTask/${Task}
     botoclient: mgh
     cloudformation:
-  - name: progressUpdateStream
+  - name: progress-update-stream
     names:
+      - progress-update-stream
       - progressUpdateStream
     arns:
       - arn:${Partition}:mgh:${Region}:${Account}:progressUpdateStream/${Stream}
@@ -9474,78 +9874,89 @@ mgh:
     cloudformation:
 
 mgn:
-  - name: ApplicationResource
+  - name: application-resource
     names:
+      - application-resource
       - ApplicationResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:application/${ApplicationID}
     botoclient: mgn
     cloudformation:
-  - name: ConnectorResource
+  - name: connector-resource
     names:
+      - connector-resource
       - ConnectorResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:connector/${ConnectorID}
     botoclient: mgn
     cloudformation:
-  - name: ExportResource
+  - name: export-resource
     names:
+      - export-resource
       - ExportResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:export/${ExportID}
     botoclient: mgn
     cloudformation:
-  - name: ImportResource
+  - name: import-resource
     names:
+      - import-resource
       - ImportResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:import/${ImportID}
     botoclient: mgn
     cloudformation:
-  - name: JobResource
+  - name: job-resource
     names:
+      - job-resource
       - JobResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:job/${JobID}
     botoclient: mgn
     cloudformation:
-  - name: LaunchConfigurationTemplateResource
+  - name: launch-configuration-template-resource
     names:
+      - launch-configuration-template-resource
       - LaunchConfigurationTemplateResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID}
     botoclient: mgn
     cloudformation:
-  - name: NetworkMigrationDefinitionResource
+  - name: network-migration-definition-resource
     names:
+      - network-migration-definition-resource
       - NetworkMigrationDefinitionResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:network-migration-definition/${NetworkMigrationDefinitionID}
     botoclient: mgn
     cloudformation:
-  - name: ReplicationConfigurationTemplateResource
+  - name: replication-configuration-template-resource
     names:
+      - replication-configuration-template-resource
       - ReplicationConfigurationTemplateResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID}
     botoclient: mgn
     cloudformation:
-  - name: SourceServerResource
+  - name: source-server-resource
     names:
+      - source-server-resource
       - SourceServerResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:source-server/${SourceServerID}
     botoclient: mgn
     cloudformation:
-  - name: VcenterClientResource
+  - name: vcenter-client-resource
     names:
+      - vcenter-client-resource
       - VcenterClientResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:vcenter-client/${VcenterClientID}
     botoclient: mgn
     cloudformation:
-  - name: WaveResource
+  - name: wave-resource
     names:
+      - wave-resource
       - WaveResource
     arns:
       - arn:${Partition}:mgn:${Region}:${Account}:wave/${WaveID}
@@ -9848,64 +10259,73 @@ neptune-graph:
     cloudformation:
 
 network-firewall:
-  - name: Firewall
+  - name: firewall
     names:
+      - firewall
       - Firewall
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:firewall/${Name}
     botoclient: network-firewall
     cloudformation: AWS::NetworkFirewall::Firewall
-  - name: FirewallPolicy
+  - name: firewall-policy
     names:
+      - firewall-policy
       - FirewallPolicy
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:firewall-policy/${Name}
     botoclient: network-firewall
     cloudformation: AWS::NetworkFirewall::FirewallPolicy
-  - name: Proxy
+  - name: proxy
     names:
+      - proxy
       - Proxy
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:proxy/${Name}
     botoclient: network-firewall
     cloudformation:
-  - name: ProxyConfiguration
+  - name: proxy-configuration
     names:
+      - proxy-configuration
       - ProxyConfiguration
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:proxy-configuration/${Name}
     botoclient: network-firewall
     cloudformation:
-  - name: ProxyRuleGroup
+  - name: proxy-rule-group
     names:
+      - proxy-rule-group
       - ProxyRuleGroup
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:proxy-rule-group/${Name}
     botoclient: network-firewall
     cloudformation:
-  - name: StatefulRuleGroup
+  - name: stateful-rule-group
     names:
+      - stateful-rule-group
       - StatefulRuleGroup
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:stateful-rulegroup/${Name}
     botoclient: network-firewall
     cloudformation: AWS::NetworkFirewall::RuleGroup
-  - name: StatelessRuleGroup
+  - name: stateless-rule-group
     names:
+      - stateless-rule-group
       - StatelessRuleGroup
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:stateless-rulegroup/${Name}
     botoclient: network-firewall
     cloudformation: AWS::NetworkFirewall::RuleGroup
-  - name: TLSInspectionConfiguration
+  - name: tls-inspection-configuration
     names:
+      - tls-inspection-configuration
       - TLSInspectionConfiguration
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:tls-configuration/${Name}
     botoclient: network-firewall
     cloudformation: AWS::NetworkFirewall::TLSInspectionConfiguration
-  - name: VpcEndpointAssociation
+  - name: vpc-endpoint-association
     names:
+      - vpc-endpoint-association
       - VpcEndpointAssociation
     arns:
       - arn:${Partition}:network-firewall:${Region}:${Account}:vpc-endpoint-association/${Name}
@@ -10068,43 +10488,49 @@ nimble:
     cloudformation:
 
 notifications:
-  - name: EventRule
+  - name: event-rule
     names:
+      - event-rule
       - EventRule
     arns:
       - arn:${Partition}:notifications::${Account}:configuration/${NotificationConfigurationId}/rule/${EventRuleId}
     botoclient: notifications
     cloudformation: AWS::Notifications::EventRule
-  - name: ManagedNotificationChildEvent
+  - name: managed-notification-child-event
     names:
+      - managed-notification-child-event
       - ManagedNotificationChildEvent
     arns:
       - arn:${Partition}:notifications::${Account}:managed-notification-configuration/category/${Category}/sub-category/${Subcategory}/event/${NotificationEventId}/child-event/${NotificationChildEventId}
     botoclient: notifications
     cloudformation:
-  - name: ManagedNotificationConfiguration
+  - name: managed-notification-configuration
     names:
+      - managed-notification-configuration
       - ManagedNotificationConfiguration
     arns:
       - arn:${Partition}:notifications::${Account}:managed-notification-configuration/category/${Category}/sub-category/${Subcategory}
     botoclient: notifications
     cloudformation:
-  - name: ManagedNotificationEvent
+  - name: managed-notification-event
     names:
+      - managed-notification-event
       - ManagedNotificationEvent
     arns:
       - arn:${Partition}:notifications::${Account}:managed-notification-configuration/category/${Category}/sub-category/${Subcategory}/event/${NotificationEventId}
     botoclient: notifications
     cloudformation:
-  - name: NotificationConfiguration
+  - name: notification-configuration
     names:
+      - notification-configuration
       - NotificationConfiguration
     arns:
       - arn:${Partition}:notifications::${Account}:configuration/${NotificationConfigurationId}
     botoclient: notifications
     cloudformation: AWS::Notifications::NotificationConfiguration
-  - name: NotificationEvent
+  - name: notification-event
     names:
+      - notification-event
       - NotificationEvent
     arns:
       - arn:${Partition}:notifications:${Region}:${Account}:configuration/${NotificationConfigurationId}/event/${NotificationEventId}
@@ -10112,8 +10538,9 @@ notifications:
     cloudformation:
 
 notifications-contacts:
-  - name: EmailContactResource
+  - name: email-contact-resource
     names:
+      - email-contact-resource
       - EmailContactResource
     arns:
       - arn:${Partition}:notifications-contacts::${Account}:emailcontact/${EmailContactId}
@@ -10137,15 +10564,17 @@ nova-act:
     cloudformation:
 
 oam:
-  - name: Link
+  - name: link
     names:
+      - link
       - Link
     arns:
       - arn:${Partition}:oam:${Region}:${Account}:link/${ResourceId}
     botoclient: oam
     cloudformation: AWS::Oam::Link
-  - name: Sink
+  - name: sink
     names:
+      - sink
       - Sink
     arns:
       - arn:${Partition}:oam:${Region}:${Account}:sink/${ResourceId}
@@ -10234,43 +10663,25 @@ odb:
     cloudformation: AWS::ODB::OdbPeeringConnection
 
 omics:
-  - name: AnnotationStore
+  - name: annotation-store
     names:
+      - annotation-store
       - AnnotationStore
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}
     botoclient: omics
     cloudformation: AWS::Omics::AnnotationStore
-  - name: AnnotationStoreVersion
+  - name: annotation-store-version
     names:
+      - annotation-store-version
       - AnnotationStoreVersion
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}/version/${AnnotationStoreVersionName}
     botoclient: omics
     cloudformation:
-  - name: TaskResource
+  - name: read-set
     names:
-      - TaskResource
-    arns:
-      - arn:${Partition}:omics:${Region}:${Account}:task/${Id}
-    botoclient: omics
-    cloudformation:
-  - name: VariantStore
-    names:
-      - VariantStore
-    arns:
-      - arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName}
-    botoclient: omics
-    cloudformation: AWS::Omics::VariantStore
-  - name: WorkflowVersion
-    names:
-      - WorkflowVersion
-    arns:
-      - arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}/version/${VersionName}
-    botoclient: omics
-    cloudformation: AWS::Omics::WorkflowVersion
-  - name: readSet
-    names:
+      - read-set
       - readSet
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:sequenceStore/${SequenceStoreId}/readSet/${ReadSetId}
@@ -10283,8 +10694,9 @@ omics:
       - arn:${Partition}:omics:${Region}:${Account}:referenceStore/${ReferenceStoreId}/reference/${ReferenceId}
     botoclient: omics
     cloudformation:
-  - name: referenceStore
+  - name: reference-store
     names:
+      - reference-store
       - referenceStore
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:referenceStore/${ReferenceStoreId}
@@ -10297,27 +10709,46 @@ omics:
       - arn:${Partition}:omics:${Region}:${Account}:run/${Id}
     botoclient: omics
     cloudformation:
-  - name: runCache
+  - name: run-cache
     names:
+      - run-cache
       - runCache
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:runCache/${Id}
     botoclient: omics
     cloudformation:
-  - name: runGroup
+  - name: run-group
     names:
+      - run-group
       - runGroup
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:runGroup/${Id}
     botoclient: omics
     cloudformation: AWS::Omics::RunGroup
-  - name: sequenceStore
+  - name: sequence-store
     names:
+      - sequence-store
       - sequenceStore
     arns:
       - arn:${Partition}:omics:${Region}:${Account}:sequenceStore/${SequenceStoreId}
     botoclient: omics
     cloudformation: AWS::Omics::SequenceStore
+  - name: task-resource
+    names:
+      - task-resource
+      - TaskResource
+    arns:
+      - arn:${Partition}:omics:${Region}:${Account}:task/${Id}
+    botoclient: omics
+    cloudformation:
+  - name: variant-store
+    names:
+      - variant-store
+      - VariantStore
+    arns:
+      - arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName}
+    botoclient: omics
+    cloudformation: AWS::Omics::VariantStore
   - name: workflow
     names:
       - workflow
@@ -10325,6 +10756,14 @@ omics:
       - arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}
     botoclient: omics
     cloudformation: AWS::Omics::Workflow
+  - name: workflow-version
+    names:
+      - workflow-version
+      - WorkflowVersion
+    arns:
+      - arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}/version/${VersionName}
+    botoclient: omics
+    cloudformation: AWS::Omics::WorkflowVersion
 
 one:
   - name: configuration
@@ -10509,8 +10948,9 @@ outposts:
     cloudformation:
 
 panorama:
-  - name: applicationInstance
+  - name: application-instance
     names:
+      - application-instance
       - applicationInstance
     arns:
       - arn:${Partition}:panorama:${Region}:${Account}:applicationInstance/${ApplicationInstanceId}
@@ -10532,116 +10972,76 @@ panorama:
     cloudformation: AWS::Panorama::Package
 
 partnercentral:
-  - name: Benefit
+  - name: benefit
     names:
+      - benefit
       - Benefit
     arns:
       - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/benefit/${Identifier}
     botoclient: partnercentral-benefits
     cloudformation:
-  - name: BenefitAllocation
+  - name: benefit-allocation
     names:
+      - benefit-allocation
       - BenefitAllocation
     arns:
       - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-allocation/${Identifier}
     botoclient: partnercentral-benefits
     cloudformation:
-  - name: BenefitApplication
+  - name: benefit-application
     names:
+      - benefit-application
       - BenefitApplication
     arns:
       - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-application/${Identifier}
     botoclient: partnercentral-benefits
     cloudformation:
-  - name: ChannelHandshake
+  - name: channel-handshake
     names:
+      - channel-handshake
       - ChannelHandshake
     arns:
       - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/channel-handshake/${Identifier}
     botoclient: partnercentral-channel
     cloudformation:
-  - name: Connection
+  - name: connection
     names:
+      - connection
       - Connection
     arns:
       - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection/${Identifier}
     botoclient: partnercentral-selling
     cloudformation:
-  - name: ConnectionInvitation
+  - name: connection-invitation
     names:
+      - connection-invitation
       - ConnectionInvitation
     arns:
       - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection-invitation/${Identifier}
     botoclient: partnercentral-selling
     cloudformation:
-  - name: ConnectionPreferences
+  - name: connection-preferences
     names:
+      - connection-preferences
       - ConnectionPreferences
     arns:
       - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/connection-preferences
     botoclient: partnercentral-selling
     cloudformation:
-  - name: Dashboard
+  - name: dashboard
     names:
+      - dashboard
       - Dashboard
     arns:
       - arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId}
     botoclient: partnercentral-selling
     cloudformation:
-  - name: Engagement
+  - name: engagement
     names:
+      - engagement
       - Engagement
     arns:
       - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement/${Identifier}
-    botoclient: partnercentral-selling
-    cloudformation:
-  - name: Opportunity
-    names:
-      - Opportunity
-    arns:
-      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity/${Identifier}
-    botoclient: partnercentral-selling
-    cloudformation:
-  - name: OpportunityFromEngagementTask
-    names:
-      - OpportunityFromEngagementTask
-    arns:
-      - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/opportunity-from-engagement-task/${TaskId}
-    botoclient: partnercentral-selling
-    cloudformation:
-  - name: Partner
-    names:
-      - Partner
-    arns:
-      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/partner/${Identifier}
-    botoclient: partnercentral-selling
-    cloudformation:
-  - name: ProgramManagementAccount
-    names:
-      - ProgramManagementAccount
-    arns:
-      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${Identifier}
-    botoclient: partnercentral-account
-    cloudformation:
-  - name: Relationship
-    names:
-      - Relationship
-    arns:
-      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${ProgramManagementAccountId}/relationship/${RelationshipId}
-    botoclient: partnercentral-selling
-    cloudformation:
-  - name: ResourceSnapshot
-    names:
-      - ResourceSnapshot
-    arns:
-      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/engagement/${EngagementIdentifier}/resource/${ResourceType}/${ResourceIdentifier}/template/${TemplateIdentifier}/resource-snapshot/${SnapshotRevision}
-    botoclient: partnercentral-selling
-    cloudformation:
-  - name: Solution
-    names:
-      - Solution
-    arns:
-      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/solution/${Identifier}
     botoclient: partnercentral-selling
     cloudformation:
   - name: engagement-by-accepting-invitation-task
@@ -10665,11 +11065,67 @@ partnercentral:
       - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement-invitation/${Identifier}
     botoclient: partnercentral-selling
     cloudformation:
+  - name: opportunity
+    names:
+      - opportunity
+      - Opportunity
+    arns:
+      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity/${Identifier}
+    botoclient: partnercentral-selling
+    cloudformation:
+  - name: opportunity-from-engagement-task
+    names:
+      - opportunity-from-engagement-task
+      - OpportunityFromEngagementTask
+    arns:
+      - arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/opportunity-from-engagement-task/${TaskId}
+    botoclient: partnercentral-selling
+    cloudformation:
+  - name: partner
+    names:
+      - partner
+      - Partner
+    arns:
+      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/partner/${Identifier}
+    botoclient: partnercentral-selling
+    cloudformation:
+  - name: program-management-account
+    names:
+      - program-management-account
+      - ProgramManagementAccount
+    arns:
+      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${Identifier}
+    botoclient: partnercentral-account
+    cloudformation:
+  - name: relationship
+    names:
+      - relationship
+      - Relationship
+    arns:
+      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/program-management-account/${ProgramManagementAccountId}/relationship/${RelationshipId}
+    botoclient: partnercentral-selling
+    cloudformation:
+  - name: resource-snapshot
+    names:
+      - resource-snapshot
+      - ResourceSnapshot
+    arns:
+      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/engagement/${EngagementIdentifier}/resource/${ResourceType}/${ResourceIdentifier}/template/${TemplateIdentifier}/resource-snapshot/${SnapshotRevision}
+    botoclient: partnercentral-selling
+    cloudformation:
   - name: resource-snapshot-job
     names:
       - resource-snapshot-job
     arns:
       - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/resource-snapshot-job/${Identifier}
+    botoclient: partnercentral-selling
+    cloudformation:
+  - name: solution
+    names:
+      - solution
+      - Solution
+    arns:
+      - arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/solution/${Identifier}
     botoclient: partnercentral-selling
     cloudformation:
 
@@ -10699,22 +11155,25 @@ payments:
     cloudformation:
 
 pca-connector-ad:
-  - name: Connector
+  - name: connector
     names:
+      - connector
       - Connector
     arns:
       - arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}
     botoclient: pca-connector-ad
     cloudformation: AWS::PCAConnectorAD::Connector
-  - name: DirectoryRegistration
+  - name: directory-registration
     names:
+      - directory-registration
       - DirectoryRegistration
     arns:
       - arn:${Partition}:pca-connector-ad:${Region}:${Account}:directory-registration/${DirectoryId}
     botoclient: pca-connector-ad
     cloudformation: AWS::PCAConnectorAD::DirectoryRegistration
-  - name: Template
+  - name: template
     names:
+      - template
       - Template
     arns:
       - arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}/template/${TemplateId}
@@ -10722,15 +11181,17 @@ pca-connector-ad:
     cloudformation: AWS::PCAConnectorAD::Template
 
 pca-connector-scep:
-  - name: Challenge
+  - name: challenge
     names:
+      - challenge
       - Challenge
     arns:
       - arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}/challenge/${ChallengeId}
     botoclient: pca-connector-scep
     cloudformation: AWS::PCAConnectorSCEP::Challenge
-  - name: Connector
+  - name: connector
     names:
+      - connector
       - Connector
     arns:
       - arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}
@@ -10768,15 +11229,17 @@ personalize:
       - arn:${Partition}:personalize:::algorithm/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: batchInferenceJob
+  - name: batch-inference-job
     names:
+      - batch-inference-job
       - batchInferenceJob
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:batch-inference-job/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: batchSegmentJob
+  - name: batch-segment-job
     names:
+      - batch-segment-job
       - batchSegmentJob
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:batch-segment-job/${ResourceId}
@@ -10789,15 +11252,17 @@ personalize:
       - arn:${Partition}:personalize:${Region}:${Account}:campaign/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: dataDeletionJob
+  - name: data-deletion-job
     names:
+      - data-deletion-job
       - dataDeletionJob
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:data-deletion-job/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: dataInsightsJob
+  - name: data-insights-job
     names:
+      - data-insights-job
       - dataInsightsJob
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:data-insights-job/${ResourceId}
@@ -10810,36 +11275,41 @@ personalize:
       - arn:${Partition}:personalize:${Region}:${Account}:dataset/${ResourceId}
     botoclient: personalize
     cloudformation: AWS::Personalize::Dataset
-  - name: datasetExportJob
+  - name: dataset-export-job
     names:
+      - dataset-export-job
       - datasetExportJob
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:dataset-export-job/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: datasetGroup
+  - name: dataset-group
     names:
+      - dataset-group
       - datasetGroup
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:dataset-group/${ResourceId}
     botoclient: personalize
     cloudformation: AWS::Personalize::DatasetGroup
-  - name: datasetImportJob
+  - name: dataset-import-job
     names:
+      - dataset-import-job
       - datasetImportJob
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:dataset-import-job/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: eventTracker
+  - name: event-tracker
     names:
+      - event-tracker
       - eventTracker
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:event-tracker/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: featureTransformation
+  - name: feature-transformation
     names:
+      - feature-transformation
       - featureTransformation
     arns:
       - arn:${Partition}:personalize:::feature-transformation/${ResourceId}
@@ -10852,8 +11322,9 @@ personalize:
       - arn:${Partition}:personalize:${Region}:${Account}:filter/${ResourceId}
     botoclient: personalize
     cloudformation:
-  - name: metricAttribution
+  - name: metric-attribution
     names:
+      - metric-attribution
       - metricAttribution
     arns:
       - arn:${Partition}:personalize:${Region}:${Account}:metric-attribution/${ResourceId}
@@ -11245,8 +11716,9 @@ qbusiness:
     cloudformation: AWS::QBusiness::WebExperience
 
 qdeveloper:
-  - name: codeTransformation
+  - name: code-transformation
     names:
+      - code-transformation
       - codeTransformation
     arns:
       - arn:${Partition}:qdeveloper:${Region}:${Account}:codeTransformation/${Identifier}
@@ -11319,15 +11791,17 @@ quicksight:
       - arn:${Partition}:quicksight:${Region}:${Account}:analysis/${ResourceId}
     botoclient: quicksight
     cloudformation: AWS::QuickSight::Analysis
-  - name: assetBundleExportJob
+  - name: asset-bundle-export-job
     names:
+      - asset-bundle-export-job
       - assetBundleExportJob
     arns:
       - arn:${Partition}:quicksight:${Region}:${Account}:asset-bundle-export-job/${ResourceId}
     botoclient: quicksight
     cloudformation:
-  - name: assetBundleImportJob
+  - name: asset-bundle-import-job
     names:
+      - asset-bundle-import-job
       - assetBundleImportJob
     arns:
       - arn:${Partition}:quicksight:${Region}:${Account}:asset-bundle-import-job/${ResourceId}
@@ -11368,8 +11842,9 @@ quicksight:
       - arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
     botoclient: quicksight
     cloudformation: AWS::QuickSight::Dashboard
-  - name: dashboardSnapshotJob
+  - name: dashboard-snapshot-job
     names:
+      - dashboard-snapshot-job
       - dashboardSnapshotJob
     arns:
       - arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${DashboardId}/snapshot-job/${ResourceId}
@@ -11389,8 +11864,9 @@ quicksight:
       - arn:${Partition}:quicksight:${Region}:${Account}:datasource/${ResourceId}
     botoclient: quicksight
     cloudformation: AWS::QuickSight::DataSource
-  - name: emailCustomizationTemplate
+  - name: email-customization-template
     names:
+      - email-customization-template
       - emailCustomizationTemplate
     arns:
       - arn:${Partition}:quicksight:${Region}:${Account}:email-customization-template/${ResourceId}
@@ -11849,8 +12325,9 @@ redshift:
     cloudformation:
 
 redshift-serverless:
-  - name: endpointAccess
+  - name: endpoint-access
     names:
+      - endpoint-access
       - endpointAccess
     arns:
       - arn:${Partition}:redshift-serverless:${Region}:${Account}:managedvpcendpoint/${EndpointAccessId}
@@ -11871,8 +12348,9 @@ redshift-serverless:
       - arn:${Partition}:redshift-serverless:${Region}:${Account}:namespace/${NamespaceId}
     botoclient: redshift-serverless
     cloudformation: AWS::RedshiftServerless::Namespace
-  - name: recoveryPoint
+  - name: recovery-point
     names:
+      - recovery-point
       - recoveryPoint
     arns:
       - arn:${Partition}:redshift-serverless:${Region}:${Account}:recoverypoint/${RecoveryPointId}
@@ -12030,8 +12508,9 @@ resource-groups:
       - arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName}
     botoclient: resource-groups
     cloudformation: AWS::ResourceGroups::Group
-  - name: tagSyncTask
+  - name: tag-sync-task
     names:
+      - tag-sync-task
       - tagSyncTask
     arns:
       - arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName}/tag-sync-task/${TaskId}
@@ -12039,15 +12518,17 @@ resource-groups:
     cloudformation: AWS::ResourceGroups::TagSyncTask
 
 robomaker:
-  - name: deploymentFleet
+  - name: deployment-fleet
     names:
+      - deployment-fleet
       - deploymentFleet
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}
     botoclient:
     cloudformation:
-  - name: deploymentJob
+  - name: deployment-job
     names:
+      - deployment-job
       - deploymentJob
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}
@@ -12060,29 +12541,33 @@ robomaker:
       - arn:${Partition}:robomaker:${Region}:${Account}:robot/${RobotName}/${CreatedOnEpoch}
     botoclient:
     cloudformation:
-  - name: robotApplication
+  - name: robot-application
     names:
+      - robot-application
       - robotApplication
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}
     botoclient:
     cloudformation:
-  - name: simulationApplication
+  - name: simulation-application
     names:
+      - simulation-application
       - simulationApplication
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}
     botoclient:
     cloudformation:
-  - name: simulationJob
+  - name: simulation-job
     names:
+      - simulation-job
       - simulationJob
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
     botoclient:
     cloudformation:
-  - name: simulationJobBatch
+  - name: simulation-job-batch
     names:
+      - simulation-job-batch
       - simulationJobBatch
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}
@@ -12095,22 +12580,25 @@ robomaker:
       - arn:${Partition}:robomaker:${Region}:${Account}:world/${WorldId}
     botoclient:
     cloudformation:
-  - name: worldExportJob
+  - name: world-export-job
     names:
+      - world-export-job
       - worldExportJob
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:world-export-job/${WorldExportJobId}
     botoclient:
     cloudformation:
-  - name: worldGenerationJob
+  - name: world-generation-job
     names:
+      - world-generation-job
       - worldGenerationJob
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:world-generation-job/${WorldGenerationJobId}
     botoclient:
     cloudformation:
-  - name: worldTemplate
+  - name: world-template
     names:
+      - world-template
       - worldTemplate
     arns:
       - arn:${Partition}:robomaker:${Region}:${Account}:world-template/${WorldTemplateJobId}
@@ -12398,8 +12886,9 @@ route53resolver:
     cloudformation: AWS::Route53Resolver::ResolverRule
 
 rum:
-  - name: AppMonitorResource
+  - name: app-monitor-resource
     names:
+      - app-monitor-resource
       - AppMonitorResource
     arns:
       - arn:${Partition}:rum:${Region}:${Account}:appmonitor/${Name}
@@ -12549,15 +13038,17 @@ s3express:
     cloudformation: AWS::S3::Bucket
 
 s3tables:
-  - name: Table
+  - name: table
     names:
+      - table
       - Table
     arns:
       - arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}/table/${TableID}
     botoclient: s3tables
     cloudformation: AWS::S3Tables::Table
-  - name: TableBucket
+  - name: table-bucket
     names:
+      - table-bucket
       - TableBucket
     arns:
       - arn:${Partition}:s3tables:${Region}:${Account}:bucket/${TableBucketName}
@@ -12565,15 +13056,17 @@ s3tables:
     cloudformation: AWS::S3Tables::TableBucket
 
 s3vectors:
-  - name: Index
+  - name: index
     names:
+      - index
       - Index
     arns:
       - arn:${Partition}:s3vectors:${Region}:${Account}:bucket/${BucketName}/index/${IndexName}
     botoclient: s3vectors
     cloudformation: AWS::S3Vectors::Index
-  - name: VectorBucket
+  - name: vector-bucket
     names:
+      - vector-bucket
       - VectorBucket
     arns:
       - arn:${Partition}:s3vectors:${Region}:${Account}:bucket/${BucketName}
@@ -13066,22 +13559,25 @@ sagemaker:
     cloudformation: AWS::SageMaker::Workteam
 
 sagemaker-geospatial:
-  - name: EarthObservationJob
+  - name: earth-observation-job
     names:
+      - earth-observation-job
       - EarthObservationJob
     arns:
       - arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:earth-observation-job/${JobID}
     botoclient: sagemaker-geospatial
     cloudformation:
-  - name: RasterDataCollection
+  - name: raster-data-collection
     names:
+      - raster-data-collection
       - RasterDataCollection
     arns:
       - arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:raster-data-collection/${CollectionID}
     botoclient: sagemaker-geospatial
     cloudformation:
-  - name: VectorEnrichmentJob
+  - name: vector-enrichment-job
     names:
+      - vector-enrichment-job
       - VectorEnrichmentJob
     arns:
       - arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:vector-enrichment-job/${JobID}
@@ -13183,10 +13679,10 @@ sdb:
     cloudformation: AWS::SDB::Domain
 
 secretsmanager:
-  - name: Secret
+  - name: secret
     names:
-      - Secret
       - secret
+      - Secret
     arns:
       - arn:${Partition}:secretsmanager:${Region}:${Account}:secret:${SecretId}
     botoclient: secretsmanager
@@ -13209,78 +13705,89 @@ security-ir:
     cloudformation:
 
 securityagent:
-  - name: AgentInstance
+  - name: agent-instance
     names:
+      - agent-instance
       - AgentInstance
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-instance/${AgentId}
     botoclient:
     cloudformation:
-  - name: AgentSpace
+  - name: agent-space
     names:
+      - agent-space
       - AgentSpace
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}
     botoclient:
     cloudformation:
-  - name: Application
+  - name: application
     names:
+      - application
       - Application
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}
     botoclient:
     cloudformation:
-  - name: Artifact
+  - name: artifact
     names:
+      - artifact
       - Artifact
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/artifact/${ArtifactId}
     botoclient:
     cloudformation:
-  - name: Control
+  - name: control
     names:
+      - control
       - Control
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:control/${ControlId}
     botoclient:
     cloudformation:
-  - name: Finding
+  - name: finding
     names:
+      - finding
       - Finding
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/finding/${FindingId}
     botoclient:
     cloudformation:
-  - name: Integration
+  - name: integration
     names:
+      - integration
       - Integration
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:integration/${IntegrationId}
     botoclient:
     cloudformation:
-  - name: Pentest
+  - name: pentest
     names:
+      - pentest
       - Pentest
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest/${PentestId}
     botoclient:
     cloudformation:
-  - name: PentestJob
+  - name: pentest-job
     names:
+      - pentest-job
       - PentestJob
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest-job/${JobId}
     botoclient:
     cloudformation:
-  - name: PentestTask
+  - name: pentest-task
     names:
+      - pentest-task
       - PentestTask
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}/pentest-task/${TaskId}
     botoclient:
     cloudformation:
-  - name: SecurityRequirement
+  - name: security-requirement
     names:
+      - security-requirement
       - SecurityRequirement
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:security-requirement/${SecurityRequirementId}
@@ -13378,15 +13885,17 @@ serverlessrepo:
     cloudformation:
 
 servicecatalog:
-  - name: Application
+  - name: application
     names:
+      - application
       - Application
     arns:
       - arn:${Partition}:servicecatalog:${Region}:${Account}:/applications/${ApplicationId}
     botoclient: servicecatalog-appregistry
     cloudformation: AWS::ServiceCatalogAppRegistry::Application
-  - name: AttributeGroup
+  - name: attribute-group
     names:
+      - attribute-group
       - AttributeGroup
     arns:
       - arn:${Partition}:servicecatalog:${Region}:${Account}:/attribute-groups/${AttributeGroupId}
@@ -13600,8 +14109,9 @@ signer:
     cloudformation: AWS::Signer::SigningProfile
 
 simspaceweaver:
-  - name: Simulation
+  - name: simulation
     names:
+      - simulation
       - Simulation
     arns:
       - arn:${Partition}:simspaceweaver:${Region}:${Account}:simulation/${SimulationName}
@@ -13609,71 +14119,81 @@ simspaceweaver:
     cloudformation: AWS::SimSpaceWeaver::Simulation
 
 sms-voice:
-  - name: ConfigurationSet
+  - name: configuration-set
     names:
+      - configuration-set
       - ConfigurationSet
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:configuration-set/${ConfigurationSetName}
     botoclient: pinpoint-sms-voice-v2
     cloudformation: AWS::SMSVOICE::ConfigurationSet
-  - name: Message
+  - name: message
     names:
+      - message
       - Message
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:message/${MessageId}
     botoclient: pinpoint-sms-voice-v2
     cloudformation:
-  - name: OptOutList
+  - name: opt-out-list
     names:
+      - opt-out-list
       - OptOutList
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:opt-out-list/${OptOutListName}
     botoclient: pinpoint-sms-voice-v2
     cloudformation: AWS::SMSVOICE::OptOutList
-  - name: PhoneNumber
+  - name: phone-number
     names:
+      - phone-number
       - PhoneNumber
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:phone-number/${PhoneNumberId}
     botoclient: pinpoint-sms-voice-v2
     cloudformation: AWS::SMSVOICE::PhoneNumber
-  - name: Pool
+  - name: pool
     names:
+      - pool
       - Pool
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:pool/${PoolId}
     botoclient: pinpoint-sms-voice-v2
     cloudformation: AWS::SMSVOICE::Pool
-  - name: ProtectConfiguration
+  - name: protect-configuration
     names:
+      - protect-configuration
       - ProtectConfiguration
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:protect-configuration/${ProtectConfigurationId}
     botoclient: pinpoint-sms-voice-v2
     cloudformation: AWS::SMSVOICE::ProtectConfiguration
-  - name: Registration
+  - name: registration
     names:
+      - registration
       - Registration
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:registration/${RegistrationId}
     botoclient: pinpoint-sms-voice-v2
     cloudformation:
-  - name: RegistrationAttachment
+  - name: registration-attachment
     names:
+      - registration-attachment
       - RegistrationAttachment
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:registration-attachment/${RegistrationAttachmentId}
     botoclient: pinpoint-sms-voice-v2
     cloudformation:
-  - name: SenderId
+  - name: sender-id
     names:
+      - sender-id
       - SenderId
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:sender-id/${SenderId}/${IsoCountryCode}
     botoclient: pinpoint-sms-voice-v2
     cloudformation: AWS::SMSVOICE::SenderId
-  - name: VerifiedDestinationNumber
+  - name: verified-destination-number
     names:
+      - verified-destination-number
       - VerifiedDestinationNumber
     arns:
       - arn:${Partition}:sms-voice:${Region}:${Account}:verified-destination-number/${VerifiedDestinationNumberId}
@@ -13975,43 +14495,49 @@ ssm-sap:
     cloudformation:
 
 sso:
-  - name: Account
+  - name: account
     names:
+      - account
       - Account
     arns:
       - arn:${Partition}:sso:::account/${AccountId}
     botoclient: sso-admin
     cloudformation:
-  - name: Application
+  - name: application
     names:
+      - application
       - Application
     arns:
       - arn:${Partition}:sso::${AccountId}:application/${InstanceId}/${ApplicationId}
     botoclient: sso-admin
     cloudformation: AWS::SSO::Application
-  - name: ApplicationProvider
+  - name: application-provider
     names:
+      - application-provider
       - ApplicationProvider
     arns:
       - arn:${Partition}:sso::aws:applicationProvider/${ApplicationProviderId}
     botoclient: sso-admin
     cloudformation:
-  - name: Instance
+  - name: instance
     names:
+      - instance
       - Instance
     arns:
       - arn:${Partition}:sso:::instance/${InstanceId}
     botoclient: sso-admin
     cloudformation: AWS::SSO::Instance
-  - name: PermissionSet
+  - name: permission-set
     names:
+      - permission-set
       - PermissionSet
     arns:
       - arn:${Partition}:sso:::permissionSet/${InstanceId}/${PermissionSetId}
     botoclient: sso-admin
     cloudformation: AWS::SSO::PermissionSet
-  - name: TrustedTokenIssuer
+  - name: trusted-token-issuer
     names:
+      - trusted-token-issuer
       - TrustedTokenIssuer
     arns:
       - arn:${Partition}:sso::${AccountId}:trustedTokenIssuer/${InstanceId}/${TrustedTokenIssuerId}
@@ -14040,15 +14566,17 @@ states:
       - arn:${Partition}:states:${Region}:${Account}:express:${StateMachineName}:${ExecutionId}:${ExpressId}
     botoclient: stepfunctions
     cloudformation:
-  - name: labelled execution
+  - name: labelled-execution
     names:
+      - labelled-execution
       - labelled execution
     arns:
       - arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}/${MapRunLabel}:${ExecutionId}
     botoclient: stepfunctions
     cloudformation:
-  - name: labelled express
+  - name: labelled-express
     names:
+      - labelled-express
       - labelled express
     arns:
       - arn:${Partition}:states:${Region}:${Account}:express:${StateMachineName}/${MapRunLabel}:${ExecutionId}:${ExpressId}
@@ -14522,15 +15050,17 @@ ts:
     cloudformation:
 
 vendor-insights:
-  - name: DataSource
+  - name: data-source
     names:
+      - data-source
       - DataSource
     arns:
       - arn:${Partition}:vendor-insights:::data-source:${ResourceId}
     botoclient:
     cloudformation:
-  - name: SecurityProfile
+  - name: security-profile
     names:
+      - security-profile
       - SecurityProfile
     arns:
       - arn:${Partition}:vendor-insights:::security-profile:${ResourceId}
@@ -14556,93 +15086,106 @@ voiceid:
     cloudformation: AWS::VoiceID::Domain
 
 vpc-lattice:
-  - name: AccessLogSubscription
+  - name: access-log-subscription
     names:
+      - access-log-subscription
       - AccessLogSubscription
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:accesslogsubscription/${AccessLogSubscriptionId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::AccessLogSubscription
-  - name: DomainVerification
+  - name: domain-verification
     names:
+      - domain-verification
       - DomainVerification
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:domainverification/${DomainVerificationId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::DomainVerification
-  - name: Listener
+  - name: listener
     names:
+      - listener
       - Listener
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::Listener
-  - name: ResourceConfiguration
+  - name: resource-configuration
     names:
+      - resource-configuration
       - ResourceConfiguration
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:resourceconfiguration/${ResourceConfigurationId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::ResourceConfiguration
-  - name: ResourceEndpointAssociation
+  - name: resource-endpoint-association
     names:
+      - resource-endpoint-association
       - ResourceEndpointAssociation
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:resourceendpointassociation/${ResourceEndpointAssociationId}
     botoclient: vpc-lattice
     cloudformation:
-  - name: ResourceGateway
+  - name: resource-gateway
     names:
+      - resource-gateway
       - ResourceGateway
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:resourcegateway/${ResourceGatewayId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::ResourceGateway
-  - name: Rule
+  - name: rule
     names:
+      - rule
       - Rule
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/listener/${ListenerId}/rule/${RuleId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::Rule
-  - name: Service
+  - name: service
     names:
+      - service
       - Service
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/${RequestPath}
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::Service
-  - name: ServiceNetwork
+  - name: service-network
     names:
+      - service-network
       - ServiceNetwork
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetwork/${ServiceNetworkId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::ServiceNetwork
-  - name: ServiceNetworkResourceAssociation
+  - name: service-network-resource-association
     names:
+      - service-network-resource-association
       - ServiceNetworkResourceAssociation
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetworkresourceassociation/${ServiceNetworkResourceAssociationId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::ServiceNetworkResourceAssociation
-  - name: ServiceNetworkServiceAssociation
+  - name: service-network-service-association
     names:
+      - service-network-service-association
       - ServiceNetworkServiceAssociation
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetworkserviceassociation/${ServiceNetworkServiceAssociationId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::ServiceNetworkServiceAssociation
-  - name: ServiceNetworkVpcAssociation
+  - name: service-network-vpc-association
     names:
+      - service-network-vpc-association
       - ServiceNetworkVpcAssociation
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:servicenetworkvpcassociation/${ServiceNetworkVpcAssociationId}
     botoclient: vpc-lattice
     cloudformation: AWS::VpcLattice::ServiceNetworkVpcAssociation
-  - name: TargetGroup
+  - name: target-group
     names:
+      - target-group
       - TargetGroup
     arns:
       - arn:${Partition}:vpc-lattice:${Region}:${Account}:targetgroup/${TargetGroupId}
@@ -14898,83 +15441,6 @@ wickr:
     cloudformation:
 
 wisdom:
-  - name: AIAgent
-    names:
-      - AIAgent
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::AIAgent
-  - name: AIGuardrail
-    names:
-      - AIGuardrail
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:ai-guardrail/${AssistantId}/${AIGuardrailId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::AIGuardrail
-  - name: AIPrompt
-    names:
-      - AIPrompt
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:ai-prompt/${AssistantId}/${AIPromptId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::AIPrompt
-  - name: Assistant
-    names:
-      - Assistant
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:assistant/${AssistantId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::Assistant
-  - name: AssistantAssociation
-    names:
-      - AssistantAssociation
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:association/${AssistantId}/${AssistantAssociationId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::AssistantAssociation
-  - name: Content
-    names:
-      - Content
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:content/${KnowledgeBaseId}/${ContentId}
-    botoclient: qconnect
-    cloudformation:
-  - name: ContentAssociation
-    names:
-      - ContentAssociation
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:content-association/${KnowledgeBaseId}/${ContentId}/${ContentAssociationId}
-    botoclient: qconnect
-    cloudformation:
-  - name: KnowledgeBase
-    names:
-      - KnowledgeBase
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:knowledge-base/${KnowledgeBaseId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::KnowledgeBase
-  - name: MessageTemplate
-    names:
-      - MessageTemplate
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:message-template/${KnowledgeBaseId}/${MessageTemplateId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::MessageTemplate
-  - name: QuickResponse
-    names:
-      - QuickResponse
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:quick-response/${KnowledgeBaseId}/${QuickResponseId}
-    botoclient: qconnect
-    cloudformation: AWS::Wisdom::QuickResponse
-  - name: Session
-    names:
-      - Session
-    arns:
-      - arn:${Partition}:wisdom:${Region}:${Account}:session/${AssistantId}/${SessionId}
-    botoclient: qconnect
-    cloudformation:
   - name: ai-agent
     names:
       - ai-agent
@@ -14982,6 +15448,94 @@ wisdom:
       - arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}:${Version}
     botoclient: qconnect
     cloudformation: AWS::Wisdom::AIAgent
+  - name: ai-agent
+    names:
+      - ai-agent
+      - AIAgent
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::AIAgent
+  - name: ai-guardrail
+    names:
+      - ai-guardrail
+      - AIGuardrail
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:ai-guardrail/${AssistantId}/${AIGuardrailId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::AIGuardrail
+  - name: ai-prompt
+    names:
+      - ai-prompt
+      - AIPrompt
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:ai-prompt/${AssistantId}/${AIPromptId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::AIPrompt
+  - name: assistant
+    names:
+      - assistant
+      - Assistant
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:assistant/${AssistantId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::Assistant
+  - name: assistant-association
+    names:
+      - assistant-association
+      - AssistantAssociation
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:association/${AssistantId}/${AssistantAssociationId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::AssistantAssociation
+  - name: content
+    names:
+      - content
+      - Content
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:content/${KnowledgeBaseId}/${ContentId}
+    botoclient: qconnect
+    cloudformation:
+  - name: content-association
+    names:
+      - content-association
+      - ContentAssociation
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:content-association/${KnowledgeBaseId}/${ContentId}/${ContentAssociationId}
+    botoclient: qconnect
+    cloudformation:
+  - name: knowledge-base
+    names:
+      - knowledge-base
+      - KnowledgeBase
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:knowledge-base/${KnowledgeBaseId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::KnowledgeBase
+  - name: message-template
+    names:
+      - message-template
+      - MessageTemplate
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:message-template/${KnowledgeBaseId}/${MessageTemplateId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::MessageTemplate
+  - name: quick-response
+    names:
+      - quick-response
+      - QuickResponse
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:quick-response/${KnowledgeBaseId}/${QuickResponseId}
+    botoclient: qconnect
+    cloudformation: AWS::Wisdom::QuickResponse
+  - name: session
+    names:
+      - session
+      - Session
+    arns:
+      - arn:${Partition}:wisdom:${Region}:${Account}:session/${AssistantId}/${SessionId}
+    botoclient: qconnect
+    cloudformation:
 
 workdocs:
   - name: organization
@@ -15011,8 +15565,9 @@ workmail:
     cloudformation:
 
 workmailmessageflow:
-  - name: RawMessage
+  - name: raw-message
     names:
+      - raw-message
       - RawMessage
     arns:
       - arn:${Partition}:workmailmessageflow:${Region}:${Account}:message/${OrganizationId}/${Context}/${MessageId}
@@ -15085,8 +15640,9 @@ workspaces:
     cloudformation: AWS::WorkSpaces::WorkspacesPool
 
 workspaces-instances:
-  - name: WorkspaceInstanceId
+  - name: workspace-instance-id
     names:
+      - workspace-instance-id
       - WorkspaceInstanceId
     arns:
       - arn:${Partition}:workspaces-instances:${Region}:${Account}:workspaceinstance/${WorkspaceInstanceId}
@@ -15094,36 +15650,41 @@ workspaces-instances:
     cloudformation: AWS::WorkspacesInstances::WorkspaceInstance
 
 workspaces-web:
-  - name: browserSettings
+  - name: browser-settings
     names:
+      - browser-settings
       - browserSettings
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:browserSettings/${BrowserSettingsId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::BrowserSettings
-  - name: dataProtectionSettings
+  - name: data-protection-settings
     names:
+      - data-protection-settings
       - dataProtectionSettings
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:dataProtectionSettings/${DataProtectionSettingsId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::DataProtectionSettings
-  - name: identityProvider
+  - name: identity-provider
     names:
+      - identity-provider
       - identityProvider
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:identityProvider/${PortalId}/${IdentityProviderId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::IdentityProvider
-  - name: ipAccessSettings
+  - name: ip-access-settings
     names:
+      - ip-access-settings
       - ipAccessSettings
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:ipAccessSettings/${IpAccessSettingsId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::IpAccessSettings
-  - name: networkSettings
+  - name: network-settings
     names:
+      - network-settings
       - networkSettings
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:networkSettings/${NetworkSettingsId}
@@ -15136,29 +15697,33 @@ workspaces-web:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:portal/${PortalId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::Portal
-  - name: sessionLogger
+  - name: session-logger
     names:
+      - session-logger
       - sessionLogger
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:sessionLogger/${SessionLoggerId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::SessionLogger
-  - name: trustStore
+  - name: trust-store
     names:
+      - trust-store
       - trustStore
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:trustStore/${TrustStoreId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::TrustStore
-  - name: userAccessLoggingSettings
+  - name: user-access-logging-settings
     names:
+      - user-access-logging-settings
       - userAccessLoggingSettings
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:userAccessLoggingSettings/${UserAccessLoggingSettingsId}
     botoclient: workspaces-web
     cloudformation: AWS::WorkSpacesWeb::UserAccessLoggingSettings
-  - name: userSettings
+  - name: user-settings
     names:
+      - user-settings
       - userSettings
     arns:
       - arn:${Partition}:workspaces-web:${Region}:${Account}:userSettings/${UserSettingsId}
