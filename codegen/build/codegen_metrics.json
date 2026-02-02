@@ -33,11 +33,6 @@
     "excluded": 16,
     "mapped_to_arn": 241
   },
-  "transformer": {
-    "input": 2082,
-    "transformed": 0,
-    "output": 2082
-  },
   "cfn_resource_indexer": {
     "services_with_cfn": 241,
     "exact_match": 963,
@@ -46,6 +41,11 @@
     "excluded": 561,
     "missing": 0,
     "mapped": 1078
+  },
+  "transformer": {
+    "input": 2082,
+    "transformed": 552,
+    "output": 2082
   },
   "generator": {
     "services": 355,

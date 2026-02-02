@@ -266,16 +266,17 @@ def main():
     cfn_indexer = CFNServiceIndexer()
     cfn_mapping = cfn_indexer.process(sdk_mapping)
 
-    # Transform resource names
-    transformer = Transformer()
-    resources = transformer.process(resources)
-
     # Generate
     generator = CodeGenerator()
     by_service = generator.process(resources)
 
     cfn_resource_indexer = CFNResourceIndexer()
     cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
+
+    # Transform resource names (after all processing, before export)
+    transformer = Transformer()
+    resources = transformer.process(resources)
+    by_service = transformer.process_by_service(by_service)
 
     generator.generate(by_service, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.py")
     generator.export(resources, sdk_mapping, cfn_resources_mapping, BUILD_DIR / "arn_patterns.yaml")
@@ -287,8 +288,8 @@ def main():
         "sdk_service_indexer": sdk_indexer.metrics,
         "sdk_resource_indexer": sdk_resource_indexer.metrics,
         "cfn_service_indexer": cfn_indexer.metrics,
-        "transformer": transformer.metrics,
         "cfn_resource_indexer": cfn_resource_indexer.metrics,
+        "transformer": transformer.metrics,
         "generator": generator.metrics,
     }
     with open(BUILD_DIR / "codegen_metrics.json", "w") as f:
@@ -321,12 +322,12 @@ def print_summary(metrics):
     print(f"CFN Services:  in={cfn['cfn_services_total']} → direct={cfn['direct_match']} "
           f"override={cfn['override']} exclude={cfn['excluded']} → mapped={cfn['mapped_to_arn']}")
 
-    t = metrics["transformer"]
-    print(f"Transform:     in={t['input']} → transformed={t['transformed']} → out={t['output']}")
-
     cfnr = metrics["cfn_resource_indexer"]
     print(f"CFN Resources: exact={cfnr['exact_match']} plural={cfnr['plural_match']} "
           f"override={cfnr['override']} exclude={cfnr['excluded']} missing={cfnr['missing']} → mapped={cfnr['mapped']}")
+
+    t = metrics["transformer"]
+    print(f"Transform:     in={t['input']} → transformed={t['transformed']} → out={t['output']}")
 
     g = metrics["generator"]
     print(f"Generator:     {g['services']} services, {g['patterns']} patterns, {g['type_aliases']} aliases")

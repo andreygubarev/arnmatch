@@ -4,12 +4,31 @@ This module normalizes resource type names to kebab-case for consistency.
 """
 
 import logging
+import re
 
 log = logging.getLogger(__name__)
 
 
 class Transformer:
     """Transforms resource data before code generation."""
+
+    def process_camel_case(self, name):
+        """Convert camelCase or PascalCase to kebab-case.
+
+        Only transforms if the name contains uppercase letters [A-Z].
+        Inserts hyphen before each uppercase letter and lowercases all.
+
+        Examples:
+            backupVault -> backup-vault
+            Analyzer -> analyzer
+            CodeSigningConfig -> code-signing-config
+            bucket -> bucket (unchanged)
+            certificate-authority -> certificate-authority (unchanged)
+        """
+        if not re.search(r"[A-Z]", name):
+            return name
+        result = re.sub(r"([A-Z])", r"-\1", name).lower().lstrip("-")
+        return result
 
     def process(self, resources):
         """Transform resources, normalizing resource_type names.
@@ -21,13 +40,37 @@ class Transformer:
         Returns:
             List of transformed resource dicts.
         """
-        # TODO: Implement kebab-case normalization for resource_type
-        result = resources
+        transformed_count = 0
+        result = []
+        for r in resources:
+            original = r["resource_type"]
+            normalized = self.process_camel_case(original)
+            if normalized != original:
+                transformed_count += 1
+                r = {**r, "resource_type": normalized}
+            result.append(r)
 
         self.metrics = {
             "input": len(resources),
-            "transformed": 0,  # Count of names that changed
+            "transformed": transformed_count,
             "output": len(result),
         }
 
+        return result
+
+    def process_by_service(self, by_service):
+        """Transform type_names in the by_service structure.
+
+        Args:
+            by_service: Dict of service -> list of (regex, type_names) tuples
+
+        Returns:
+            Transformed by_service dict with normalized type_names.
+        """
+        result = {}
+        for service, patterns in by_service.items():
+            result[service] = [
+                (regex, [self.process_camel_case(name) for name in type_names])
+                for regex, type_names in patterns
+            ]
         return result
