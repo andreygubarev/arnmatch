@@ -29,8 +29,8 @@ class ARN:
     resource_type: str  # canonical type (from AWS docs)
     resource_types: list[str]  # all known names including Resource Explorer
     attributes: dict[str, str]
-    _sdk: str | None = None
-    _cfn: str | None = None
+    aws_sdk_service: str | None = None
+    cloudformation_resource: str | None = None
 
     @cached_property
     def resource_id(self) -> str:
@@ -90,23 +90,6 @@ class ARN:
         """
         return AWS_SDK_SERVICES.get(self.aws_service, [])
 
-    @cached_property
-    def aws_sdk_service(self) -> str | None:
-        """Get the AWS SDK (boto3) client name for this resource.
-
-        Returns single client name. Returns None if no SDK exists.
-        """
-        return self._sdk
-
-    @cached_property
-    def cloudformation_resource(self) -> str | None:
-        """Get the CloudFormation resource type for this resource.
-
-        Returns the CFN resource type (e.g., 'AWS::S3::Bucket') or None
-        if no mapping exists.
-        """
-        return self._cfn
-
 
 def arnmatch(arn: str) -> ARN:
     """Match ARN against patterns.
@@ -136,8 +119,8 @@ def arnmatch(arn: str) -> ARN:
                 resource_type=pattern['names'][0],  # canonical
                 resource_types=pattern['names'],  # all known names
                 attributes=match.groupdict(),
-                _sdk=pattern['sdk'],
-                _cfn=pattern['cfn'],
+                aws_sdk_service=pattern['sdk'],
+                cloudformation_resource=pattern['cfn'],
             )
 
     raise ARNError(f"No pattern matched ARN: {arn}")
