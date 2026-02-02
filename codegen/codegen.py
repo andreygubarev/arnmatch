@@ -73,66 +73,6 @@ class CodeGenerator:
 
         return by_service
 
-    def generate(self, by_service, sdk_services_mapping, cfn_resources_mapping, transformer, output_path):
-        """Generate Python file with ARN patterns and SDK services mapping."""
-        with open(output_path, "w") as f:
-            f.write("# Auto-generated ARN patterns for matching\n")
-            f.write("# Patterns are ordered: most specific first\n")
-            f.write("import re\n\n")
-            f.write("ARN_PATTERNS = {\n")
-
-            for service, patterns in by_service.items():
-                f.write(f"    {service!r}: [\n")
-                for regex, type_names in patterns:
-                    # Build names list: transformed first, then originals (deduplicated)
-                    all_names = []
-                    for n in type_names:
-                        transformed = transformer.process(n)
-                        all_names.append(transformed)
-                        if transformed != n:
-                            all_names.append(n)
-                    all_names = list(dict.fromkeys(all_names))  # Dedupe
-                    f.write(f'        (re.compile(r"{regex}"), {all_names!r}),\n')
-                f.write("    ],\n")
-
-            f.write("}\n\n")
-
-            # Write SDK services mapping
-            f.write("# Auto-generated mapping: ARN service -> AWS SDK client names\n")
-            f.write("AWS_SDK_SERVICES = {\n")
-            for arn_service, clients in sorted(sdk_services_mapping.items()):
-                f.write(f"    {arn_service!r}: {clients!r},\n")
-            f.write("}\n\n")
-
-            # Write SDK default service mapping
-            f.write("# Default SDK for multi-SDK services\n")
-            f.write("AWS_SDK_SERVICES_DEFAULT = {\n")
-            for arn_service, sdk in sorted(SDKResourceIndexer.DEFAULT_SERVICE.items()):
-                f.write(f"    {arn_service!r}: {sdk!r},\n")
-            f.write("}\n\n")
-
-            # Write SDK service overrides (resource-level)
-            f.write("# Resource-level SDK overrides: resource_type -> sdk_client\n")
-            f.write("AWS_SDK_SERVICES_OVERRIDE = {\n")
-            for arn_service, overrides in sorted(SDKResourceIndexer.OVERRIDE_SERVICE.items()):
-                f.write(f"    {arn_service!r}: {overrides!r},\n")
-            f.write("}\n\n")
-
-            # Write CloudFormation resource mappings
-            f.write("# ARN resource type -> CloudFormation resource type\n")
-            f.write("AWS_CLOUDFORMATION_RESOURCES = {\n")
-            for arn_service, resources in sorted(cfn_resources_mapping.items()):
-                transformed_resources = {
-                    transformer.process(rt): cfn_type
-                    for rt, cfn_type in resources.items()
-                }
-                f.write(f"    {arn_service!r}: {transformed_resources!r},\n")
-            f.write("}\n")
-
-        pattern_count = sum(len(patterns) for patterns in by_service.values())
-        log.info(f"Wrote {pattern_count} patterns for {len(by_service)} services to {output_path}")
-        log.info(f"Wrote SDK mapping for {len(sdk_services_mapping)} services")
-
     def pattern_to_regex(self, arn_pattern):
         """Convert ARN pattern to regex with named capture groups."""
         placeholders = []
@@ -298,7 +238,6 @@ def main():
     # Transform resource names at export time
     transformer = Transformer()
 
-    generator.generate(by_service, sdk_mapping, cfn_resources_mapping, transformer, BUILD_DIR / "arn_patterns.py")
     generator.export(resources, sdk_mapping, cfn_resources_mapping, transformer, BUILD_DIR / "arn_patterns.yaml")
 
     # Collect and save metrics
