@@ -6,13 +6,7 @@ import sys
 from dataclasses import dataclass
 from functools import cached_property
 
-from .arn_patterns import (
-    ARN_PATTERNS,
-    AWS_CLOUDFORMATION_RESOURCES,
-    AWS_SDK_SERVICES,
-    AWS_SDK_SERVICES_DEFAULT,
-    AWS_SDK_SERVICES_OVERRIDE,
-)
+from .arn_patterns import ARN_PATTERNS, AWS_SDK_SERVICES
 
 # Standard groups that are not resource-specific
 STANDARD_GROUPS = {"Partition", "Region", "Account"}
@@ -35,6 +29,8 @@ class ARN:
     resource_type: str  # canonical type (from AWS docs)
     resource_types: list[str]  # all known names including Resource Explorer
     attributes: dict[str, str]
+    aws_sdk_service: str | None = None
+    cloudformation_resource: str | None = None
 
     @cached_property
     def resource_id(self) -> str:
@@ -94,35 +90,6 @@ class ARN:
         """
         return AWS_SDK_SERVICES.get(self.aws_service, [])
 
-    @cached_property
-    def aws_sdk_service(self) -> str | None:
-        """Get the AWS SDK (boto3) client name for this resource.
-
-        Returns single client name. Checks resource-level overrides first,
-        then falls back to service default. Returns None if no SDK exists.
-        """
-        # Check resource-level override
-        overrides = AWS_SDK_SERVICES_OVERRIDE.get(self.aws_service)
-        if overrides and self.resource_type in overrides:
-            return overrides[self.resource_type]
-
-        # Fall back to service-level
-        sdks = self.aws_sdk_services
-        if len(sdks) == 1:
-            return sdks[0]
-        if len(sdks) > 1:
-            return AWS_SDK_SERVICES_DEFAULT.get(self.aws_service)
-        return None
-
-    @cached_property
-    def cloudformation_resource(self) -> str | None:
-        """Get the CloudFormation resource type for this resource.
-
-        Returns the CFN resource type (e.g., 'AWS::S3::Bucket') or None
-        if no mapping exists.
-        """
-        return AWS_CLOUDFORMATION_RESOURCES.get(self.aws_service, {}).get(self.resource_type)
-
 
 def arnmatch(arn: str) -> ARN:
     """Match ARN against patterns.
@@ -141,17 +108,19 @@ def arnmatch(arn: str) -> ARN:
     if service not in ARN_PATTERNS:
         raise ARNError(f"Unknown service: {service}")
 
-    for regex, type_names in ARN_PATTERNS[service]:
-        match = regex.match(arn)
+    for pattern in ARN_PATTERNS[service]:
+        match = pattern['regex'].match(arn)
         if match:
             return ARN(
                 aws_partition=partition,
                 aws_service=service,
                 aws_region=region,
                 aws_account=account,
-                resource_type=type_names[0],  # canonical
-                resource_types=type_names,  # all known names
+                resource_type=pattern['names'][0],  # canonical
+                resource_types=pattern['names'],  # all known names
                 attributes=match.groupdict(),
+                aws_sdk_service=pattern['sdk'],
+                cloudformation_resource=pattern['cfn'],
             )
 
     raise ARNError(f"No pattern matched ARN: {arn}")

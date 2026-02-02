@@ -17,7 +17,7 @@ check: lint test ## Run lint and test
 
 .PHONY: generate
 generate: ## Generate ARN patterns
-	uv run codegen/codegen.py
+	$(MAKE) -C codegen
 
 .PHONY: build
 build: ## Build package

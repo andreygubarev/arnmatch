@@ -39,6 +39,7 @@
   "authorizer": "",
   "authorizers": "",
   "autoscalingconfiguration": "autoscaling-configuration",
+  "auto-scaling-group": "autoscaling-group",
   "awspolicy": "aws-policy",
   "baseline": "",
   "batchprediction": "batch-prediction",
