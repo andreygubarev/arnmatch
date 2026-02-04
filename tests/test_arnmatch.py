@@ -1,5 +1,8 @@
 """Tests for ARN pattern matching."""
 
+import boto3
+import pytest
+
 from arnmatch import arnmatch
 
 
@@ -452,3 +455,30 @@ def test_wafv2():
     assert result.attributes["Scope"] == "regional"
     assert result.attributes["Name"] == "webacl-production-acl"
     assert result.attributes["Id"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+
+
+class TestClient:
+    """Tests for ARN.client() method."""
+
+    def test_client_returns_correct_service(self):
+        """Test client() returns a client for the correct service."""
+        result = arnmatch(
+            "arn:aws:lambda:us-east-1:012345678901:function:my-function"
+        )
+        client = result.client()
+        assert client.meta.service_model.service_name == "lambda"
+
+    def test_client_uses_provided_session(self):
+        """Test client() uses the provided session."""
+        session = boto3.Session()
+        result = arnmatch("arn:aws:s3:::my-bucket")
+        client = result.client(session=session)
+        assert client.meta.service_model.service_name == "s3"
+
+    def test_client_raises_when_no_sdk_mapping(self):
+        """Test client() raises ValueError when no SDK service mapping exists."""
+        # 'a4b' (Alexa for Business) has no SDK mapping
+        result = arnmatch("arn:aws:a4b:us-east-1:012345678901:address-book/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")
+
+        with pytest.raises(ValueError, match="No SDK service mapping"):
+            result.client()

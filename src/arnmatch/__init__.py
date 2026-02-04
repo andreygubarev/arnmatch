@@ -90,6 +90,28 @@ class ARN:
         """
         return AWS_SDK_SERVICES.get(self.aws_service, [])
 
+    def client(self, session: "boto3.Session | None" = None):  # noqa: F821
+        """Return a boto3 client for this resource's service.
+
+        Args:
+            session: Optional boto3 Session. If None, creates a new session.
+
+        Returns:
+            boto3 client for the service.
+
+        Raises:
+            ValueError: If no SDK service mapping exists for this ARN's service.
+        """
+        if self.aws_sdk_service is None:
+            raise ValueError(f"No SDK service mapping for service '{self.aws_service}'")
+
+        import boto3
+
+        if session is None:
+            session = boto3.Session()
+
+        return session.client(self.aws_sdk_service)
+
 
 def arnmatch(arn: str) -> ARN:
     """Match ARN against patterns.

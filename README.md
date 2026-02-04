@@ -68,6 +68,10 @@ result.resource_id            # "my-function"
 result.resource_name          # "my-function"
 result.cloudformation_resource  # "AWS::Lambda::Function"
 result.aws_sdk_service        # "lambda"
+
+# Get a boto3 client for the service
+client = result.client()
+client.get_function(FunctionName=result.resource_name)
 ```
 
 ## API Reference
@@ -101,6 +105,12 @@ Properties:
 | `resource_id` | Resource identifier (prefers attributes ending in `Id`, then `Name`, then last attribute) |
 | `resource_name` | Resource name (prefers attributes ending in `Name`, falls back to `resource_id`) |
 | `aws_sdk_services` | List of boto3 client names (e.g., `['elb', 'elbv2']` for elasticloadbalancing) |
+
+Methods:
+
+| Method | Description |
+|--------|-------------|
+| `client(session=None)` | Returns a boto3 client for the resource's service. Pass an optional `boto3.Session` or uses default. Raises `ValueError` if no SDK mapping exists. |
 
 ### `ARNError`
 

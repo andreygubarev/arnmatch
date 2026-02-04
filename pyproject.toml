@@ -22,6 +22,7 @@ path = "src/arnmatch/__init__.py"
 
 [dependency-groups]
 dev = [
+    "boto3>=1.42.41",
     "pytest>=9.0.2",
     "ruff>=0.14.14",
 ]
