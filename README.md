@@ -121,4 +121,4 @@ make publish    # Build and upload to PyPI
 
 ## Versioning
 
-[CalVer](https://calver.org/) format `YYYY.0M.MICRO` (e.g., `2026.02.0`).
+[CalVer](https://calver.org/) format `YYYY.MM.MICRO` (e.g., `2026.2.0`).
