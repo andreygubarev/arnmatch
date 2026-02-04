@@ -3,18 +3,32 @@
 Parse AWS ARNs into structured data.
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
+[![PyPI](https://img.shields.io/pypi/v/arnmatch)](https://pypi.org/project/arnmatch/)
 
-## Why
+## Overview
 
-AWS ARN formats are inconsistent. This problem was unsolved. Now it's solved (for 2000+ resource types from 300+ services). You're welcome.
+Working with AWS at scale raises questions that are surprisingly hard to answer:
+
+1. **What resource does this ARN represent?** - ARN formats vary across services with no consistent parsing rules
+2. **What ARN formats exist?** - No single source documents all valid ARN patterns
+3. **What resource types exist on AWS?** - Scattered across 300+ service documentation pages
+4. **What CloudFormation type maps to this ARN?** - No direct ARN-to-CFN mapping exists
+
+arnmatch answers these questions by:
+- Parsing ARNs into structured components (service, region, account, resource type, resource ID)
+- Providing a complete index of 2000+ resource types from 300+ AWS services
+- Mapping ARNs to CloudFormation resource types (e.g., `arn:aws:lambda:...:function:X` → `AWS::Lambda::Function`)
+
+Patterns are auto-generated from [AWS Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/).
 
 ## Features
 
 - Zero runtime dependencies
-- 300+ AWS services, 2000+ resource types supported
+- 300+ AWS services, 2000+ resource types
 - Patterns auto-generated from AWS official documentation
 - CLI and library interface
-- Extracts resource type, ID, and name with smart heuristics
+- CloudFormation resource type mapping
+- Boto3 SDK service name mapping
 
 ## Installation
 
@@ -27,14 +41,16 @@ pip install arnmatch
 ### CLI
 
 ```bash
-$ uvx arnmatch "arn:aws:lambda:us-east-1:123456789012:function:my-function"
+$ arnmatch "arn:aws:lambda:us-east-1:123456789012:function:my-function"
 aws_service: lambda
+aws_sdk_service: lambda
 aws_sdk_services: lambda
 aws_region: us-east-1
 aws_account: 123456789012
 resource_type: function
 resource_id: my-function
 resource_name: my-function
+cloudformation_resource: AWS::Lambda::Function
 ```
 
 ### Library
@@ -42,17 +58,16 @@ resource_name: my-function
 ```python
 from arnmatch import arnmatch
 
-arn = "arn:aws:lambda:us-east-1:123456789012:function:my-function"
-result = arnmatch(arn)
+result = arnmatch("arn:aws:lambda:us-east-1:123456789012:function:my-function")
 
-print(result.aws_service)      # lambda
-print(result.aws_sdk_services) # ['lambda']
-print(result.aws_region)       # us-east-1
-print(result.aws_account)      # 123456789012
-print(result.resource_type)    # function
-print(result.resource_id)      # my-function
-print(result.resource_name)    # my-function
-print(result.attributes)       # {'Partition': 'aws', 'Region': 'us-east-1', ...}
+result.aws_service            # "lambda"
+result.aws_region             # "us-east-1"
+result.aws_account            # "123456789012"
+result.resource_type          # "function"
+result.resource_id            # "my-function"
+result.resource_name          # "my-function"
+result.cloudformation_resource  # "AWS::Lambda::Function"
+result.aws_sdk_service        # "lambda"
 ```
 
 ## API Reference
@@ -75,23 +90,21 @@ Dataclass with parsed ARN components:
 | `aws_account` | `str` | AWS account ID |
 | `resource_type` | `str` | Canonical resource type from AWS docs |
 | `resource_types` | `list[str]` | All known names for this resource type |
-| `attributes` | `dict[str, str]` | All captured attributes from the pattern |
+| `attributes` | `dict[str, str]` | All captured attributes from the ARN |
+| `aws_sdk_service` | `str \| None` | Primary boto3 client name |
+| `cloudformation_resource` | `str \| None` | CloudFormation resource type |
 
 Properties:
 
 | Property | Description |
 |----------|-------------|
-| `resource_id` | Resource identifier (prefers groups ending in `Id`, falls back to `Name`, then last group) |
-| `resource_name` | Resource name (prefers groups ending in `Name`, falls back to `resource_id`) |
-| `aws_sdk_services` | List of boto3 client names for this service (e.g., `['elb', 'elbv2']` for elasticloadbalancing) |
+| `resource_id` | Resource identifier (prefers attributes ending in `Id`, then `Name`, then last attribute) |
+| `resource_name` | Resource name (prefers attributes ending in `Name`, falls back to `resource_id`) |
+| `aws_sdk_services` | List of boto3 client names (e.g., `['elb', 'elbv2']` for elasticloadbalancing) |
 
 ### `ARNError`
 
 Exception raised when ARN parsing fails. Inherits from `ValueError`.
-
-## Versioning
-
-This project uses [CalVer](https://calver.org/) with format `YYYY.0M.MICRO` (e.g., `2026.01.0`).
 
 ## Development
 
@@ -101,13 +114,11 @@ Prerequisites: [uv](https://github.com/astral-sh/uv)
 make lint       # Run ruff linter
 make test       # Run pytest tests
 make check      # Run lint and test
+make generate   # Regenerate patterns from AWS docs
 make build      # Build wheel and tarball
 make publish    # Build and upload to PyPI
-make clean      # Remove build artifacts
 ```
 
-Regenerate patterns from AWS docs:
+## Versioning
 
-```bash
-cd codegen && uv run codegen.py
-```
+[CalVer](https://calver.org/) format `YYYY.0M.MICRO` (e.g., `2026.02.0`).
