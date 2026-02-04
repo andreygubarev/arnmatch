@@ -12,14 +12,13 @@ arnmatch is a zero-dependency Python library that parses AWS ARNs into structure
 make lint       # Run ruff linter
 make test       # Run pytest tests
 make check      # Run lint and test
+make generate   # Regenerate patterns from AWS docs (runs codegen pipeline)
 make build      # Copy generated patterns to src + build wheel/tarball
 make publish    # Build and upload to PyPI
 make clean      # Remove build artifacts
-```
 
-Run codegen to regenerate patterns from AWS docs:
-```bash
-uv run codegen/codegen.py
+# Integration test (requires AWS credentials + Resource Explorer)
+make test-integration
 ```
 
 Test locally:
@@ -32,24 +31,26 @@ uv run arnmatch <arn>
 ### Core Library (`src/arnmatch/`)
 
 - `__init__.py` - Main module with `arnmatch(arn)` function and `ARN` dataclass
-- `arn_patterns.py` - Generated file containing compiled regex patterns indexed by service and AWS SDK services mapping
+- `arn_patterns.py` - Generated file containing compiled regex patterns indexed by service, SDK services mapping, and CloudFormation resource types
 
-The `arnmatch()` function splits the ARN, looks up patterns by service, and returns an `ARN` with partition, service, region, account, resource_type, and captured groups. The `resource_id` and `resource_name` properties use heuristics (prefer groups ending in "Id" or "Name"). The `aws_sdk_services` property returns boto3 client names for the service.
+The `arnmatch()` function splits the ARN, looks up patterns by service, and returns an `ARN` with partition, service, region, account, resource_type, and captured groups. Key properties: `resource_id`/`resource_name` use heuristics (prefer groups ending in "Id" or "Name"), `aws_sdk_service` returns the specific boto3 client for this resource type, `cloudformation_resource` returns the CFN type (e.g., `AWS::Lambda::Function`).
 
 ### Code Generation (`codegen/`)
 
 - `scraper.py` - Scrapes AWS service authorization reference pages, caches results with joblib
-- `codegen.py` - Processes resources and generates `arn_patterns.py`
-- `index_sdk.py` - Maps ARN service names to AWS SDK (boto3) client names
+- `codegen.py` - Main orchestrator: processes resources and generates `arn_patterns.yaml`
+- `codegen_python.py` - Converts YAML to Python with compiled regex patterns
+- `index_*.py` - Indexers for ARN patterns, SDK clients, and CloudFormation types
+- `transform.py` - Normalizes resource type names (e.g., `loadbalancer/app/` → `loadbalancer-app`)
 
-Data flow: AWS docs → `scraper.py` → raw resources → `codegen.py` + `index_sdk.py` → `codegen/build/arn_patterns.py` → (copied by `make build`) → `src/arnmatch/arn_patterns.py`
+Data flow: AWS docs → `scraper.py` → raw resources → `codegen.py` → `arn_patterns.yaml` → `codegen_python.py` → `codegen/build/arn_patterns.py` → (copied by `make build`) → `src/arnmatch/arn_patterns.py`
 
 ### Key Design Decisions
 
 1. **Pattern ordering**: Patterns sorted by specificity (more literal segments first) for correct matching
 2. **Service index**: O(1) lookup by service before pattern matching
 3. **Overrides in codegen.py**: `PATTERN_OVERRIDES` fixes AWS docs that use wildcards instead of capture groups; `PATTERN_INCLUDES` adds patterns not in docs (EKS k8s resources, Inspector legacy)
-4. **SDK service mapping**: `index_sdk.py` maps ARN service names to boto3 client names using botocore metadata (signingName/endpointPrefix), with manual overrides for edge cases and excludes for discontinued/console-only services
+4. **SDK service mapping**: `index_sdk.py` maps ARN service names to boto3 client names using botocore metadata (signingName/endpointPrefix), with manual overrides for edge cases and excludes for discontinued/console-only services. Rules are stored in `codegen/rules/*.json`
 5. **Zero runtime dependencies**: Only codegen has external deps (requests, beautifulsoup4, joblib, boto3)
 
 ## Build Notes
