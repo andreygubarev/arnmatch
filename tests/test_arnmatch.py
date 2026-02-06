@@ -457,6 +457,89 @@ def test_wafv2():
     assert result.attributes["Id"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 
+class TestTaggingResource:
+    """Tests for tagging_resource field."""
+
+    def test_ec2_instance_has_tagging(self):
+        """EC2 instance has both CFN and tagging."""
+        result = arnmatch("arn:aws:ec2:us-east-1:012345678901:instance/i-0123456789abcdef0")
+        assert result.cloudformation_resource == "AWS::EC2::Instance"
+        assert result.tagging_resource == "AWS::EC2::Instance"
+
+    def test_lambda_function_has_tagging(self):
+        """Lambda function has both CFN and tagging."""
+        result = arnmatch("arn:aws:lambda:us-east-1:012345678901:function:my-function")
+        assert result.cloudformation_resource == "AWS::Lambda::Function"
+        assert result.tagging_resource == "AWS::Lambda::Function"
+
+    def test_s3_bucket_has_tagging(self):
+        """S3 bucket has both CFN and tagging."""
+        result = arnmatch("arn:aws:s3:::my-bucket")
+        assert result.cloudformation_resource == "AWS::S3::Bucket"
+        assert result.tagging_resource == "AWS::S3::Bucket"
+
+    def test_kafka_cluster(self):
+        """Kafka cluster has different CFN (MSK) vs tagging (Kafka) service names."""
+        result = arnmatch(
+            "arn:aws:kafka:us-east-1:012345678901:cluster/my-cluster/12345678-1234-1234-1234-123456789012"
+        )
+        assert result.resource_type == "cluster"
+        assert result.attributes["ClusterName"] == "my-cluster"
+        assert result.aws_sdk_service == "kafka"
+        # CFN uses MSK namespace, tagging uses Kafka namespace
+        assert result.cloudformation_resource == "AWS::MSK::Cluster"
+        assert result.tagging_resource == "AWS::Kafka::Cluster"
+
+    def test_kafka_topic_no_tagging(self):
+        """Kafka topic has no CFN or tagging (sub-resource)."""
+        result = arnmatch(
+            "arn:aws:kafka:us-east-1:012345678901:topic/my-cluster/12345678-1234-1234-1234-123456789012/my-topic"
+        )
+        assert result.resource_type == "topic"
+        assert result.attributes["TopicName"] == "my-topic"
+        assert result.cloudformation_resource is None
+        assert result.tagging_resource is None
+
+    def test_kafka_configuration_cfn_only(self):
+        """Kafka configuration has CFN but no tagging."""
+        result = arnmatch(
+            "arn:aws:kafka:us-east-1:012345678901:configuration/my-config/12345678-1234-1234-1234-123456789012"
+        )
+        assert result.resource_type == "configuration"
+        assert result.cloudformation_resource == "AWS::MSK::Configuration"
+        assert result.tagging_resource is None
+
+    def test_kafka_replicator(self):
+        """Kafka replicator has both CFN and tagging as MSK."""
+        result = arnmatch(
+            "arn:aws:kafka:us-east-1:012345678901:replicator/my-replicator/12345678-1234-1234-1234-123456789012"
+        )
+        assert result.resource_type == "replicator"
+        assert result.cloudformation_resource == "AWS::MSK::Replicator"
+        assert result.tagging_resource == "AWS::MSK::Replicator"
+
+    def test_ec2_instance_event_window_tagging_only(self):
+        """EC2 instance-event-window has tagging but no CFN."""
+        result = arnmatch(
+            "arn:aws:ec2:us-east-1:012345678901:instance-event-window/iew-0123456789abcdef0"
+        )
+        assert result.resource_type == "instance-event-window"
+        assert result.cloudformation_resource is None
+        assert result.tagging_resource == "AWS::EC2::InstanceEventWindow"
+
+    def test_cloudfront_distribution(self):
+        """CloudFront distribution has both CFN and tagging."""
+        result = arnmatch("arn:aws:cloudfront::012345678901:distribution/ABCDEFGHIJKLMN")
+        assert result.cloudformation_resource == "AWS::CloudFront::Distribution"
+        assert result.tagging_resource == "AWS::CloudFront::Distribution"
+
+    def test_dynamodb_table(self):
+        """DynamoDB table has both CFN and tagging."""
+        result = arnmatch("arn:aws:dynamodb:us-east-1:012345678901:table/my-table")
+        assert result.cloudformation_resource == "AWS::DynamoDB::Table"
+        assert result.tagging_resource == "AWS::DynamoDB::Table"
+
+
 class TestClient:
     """Tests for ARN.client() method."""
 
