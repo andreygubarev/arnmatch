@@ -1,0 +1,17 @@
+{
+  "CertificateManager": "acm",
+  "Cognito": "cognito-idp",
+  "Elasticsearch": "es",
+  "EventSchemas": "schemas",
+  "HealthImaging": "medical-imaging",
+  "InspectorV2": "inspector2",
+  "IoTCoreDeviceAdvisor": "iotdeviceadvisor",
+  "KinesisFirehose": "firehose",
+  "LexV2": "lexv2-models",
+  "MSK": "kafka",
+  "Macie": "macie2",
+  "OpenSearchService": "opensearch",
+  "Route53RecoveryControl": "route53-recovery-control-config",
+  "SystemsManagerSAP": "ssm-sap",
+  "UserNotifications": "notifications"
+}
