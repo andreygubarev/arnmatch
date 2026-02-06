@@ -12,12 +12,13 @@ Working with AWS at scale raises questions that are surprisingly hard to answer:
 1. **What resource does this ARN represent?** - ARN formats vary across services with no consistent parsing rules
 2. **What ARN formats exist?** - No single source documents all valid ARN patterns
 3. **What resource types exist on AWS?** - Scattered across 300+ service documentation pages
-4. **What CloudFormation type maps to this ARN?** - No direct ARN-to-CFN mapping exists
+4. **What CloudFormation/Tagging API type maps to this ARN?** - No direct ARN-to-CFN or ARN-to-Tagging mapping exists
 
 arnmatch answers these questions by:
 - Parsing ARNs into structured components (service, region, account, resource type, resource ID)
 - Providing a complete index of 2000+ resource types from 300+ AWS services
 - Mapping ARNs to CloudFormation resource types (e.g., `arn:aws:lambda:...:function:X` → `AWS::Lambda::Function`)
+- Mapping ARNs to Resource Groups Tagging API types for tag operations
 
 Patterns are auto-generated from [AWS Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/).
 
@@ -28,6 +29,7 @@ Patterns are auto-generated from [AWS Service Authorization Reference](https://d
 - Patterns auto-generated from AWS official documentation
 - CLI and library interface
 - CloudFormation resource type mapping
+- Resource Groups Tagging API type mapping
 - Boto3 SDK service name mapping
 
 ## Installation
@@ -51,6 +53,7 @@ resource_type: function
 resource_id: my-function
 resource_name: my-function
 cloudformation_resource: AWS::Lambda::Function
+tagging_resource: AWS::Lambda::Function
 ```
 
 ### Library
@@ -67,6 +70,7 @@ result.resource_type          # "function"
 result.resource_id            # "my-function"
 result.resource_name          # "my-function"
 result.cloudformation_resource  # "AWS::Lambda::Function"
+result.tagging_resource       # "AWS::Lambda::Function"
 result.aws_sdk_service        # "lambda"
 
 # Get a boto3 client for the service
@@ -97,6 +101,7 @@ Dataclass with parsed ARN components:
 | `attributes` | `dict[str, str]` | All captured attributes from the ARN |
 | `aws_sdk_service` | `str \| None` | Primary boto3 client name |
 | `cloudformation_resource` | `str \| None` | CloudFormation resource type |
+| `tagging_resource` | `str \| None` | Resource Groups Tagging API type |
 
 Properties:
 
