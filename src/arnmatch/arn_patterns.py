@@ -277,7 +277,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):auditmanager:(?P<Region>[\w-]*):(?P<Account>\d{12}):control/(?P<ControlId>.+?)$"), 'names': ['control'], 'sdk': 'auditmanager', 'cfn': None},
     ],
     'autoscaling': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):autoscaling:(?P<Region>[\w-]*):(?P<Account>\d{12}):autoScalingGroup:(?P<GroupId>.+?):autoScalingGroupName/(?P<GroupFriendlyName>.+?)$"), 'names': ['auto-scaling-group', 'autoScalingGroup'], 'sdk': 'autoscaling', 'cfn': 'AWS::AutoScaling::AutoScalingGroup'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):autoscaling:(?P<Region>[\w-]*):(?P<Account>\d{12}):autoScalingGroup:(?P<GroupId>.+?):autoScalingGroupName/(?P<GroupFriendlyName>.+?)$"), 'names': ['autoscaling-group', 'autoScalingGroup'], 'sdk': 'autoscaling', 'cfn': 'AWS::AutoScaling::AutoScalingGroup'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):autoscaling:(?P<Region>[\w-]*):(?P<Account>\d{12}):launchConfiguration:(?P<Id>.+?):launchConfigurationName/(?P<LaunchConfigurationName>.+?)$"), 'names': ['launch-configuration', 'launchConfiguration'], 'sdk': 'autoscaling', 'cfn': 'AWS::AutoScaling::LaunchConfiguration'},
     ],
     'aws-marketplace': [
