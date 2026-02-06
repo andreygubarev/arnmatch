@@ -80,7 +80,9 @@
     "ScalableTarget": "AWS::ApplicationAutoScaling::ScalableTarget",
     "scalable-target": "AWS::ApplicationAutoScaling::ScalableTarget"
   },
-  "application-signals": {},
+  "application-signals": {
+    "slo": "AWS::ApplicationSignals::ServiceLevelObjective"
+  },
   "appmesh": {
     "gateway-route": "AWS::AppMesh::GatewayRoute",
     "gatewayRoute": "AWS::AppMesh::GatewayRoute",
@@ -131,7 +133,10 @@
     "stack": "AWS::AppStream::Stack"
   },
   "appsync": {
-    "api": "AWS::AppSync::Api"
+    "api": "AWS::AppSync::Api",
+    "domain": "AWS::AppSync::DomainName",
+    "graphql-api": "AWS::AppSync::Api",
+    "graphqlapi": "AWS::AppSync::Api"
   },
   "aps": {
     "rulegroups-namespace": "AWS::APS::RuleGroupsNamespace",
@@ -237,7 +242,9 @@
     "quantum-task": "AWS::Braket::QuantumTask"
   },
   "budgets": {
-    "budget": "AWS::Budgets::Budget"
+    "budget": "AWS::Budgets::Budget",
+    "budget-action": "AWS::Budgets::BudgetsAction",
+    "budgetAction": "AWS::Budgets::BudgetsAction"
   },
   "cases": {
     "Case": "AWS::Cases::Case",
@@ -253,7 +260,9 @@
   },
   "catalog": {
     "Portfolio": "AWS::ServiceCatalog::Portfolio",
-    "portfolio": "AWS::ServiceCatalog::Portfolio"
+    "Product": "AWS::ServiceCatalog::CloudFormationProduct",
+    "portfolio": "AWS::ServiceCatalog::Portfolio",
+    "product": "AWS::ServiceCatalog::CloudFormationProduct"
   },
   "ce": {
     "anomaly-monitor": "AWS::CE::AnomalyMonitor",
@@ -339,7 +348,8 @@
   "cloudwatch": {
     "alarm": "AWS::CloudWatch::Alarm",
     "insight-rule": "AWS::CloudWatch::InsightRule",
-    "metric-stream": "AWS::CloudWatch::MetricStream"
+    "metric-stream": "AWS::CloudWatch::MetricStream",
+    "slo": "AWS::CloudWatch::ServiceLevelObjective"
   },
   "codeartifact": {
     "domain": "AWS::CodeArtifact::Domain",
@@ -370,7 +380,9 @@
     "ProfilingGroup": "AWS::CodeGuruProfiler::ProfilingGroup",
     "profiling-group": "AWS::CodeGuruProfiler::ProfilingGroup"
   },
-  "codeguru-reviewer": {},
+  "codeguru-reviewer": {
+    "association": "AWS::CodeGuruReviewer::RepositoryAssociation"
+  },
   "codepipeline": {
     "pipeline": "AWS::CodePipeline::Pipeline",
     "webhook": "AWS::CodePipeline::Webhook"
@@ -432,6 +444,7 @@
     "contact-flow": "AWS::Connect::ContactFlow",
     "contact-flow-module": "AWS::Connect::ContactFlowModule",
     "evaluation-form": "AWS::Connect::EvaluationForm",
+    "hierarchy-group": "AWS::Connect::UserHierarchyGroup",
     "hours-of-operation": "AWS::Connect::HoursOfOperation",
     "instance": "AWS::Connect::Instance",
     "integration-association": "AWS::Connect::IntegrationAssociation",
@@ -505,8 +518,15 @@
     "Graph": "AWS::Detective::Graph",
     "graph": "AWS::Detective::Graph"
   },
-  "directconnect": {},
-  "dlm": {},
+  "directconnect": {
+    "dx-gateway": "AWS::DirectConnect::Gateway",
+    "dxcon": "AWS::DirectConnect::Connection",
+    "dxlag": "AWS::DirectConnect::Lag",
+    "dxvif": "AWS::DirectConnect::VirtualInterface"
+  },
+  "dlm": {
+    "policy": "AWS::DLM::LifecyclePolicy"
+  },
   "dms": {
     "Certificate": "AWS::DMS::Certificate",
     "DataMigration": "AWS::DMS::DataMigration",
@@ -531,12 +551,24 @@
     "replication-instance": "AWS::DMS::ReplicationInstance",
     "replication-subnet-group": "AWS::DMS::ReplicationSubnetGroup",
     "replication-task": "AWS::DMS::ReplicationTask",
-    "replication-task-assessment-run": "AWS::DMS::ReplicationTaskAssessmentRun"
+    "replication-task-assessment-run": "AWS::DMS::ReplicationTaskAssessmentRun",
+    "subgrp": "AWS::DMS::ReplicationSubnetGroup"
   },
   "docdb-elastic": {
     "cluster-snapshot": "AWS::DocDBElastic::ClusterSnapshot"
   },
-  "drs": {},
+  "drs": {
+    "JobResource": "AWS::DRS::Job",
+    "RecoveryInstanceResource": "AWS::DRS::RecoveryInstance",
+    "ReplicationConfigurationTemplateResource": "AWS::DRS::ReplicationConfigurationTemplate",
+    "SourceNetworkResource": "AWS::DRS::SourceNetwork",
+    "SourceServerResource": "AWS::DRS::SourceServer",
+    "job-resource": "AWS::DRS::Job",
+    "recovery-instance-resource": "AWS::DRS::RecoveryInstance",
+    "replication-configuration-template-resource": "AWS::DRS::ReplicationConfigurationTemplate",
+    "source-network-resource": "AWS::DRS::SourceNetwork",
+    "source-server-resource": "AWS::DRS::SourceServer"
+  },
   "ds": {
     "directory": "AWS::DirectoryService::Directory"
   },
@@ -648,6 +680,7 @@
     "podidentityassociation": "AWS::EKS::PodIdentityAssociation"
   },
   "elasticache": {
+    "cluster": "AWS::ElastiCache::CacheCluster",
     "parameter-group": "AWS::ElastiCache::ParameterGroup",
     "parametergroup": "AWS::ElastiCache::ParameterGroup",
     "replication-group": "AWS::ElastiCache::ReplicationGroup",
@@ -741,7 +774,9 @@
   },
   "events": {
     "event-bus": "AWS::Events::EventBus",
-    "rule": "AWS::Events::Rule"
+    "rule": "AWS::Events::Rule",
+    "rule-on-custom-event-bus": "AWS::Events::Rule",
+    "rule-on-default-event-bus": "AWS::Events::Rule"
   },
   "finspace": {
     "environment": "AWS::FinSpace::Environment",
@@ -780,10 +815,13 @@
     "dataset-import-job": "AWS::Forecast::DatasetImportJob",
     "datasetGroup": "AWS::Forecast::DatasetGroup",
     "datasetImportJob": "AWS::Forecast::DatasetImportJob",
+    "endpoint": "AWS::Forecast::ForecastEndpoint",
     "explainability": "AWS::Forecast::Explainability",
     "explainability-export": "AWS::Forecast::ExplainabilityExport",
     "explainabilityExport": "AWS::Forecast::ExplainabilityExport",
     "forecast": "AWS::Forecast::Forecast",
+    "forecast-export": "AWS::Forecast::ForecastExportJob",
+    "forecastExport": "AWS::Forecast::ForecastExportJob",
     "predictor": "AWS::Forecast::Predictor",
     "predictor-backtest-export-job": "AWS::Forecast::PredictorBacktestExportJob",
     "predictorBacktestExportJob": "AWS::Forecast::PredictorBacktestExportJob",
@@ -899,11 +937,13 @@
     "Config": "AWS::GroundStation::Config",
     "Contact": "AWS::GroundStation::Contact",
     "DataflowEndpointGroup": "AWS::GroundStation::DataflowEndpointGroup",
+    "EphemerisItem": "AWS::GroundStation::Ephemeris",
     "MissionProfile": "AWS::GroundStation::MissionProfile",
     "Satellite": "AWS::GroundStation::Satellite",
     "config": "AWS::GroundStation::Config",
     "contact": "AWS::GroundStation::Contact",
     "dataflow-endpoint-group": "AWS::GroundStation::DataflowEndpointGroup",
+    "ephemeris-item": "AWS::GroundStation::Ephemeris",
     "mission-profile": "AWS::GroundStation::MissionProfile",
     "satellite": "AWS::GroundStation::Satellite"
   },
@@ -916,7 +956,9 @@
     "threat-intel-set": "AWS::GuardDuty::ThreatIntelSet",
     "threatintelset": "AWS::GuardDuty::ThreatIntelSet"
   },
-  "healthlake": {},
+  "healthlake": {
+    "datastore": "AWS::HealthLake::FHIRDatastore"
+  },
   "iam": {
     "instance-profile": "AWS::IAM::InstanceProfile",
     "mfa": "AWS::IAM::VirtualMFADevice",
@@ -957,6 +999,7 @@
     "authorizer": "AWS::IoT::Authorizer",
     "billing-group": "AWS::IoT::BillingGroup",
     "billinggroup": "AWS::IoT::BillingGroup",
+    "cacert": "AWS::IoT::CACertificate",
     "certificate-provider": "AWS::IoT::CertificateProvider",
     "certificateprovider": "AWS::IoT::CertificateProvider",
     "command": "AWS::IoT::Command",
@@ -974,11 +1017,13 @@
     "mitigationaction": "AWS::IoT::MitigationAction",
     "ota-update": "AWS::IoT::OTAUpdate",
     "otaupdate": "AWS::IoT::OTAUpdate",
+    "package": "AWS::IoT::SoftwarePackage",
     "policy": "AWS::IoT::Policy",
     "provisioning-template": "AWS::IoT::ProvisioningTemplate",
     "provisioningtemplate": "AWS::IoT::ProvisioningTemplate",
     "role-alias": "AWS::IoT::RoleAlias",
     "rolealias": "AWS::IoT::RoleAlias",
+    "rule": "AWS::IoT::TopicRule",
     "scheduled-audit": "AWS::IoT::ScheduledAudit",
     "scheduledaudit": "AWS::IoT::ScheduledAudit",
     "security-profile": "AWS::IoT::SecurityProfile",
@@ -1041,6 +1086,7 @@
     "ServiceProfile": "AWS::IoTWireless::ServiceProfile",
     "WirelessDevice": "AWS::IoTWireless::WirelessDevice",
     "WirelessGateway": "AWS::IoTWireless::WirelessGateway",
+    "WirelessGatewayTaskDefinition": "AWS::IoTWireless::TaskDefinition",
     "destination": "AWS::IoTWireless::Destination",
     "device-profile": "AWS::IoTWireless::DeviceProfile",
     "fuota-task": "AWS::IoTWireless::FuotaTask",
@@ -1049,7 +1095,8 @@
     "network-analyzer-configuration": "AWS::IoTWireless::NetworkAnalyzerConfiguration",
     "service-profile": "AWS::IoTWireless::ServiceProfile",
     "wireless-device": "AWS::IoTWireless::WirelessDevice",
-    "wireless-gateway": "AWS::IoTWireless::WirelessGateway"
+    "wireless-gateway": "AWS::IoTWireless::WirelessGateway",
+    "wireless-gateway-task-definition": "AWS::IoTWireless::TaskDefinition"
   },
   "ivs": {
     "Channel": "AWS::IVS::Channel",
@@ -1094,7 +1141,9 @@
     "query-suggestions-block-list": "AWS::Kendra::QuerySuggestionsBlockList",
     "thesaurus": "AWS::Kendra::Thesaurus"
   },
-  "kendra-ranking": {},
+  "kendra-ranking": {
+    "rescore-execution-plan": "AWS::KendraRanking::ExecutionPlan"
+  },
   "kinesis": {
     "stream": "AWS::Kinesis::Stream"
   },
@@ -1140,6 +1189,7 @@
   "lightsail": {
     "Bucket": "AWS::Lightsail::Bucket",
     "Certificate": "AWS::Lightsail::Certificate",
+    "ContainerService": "AWS::Lightsail::Container",
     "Disk": "AWS::Lightsail::Disk",
     "DiskSnapshot": "AWS::Lightsail::DiskSnapshot",
     "Distribution": "AWS::Lightsail::Distribution",
@@ -1148,10 +1198,12 @@
     "InstanceSnapshot": "AWS::Lightsail::InstanceSnapshot",
     "KeyPair": "AWS::Lightsail::KeyPair",
     "LoadBalancer": "AWS::Lightsail::LoadBalancer",
+    "RelationalDatabase": "AWS::Lightsail::Database",
     "RelationalDatabaseSnapshot": "AWS::Lightsail::RelationalDatabaseSnapshot",
     "StaticIp": "AWS::Lightsail::StaticIp",
     "bucket": "AWS::Lightsail::Bucket",
     "certificate": "AWS::Lightsail::Certificate",
+    "container-service": "AWS::Lightsail::Container",
     "disk": "AWS::Lightsail::Disk",
     "disk-snapshot": "AWS::Lightsail::DiskSnapshot",
     "distribution": "AWS::Lightsail::Distribution",
@@ -1160,6 +1212,7 @@
     "instance-snapshot": "AWS::Lightsail::InstanceSnapshot",
     "key-pair": "AWS::Lightsail::KeyPair",
     "load-balancer": "AWS::Lightsail::LoadBalancer",
+    "relational-database": "AWS::Lightsail::Database",
     "relational-database-snapshot": "AWS::Lightsail::RelationalDatabaseSnapshot",
     "static-ip": "AWS::Lightsail::StaticIp"
   },
@@ -1320,8 +1373,12 @@
   "network-firewall": {
     "Firewall": "AWS::NetworkFirewall::Firewall",
     "FirewallPolicy": "AWS::NetworkFirewall::FirewallPolicy",
+    "StatefulRuleGroup": "AWS::NetworkFirewall::RuleGroup",
+    "StatelessRuleGroup": "AWS::NetworkFirewall::RuleGroup",
     "firewall": "AWS::NetworkFirewall::Firewall",
-    "firewall-policy": "AWS::NetworkFirewall::FirewallPolicy"
+    "firewall-policy": "AWS::NetworkFirewall::FirewallPolicy",
+    "stateful-rule-group": "AWS::NetworkFirewall::RuleGroup",
+    "stateless-rule-group": "AWS::NetworkFirewall::RuleGroup"
   },
   "networkmanager": {
     "connect-peer": "AWS::NetworkManager::ConnectPeer",
@@ -1372,6 +1429,8 @@
   },
   "organizations": {
     "account": "AWS::Organizations::Account",
+    "aws-policy": "AWS::Organizations::Policy",
+    "awspolicy": "AWS::Organizations::Policy",
     "organizational-unit": "AWS::Organizations::OrganizationalUnit",
     "organizationalunit": "AWS::Organizations::OrganizationalUnit",
     "policy": "AWS::Organizations::Policy",
@@ -1547,6 +1606,7 @@
   },
   "resiliencehub": {
     "app-assessment": "AWS::ResilienceHub::AppAssessment",
+    "application": "AWS::ResilienceHub::App",
     "recommendation-template": "AWS::ResilienceHub::RecommendationTemplate",
     "resiliency-policy": "AWS::ResilienceHub::ResiliencyPolicy"
   },
@@ -1574,9 +1634,13 @@
     "firewall-rule-group-association": "AWS::Route53Resolver::FirewallRuleGroupAssociation",
     "outpost-resolver": "AWS::Route53Resolver::OutpostResolver",
     "resolver-endpoint": "AWS::Route53Resolver::ResolverEndpoint",
+    "resolver-query-log-config": "AWS::Route53Resolver::ResolverQueryLoggingConfig",
     "resolver-rule": "AWS::Route53Resolver::ResolverRule"
   },
-  "rum": {},
+  "rum": {
+    "AppMonitorResource": "AWS::RUM::AppMonitor",
+    "app-monitor-resource": "AWS::RUM::AppMonitor"
+  },
   "s3": {
     "access-grant": "AWS::S3::AccessGrant",
     "access-grants-location": "AWS::S3::AccessGrantsLocation",
@@ -1585,7 +1649,9 @@
     "bucket": "AWS::S3::Bucket",
     "job": "AWS::S3::Job",
     "storage-lens": "AWS::S3::StorageLens",
+    "storage-lens-configuration": "AWS::S3::StorageLens",
     "storage-lens-group": "AWS::S3::StorageLensGroup",
+    "storagelensconfiguration": "AWS::S3::StorageLens",
     "storagelensgroup": "AWS::S3::StorageLensGroup"
   },
   "s3-object-lambda": {},
@@ -1721,7 +1787,9 @@
   "sns": {
     "topic": "AWS::SNS::Topic"
   },
-  "social-messaging": {},
+  "social-messaging": {
+    "waba": "AWS::SocialMessaging::WhatsAppBusinessAccount"
+  },
   "sqs": {
     "queue": "AWS::SQS::Queue"
   },
@@ -1772,7 +1840,9 @@
     "statemachine": "AWS::StepFunctions::StateMachine"
   },
   "storagegateway": {
+    "fs-association": "AWS::StorageGateway::FileSystemAssociation",
     "gateway": "AWS::StorageGateway::Gateway",
+    "share": "AWS::StorageGateway::FileShare",
     "tape": "AWS::StorageGateway::Tape",
     "tape-pool": "AWS::StorageGateway::TapePool",
     "tapepool": "AWS::StorageGateway::TapePool",
@@ -1914,12 +1984,18 @@
   "workspaces": {
     "connection-alias": "AWS::WorkSpaces::ConnectionAlias",
     "connectionalias": "AWS::WorkSpaces::ConnectionAlias",
+    "directory-id": "AWS::WorkSpaces::Directory",
+    "directoryid": "AWS::WorkSpaces::Directory",
     "workspace-bundle": "AWS::WorkSpaces::WorkspaceBundle",
+    "workspace-id": "AWS::WorkSpaces::Workspace",
     "workspace-image": "AWS::WorkSpaces::WorkspaceImage",
     "workspace-ip-group": "AWS::WorkSpaces::WorkspaceIpGroup",
     "workspacebundle": "AWS::WorkSpaces::WorkspaceBundle",
+    "workspaceid": "AWS::WorkSpaces::Workspace",
     "workspaceimage": "AWS::WorkSpaces::WorkspaceImage",
-    "workspaceipgroup": "AWS::WorkSpaces::WorkspaceIpGroup"
+    "workspaceipgroup": "AWS::WorkSpaces::WorkspaceIpGroup",
+    "workspaces-pool-id": "AWS::WorkSpaces::WorkspacesPool",
+    "workspacespoolid": "AWS::WorkSpaces::WorkspacesPool"
   },
   "workspaces-web": {
     "browser-settings": "AWS::WorkSpacesWeb::BrowserSettings",

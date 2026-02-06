@@ -1,4 +1,83 @@
 {
+  "directconnect": {
+    "dx-gateway": "AWS::DirectConnect::Gateway",
+    "dxcon": "AWS::DirectConnect::Connection",
+    "dxlag": "AWS::DirectConnect::Lag",
+    "dxvif": "AWS::DirectConnect::VirtualInterface"
+  },
+  "storagegateway": {
+    "fs-association": "AWS::StorageGateway::FileSystemAssociation",
+    "share": "AWS::StorageGateway::FileShare"
+  },
+  "route53resolver": {
+    "resolver-query-log-config": "AWS::Route53Resolver::ResolverQueryLoggingConfig"
+  },
+  "organizations": {
+    "aws-policy": "AWS::Organizations::Policy",
+    "awspolicy": "AWS::Organizations::Policy"
+  },
+  "groundstation": {
+    "EphemerisItem": "AWS::GroundStation::Ephemeris",
+    "ephemeris-item": "AWS::GroundStation::Ephemeris"
+  },
+  "forecast": {
+    "endpoint": "AWS::Forecast::ForecastEndpoint",
+    "forecast-export": "AWS::Forecast::ForecastExportJob",
+    "forecastExport": "AWS::Forecast::ForecastExportJob"
+  },
+  "workspaces": {
+    "directory-id": "AWS::WorkSpaces::Directory",
+    "directoryid": "AWS::WorkSpaces::Directory",
+    "workspace-id": "AWS::WorkSpaces::Workspace",
+    "workspaceid": "AWS::WorkSpaces::Workspace",
+    "workspaces-pool-id": "AWS::WorkSpaces::WorkspacesPool",
+    "workspacespoolid": "AWS::WorkSpaces::WorkspacesPool"
+  },
+  "events": {
+    "rule-on-custom-event-bus": "AWS::Events::Rule",
+    "rule-on-default-event-bus": "AWS::Events::Rule"
+  },
+  "drs": {
+    "JobResource": "AWS::DRS::Job",
+    "RecoveryInstanceResource": "AWS::DRS::RecoveryInstance",
+    "ReplicationConfigurationTemplateResource": "AWS::DRS::ReplicationConfigurationTemplate",
+    "SourceNetworkResource": "AWS::DRS::SourceNetwork",
+    "SourceServerResource": "AWS::DRS::SourceServer",
+    "job-resource": "AWS::DRS::Job",
+    "recovery-instance-resource": "AWS::DRS::RecoveryInstance",
+    "replication-configuration-template-resource": "AWS::DRS::ReplicationConfigurationTemplate",
+    "source-network-resource": "AWS::DRS::SourceNetwork",
+    "source-server-resource": "AWS::DRS::SourceServer"
+  },
+  "connect": {
+    "hierarchy-group": "AWS::Connect::UserHierarchyGroup"
+  },
+  "s3": {
+    "storage-lens-configuration": "AWS::S3::StorageLens",
+    "storagelensconfiguration": "AWS::S3::StorageLens"
+  },
+  "iot": {
+    "cacert": "AWS::IoT::CACertificate",
+    "package": "AWS::IoT::SoftwarePackage",
+    "rule": "AWS::IoT::TopicRule"
+  },
+  "appsync": {
+    "domain": "AWS::AppSync::DomainName",
+    "graphql-api": "AWS::AppSync::Api",
+    "graphqlapi": "AWS::AppSync::Api"
+  },
+  "network-firewall": {
+    "StatefulRuleGroup": "AWS::NetworkFirewall::RuleGroup",
+    "StatelessRuleGroup": "AWS::NetworkFirewall::RuleGroup",
+    "stateful-rule-group": "AWS::NetworkFirewall::RuleGroup",
+    "stateless-rule-group": "AWS::NetworkFirewall::RuleGroup"
+  },
+  "lightsail": {
+    "ContainerService": "AWS::Lightsail::Container",
+    "RelationalDatabase": "AWS::Lightsail::Database",
+    "container-service": "AWS::Lightsail::Container",
+    "relational-database": "AWS::Lightsail::Database"
+  },
   "redshift": {
     "parameter-group": "AWS::Redshift::ClusterParameterGroup",
     "parametergroup": "AWS::Redshift::ClusterParameterGroup",
@@ -86,5 +165,51 @@
     "spot-fleet-request": "AWS::EC2::SpotFleet",
     "spot-instances-request": "AWS::EC2::SpotInstanceRequest",
     "vpc-flow-log": "AWS::EC2::FlowLog"
+  },
+  "iotwireless": {
+    "WirelessGatewayTaskDefinition": "AWS::IoTWireless::TaskDefinition",
+    "wireless-gateway-task-definition": "AWS::IoTWireless::TaskDefinition"
+  },
+  "cloudwatch": {
+    "slo": "AWS::CloudWatch::ServiceLevelObjective"
+  },
+  "codeguru-reviewer": {
+    "association": "AWS::CodeGuruReviewer::RepositoryAssociation"
+  },
+  "budgets": {
+    "budget-action": "AWS::Budgets::BudgetsAction",
+    "budgetAction": "AWS::Budgets::BudgetsAction"
+  },
+  "catalog": {
+    "Product": "AWS::ServiceCatalog::CloudFormationProduct",
+    "product": "AWS::ServiceCatalog::CloudFormationProduct"
+  },
+  "dms": {
+    "subgrp": "AWS::DMS::ReplicationSubnetGroup"
+  },
+  "elasticache": {
+    "cluster": "AWS::ElastiCache::CacheCluster"
+  },
+  "rum": {
+    "AppMonitorResource": "AWS::RUM::AppMonitor",
+    "app-monitor-resource": "AWS::RUM::AppMonitor"
+  },
+  "social-messaging": {
+    "waba": "AWS::SocialMessaging::WhatsAppBusinessAccount"
+  },
+  "application-signals": {
+    "slo": "AWS::ApplicationSignals::ServiceLevelObjective"
+  },
+  "dlm": {
+    "policy": "AWS::DLM::LifecyclePolicy"
+  },
+  "healthlake": {
+    "datastore": "AWS::HealthLake::FHIRDatastore"
+  },
+  "kendra-ranking": {
+    "rescore-execution-plan": "AWS::KendraRanking::ExecutionPlan"
+  },
+  "resiliencehub": {
+    "application": "AWS::ResilienceHub::App"
   }
 }

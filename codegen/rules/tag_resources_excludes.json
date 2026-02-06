@@ -371,5 +371,806 @@
     "sqlinjectionmatchset",
     "xss-matchset",
     "xssmatchset"
+  ],
+  "lightsail": [
+    "Alarm",
+    "CloudFormationStackRecord",
+    "ContactMethod",
+    "ExportSnapshotRecord",
+    "LoadBalancerTlsCertificate",
+    "alarm",
+    "cloud-formation-stack-record",
+    "contact-method",
+    "export-snapshot-record",
+    "load-balancer-tls-certificate"
+  ],
+  "network-firewall": [
+    "Proxy",
+    "ProxyConfiguration",
+    "ProxyRuleGroup",
+    "TLSInspectionConfiguration",
+    "VpcEndpointAssociation",
+    "proxy",
+    "proxy-configuration",
+    "proxy-rule-group",
+    "tls-inspection-configuration",
+    "vpc-endpoint-association"
+  ],
+  "sagemaker": [
+    "device",
+    "human-loop",
+    "image-version",
+    "mlflow-app",
+    "model-card-export-job",
+    "monitoring-schedule-alert",
+    "notebook-instance-lifecycle-config",
+    "partner-app",
+    "pipeline-execution",
+    "reserved-capacity",
+    "sagemaker-catalog",
+    "shared-model",
+    "shared-model-event",
+    "training-plan"
+  ],
+  "appsync": [
+    "channel-namespace",
+    "channelNamespace",
+    "datasource",
+    "field",
+    "function",
+    "merged-api-association",
+    "mergedApiAssociation",
+    "source-api-association",
+    "sourceApiAssociation",
+    "type"
+  ],
+  "iot": [
+    "cert",
+    "client",
+    "destination",
+    "index",
+    "package-version",
+    "packageversion",
+    "thing",
+    "topic",
+    "topic-filter",
+    "topicfilter"
+  ],
+  "s3": [
+    "access-grants-instance",
+    "access-point",
+    "access-point-object",
+    "accessgrantsinstance",
+    "accesspoint",
+    "accesspointobject",
+    "multi-region-access-point",
+    "multi-region-access-point-request-arn",
+    "multiregionaccesspoint",
+    "multiregionaccesspointrequestarn",
+    "object"
+  ],
+  "ssm": [
+    "automation-definition",
+    "managed-instance-inventory",
+    "ops-item-group",
+    "opsitemgroup",
+    "resource-data-sync",
+    "resource-datasync",
+    "resourcedatasync",
+    "service-setting",
+    "servicesetting",
+    "window-target",
+    "window-task",
+    "windowtarget",
+    "windowtask"
+  ],
+  "connect": [
+    "attached-file",
+    "authentication-profile",
+    "aws-managed-view",
+    "customer-managed-view",
+    "customer-managed-view-version",
+    "data-table",
+    "email-address",
+    "legacy-phone-number",
+    "qualified-aws-managed-view",
+    "qualified-customer-managed-view",
+    "workspace"
+  ],
+  "drs": [
+    "LaunchConfigurationTemplateResource",
+    "launch-configuration-template-resource"
+  ],
+  "events": [
+    "api-destination",
+    "archive",
+    "connection",
+    "create-snapshot",
+    "endpoint",
+    "event-source",
+    "reboot-instance",
+    "replay",
+    "stop-instance",
+    "terminate-instance"
+  ],
+  "ses": [
+    "addon-instance",
+    "addon-subscription",
+    "custom-verification-email-template",
+    "deliverability-test-report",
+    "export-job",
+    "import-job",
+    "mailmanager-address-list",
+    "mailmanager-smtp-relay",
+    "multi-region-endpoint",
+    "reputation-policy",
+    "template",
+    "tenant"
+  ],
+  "sms-voice": [
+    "Message",
+    "ProtectConfiguration",
+    "Registration",
+    "RegistrationAttachment",
+    "SenderId",
+    "VerifiedDestinationNumber",
+    "message",
+    "protect-configuration",
+    "registration",
+    "registration-attachment",
+    "sender-id",
+    "verified-destination-number"
+  ],
+  "lambda": [
+    "capacity-provider",
+    "capacityProvider",
+    "durable execution",
+    "durable-execution",
+    "function alias",
+    "function version",
+    "function-alias",
+    "function-version",
+    "layer",
+    "layer-version",
+    "layerVersion"
+  ],
+  "personalize": [
+    "algorithm",
+    "data-deletion-job",
+    "data-insights-job",
+    "dataDeletionJob",
+    "dataInsightsJob",
+    "feature-transformation",
+    "featureTransformation",
+    "metric-attribution",
+    "metricAttribution",
+    "recipe",
+    "schema"
+  ],
+  "route53": [
+    "change",
+    "cidr-collection",
+    "cidrcollection",
+    "delegation-set",
+    "delegationset",
+    "query-logging-config",
+    "queryloggingconfig",
+    "traffic-policy",
+    "traffic-policy-instance",
+    "trafficpolicy",
+    "trafficpolicyinstance"
+  ],
+  "states": [
+    "execution",
+    "express",
+    "labelled execution",
+    "labelled express",
+    "labelled-execution",
+    "labelled-express",
+    "maprun",
+    "state-machine-alias",
+    "state-machine-version",
+    "statemachinealias",
+    "statemachineversion"
+  ],
+  "notifications": [
+    "EventRule",
+    "ManagedNotificationChildEvent",
+    "ManagedNotificationConfiguration",
+    "ManagedNotificationEvent",
+    "NotificationEvent",
+    "event-rule",
+    "managed-notification-child-event",
+    "managed-notification-configuration",
+    "managed-notification-event",
+    "notification-event"
+  ],
+  "workspaces": [
+    "certificate-id",
+    "certificateid",
+    "workspace-application",
+    "workspaceapplication"
+  ],
+  "cloudformation": [
+    "changeset",
+    "generated-template",
+    "generatedtemplate",
+    "resource-scan",
+    "resourcescan",
+    "stackset-target",
+    "type",
+    "type-hook",
+    "typeHook"
+  ],
+  "forecast": [
+    "algorithm",
+    "monitor",
+    "what-if-forecast",
+    "what-if-forecast-export",
+    "whatIfForecast",
+    "whatIfForecastExport"
+  ],
+  "cases": [
+    "CaseRule",
+    "Field",
+    "Layout",
+    "Template",
+    "case-rule",
+    "field",
+    "layout",
+    "template"
+  ],
+  "cleanrooms-ml": [
+    "ConfiguredModelAlgorithmAssociation",
+    "MLInputChannel",
+    "TrainedModel",
+    "TrainedModelInferenceJob",
+    "configured-model-algorithm-association",
+    "ml-input-channel",
+    "trained-model",
+    "trained-model-inference-job"
+  ],
+  "glue": [
+    "integration",
+    "root-catalog",
+    "rootcatalog",
+    "table",
+    "table-version",
+    "tableversion",
+    "user-defined-function",
+    "userdefinedfunction"
+  ],
+  "imagebuilder": [
+    "image-version",
+    "imageVersion",
+    "lifecycle-execution",
+    "lifecycleExecution",
+    "workflow-execution",
+    "workflow-step-execution",
+    "workflowExecution",
+    "workflowStepExecution"
+  ],
+  "securityhub": [
+    "aggregator-v2",
+    "aggregatorv2",
+    "automation-rulev2",
+    "connector-v2",
+    "connectorv2",
+    "finding-aggregator",
+    "hubv2",
+    "product"
+  ],
+  "lex": [
+    "bot version",
+    "bot-version",
+    "channel",
+    "intent version",
+    "intent-version",
+    "slottype version",
+    "slottype-version"
+  ],
+  "profile": [
+    "calculated-attributes",
+    "domain-object-types",
+    "event-streams",
+    "event-triggers",
+    "layouts",
+    "recommenders",
+    "segment-definitions"
+  ],
+  "aidevops": [
+    "AgentSpaceResource",
+    "AssociationResource",
+    "ServiceResource",
+    "agent-space-resource",
+    "association-resource",
+    "service-resource"
+  ],
+  "clouddirectory": [
+    "applied-schema",
+    "appliedSchema",
+    "development-schema",
+    "developmentSchema",
+    "published-schema",
+    "publishedSchema"
+  ],
+  "dataexchange": [
+    "assets",
+    "entitled-assets",
+    "entitled-data-sets",
+    "entitled-revisions",
+    "event-actions",
+    "jobs"
+  ],
+  "deadline": [
+    "budget",
+    "fleet",
+    "job",
+    "monitor",
+    "queue",
+    "worker"
+  ],
+  "dynamodb": [
+    "backup",
+    "export",
+    "global-table",
+    "import",
+    "index",
+    "stream"
+  ],
+  "groundstation": [
+    "Agent",
+    "GroundStationResource",
+    "agent",
+    "ground-station-resource"
+  ],
+  "guardduty": [
+    "publishing-destination",
+    "publishingDestination",
+    "threat-entity-set",
+    "threatentityset",
+    "trusted-entity-set",
+    "trustedentityset"
+  ],
+  "inspector2": [
+    "Code Security Integration",
+    "Code Security Scan Configuration",
+    "Finding",
+    "code-security-integration",
+    "code-security-scan-configuration",
+    "finding"
+  ],
+  "organizations": [
+    "handshake",
+    "organization",
+    "responsibility-transfer",
+    "responsibilitytransfer"
+  ],
+  "proton": [
+    "environment-template-major-version",
+    "environment-template-minor-version",
+    "environment-template-version",
+    "service-template-major-version",
+    "service-template-minor-version",
+    "service-template-version"
+  ],
+  "route53resolver": [
+    "autodefined-rule",
+    "firewall-config",
+    "resolver-config",
+    "resolver-dnssec-config"
+  ],
+  "storagegateway": [
+    "cache-report",
+    "device",
+    "target"
+  ],
+  "amplify": [
+    "branches",
+    "domains",
+    "jobs",
+    "webhooks"
+  ],
+  "aoss": [
+    "CollectionGroup",
+    "Dashboards",
+    "collection-group",
+    "dashboards"
+  ],
+  "appconfig": [
+    "configuration",
+    "environment",
+    "hosted-configuration-version",
+    "hostedconfigurationversion"
+  ],
+  "cleanrooms": [
+    "id-mapping-table",
+    "id-namespace-association",
+    "idmappingtable",
+    "idnamespaceassociation"
+  ],
+  "codebuild": [
+    "build",
+    "build-batch",
+    "report",
+    "sandbox"
+  ],
+  "codepipeline": [
+    "action",
+    "action-type",
+    "actiontype",
+    "stage"
+  ],
+  "globalaccelerator": [
+    "attachment",
+    "endpoint-group",
+    "endpointgroup",
+    "listener"
+  ],
+  "internetmonitor": [
+    "HealthEvent",
+    "InternetEvent",
+    "health-event",
+    "internet-event"
+  ],
+  "iotwireless": [
+    "SidewalkAccount",
+    "sidewalk-account"
+  ],
+  "kafka": [
+    "configuration",
+    "group",
+    "topic",
+    "transactional-id"
+  ],
+  "memorydb": [
+    "multi-region-parameter-group",
+    "multiregionparametergroup",
+    "reserved-node",
+    "reservednode"
+  ],
+  "omics": [
+    "TaskResource",
+    "WorkflowVersion",
+    "task-resource",
+    "workflow-version"
+  ],
+  "pca-connector-ad": [
+    "DirectoryRegistration",
+    "Template",
+    "directory-registration",
+    "template"
+  ],
+  "qbusiness": [
+    "chat-response-configuration",
+    "data-accessor",
+    "integration",
+    "subscription"
+  ],
+  "rekognition": [
+    "dataset",
+    "project",
+    "project-version",
+    "projectversion"
+  ],
+  "scn": [
+    "bill-of-materials-import-job",
+    "data-integration-flow",
+    "dataset",
+    "namespace"
+  ],
+  "ssm-contacts": [
+    "contact-channel",
+    "contactchannel",
+    "engagement",
+    "page"
+  ],
+  "sso": [
+    "Account",
+    "ApplicationProvider",
+    "account",
+    "application-provider"
+  ],
+  "transcribe": [
+    "call-analytics-category",
+    "call-analytics-job",
+    "callanalyticscategory",
+    "callanalyticsjob"
+  ],
+  "vpc-lattice": [
+    "DomainVerification",
+    "ResourceEndpointAssociation",
+    "domain-verification",
+    "resource-endpoint-association"
+  ],
+  "app-integrations": [
+    "application-association",
+    "data-integration-association",
+    "event-integration-association"
+  ],
+  "batch": [
+    "job-definition-revision",
+    "service-environment",
+    "service-job"
+  ],
+  "chime": [
+    "channel-flow",
+    "meeting",
+    "voice-profile"
+  ],
+  "cloudwatch": [
+    "dashboard",
+    "service"
+  ],
+  "codeguru-reviewer": [
+    "code-review",
+    "codereview"
+  ],
+  "dms": [
+    "ReplicationTaskIndividualAssessment",
+    "replication-task-individual-assessment"
+  ],
+  "elasticache": [
+    "global-replication-group",
+    "globalreplicationgroup"
+  ],
+  "elasticbeanstalk": [
+    "platform",
+    "solution-stack",
+    "solutionstack"
+  ],
+  "kendra": [
+    "access-control-configuration",
+    "experience",
+    "faq"
+  ],
+  "license-manager": [
+    "grant",
+    "license-asset-group",
+    "license-asset-ruleset"
+  ],
+  "medialive": [
+    "cluster",
+    "offering",
+    "sdi-source"
+  ],
+  "mediatailor": [
+    "prefetch-schedule",
+    "prefetchSchedule",
+    "program"
+  ],
+  "pcs": [
+    "compute-nodegroup",
+    "computenodegroup",
+    "queue"
+  ],
+  "ram": [
+    "customer-managed-permission",
+    "permission",
+    "resource-share-invitation"
+  ],
+  "redshift-serverless": [
+    "endpoint-access",
+    "endpointAccess",
+    "managed-workgroup"
+  ],
+  "access-analyzer": [
+    "ArchiveRule",
+    "archive-rule"
+  ],
+  "appfabric": [
+    "ingestion-destination",
+    "ingestiondestination"
+  ],
+  "appflow": [
+    "connector-profile",
+    "connectorprofile"
+  ],
+  "aps": [
+    "anomaly-detector",
+    "anomalydetector"
+  ],
+  "auditmanager": [
+    "assessment-control-set",
+    "assessmentControlSet"
+  ],
+  "aws-marketplace": [
+    "DeploymentParameter",
+    "deployment-parameter"
+  ],
+  "backup": [
+    "tiering-configuration",
+    "tieringConfiguration"
+  ],
+  "backup-gateway": [
+    "gateway",
+    "hypervisor"
+  ],
+  "codeconnections": [
+    "Connection",
+    "connection"
+  ],
+  "codedeploy": [
+    "deployment-config",
+    "deploymentconfig"
+  ],
+  "config": [
+    "RemediationConfiguration",
+    "remediation-configuration"
+  ],
+  "controltower": [
+    "Baseline",
+    "baseline"
+  ],
+  "ecs": [
+    "service-deployment",
+    "service-revision"
+  ],
+  "entityresolution": [
+    "ProviderService",
+    "provider-service"
+  ],
+  "fis": [
+    "action",
+    "safety-lever"
+  ],
+  "fsx": [
+    "association",
+    "task"
+  ],
+  "inspector": [
+    "target-template",
+    "target/template"
+  ],
+  "kafkaconnect": [
+    "connector operation",
+    "connector-operation"
+  ],
+  "logs": [
+    "log-stream",
+    "scheduled-query"
+  ],
+  "macie2": [
+    "AllowList",
+    "allow-list"
+  ],
+  "mediaconvert": [
+    "CertificateAssociation",
+    "certificate-association"
+  ],
+  "mediapackage": [
+    "harvest-jobs",
+    "harvest_jobs"
+  ],
+  "mediapackagev2": [
+    "HarvestJob",
+    "harvest-job"
+  ],
+  "mediastore": [
+    "folder",
+    "object"
+  ],
+  "neptune-graph": [
+    "export-task",
+    "import-task"
+  ],
+  "networkmanager": [
+    "attachment",
+    "peering"
+  ],
+  "osis": [
+    "pipeline-blueprint",
+    "pipeline-endpoint"
+  ],
+  "pca-connector-scep": [
+    "Challenge",
+    "challenge"
+  ],
+  "pi": [
+    "metric-resource",
+    "perf-reports-resource"
+  ],
+  "resource-groups": [
+    "tag-sync-task",
+    "tagSyncTask"
+  ],
+  "route53-recovery-control": [
+    "routing-control",
+    "routingcontrol"
+  ],
+  "s3-object-lambda": [
+    "object-lambda-access-point",
+    "objectlambdaaccesspoint"
+  ],
+  "s3express": [
+    "access-point",
+    "accesspoint"
+  ],
+  "social-messaging": [
+    "phone-number-id"
+  ],
+  "textract": [
+    "adapter-version",
+    "adapterversion"
+  ],
+  "tnb": [
+    "function-instance",
+    "network-operation"
+  ],
+  "workspaces-web": [
+    "session-logger",
+    "sessionLogger"
+  ],
+  "airflow": [
+    "rbac-role"
+  ],
+  "athena": [
+    "session"
+  ],
+  "bcm-data-exports": [
+    "table"
+  ],
+  "braket": [
+    "spending-limit"
+  ],
+  "cassandra": [
+    "stream"
+  ],
+  "codeartifact": [
+    "package"
+  ],
+  "comprehend": [
+    "flywheel-dataset"
+  ],
+  "cur": [
+    "cur"
+  ],
+  "dax": [
+    "application"
+  ],
+  "docdb-elastic": [
+    "cluster"
+  ],
+  "finspace": [
+    "user"
+  ],
+  "gamelift": [
+    "build"
+  ],
+  "geo": [
+    "api-key"
+  ],
+  "iotsitewise": [
+    "computation-model"
+  ],
+  "kinesis": [
+    "consumer"
+  ],
+  "kinesisvideo": [
+    "channel"
+  ],
+  "kms": [
+    "alias"
+  ],
+  "license-manager-user-subscriptions": [
+    "instance-user"
+  ],
+  "lookoutequipment": [
+    "model-version"
+  ],
+  "opensearch": [
+    "application"
+  ],
+  "payment-cryptography": [
+    "alias"
+  ],
+  "scheduler": [
+    "schedule"
+  ],
+  "shield": [
+    "attack"
+  ],
+  "ssm-sap": [
+    "component"
   ]
 }
