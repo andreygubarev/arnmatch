@@ -1,0 +1,1872 @@
+{
+  "access-analyzer": {
+    "Analyzer": "AWS::AccessAnalyzer::Analyzer",
+    "analyzer": "AWS::AccessAnalyzer::Analyzer"
+  },
+  "acm": {
+    "certificate": "AWS::CertificateManager::Certificate"
+  },
+  "acm-pca": {
+    "certificate-authority": "AWS::ACMPCA::CertificateAuthority"
+  },
+  "aidevops": {},
+  "aiops": {
+    "investigation-group": "AWS::AIOps::InvestigationGroup"
+  },
+  "airflow": {
+    "environment": "AWS::MWAA::Environment"
+  },
+  "amplify": {
+    "apps": "AWS::Amplify::App"
+  },
+  "aoss": {
+    "Collection": "AWS::OpenSearchServerless::Collection",
+    "collection": "AWS::OpenSearchServerless::Collection"
+  },
+  "apigateway": {
+    "Api": "AWS::ApiGatewayV2::Api",
+    "ApiKey": "AWS::ApiGateway::ApiKey",
+    "ApiKeys": "AWS::ApiGateway::ApiKey",
+    "Apis": "AWS::ApiGatewayV2::Api",
+    "ClientCertificate": "AWS::ApiGateway::ClientCertificate",
+    "ClientCertificates": "AWS::ApiGateway::ClientCertificate",
+    "RestApi": "AWS::ApiGateway::RestApi",
+    "RestApis": "AWS::ApiGateway::RestApi",
+    "Stage": "AWS::ApiGateway::Stage",
+    "Stages": "AWS::ApiGateway::Stage",
+    "UsagePlan": "AWS::ApiGateway::UsagePlan",
+    "UsagePlans": "AWS::ApiGateway::UsagePlan",
+    "api": "AWS::ApiGatewayV2::Api",
+    "api-key": "AWS::ApiGateway::ApiKey",
+    "api-keys": "AWS::ApiGateway::ApiKey",
+    "apis": "AWS::ApiGatewayV2::Api",
+    "client-certificate": "AWS::ApiGateway::ClientCertificate",
+    "client-certificates": "AWS::ApiGateway::ClientCertificate",
+    "rest-api": "AWS::ApiGateway::RestApi",
+    "rest-apis": "AWS::ApiGateway::RestApi",
+    "stage": "AWS::ApiGateway::Stage",
+    "stages": "AWS::ApiGateway::Stage",
+    "usage-plan": "AWS::ApiGateway::UsagePlan",
+    "usage-plans": "AWS::ApiGateway::UsagePlan"
+  },
+  "app-integrations": {
+    "application": "AWS::AppIntegrations::Application",
+    "data-integration": "AWS::AppIntegrations::DataIntegration",
+    "event-integration": "AWS::AppIntegrations::EventIntegration"
+  },
+  "appconfig": {
+    "application": "AWS::AppConfig::Application",
+    "configuration-profile": "AWS::AppConfig::ConfigurationProfile",
+    "configurationprofile": "AWS::AppConfig::ConfigurationProfile",
+    "deployment": "AWS::AppConfig::Deployment",
+    "deployment-strategy": "AWS::AppConfig::DeploymentStrategy",
+    "deploymentstrategy": "AWS::AppConfig::DeploymentStrategy",
+    "extension": "AWS::AppConfig::Extension",
+    "extension-association": "AWS::AppConfig::ExtensionAssociation",
+    "extensionassociation": "AWS::AppConfig::ExtensionAssociation"
+  },
+  "appfabric": {
+    "app-authorization": "AWS::AppFabric::AppAuthorization",
+    "app-bundle": "AWS::AppFabric::AppBundle",
+    "appauthorization": "AWS::AppFabric::AppAuthorization",
+    "appbundle": "AWS::AppFabric::AppBundle",
+    "ingestion": "AWS::AppFabric::Ingestion"
+  },
+  "appflow": {
+    "connector": "AWS::AppFlow::Connector",
+    "flow": "AWS::AppFlow::Flow"
+  },
+  "application-autoscaling": {
+    "ScalableTarget": "AWS::ApplicationAutoScaling::ScalableTarget",
+    "scalable-target": "AWS::ApplicationAutoScaling::ScalableTarget"
+  },
+  "application-signals": {},
+  "appmesh": {
+    "gateway-route": "AWS::AppMesh::GatewayRoute",
+    "gatewayRoute": "AWS::AppMesh::GatewayRoute",
+    "mesh": "AWS::AppMesh::Mesh",
+    "route": "AWS::AppMesh::Route",
+    "virtual-gateway": "AWS::AppMesh::VirtualGateway",
+    "virtual-node": "AWS::AppMesh::VirtualNode",
+    "virtual-router": "AWS::AppMesh::VirtualRouter",
+    "virtual-service": "AWS::AppMesh::VirtualService",
+    "virtualGateway": "AWS::AppMesh::VirtualGateway",
+    "virtualNode": "AWS::AppMesh::VirtualNode",
+    "virtualRouter": "AWS::AppMesh::VirtualRouter",
+    "virtualService": "AWS::AppMesh::VirtualService"
+  },
+  "appmesh-preview": {
+    "gateway-route": "AWS::AppMesh::GatewayRoute",
+    "gatewayRoute": "AWS::AppMesh::GatewayRoute",
+    "mesh": "AWS::AppMesh::Mesh",
+    "route": "AWS::AppMesh::Route",
+    "virtual-gateway": "AWS::AppMesh::VirtualGateway",
+    "virtual-node": "AWS::AppMesh::VirtualNode",
+    "virtual-router": "AWS::AppMesh::VirtualRouter",
+    "virtual-service": "AWS::AppMesh::VirtualService",
+    "virtualGateway": "AWS::AppMesh::VirtualGateway",
+    "virtualNode": "AWS::AppMesh::VirtualNode",
+    "virtualRouter": "AWS::AppMesh::VirtualRouter",
+    "virtualService": "AWS::AppMesh::VirtualService"
+  },
+  "apprunner": {
+    "autoscaling-configuration": "AWS::AppRunner::AutoScalingConfiguration",
+    "autoscalingconfiguration": "AWS::AppRunner::AutoScalingConfiguration",
+    "connection": "AWS::AppRunner::Connection",
+    "observability-configuration": "AWS::AppRunner::ObservabilityConfiguration",
+    "observabilityconfiguration": "AWS::AppRunner::ObservabilityConfiguration",
+    "service": "AWS::AppRunner::Service",
+    "vpc-connector": "AWS::AppRunner::VpcConnector",
+    "vpc-ingress-connection": "AWS::AppRunner::VpcIngressConnection",
+    "vpcconnector": "AWS::AppRunner::VpcConnector",
+    "vpcingressconnection": "AWS::AppRunner::VpcIngressConnection"
+  },
+  "appstream": {
+    "app-block": "AWS::AppStream::AppBlock",
+    "app-block-builder": "AWS::AppStream::AppBlockBuilder",
+    "application": "AWS::AppStream::Application",
+    "fleet": "AWS::AppStream::Fleet",
+    "image": "AWS::AppStream::Image",
+    "image-builder": "AWS::AppStream::ImageBuilder",
+    "stack": "AWS::AppStream::Stack"
+  },
+  "appsync": {
+    "api": "AWS::AppSync::Api"
+  },
+  "aps": {
+    "rulegroups-namespace": "AWS::APS::RuleGroupsNamespace",
+    "rulegroupsnamespace": "AWS::APS::RuleGroupsNamespace",
+    "scraper": "AWS::APS::Scraper",
+    "workspace": "AWS::APS::Workspace"
+  },
+  "athena": {
+    "capacity-reservation": "AWS::Athena::CapacityReservation",
+    "datacatalog": "AWS::Athena::DataCatalog",
+    "workgroup": "AWS::Athena::WorkGroup"
+  },
+  "auditmanager": {
+    "assessment": "AWS::AuditManager::Assessment",
+    "assessment-framework": "AWS::AuditManager::AssessmentFramework",
+    "assessmentFramework": "AWS::AuditManager::AssessmentFramework",
+    "control": "AWS::AuditManager::Control"
+  },
+  "aws-marketplace": {
+    "ChangeSet": "AWS::MarketplaceCatalog::ChangeSet",
+    "Entity": "AWS::MarketplaceCatalog::Entity",
+    "change-set": "AWS::MarketplaceCatalog::ChangeSet",
+    "entity": "AWS::MarketplaceCatalog::Entity"
+  },
+  "b2bi": {
+    "capability": "AWS::B2BI::Capability",
+    "partnership": "AWS::B2BI::Partnership",
+    "profile": "AWS::B2BI::Profile",
+    "transformer": "AWS::B2BI::Transformer"
+  },
+  "backup": {
+    "backup-plan": "AWS::Backup::BackupPlan",
+    "backup-vault": "AWS::Backup::BackupVault",
+    "backupPlan": "AWS::Backup::BackupPlan",
+    "backupVault": "AWS::Backup::BackupVault",
+    "framework": "AWS::Backup::Framework",
+    "legal-hold": "AWS::Backup::LegalHold",
+    "legalHold": "AWS::Backup::LegalHold",
+    "report-plan": "AWS::Backup::ReportPlan",
+    "reportPlan": "AWS::Backup::ReportPlan",
+    "restore-testing-plan": "AWS::Backup::RestoreTestingPlan",
+    "restoreTestingPlan": "AWS::Backup::RestoreTestingPlan"
+  },
+  "backup-gateway": {
+    "virtual-machine": "AWS::BackupGateway::VirtualMachine",
+    "virtualmachine": "AWS::BackupGateway::VirtualMachine"
+  },
+  "backup-search": {
+    "search-export-job": "AWS::BackupSearch::SearchExportJob",
+    "search-job": "AWS::BackupSearch::SearchJob",
+    "searchExportJob": "AWS::BackupSearch::SearchExportJob",
+    "searchJob": "AWS::BackupSearch::SearchJob"
+  },
+  "batch": {
+    "compute-environment": "AWS::Batch::ComputeEnvironment",
+    "consumable-resource": "AWS::Batch::ConsumableResource",
+    "job": "AWS::Batch::Job",
+    "job-definition": "AWS::Batch::JobDefinition",
+    "job-queue": "AWS::Batch::JobQueue",
+    "scheduling-policy": "AWS::Batch::SchedulingPolicy"
+  },
+  "bcm-data-exports": {
+    "export": "AWS::BCMDataExports::Export"
+  },
+  "bcm-pricing-calculator": {
+    "bill-estimate": "AWS::BCMPricingCalculator::BillEstimate",
+    "bill-scenario": "AWS::BCMPricingCalculator::BillScenario",
+    "workload-estimate": "AWS::BCMPricingCalculator::WorkloadEstimate"
+  },
+  "bedrock": {
+    "agent": "AWS::Bedrock::Agent",
+    "agent-alias": "AWS::Bedrock::AgentAlias",
+    "application-inference-profile": "AWS::Bedrock::ApplicationInferenceProfile",
+    "async-invoke": "AWS::Bedrock::AsyncInvoke",
+    "custom-model": "AWS::Bedrock::CustomModel",
+    "evaluation-job": "AWS::Bedrock::EvaluationJob",
+    "flow": "AWS::Bedrock::Flow",
+    "flow-alias": "AWS::Bedrock::FlowAlias",
+    "guardrail": "AWS::Bedrock::Guardrail",
+    "knowledge-base": "AWS::Bedrock::KnowledgeBase",
+    "model-customization-job": "AWS::Bedrock::ModelCustomizationJob",
+    "model-evaluation-job": "AWS::Bedrock::ModelEvaluationJob",
+    "model-import-job": "AWS::Bedrock::ModelImportJob",
+    "model-invocation-job": "AWS::Bedrock::ModelInvocationJob",
+    "prompt-version": "AWS::Bedrock::PromptVersion"
+  },
+  "billing": {
+    "billing-view": "AWS::Billing::BillingView",
+    "billingview": "AWS::Billing::BillingView"
+  },
+  "billingconductor": {
+    "billing-group": "AWS::BillingConductor::BillingGroup",
+    "billinggroup": "AWS::BillingConductor::BillingGroup",
+    "custom-line-item": "AWS::BillingConductor::CustomLineItem",
+    "customlineitem": "AWS::BillingConductor::CustomLineItem",
+    "pricing-plan": "AWS::BillingConductor::PricingPlan",
+    "pricing-rule": "AWS::BillingConductor::PricingRule",
+    "pricingplan": "AWS::BillingConductor::PricingPlan",
+    "pricingrule": "AWS::BillingConductor::PricingRule"
+  },
+  "braket": {
+    "job": "AWS::Braket::Job",
+    "quantum-task": "AWS::Braket::QuantumTask"
+  },
+  "budgets": {
+    "budget": "AWS::Budgets::Budget"
+  },
+  "cases": {
+    "Case": "AWS::Cases::Case",
+    "Domain": "AWS::Cases::Domain",
+    "RelatedItem": "AWS::Cases::RelatedItem",
+    "case": "AWS::Cases::Case",
+    "domain": "AWS::Cases::Domain",
+    "related-item": "AWS::Cases::RelatedItem"
+  },
+  "cassandra": {
+    "keyspace": "AWS::Cassandra::Keyspace",
+    "table": "AWS::Cassandra::Table"
+  },
+  "catalog": {
+    "Portfolio": "AWS::ServiceCatalog::Portfolio",
+    "portfolio": "AWS::ServiceCatalog::Portfolio"
+  },
+  "ce": {
+    "anomaly-monitor": "AWS::CE::AnomalyMonitor",
+    "anomaly-subscription": "AWS::CE::AnomalySubscription",
+    "anomalymonitor": "AWS::CE::AnomalyMonitor",
+    "anomalysubscription": "AWS::CE::AnomalySubscription",
+    "cost-category": "AWS::CE::CostCategory",
+    "costcategory": "AWS::CE::CostCategory"
+  },
+  "chatbot": {
+    "ChatbotConfiguration": "AWS::Chatbot::ChatbotConfiguration",
+    "chatbot-configuration": "AWS::Chatbot::ChatbotConfiguration",
+    "custom-action": "AWS::Chatbot::CustomAction"
+  },
+  "chime": {
+    "app-instance": "AWS::Chime::AppInstance",
+    "app-instance-bot": "AWS::Chime::AppInstanceBot",
+    "app-instance-user": "AWS::Chime::AppInstanceUser",
+    "channel": "AWS::Chime::Channel",
+    "media-insights-pipeline-configuration": "AWS::Chime::MediaInsightsPipelineConfiguration",
+    "media-pipeline": "AWS::Chime::MediaPipeline",
+    "media-pipeline-kinesis-video-stream-pool": "AWS::Chime::MediaPipelineKinesisVideoStreamPool",
+    "sip-media-application": "AWS::Chime::SipMediaApplication",
+    "voice-connector": "AWS::Chime::VoiceConnector",
+    "voice-profile-domain": "AWS::Chime::VoiceProfileDomain"
+  },
+  "cleanrooms": {
+    "analysis-template": "AWS::CleanRooms::AnalysisTemplate",
+    "analysistemplate": "AWS::CleanRooms::AnalysisTemplate",
+    "collaboration": "AWS::CleanRooms::Collaboration",
+    "configured-audience-model-association": "AWS::CleanRooms::ConfiguredAudienceModelAssociation",
+    "configured-table": "AWS::CleanRooms::ConfiguredTable",
+    "configured-table-association": "AWS::CleanRooms::ConfiguredTableAssociation",
+    "configuredaudiencemodelassociation": "AWS::CleanRooms::ConfiguredAudienceModelAssociation",
+    "configuredtable": "AWS::CleanRooms::ConfiguredTable",
+    "configuredtableassociation": "AWS::CleanRooms::ConfiguredTableAssociation",
+    "membership": "AWS::CleanRooms::Membership",
+    "privacy-budget-template": "AWS::CleanRooms::PrivacyBudgetTemplate",
+    "privacybudgettemplate": "AWS::CleanRooms::PrivacyBudgetTemplate"
+  },
+  "cleanrooms-ml": {
+    "ConfiguredModelAlgorithm": "AWS::CleanRoomsML::ConfiguredModelAlgorithm",
+    "audience-generation-job": "AWS::CleanRoomsML::AudienceGenerationJob",
+    "audience-model": "AWS::CleanRoomsML::AudienceModel",
+    "audiencegenerationjob": "AWS::CleanRoomsML::AudienceGenerationJob",
+    "audiencemodel": "AWS::CleanRoomsML::AudienceModel",
+    "configured-audience-model": "AWS::CleanRoomsML::ConfiguredAudienceModel",
+    "configured-model-algorithm": "AWS::CleanRoomsML::ConfiguredModelAlgorithm",
+    "configuredaudiencemodel": "AWS::CleanRoomsML::ConfiguredAudienceModel",
+    "training-dataset": "AWS::CleanRoomsML::TrainingDataset",
+    "trainingdataset": "AWS::CleanRoomsML::TrainingDataset"
+  },
+  "cloud9": {
+    "environment": "AWS::Cloud9::Environment"
+  },
+  "clouddirectory": {
+    "directory": "AWS::CloudDirectory::Directory"
+  },
+  "cloudformation": {
+    "stack": "AWS::CloudFormation::Stack",
+    "stackset": "AWS::CloudFormation::StackSet"
+  },
+  "cloudfront": {
+    "distribution": "AWS::CloudFront::Distribution",
+    "streaming-distribution": "AWS::CloudFront::StreamingDistribution",
+    "vpc-origin": "AWS::CloudFront::VpcOrigin",
+    "vpcorigin": "AWS::CloudFront::VpcOrigin"
+  },
+  "cloudhsm": {
+    "backup": "AWS::CloudHSM::Backup",
+    "cluster": "AWS::CloudHSM::Cluster"
+  },
+  "cloudsearch": {
+    "domain": "AWS::CloudSearch::Domain"
+  },
+  "cloudtrail": {
+    "channel": "AWS::CloudTrail::Channel",
+    "dashboard": "AWS::CloudTrail::Dashboard",
+    "event-datastore": "AWS::CloudTrail::EventDataStore",
+    "eventdatastore": "AWS::CloudTrail::EventDataStore",
+    "trail": "AWS::CloudTrail::Trail"
+  },
+  "cloudwatch": {
+    "alarm": "AWS::CloudWatch::Alarm",
+    "insight-rule": "AWS::CloudWatch::InsightRule",
+    "metric-stream": "AWS::CloudWatch::MetricStream"
+  },
+  "codeartifact": {
+    "domain": "AWS::CodeArtifact::Domain",
+    "package-group": "AWS::CodeArtifact::PackageGroup",
+    "repository": "AWS::CodeArtifact::Repository"
+  },
+  "codebuild": {
+    "fleet": "AWS::CodeBuild::Fleet",
+    "project": "AWS::CodeBuild::Project",
+    "report-group": "AWS::CodeBuild::ReportGroup"
+  },
+  "codecommit": {
+    "repository": "AWS::CodeCommit::Repository"
+  },
+  "codeconnections": {
+    "Host": "AWS::CodeConnections::Host",
+    "RepositoryLink": "AWS::CodeConnections::RepositoryLink",
+    "host": "AWS::CodeConnections::Host",
+    "repository-link": "AWS::CodeConnections::RepositoryLink"
+  },
+  "codedeploy": {
+    "application": "AWS::CodeDeploy::Application",
+    "deployment-group": "AWS::CodeDeploy::DeploymentGroup",
+    "deploymentgroup": "AWS::CodeDeploy::DeploymentGroup",
+    "instance": "AWS::CodeDeploy::Instance"
+  },
+  "codeguru-profiler": {
+    "ProfilingGroup": "AWS::CodeGuruProfiler::ProfilingGroup",
+    "profiling-group": "AWS::CodeGuruProfiler::ProfilingGroup"
+  },
+  "codeguru-reviewer": {},
+  "codepipeline": {
+    "pipeline": "AWS::CodePipeline::Pipeline",
+    "webhook": "AWS::CodePipeline::Webhook"
+  },
+  "codestar-connections": {
+    "Connection": "AWS::CodeStarConnections::Connection",
+    "Host": "AWS::CodeStarConnections::Host",
+    "RepositoryLink": "AWS::CodeStarConnections::RepositoryLink",
+    "connection": "AWS::CodeStarConnections::Connection",
+    "host": "AWS::CodeStarConnections::Host",
+    "repository-link": "AWS::CodeStarConnections::RepositoryLink"
+  },
+  "codestar-notifications": {
+    "notification-rule": "AWS::CodeStarNotifications::NotificationRule",
+    "notificationrule": "AWS::CodeStarNotifications::NotificationRule"
+  },
+  "cognito-idp": {
+    "user-pool": "AWS::Cognito::UserPool",
+    "userpool": "AWS::Cognito::UserPool"
+  },
+  "comprehend": {
+    "document-classification-job": "AWS::Comprehend::DocumentClassificationJob",
+    "document-classifier": "AWS::Comprehend::DocumentClassifier",
+    "document-classifier-endpoint": "AWS::Comprehend::DocumentClassifierEndpoint",
+    "dominant-language-detection-job": "AWS::Comprehend::DominantLanguageDetectionJob",
+    "entities-detection-job": "AWS::Comprehend::EntitiesDetectionJob",
+    "entity-recognizer": "AWS::Comprehend::EntityRecognizer",
+    "entity-recognizer-endpoint": "AWS::Comprehend::EntityRecognizerEndpoint",
+    "events-detection-job": "AWS::Comprehend::EventsDetectionJob",
+    "flywheel": "AWS::Comprehend::Flywheel",
+    "key-phrases-detection-job": "AWS::Comprehend::KeyPhrasesDetectionJob",
+    "pii-entities-detection-job": "AWS::Comprehend::PIIEntitiesDetectionJob",
+    "sentiment-detection-job": "AWS::Comprehend::SentimentDetectionJob",
+    "targeted-sentiment-detection-job": "AWS::Comprehend::TargetedSentimentDetectionJob",
+    "topics-detection-job": "AWS::Comprehend::TopicsDetectionJob"
+  },
+  "config": {
+    "AggregationAuthorization": "AWS::Config::AggregationAuthorization",
+    "ConfigRule": "AWS::Config::ConfigRule",
+    "ConfigurationAggregator": "AWS::Config::ConfigurationAggregator",
+    "ConfigurationRecorder": "AWS::Config::ConfigurationRecorder",
+    "ConformancePack": "AWS::Config::ConformancePack",
+    "OrganizationConfigRule": "AWS::Config::OrganizationConfigRule",
+    "OrganizationConformancePack": "AWS::Config::OrganizationConformancePack",
+    "StoredQuery": "AWS::Config::StoredQuery",
+    "aggregation-authorization": "AWS::Config::AggregationAuthorization",
+    "config-rule": "AWS::Config::ConfigRule",
+    "configuration-aggregator": "AWS::Config::ConfigurationAggregator",
+    "configuration-recorder": "AWS::Config::ConfigurationRecorder",
+    "conformance-pack": "AWS::Config::ConformancePack",
+    "organization-config-rule": "AWS::Config::OrganizationConfigRule",
+    "organization-conformance-pack": "AWS::Config::OrganizationConformancePack",
+    "stored-query": "AWS::Config::StoredQuery"
+  },
+  "connect": {
+    "agent-status": "AWS::Connect::AgentStatus",
+    "contact": "AWS::Connect::Contact",
+    "contact-evaluation": "AWS::Connect::ContactEvaluation",
+    "contact-flow": "AWS::Connect::ContactFlow",
+    "contact-flow-module": "AWS::Connect::ContactFlowModule",
+    "evaluation-form": "AWS::Connect::EvaluationForm",
+    "hours-of-operation": "AWS::Connect::HoursOfOperation",
+    "instance": "AWS::Connect::Instance",
+    "integration-association": "AWS::Connect::IntegrationAssociation",
+    "phone-number": "AWS::Connect::PhoneNumber",
+    "prompt": "AWS::Connect::Prompt",
+    "queue": "AWS::Connect::Queue",
+    "quick-connect": "AWS::Connect::QuickConnect",
+    "routing-profile": "AWS::Connect::RoutingProfile",
+    "rule": "AWS::Connect::Rule",
+    "security-profile": "AWS::Connect::SecurityProfile",
+    "task-template": "AWS::Connect::TaskTemplate",
+    "traffic-distribution-group": "AWS::Connect::TrafficDistributionGroup",
+    "use-case": "AWS::Connect::UseCase",
+    "user": "AWS::Connect::User",
+    "vocabulary": "AWS::Connect::Vocabulary"
+  },
+  "connect-campaigns": {
+    "campaign": "AWS::ConnectCampaigns::Campaign"
+  },
+  "controltower": {
+    "EnabledBaseline": "AWS::ControlTower::EnabledBaseline",
+    "EnabledControl": "AWS::ControlTower::EnabledControl",
+    "LandingZone": "AWS::ControlTower::LandingZone",
+    "enabled-baseline": "AWS::ControlTower::EnabledBaseline",
+    "enabled-control": "AWS::ControlTower::EnabledControl",
+    "landing-zone": "AWS::ControlTower::LandingZone"
+  },
+  "cur": {},
+  "databrew": {
+    "Dataset": "AWS::DataBrew::Dataset",
+    "Job": "AWS::DataBrew::Job",
+    "Project": "AWS::DataBrew::Project",
+    "Recipe": "AWS::DataBrew::Recipe",
+    "Ruleset": "AWS::DataBrew::Ruleset",
+    "Schedule": "AWS::DataBrew::Schedule",
+    "dataset": "AWS::DataBrew::Dataset",
+    "job": "AWS::DataBrew::Job",
+    "project": "AWS::DataBrew::Project",
+    "recipe": "AWS::DataBrew::Recipe",
+    "ruleset": "AWS::DataBrew::Ruleset",
+    "schedule": "AWS::DataBrew::Schedule"
+  },
+  "dataexchange": {
+    "data-grants": "AWS::DataExchange::DataGrants",
+    "data-sets": "AWS::DataExchange::DataSet",
+    "revisions": "AWS::DataExchange::Revision"
+  },
+  "datapipeline": {
+    "pipeline": "AWS::DataPipeline::Pipeline"
+  },
+  "datasync": {
+    "agent": "AWS::DataSync::Agent",
+    "discovery-job": "AWS::DataSync::DiscoveryJob",
+    "discoveryjob": "AWS::DataSync::DiscoveryJob",
+    "location": "AWS::DataSync::Location",
+    "storage-system": "AWS::DataSync::StorageSystem",
+    "storagesystem": "AWS::DataSync::StorageSystem",
+    "task": "AWS::DataSync::Task",
+    "task-execution": "AWS::DataSync::TaskExecution",
+    "taskexecution": "AWS::DataSync::TaskExecution"
+  },
+  "datazone": {
+    "domain": "AWS::DataZone::Domain"
+  },
+  "dax": {},
+  "deadline": {
+    "farm": "AWS::Deadline::Farm",
+    "license-endpoint": "AWS::Deadline::LicenseEndpoint"
+  },
+  "detective": {
+    "Graph": "AWS::Detective::Graph",
+    "graph": "AWS::Detective::Graph"
+  },
+  "directconnect": {},
+  "dlm": {},
+  "dms": {
+    "Certificate": "AWS::DMS::Certificate",
+    "DataMigration": "AWS::DMS::DataMigration",
+    "DataProvider": "AWS::DMS::DataProvider",
+    "Endpoint": "AWS::DMS::Endpoint",
+    "EventSubscription": "AWS::DMS::EventSubscription",
+    "InstanceProfile": "AWS::DMS::InstanceProfile",
+    "MigrationProject": "AWS::DMS::MigrationProject",
+    "ReplicationConfig": "AWS::DMS::ReplicationConfig",
+    "ReplicationInstance": "AWS::DMS::ReplicationInstance",
+    "ReplicationSubnetGroup": "AWS::DMS::ReplicationSubnetGroup",
+    "ReplicationTask": "AWS::DMS::ReplicationTask",
+    "ReplicationTaskAssessmentRun": "AWS::DMS::ReplicationTaskAssessmentRun",
+    "certificate": "AWS::DMS::Certificate",
+    "data-migration": "AWS::DMS::DataMigration",
+    "data-provider": "AWS::DMS::DataProvider",
+    "endpoint": "AWS::DMS::Endpoint",
+    "event-subscription": "AWS::DMS::EventSubscription",
+    "instance-profile": "AWS::DMS::InstanceProfile",
+    "migration-project": "AWS::DMS::MigrationProject",
+    "replication-config": "AWS::DMS::ReplicationConfig",
+    "replication-instance": "AWS::DMS::ReplicationInstance",
+    "replication-subnet-group": "AWS::DMS::ReplicationSubnetGroup",
+    "replication-task": "AWS::DMS::ReplicationTask",
+    "replication-task-assessment-run": "AWS::DMS::ReplicationTaskAssessmentRun"
+  },
+  "docdb-elastic": {
+    "cluster-snapshot": "AWS::DocDBElastic::ClusterSnapshot"
+  },
+  "drs": {},
+  "ds": {
+    "directory": "AWS::DirectoryService::Directory"
+  },
+  "dynamodb": {
+    "table": "AWS::DynamoDB::Table"
+  },
+  "ec2": {
+    "capacity-reservation": "AWS::EC2::CapacityReservation",
+    "capacity-reservation-fleet": "AWS::EC2::CapacityReservationFleet",
+    "carrier-gateway": "AWS::EC2::CarrierGateway",
+    "client-vpn-endpoint": "AWS::EC2::ClientVpnEndpoint",
+    "coip-pool": "AWS::EC2::CoipPool",
+    "customer-gateway": "AWS::EC2::CustomerGateway",
+    "dhcp-options": "AWS::EC2::DHCPOptions",
+    "egress-only-internet-gateway": "AWS::EC2::EgressOnlyInternetGateway",
+    "elastic-gpu": "AWS::EC2::ElasticGpu",
+    "export-image-task": "AWS::EC2::ExportImageTask",
+    "export-instance-task": "AWS::EC2::ExportInstanceTask",
+    "fpga-image": "AWS::EC2::FpgaImage",
+    "host-reservation": "AWS::EC2::HostReservation",
+    "image": "AWS::EC2::Image",
+    "import-image-task": "AWS::EC2::ImportImageTask",
+    "import-snapshot-task": "AWS::EC2::ImportSnapshotTask",
+    "instance": "AWS::EC2::Instance",
+    "instance-connect-endpoint": "AWS::EC2::InstanceConnectEndpoint",
+    "instance-event-window": "AWS::EC2::InstanceEventWindow",
+    "internet-gateway": "AWS::EC2::InternetGateway",
+    "key-pair": "AWS::EC2::KeyPair",
+    "launch-template": "AWS::EC2::LaunchTemplate",
+    "local-gateway": "AWS::EC2::LocalGateway",
+    "local-gateway-route-table": "AWS::EC2::LocalGatewayRouteTable",
+    "local-gateway-route-table-virtual-interface-group-association": "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+    "local-gateway-route-table-vpc-association": "AWS::EC2::LocalGatewayRouteTableVPCAssociation",
+    "local-gateway-virtual-interface": "AWS::EC2::LocalGatewayVirtualInterface",
+    "local-gateway-virtual-interface-group": "AWS::EC2::LocalGatewayVirtualInterfaceGroup",
+    "nat-gateway": "AWS::EC2::NatGateway",
+    "natgateway": "AWS::EC2::NatGateway",
+    "network-acl": "AWS::EC2::NetworkAcl",
+    "network-insights-access-scope": "AWS::EC2::NetworkInsightsAccessScope",
+    "network-insights-access-scope-analysis": "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
+    "network-insights-analysis": "AWS::EC2::NetworkInsightsAnalysis",
+    "network-insights-path": "AWS::EC2::NetworkInsightsPath",
+    "network-interface": "AWS::EC2::NetworkInterface",
+    "placement-group": "AWS::EC2::PlacementGroup",
+    "prefix-list": "AWS::EC2::PrefixList",
+    "replace-root-volume-task": "AWS::EC2::ReplaceRootVolumeTask",
+    "reserved-instances": "AWS::EC2::ReservedInstance",
+    "route-table": "AWS::EC2::RouteTable",
+    "security-group": "AWS::EC2::SecurityGroup",
+    "security-group-rule": "AWS::EC2::SecurityGroupRule",
+    "snapshot": "AWS::EC2::Snapshot",
+    "subnet": "AWS::EC2::Subnet",
+    "subnet-cidr-reservation": "AWS::EC2::SubnetCidrReservation",
+    "traffic-mirror-filter": "AWS::EC2::TrafficMirrorFilter",
+    "traffic-mirror-filter-rule": "AWS::EC2::TrafficMirrorFilterRule",
+    "traffic-mirror-session": "AWS::EC2::TrafficMirrorSession",
+    "traffic-mirror-target": "AWS::EC2::TrafficMirrorTarget",
+    "transit-gateway": "AWS::EC2::TransitGateway",
+    "transit-gateway-attachment": "AWS::EC2::TransitGatewayAttachment",
+    "transit-gateway-connect-peer": "AWS::EC2::TransitGatewayConnectPeer",
+    "transit-gateway-multicast-domain": "AWS::EC2::TransitGatewayMulticastDomain",
+    "transit-gateway-policy-table": "AWS::EC2::TransitGatewayPolicyTable",
+    "transit-gateway-route-table": "AWS::EC2::TransitGatewayRouteTable",
+    "transit-gateway-route-table-announcement": "AWS::EC2::TransitGatewayRouteTableAnnouncement",
+    "verified-access-endpoint": "AWS::EC2::VerifiedAccessEndpoint",
+    "verified-access-group": "AWS::EC2::VerifiedAccessGroup",
+    "verified-access-instance": "AWS::EC2::VerifiedAccessInstance",
+    "verified-access-trust-provider": "AWS::EC2::VerifiedAccessTrustProvider",
+    "volume": "AWS::EC2::Volume",
+    "vpc": "AWS::EC2::VPC",
+    "vpc-block-public-access-exclusion": "AWS::EC2::VPCBlockPublicAccessExclusion",
+    "vpc-endpoint": "AWS::EC2::VPCEndpoint",
+    "vpc-endpoint-connection": "AWS::EC2::VPCEndpointConnection",
+    "vpc-endpoint-service": "AWS::EC2::VPCEndpointService",
+    "vpc-peering-connection": "AWS::EC2::VPCPeeringConnection",
+    "vpn-connection": "AWS::EC2::VPNConnection",
+    "vpn-gateway": "AWS::EC2::VPNGateway"
+  },
+  "ecr": {
+    "repository": "AWS::ECR::Repository"
+  },
+  "ecs": {
+    "capacity-provider": "AWS::ECS::CapacityProvider",
+    "cluster": "AWS::ECS::Cluster",
+    "container-instance": "AWS::ECS::ContainerInstance",
+    "service": "AWS::ECS::Service",
+    "task": "AWS::ECS::Task",
+    "task-definition": "AWS::ECS::TaskDefinition",
+    "task-set": "AWS::ECS::TaskSet"
+  },
+  "eks": {
+    "addon": "AWS::EKS::Addon",
+    "cluster": "AWS::EKS::Cluster",
+    "eks-anywhere-subscription": "AWS::EKS::EKSAnywhereSubscription",
+    "fargate-profile": "AWS::EKS::FargateProfile",
+    "fargateprofile": "AWS::EKS::FargateProfile",
+    "identity-provider-config": "AWS::EKS::IdentityProviderConfig",
+    "identityproviderconfig": "AWS::EKS::IdentityProviderConfig",
+    "nodegroup": "AWS::EKS::Nodegroup",
+    "pod-identity-association": "AWS::EKS::PodIdentityAssociation",
+    "podidentityassociation": "AWS::EKS::PodIdentityAssociation"
+  },
+  "elasticache": {
+    "parameter-group": "AWS::ElastiCache::ParameterGroup",
+    "parametergroup": "AWS::ElastiCache::ParameterGroup",
+    "replication-group": "AWS::ElastiCache::ReplicationGroup",
+    "replicationgroup": "AWS::ElastiCache::ReplicationGroup",
+    "reserved-instance": "AWS::ElastiCache::ReservedInstance",
+    "security-group": "AWS::ElastiCache::SecurityGroup",
+    "securitygroup": "AWS::ElastiCache::SecurityGroup",
+    "serverless-cache": "AWS::ElastiCache::ServerlessCache",
+    "serverless-cache-snapshot": "AWS::ElastiCache::ServerlessCacheSnapshot",
+    "serverlesscache": "AWS::ElastiCache::ServerlessCache",
+    "serverlesscachesnapshot": "AWS::ElastiCache::ServerlessCacheSnapshot",
+    "snapshot": "AWS::ElastiCache::Snapshot",
+    "subnet-group": "AWS::ElastiCache::SubnetGroup",
+    "subnetgroup": "AWS::ElastiCache::SubnetGroup",
+    "user": "AWS::ElastiCache::User",
+    "user-group": "AWS::ElastiCache::UserGroup",
+    "usergroup": "AWS::ElastiCache::UserGroup"
+  },
+  "elasticbeanstalk": {
+    "application": "AWS::ElasticBeanstalk::Application",
+    "application-version": "AWS::ElasticBeanstalk::ApplicationVersion",
+    "applicationversion": "AWS::ElasticBeanstalk::ApplicationVersion",
+    "configuration-template": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+    "configurationtemplate": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+    "environment": "AWS::ElasticBeanstalk::Environment"
+  },
+  "elasticfilesystem": {
+    "access-point": "AWS::EFS::AccessPoint",
+    "file-system": "AWS::EFS::FileSystem"
+  },
+  "elasticloadbalancing": {
+    "loadbalancer": "AWS::ElasticLoadBalancing::LoadBalancer",
+    "target-group": "AWS::ElasticLoadBalancingV2::TargetGroup",
+    "targetgroup": "AWS::ElasticLoadBalancingV2::TargetGroup",
+    "truststore": "AWS::ElasticLoadBalancingV2::TrustStore"
+  },
+  "elasticmapreduce": {
+    "cluster": "AWS::EMR::Cluster",
+    "editor": "AWS::EMR::Editor",
+    "notebook-execution": "AWS::EMR::NotebookExecution",
+    "studio": "AWS::EMR::Studio"
+  },
+  "emr-containers": {
+    "job-run": "AWS::EMRContainers::JobRun",
+    "job-template": "AWS::EMRContainers::JobTemplate",
+    "jobRun": "AWS::EMRContainers::JobRun",
+    "jobTemplate": "AWS::EMRContainers::JobTemplate",
+    "managed-endpoint": "AWS::EMRContainers::ManagedEndpoint",
+    "managedEndpoint": "AWS::EMRContainers::ManagedEndpoint",
+    "security-configuration": "AWS::EMRContainers::SecurityConfiguration",
+    "securityConfiguration": "AWS::EMRContainers::SecurityConfiguration",
+    "virtual-cluster": "AWS::EMRContainers::VirtualCluster",
+    "virtualCluster": "AWS::EMRContainers::VirtualCluster"
+  },
+  "emr-serverless": {
+    "application": "AWS::EMRServerless::Application",
+    "job-run": "AWS::EMRServerless::JobRun",
+    "jobRun": "AWS::EMRServerless::JobRun"
+  },
+  "entityresolution": {
+    "IdMappingWorkflow": "AWS::EntityResolution::IdMappingWorkflow",
+    "IdNamespace": "AWS::EntityResolution::IdNamespace",
+    "MatchingWorkflow": "AWS::EntityResolution::MatchingWorkflow",
+    "SchemaMapping": "AWS::EntityResolution::SchemaMapping",
+    "id-mapping-workflow": "AWS::EntityResolution::IdMappingWorkflow",
+    "id-namespace": "AWS::EntityResolution::IdNamespace",
+    "matching-workflow": "AWS::EntityResolution::MatchingWorkflow",
+    "schema-mapping": "AWS::EntityResolution::SchemaMapping"
+  },
+  "es": {
+    "domain": "AWS::OpenSearchService::Domain"
+  },
+  "events": {
+    "event-bus": "AWS::Events::EventBus",
+    "rule": "AWS::Events::Rule"
+  },
+  "finspace": {
+    "environment": "AWS::FinSpace::Environment",
+    "kx-cluster": "AWS::FinSpace::KxCluster",
+    "kx-database": "AWS::FinSpace::KxDatabase",
+    "kx-dataview": "AWS::FinSpace::KxDataview",
+    "kx-environment": "AWS::FinSpace::KxEnvironment",
+    "kx-scaling-group": "AWS::FinSpace::KxScalingGroup",
+    "kx-user": "AWS::FinSpace::KxUser",
+    "kx-volume": "AWS::FinSpace::KxVolume",
+    "kxCluster": "AWS::FinSpace::KxCluster",
+    "kxDatabase": "AWS::FinSpace::KxDatabase",
+    "kxDataview": "AWS::FinSpace::KxDataview",
+    "kxEnvironment": "AWS::FinSpace::KxEnvironment",
+    "kxScalingGroup": "AWS::FinSpace::KxScalingGroup",
+    "kxUser": "AWS::FinSpace::KxUser",
+    "kxVolume": "AWS::FinSpace::KxVolume"
+  },
+  "firehose": {
+    "delivery-stream": "AWS::KinesisFirehose::DeliveryStream",
+    "deliverystream": "AWS::KinesisFirehose::DeliveryStream"
+  },
+  "fis": {
+    "experiment": "AWS::FIS::Experiment",
+    "experiment-template": "AWS::FIS::ExperimentTemplate"
+  },
+  "fms": {
+    "applications-list": "AWS::FMS::Applicationslist",
+    "policy": "AWS::FMS::Policy",
+    "protocols-list": "AWS::FMS::ProtocolsList",
+    "resource-set": "AWS::FMS::ResourceSet"
+  },
+  "forecast": {
+    "dataset": "AWS::Forecast::Dataset",
+    "dataset-group": "AWS::Forecast::DatasetGroup",
+    "dataset-import-job": "AWS::Forecast::DatasetImportJob",
+    "datasetGroup": "AWS::Forecast::DatasetGroup",
+    "datasetImportJob": "AWS::Forecast::DatasetImportJob",
+    "explainability": "AWS::Forecast::Explainability",
+    "explainability-export": "AWS::Forecast::ExplainabilityExport",
+    "explainabilityExport": "AWS::Forecast::ExplainabilityExport",
+    "forecast": "AWS::Forecast::Forecast",
+    "predictor": "AWS::Forecast::Predictor",
+    "predictor-backtest-export-job": "AWS::Forecast::PredictorBacktestExportJob",
+    "predictorBacktestExportJob": "AWS::Forecast::PredictorBacktestExportJob",
+    "what-if-analysis": "AWS::Forecast::WhatIfAnalysis",
+    "whatIfAnalysis": "AWS::Forecast::WhatIfAnalysis"
+  },
+  "frauddetector": {
+    "batch-import": "AWS::FraudDetector::BatchImport",
+    "batch-prediction": "AWS::FraudDetector::BatchPrediction",
+    "detector": "AWS::FraudDetector::Detector",
+    "detector-version": "AWS::FraudDetector::DetectorVersion",
+    "entity-type": "AWS::FraudDetector::EntityType",
+    "event-type": "AWS::FraudDetector::EventType",
+    "external-model": "AWS::FraudDetector::ExternalModel",
+    "label": "AWS::FraudDetector::Label",
+    "list": "AWS::FraudDetector::List",
+    "model": "AWS::FraudDetector::Model",
+    "model-version": "AWS::FraudDetector::ModelVersion",
+    "outcome": "AWS::FraudDetector::Outcome",
+    "rule": "AWS::FraudDetector::Rule",
+    "variable": "AWS::FraudDetector::Variable"
+  },
+  "fsx": {
+    "backup": "AWS::FSx::Backup",
+    "file-cache": "AWS::FSx::FileCache",
+    "file-system": "AWS::FSx::FileSystem",
+    "snapshot": "AWS::FSx::Snapshot",
+    "storage-virtual-machine": "AWS::FSx::StorageVirtualMachine",
+    "volume": "AWS::FSx::Volume"
+  },
+  "gamelift": {
+    "alias": "AWS::GameLift::Alias",
+    "container-fleet": "AWS::GameLift::ContainerFleet",
+    "container-group-definition": "AWS::GameLift::ContainerGroupDefinition",
+    "containerFleet": "AWS::GameLift::ContainerFleet",
+    "containerGroupDefinition": "AWS::GameLift::ContainerGroupDefinition",
+    "fleet": "AWS::GameLift::Fleet",
+    "game-server-group": "AWS::GameLift::GameServerGroup",
+    "game-session-queue": "AWS::GameLift::GameSessionQueue",
+    "gameServerGroup": "AWS::GameLift::GameServerGroup",
+    "gameSessionQueue": "AWS::GameLift::GameSessionQueue",
+    "location": "AWS::GameLift::Location",
+    "matchmaking-configuration": "AWS::GameLift::MatchmakingConfiguration",
+    "matchmaking-rule-set": "AWS::GameLift::MatchmakingRuleSet",
+    "matchmakingConfiguration": "AWS::GameLift::MatchmakingConfiguration",
+    "matchmakingRuleSet": "AWS::GameLift::MatchmakingRuleSet",
+    "script": "AWS::GameLift::Script"
+  },
+  "geo": {
+    "geofence-collection": "AWS::Location::GeofenceCollection",
+    "map": "AWS::Location::Map",
+    "place-index": "AWS::Location::PlaceIndex",
+    "route-calculator": "AWS::Location::RouteCalculator",
+    "tracker": "AWS::Location::Tracker"
+  },
+  "glacier": {
+    "vault": "AWS::Glacier::Vault"
+  },
+  "globalaccelerator": {
+    "accelerator": "AWS::GlobalAccelerator::Accelerator"
+  },
+  "glue": {
+    "blueprint": "AWS::Glue::Blueprint",
+    "catalog": "AWS::Glue::Catalog",
+    "completion": "AWS::Glue::Completion",
+    "connection": "AWS::Glue::Connection",
+    "crawler": "AWS::Glue::Crawler",
+    "custom-entity-type": "AWS::Glue::CustomEntityType",
+    "customEntityType": "AWS::Glue::CustomEntityType",
+    "data-quality-ruleset": "AWS::Glue::DataQualityRuleset",
+    "dataQualityRuleset": "AWS::Glue::DataQualityRuleset",
+    "database": "AWS::Glue::Database",
+    "dev-endpoint": "AWS::Glue::DevEndpoint",
+    "devendpoint": "AWS::Glue::DevEndpoint",
+    "job": "AWS::Glue::Job",
+    "ml-transform": "AWS::Glue::MLTransform",
+    "mlTransform": "AWS::Glue::MLTransform",
+    "registry": "AWS::Glue::Registry",
+    "schema": "AWS::Glue::Schema",
+    "session": "AWS::Glue::Session",
+    "trigger": "AWS::Glue::Trigger",
+    "usage-profile": "AWS::Glue::UsageProfile",
+    "usageProfile": "AWS::Glue::UsageProfile",
+    "workflow": "AWS::Glue::Workflow"
+  },
+  "grafana": {
+    "workspace": "AWS::Grafana::Workspace"
+  },
+  "greengrass": {
+    "bulk-deployment": "AWS::Greengrass::BulkDeployment",
+    "bulkDeployment": "AWS::Greengrass::BulkDeployment",
+    "component-version": "AWS::GreengrassV2::ComponentVersion",
+    "componentVersion": "AWS::GreengrassV2::ComponentVersion",
+    "connector-definition": "AWS::Greengrass::ConnectorDefinition",
+    "connectorDefinition": "AWS::Greengrass::ConnectorDefinition",
+    "core-definition": "AWS::Greengrass::CoreDefinition",
+    "core-device": "AWS::GreengrassV2::CoreDevice",
+    "coreDefinition": "AWS::Greengrass::CoreDefinition",
+    "coreDevice": "AWS::GreengrassV2::CoreDevice",
+    "device-definition": "AWS::Greengrass::DeviceDefinition",
+    "deviceDefinition": "AWS::Greengrass::DeviceDefinition",
+    "function-definition": "AWS::Greengrass::FunctionDefinition",
+    "functionDefinition": "AWS::Greengrass::FunctionDefinition",
+    "group": "AWS::Greengrass::Group",
+    "logger-definition": "AWS::Greengrass::LoggerDefinition",
+    "loggerDefinition": "AWS::Greengrass::LoggerDefinition",
+    "resource-definition": "AWS::Greengrass::ResourceDefinition",
+    "resourceDefinition": "AWS::Greengrass::ResourceDefinition",
+    "subscription-definition": "AWS::Greengrass::SubscriptionDefinition",
+    "subscriptionDefinition": "AWS::Greengrass::SubscriptionDefinition"
+  },
+  "groundstation": {
+    "Config": "AWS::GroundStation::Config",
+    "Contact": "AWS::GroundStation::Contact",
+    "DataflowEndpointGroup": "AWS::GroundStation::DataflowEndpointGroup",
+    "MissionProfile": "AWS::GroundStation::MissionProfile",
+    "Satellite": "AWS::GroundStation::Satellite",
+    "config": "AWS::GroundStation::Config",
+    "contact": "AWS::GroundStation::Contact",
+    "dataflow-endpoint-group": "AWS::GroundStation::DataflowEndpointGroup",
+    "mission-profile": "AWS::GroundStation::MissionProfile",
+    "satellite": "AWS::GroundStation::Satellite"
+  },
+  "guardduty": {
+    "detector": "AWS::GuardDuty::Detector",
+    "filter": "AWS::GuardDuty::Filter",
+    "ipset": "AWS::GuardDuty::IPSet",
+    "malware-protection-plan": "AWS::GuardDuty::MalwareProtectionPlan",
+    "malwareprotectionplan": "AWS::GuardDuty::MalwareProtectionPlan",
+    "threat-intel-set": "AWS::GuardDuty::ThreatIntelSet",
+    "threatintelset": "AWS::GuardDuty::ThreatIntelSet"
+  },
+  "healthlake": {},
+  "iam": {
+    "instance-profile": "AWS::IAM::InstanceProfile",
+    "saml-provider": "AWS::IAM::SAMLProvider",
+    "server-certificate": "AWS::IAM::ServerCertificate"
+  },
+  "imagebuilder": {
+    "component": "AWS::ImageBuilder::Component",
+    "container-recipe": "AWS::ImageBuilder::ContainerRecipe",
+    "containerRecipe": "AWS::ImageBuilder::ContainerRecipe",
+    "distribution-configuration": "AWS::ImageBuilder::DistributionConfiguration",
+    "distributionConfiguration": "AWS::ImageBuilder::DistributionConfiguration",
+    "image": "AWS::ImageBuilder::Image",
+    "image-pipeline": "AWS::ImageBuilder::ImagePipeline",
+    "image-recipe": "AWS::ImageBuilder::ImageRecipe",
+    "imagePipeline": "AWS::ImageBuilder::ImagePipeline",
+    "imageRecipe": "AWS::ImageBuilder::ImageRecipe",
+    "infrastructure-configuration": "AWS::ImageBuilder::InfrastructureConfiguration",
+    "infrastructureConfiguration": "AWS::ImageBuilder::InfrastructureConfiguration",
+    "lifecycle-policy": "AWS::ImageBuilder::LifecyclePolicy",
+    "lifecyclePolicy": "AWS::ImageBuilder::LifecyclePolicy",
+    "workflow": "AWS::ImageBuilder::Workflow"
+  },
+  "inspector": {},
+  "inspector2": {
+    "CIS Scan Configuration": "AWS::InspectorV2::CisScanConfiguration",
+    "Filter": "AWS::InspectorV2::Filter",
+    "cis-scan-configuration": "AWS::InspectorV2::CisScanConfiguration",
+    "filter": "AWS::InspectorV2::Filter"
+  },
+  "internetmonitor": {
+    "Monitor": "AWS::InternetMonitor::Monitor",
+    "monitor": "AWS::InternetMonitor::Monitor"
+  },
+  "iot": {
+    "authorizer": "AWS::IoT::Authorizer",
+    "billing-group": "AWS::IoT::BillingGroup",
+    "billinggroup": "AWS::IoT::BillingGroup",
+    "certificate-provider": "AWS::IoT::CertificateProvider",
+    "certificateprovider": "AWS::IoT::CertificateProvider",
+    "command": "AWS::IoT::Command",
+    "custom-metric": "AWS::IoT::CustomMetric",
+    "custommetric": "AWS::IoT::CustomMetric",
+    "dimension": "AWS::IoT::Dimension",
+    "domain-configuration": "AWS::IoT::DomainConfiguration",
+    "domainconfiguration": "AWS::IoT::DomainConfiguration",
+    "fleet-metric": "AWS::IoT::FleetMetric",
+    "fleetmetric": "AWS::IoT::FleetMetric",
+    "job": "AWS::IoT::Job",
+    "job-template": "AWS::IoT::JobTemplate",
+    "jobtemplate": "AWS::IoT::JobTemplate",
+    "mitigation-action": "AWS::IoT::MitigationAction",
+    "mitigationaction": "AWS::IoT::MitigationAction",
+    "ota-update": "AWS::IoT::OTAUpdate",
+    "otaupdate": "AWS::IoT::OTAUpdate",
+    "policy": "AWS::IoT::Policy",
+    "provisioning-template": "AWS::IoT::ProvisioningTemplate",
+    "provisioningtemplate": "AWS::IoT::ProvisioningTemplate",
+    "role-alias": "AWS::IoT::RoleAlias",
+    "rolealias": "AWS::IoT::RoleAlias",
+    "scheduled-audit": "AWS::IoT::ScheduledAudit",
+    "scheduledaudit": "AWS::IoT::ScheduledAudit",
+    "security-profile": "AWS::IoT::SecurityProfile",
+    "securityprofile": "AWS::IoT::SecurityProfile",
+    "stream": "AWS::IoT::Stream",
+    "thing-type": "AWS::IoT::ThingType",
+    "thingtype": "AWS::IoT::ThingType",
+    "tunnel": "AWS::IoT::Tunnel"
+  },
+  "iotanalytics": {
+    "channel": "AWS::IoTAnalytics::Channel",
+    "dataset": "AWS::IoTAnalytics::Dataset",
+    "datastore": "AWS::IoTAnalytics::Datastore",
+    "pipeline": "AWS::IoTAnalytics::Pipeline"
+  },
+  "iotdeviceadvisor": {
+    "Suitedefinition": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
+    "Suiterun": "AWS::IoTCoreDeviceAdvisor::SuiteRun",
+    "suite-definition": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
+    "suite-run": "AWS::IoTCoreDeviceAdvisor::SuiteRun"
+  },
+  "iotevents": {
+    "alarm-model": "AWS::IoTEvents::AlarmModel",
+    "alarmModel": "AWS::IoTEvents::AlarmModel",
+    "detector-model": "AWS::IoTEvents::DetectorModel",
+    "detectorModel": "AWS::IoTEvents::DetectorModel",
+    "input": "AWS::IoTEvents::Input"
+  },
+  "iotfleetwise": {
+    "campaign": "AWS::IoTFleetWise::Campaign",
+    "decoder-manifest": "AWS::IoTFleetWise::DecoderManifest",
+    "decodermanifest": "AWS::IoTFleetWise::DecoderManifest",
+    "fleet": "AWS::IoTFleetWise::Fleet",
+    "model-manifest": "AWS::IoTFleetWise::ModelManifest",
+    "modelmanifest": "AWS::IoTFleetWise::ModelManifest",
+    "signal-catalog": "AWS::IoTFleetWise::SignalCatalog",
+    "signalcatalog": "AWS::IoTFleetWise::SignalCatalog",
+    "state-template": "AWS::IoTFleetWise::StateTemplate",
+    "statetemplate": "AWS::IoTFleetWise::StateTemplate",
+    "vehicle": "AWS::IoTFleetWise::Vehicle"
+  },
+  "iotsitewise": {
+    "access-policy": "AWS::IoTSiteWise::AccessPolicy",
+    "asset": "AWS::IoTSiteWise::Asset",
+    "asset-model": "AWS::IoTSiteWise::AssetModel",
+    "dashboard": "AWS::IoTSiteWise::Dashboard",
+    "dataset": "AWS::IoTSiteWise::Dataset",
+    "gateway": "AWS::IoTSiteWise::Gateway",
+    "portal": "AWS::IoTSiteWise::Portal",
+    "project": "AWS::IoTSiteWise::Project",
+    "time-series": "AWS::IoTSiteWise::TimeSeries"
+  },
+  "iotwireless": {
+    "Destination": "AWS::IoTWireless::Destination",
+    "DeviceProfile": "AWS::IoTWireless::DeviceProfile",
+    "FuotaTask": "AWS::IoTWireless::FuotaTask",
+    "ImportTask": "AWS::IoTWireless::ImportTask",
+    "MulticastGroup": "AWS::IoTWireless::MulticastGroup",
+    "NetworkAnalyzerConfiguration": "AWS::IoTWireless::NetworkAnalyzerConfiguration",
+    "ServiceProfile": "AWS::IoTWireless::ServiceProfile",
+    "WirelessDevice": "AWS::IoTWireless::WirelessDevice",
+    "WirelessGateway": "AWS::IoTWireless::WirelessGateway",
+    "destination": "AWS::IoTWireless::Destination",
+    "device-profile": "AWS::IoTWireless::DeviceProfile",
+    "fuota-task": "AWS::IoTWireless::FuotaTask",
+    "import-task": "AWS::IoTWireless::ImportTask",
+    "multicast-group": "AWS::IoTWireless::MulticastGroup",
+    "network-analyzer-configuration": "AWS::IoTWireless::NetworkAnalyzerConfiguration",
+    "service-profile": "AWS::IoTWireless::ServiceProfile",
+    "wireless-device": "AWS::IoTWireless::WirelessDevice",
+    "wireless-gateway": "AWS::IoTWireless::WirelessGateway"
+  },
+  "ivs": {
+    "Channel": "AWS::IVS::Channel",
+    "Composition": "AWS::IVS::Composition",
+    "Encoder-Configuration": "AWS::IVS::EncoderConfiguration",
+    "Ingest-Configuration": "AWS::IVS::IngestConfiguration",
+    "Playback-Key-Pair": "AWS::IVS::PlaybackKeyPair",
+    "Playback-Restriction-Policy": "AWS::IVS::PlaybackRestrictionPolicy",
+    "Public-Key": "AWS::IVS::PublicKey",
+    "Recording-Configuration": "AWS::IVS::RecordingConfiguration",
+    "Stage": "AWS::IVS::Stage",
+    "Storage-Configuration": "AWS::IVS::StorageConfiguration",
+    "Stream-Key": "AWS::IVS::StreamKey",
+    "channel": "AWS::IVS::Channel",
+    "composition": "AWS::IVS::Composition",
+    "encoder-configuration": "AWS::IVS::EncoderConfiguration",
+    "ingest-configuration": "AWS::IVS::IngestConfiguration",
+    "playback-key-pair": "AWS::IVS::PlaybackKeyPair",
+    "playback-restriction-policy": "AWS::IVS::PlaybackRestrictionPolicy",
+    "public-key": "AWS::IVS::PublicKey",
+    "recording-configuration": "AWS::IVS::RecordingConfiguration",
+    "stage": "AWS::IVS::Stage",
+    "storage-configuration": "AWS::IVS::StorageConfiguration",
+    "stream-key": "AWS::IVS::StreamKey"
+  },
+  "kafka": {
+    "cluster": "AWS::Kafka::Cluster",
+    "replicator": "AWS::MSK::Replicator",
+    "vpc-connection": "AWS::MSK::VpcConnection"
+  },
+  "kafkaconnect": {
+    "connector": "AWS::KafkaConnect::Connector",
+    "custom plugin": "AWS::KafkaConnect::CustomPlugin",
+    "custom-plugin": "AWS::KafkaConnect::CustomPlugin",
+    "worker configuration": "AWS::KafkaConnect::WorkerConfiguration",
+    "worker-configuration": "AWS::KafkaConnect::WorkerConfiguration"
+  },
+  "kendra": {
+    "data-source": "AWS::Kendra::DataSource",
+    "featured-results-set": "AWS::Kendra::FeaturedResultsSet",
+    "index": "AWS::Kendra::Index",
+    "query-suggestions-block-list": "AWS::Kendra::QuerySuggestionsBlockList",
+    "thesaurus": "AWS::Kendra::Thesaurus"
+  },
+  "kendra-ranking": {},
+  "kinesis": {
+    "stream": "AWS::Kinesis::Stream"
+  },
+  "kinesisanalytics": {
+    "application": "AWS::KinesisAnalytics::Application"
+  },
+  "kinesisvideo": {
+    "stream": "AWS::KinesisVideo::Stream"
+  },
+  "kms": {
+    "key": "AWS::KMS::Key"
+  },
+  "lambda": {
+    "code signing config": "AWS::Lambda::CodeSigningConfig",
+    "code-signing-config": "AWS::Lambda::CodeSigningConfig",
+    "event-source-mapping": "AWS::Lambda::EventSourceMapping",
+    "eventSourceMapping": "AWS::Lambda::EventSourceMapping",
+    "function": "AWS::Lambda::Function"
+  },
+  "launchwizard": {
+    "deployment": "AWS::LaunchWizard::Deployment"
+  },
+  "lex": {
+    "bot": "AWS::Lex::Bot",
+    "bot alias": "AWS::Lex::BotAlias",
+    "bot-alias": "AWS::Lex::BotAlias",
+    "test set": "AWS::LexV2::TestSet",
+    "test-set": "AWS::LexV2::TestSet"
+  },
+  "license-manager": {
+    "license": "AWS::LicenseManager::License",
+    "license-configuration": "AWS::LicenseManager::LicenseConfiguration",
+    "report-generator": "AWS::LicenseManager::ReportGenerator"
+  },
+  "license-manager-linux-subscriptions": {
+    "subscription-provider": "AWS::LicenseManagerLinuxSubscriptions::SubscriptionProvider"
+  },
+  "license-manager-user-subscriptions": {
+    "identity-provider": "AWS::LicenseManagerUserSubscriptions::IdentityProvider",
+    "license-server-endpoint": "AWS::LicenseManagerUserSubscriptions::LicenseServerEndpoint",
+    "product-subscription": "AWS::LicenseManagerUserSubscriptions::ProductSubscription"
+  },
+  "lightsail": {
+    "Bucket": "AWS::Lightsail::Bucket",
+    "Certificate": "AWS::Lightsail::Certificate",
+    "Disk": "AWS::Lightsail::Disk",
+    "DiskSnapshot": "AWS::Lightsail::DiskSnapshot",
+    "Distribution": "AWS::Lightsail::Distribution",
+    "Domain": "AWS::Lightsail::Domain",
+    "Instance": "AWS::Lightsail::Instance",
+    "InstanceSnapshot": "AWS::Lightsail::InstanceSnapshot",
+    "KeyPair": "AWS::Lightsail::KeyPair",
+    "LoadBalancer": "AWS::Lightsail::LoadBalancer",
+    "RelationalDatabaseSnapshot": "AWS::Lightsail::RelationalDatabaseSnapshot",
+    "StaticIp": "AWS::Lightsail::StaticIp",
+    "bucket": "AWS::Lightsail::Bucket",
+    "certificate": "AWS::Lightsail::Certificate",
+    "disk": "AWS::Lightsail::Disk",
+    "disk-snapshot": "AWS::Lightsail::DiskSnapshot",
+    "distribution": "AWS::Lightsail::Distribution",
+    "domain": "AWS::Lightsail::Domain",
+    "instance": "AWS::Lightsail::Instance",
+    "instance-snapshot": "AWS::Lightsail::InstanceSnapshot",
+    "key-pair": "AWS::Lightsail::KeyPair",
+    "load-balancer": "AWS::Lightsail::LoadBalancer",
+    "relational-database-snapshot": "AWS::Lightsail::RelationalDatabaseSnapshot",
+    "static-ip": "AWS::Lightsail::StaticIp"
+  },
+  "logs": {
+    "anomaly-detector": "AWS::Logs::AnomalyDetector",
+    "delivery": "AWS::Logs::Delivery",
+    "delivery-destination": "AWS::Logs::DeliveryDestination",
+    "delivery-source": "AWS::Logs::DeliverySource",
+    "destination": "AWS::Logs::Destination",
+    "log-group": "AWS::Logs::LogGroup"
+  },
+  "lookoutequipment": {
+    "dataset": "AWS::LookoutEquipment::Dataset",
+    "inference-scheduler": "AWS::LookoutEquipment::InferenceScheduler",
+    "label-group": "AWS::LookoutEquipment::LabelGroup",
+    "model": "AWS::LookoutEquipment::Model"
+  },
+  "m2": {
+    "Application": "AWS::M2::Application",
+    "Environment": "AWS::M2::Environment",
+    "application": "AWS::M2::Application",
+    "environment": "AWS::M2::Environment"
+  },
+  "machinelearning": {
+    "batch-prediction": "AWS::MachineLearning::BatchPrediction",
+    "batchprediction": "AWS::MachineLearning::BatchPrediction",
+    "datasource": "AWS::MachineLearning::DataSource",
+    "evaluation": "AWS::MachineLearning::Evaluation",
+    "mlmodel": "AWS::MachineLearning::MLModel"
+  },
+  "macie2": {
+    "ClassificationJob": "AWS::Macie::ClassificationJob",
+    "CustomDataIdentifier": "AWS::Macie::CustomDataIdentifier",
+    "FindingsFilter": "AWS::Macie::FindingsFilter",
+    "Member": "AWS::Macie::Member",
+    "classification-job": "AWS::Macie::ClassificationJob",
+    "custom-data-identifier": "AWS::Macie::CustomDataIdentifier",
+    "findings-filter": "AWS::Macie::FindingsFilter",
+    "member": "AWS::Macie::Member"
+  },
+  "managedblockchain": {
+    "accessor": "AWS::ManagedBlockchain::Accessor",
+    "invitation": "AWS::ManagedBlockchain::Invitation",
+    "member": "AWS::ManagedBlockchain::Member",
+    "network": "AWS::ManagedBlockchain::Network",
+    "node": "AWS::ManagedBlockchain::Node",
+    "proposal": "AWS::ManagedBlockchain::Proposal"
+  },
+  "mediaconnect": {
+    "Flow": "AWS::MediaConnect::Flow",
+    "flow": "AWS::MediaConnect::Flow"
+  },
+  "mediaconvert": {
+    "Job": "AWS::MediaConvert::Job",
+    "JobTemplate": "AWS::MediaConvert::JobTemplate",
+    "Preset": "AWS::MediaConvert::Preset",
+    "Queue": "AWS::MediaConvert::Queue",
+    "job": "AWS::MediaConvert::Job",
+    "job-template": "AWS::MediaConvert::JobTemplate",
+    "preset": "AWS::MediaConvert::Preset",
+    "queue": "AWS::MediaConvert::Queue"
+  },
+  "medialive": {
+    "channel": "AWS::MediaLive::Channel",
+    "channel-placement-group": "AWS::MediaLive::ChannelPlacementGroup",
+    "cloudwatch-alarm-template": "AWS::MediaLive::CloudWatchAlarmTemplate",
+    "cloudwatch-alarm-template-group": "AWS::MediaLive::CloudWatchAlarmTemplateGroup",
+    "eventbridge-rule-template": "AWS::MediaLive::EventBridgeRuleTemplate",
+    "eventbridge-rule-template-group": "AWS::MediaLive::EventBridgeRuleTemplateGroup",
+    "input": "AWS::MediaLive::Input",
+    "input-device": "AWS::MediaLive::InputDevice",
+    "input-security-group": "AWS::MediaLive::InputSecurityGroup",
+    "multiplex": "AWS::MediaLive::Multiplex",
+    "network": "AWS::MediaLive::Network",
+    "node": "AWS::MediaLive::Node",
+    "reservation": "AWS::MediaLive::Reservation",
+    "signal-map": "AWS::MediaLive::SignalMap"
+  },
+  "mediapackage": {
+    "channels": "AWS::MediaPackage::Channel",
+    "origin-endpoints": "AWS::MediaPackage::OriginEndpoint",
+    "origin_endpoints": "AWS::MediaPackage::OriginEndpoint"
+  },
+  "mediapackagev2": {
+    "ChannelGroup": "AWS::MediaPackageV2::ChannelGroup",
+    "channel-group": "AWS::MediaPackageV2::ChannelGroup"
+  },
+  "mediastore": {
+    "container": "AWS::MediaStore::Container"
+  },
+  "mediatailor": {
+    "channel": "AWS::MediaTailor::Channel",
+    "live-source": "AWS::MediaTailor::LiveSource",
+    "liveSource": "AWS::MediaTailor::LiveSource",
+    "playback-configuration": "AWS::MediaTailor::PlaybackConfiguration",
+    "playbackConfiguration": "AWS::MediaTailor::PlaybackConfiguration",
+    "source-location": "AWS::MediaTailor::SourceLocation",
+    "sourceLocation": "AWS::MediaTailor::SourceLocation",
+    "vod-source": "AWS::MediaTailor::VodSource",
+    "vodSource": "AWS::MediaTailor::VodSource"
+  },
+  "medical-imaging": {
+    "datastore": "AWS::HealthImaging::Datastore",
+    "imageset": "AWS::HealthImaging::ImageSet"
+  },
+  "memorydb": {
+    "acl": "AWS::MemoryDB::ACL",
+    "cluster": "AWS::MemoryDB::Cluster",
+    "multi-region-cluster": "AWS::MemoryDB::MultiRegionCluster",
+    "multiregioncluster": "AWS::MemoryDB::MultiRegionCluster",
+    "parameter-group": "AWS::MemoryDB::ParameterGroup",
+    "parametergroup": "AWS::MemoryDB::ParameterGroup",
+    "snapshot": "AWS::MemoryDB::Snapshot",
+    "subnet-group": "AWS::MemoryDB::SubnetGroup",
+    "subnetgroup": "AWS::MemoryDB::SubnetGroup",
+    "user": "AWS::MemoryDB::User"
+  },
+  "mgn": {},
+  "migrationhub-orchestrator": {
+    "template": "AWS::MigrationHubOrchestrator::Template",
+    "workflow": "AWS::MigrationHubOrchestrator::Workflow"
+  },
+  "mobiletargeting": {
+    "app": "AWS::Pinpoint::App"
+  },
+  "mq": {
+    "brokers": "AWS::AmazonMQ::Broker",
+    "configuration": "AWS::AmazonMQ::Configuration",
+    "configurations": "AWS::AmazonMQ::Configuration"
+  },
+  "neptune-graph": {
+    "graph": "AWS::NeptuneGraph::Graph",
+    "graph-snapshot": "AWS::NeptuneGraph::GraphSnapshot"
+  },
+  "network-firewall": {
+    "Firewall": "AWS::NetworkFirewall::Firewall",
+    "FirewallPolicy": "AWS::NetworkFirewall::FirewallPolicy",
+    "firewall": "AWS::NetworkFirewall::Firewall",
+    "firewall-policy": "AWS::NetworkFirewall::FirewallPolicy"
+  },
+  "networkmanager": {
+    "connect-peer": "AWS::NetworkManager::ConnectPeer",
+    "connection": "AWS::NetworkManager::Connection",
+    "core-network": "AWS::NetworkManager::CoreNetwork",
+    "device": "AWS::NetworkManager::Device",
+    "global-network": "AWS::NetworkManager::GlobalNetwork",
+    "link": "AWS::NetworkManager::Link",
+    "site": "AWS::NetworkManager::Site"
+  },
+  "networkmonitor": {
+    "monitor": "AWS::NetworkMonitor::Monitor",
+    "probe": "AWS::NetworkMonitor::Probe"
+  },
+  "notifications": {
+    "NotificationConfiguration": "AWS::UserNotifications::NotificationConfiguration",
+    "notification-configuration": "AWS::UserNotifications::NotificationConfiguration"
+  },
+  "oam": {
+    "Link": "AWS::Oam::Link",
+    "Sink": "AWS::Oam::Sink",
+    "link": "AWS::Oam::Link",
+    "sink": "AWS::Oam::Sink"
+  },
+  "omics": {
+    "AnnotationStore": "AWS::Omics::AnnotationStore",
+    "AnnotationStoreVersion": "AWS::Omics::AnnotationStoreVersion",
+    "VariantStore": "AWS::Omics::VariantStore",
+    "annotation-store": "AWS::Omics::AnnotationStore",
+    "annotation-store-version": "AWS::Omics::AnnotationStoreVersion",
+    "read-set": "AWS::Omics::ReadSet",
+    "readSet": "AWS::Omics::ReadSet",
+    "reference": "AWS::Omics::Reference",
+    "reference-store": "AWS::Omics::ReferenceStore",
+    "referenceStore": "AWS::Omics::ReferenceStore",
+    "run": "AWS::Omics::Run",
+    "run-cache": "AWS::Omics::RunCache",
+    "run-group": "AWS::Omics::RunGroup",
+    "runCache": "AWS::Omics::RunCache",
+    "runGroup": "AWS::Omics::RunGroup",
+    "sequence-store": "AWS::Omics::SequenceStore",
+    "sequenceStore": "AWS::Omics::SequenceStore",
+    "variant-store": "AWS::Omics::VariantStore",
+    "workflow": "AWS::Omics::Workflow"
+  },
+  "opensearch": {
+    "datasource": "AWS::OpenSearch::DataSource"
+  },
+  "organizations": {
+    "account": "AWS::Organizations::Account",
+    "organizational-unit": "AWS::Organizations::OrganizationalUnit",
+    "organizationalunit": "AWS::Organizations::OrganizationalUnit",
+    "policy": "AWS::Organizations::Policy",
+    "resource-policy": "AWS::Organizations::ResourcePolicy",
+    "resourcepolicy": "AWS::Organizations::ResourcePolicy",
+    "root": "AWS::Organizations::Root"
+  },
+  "osis": {
+    "pipeline": "AWS::OSIS::Pipeline"
+  },
+  "outposts": {
+    "outpost": "AWS::Outposts::Outpost",
+    "site": "AWS::Outposts::Site"
+  },
+  "panorama": {
+    "application-instance": "AWS::Panorama::ApplicationInstance",
+    "applicationInstance": "AWS::Panorama::ApplicationInstance",
+    "device": "AWS::Panorama::Device",
+    "package": "AWS::Panorama::Package"
+  },
+  "payment-cryptography": {
+    "key": "AWS::PaymentCryptography::Key"
+  },
+  "pca-connector-ad": {
+    "Connector": "AWS::PCAConnectorAD::Connector",
+    "connector": "AWS::PCAConnectorAD::Connector"
+  },
+  "pca-connector-scep": {
+    "Connector": "AWS::PCAConnectorScep::Connector",
+    "connector": "AWS::PCAConnectorScep::Connector"
+  },
+  "pcs": {
+    "cluster": "AWS::PCS::Cluster"
+  },
+  "personalize": {
+    "batch-inference-job": "AWS::Personalize::BatchInferenceJob",
+    "batch-segment-job": "AWS::Personalize::BatchSegmentJob",
+    "batchInferenceJob": "AWS::Personalize::BatchInferenceJob",
+    "batchSegmentJob": "AWS::Personalize::BatchSegmentJob",
+    "campaign": "AWS::Personalize::Campaign",
+    "dataset": "AWS::Personalize::Dataset",
+    "dataset-export-job": "AWS::Personalize::DatasetExportJob",
+    "dataset-group": "AWS::Personalize::DatasetGroup",
+    "dataset-import-job": "AWS::Personalize::DatasetImportJob",
+    "datasetExportJob": "AWS::Personalize::DatasetExportJob",
+    "datasetGroup": "AWS::Personalize::DatasetGroup",
+    "datasetImportJob": "AWS::Personalize::DatasetImportJob",
+    "event-tracker": "AWS::Personalize::EventTracker",
+    "eventTracker": "AWS::Personalize::EventTracker",
+    "filter": "AWS::Personalize::Filter",
+    "recommender": "AWS::Personalize::Recommender",
+    "solution": "AWS::Personalize::Solution"
+  },
+  "pi": {},
+  "pipes": {
+    "pipe": "AWS::Pipes::Pipe"
+  },
+  "profile": {
+    "domains": "AWS::CustomerProfiles::Domain",
+    "integrations": "AWS::CustomerProfiles::Integration",
+    "object-types": "AWS::CustomerProfiles::ObjectType"
+  },
+  "proton": {
+    "component": "AWS::Proton::Component",
+    "deployment": "AWS::Proton::Deployment",
+    "environment": "AWS::Proton::Environment",
+    "environment-account-connection": "AWS::Proton::EnvironmentAccountConnection",
+    "environment-template": "AWS::Proton::EnvironmentTemplate",
+    "repository": "AWS::Proton::Repository",
+    "service": "AWS::Proton::Service",
+    "service-instance": "AWS::Proton::ServiceInstance",
+    "service-template": "AWS::Proton::ServiceTemplate"
+  },
+  "qapps": {
+    "qapp": "AWS::QApps::QApp",
+    "qapp-session": "AWS::QApps::QAppSession"
+  },
+  "qbusiness": {
+    "application": "AWS::QBusiness::Application",
+    "data-source": "AWS::QBusiness::DataSource",
+    "index": "AWS::QBusiness::Index",
+    "plugin": "AWS::QBusiness::Plugin",
+    "retriever": "AWS::QBusiness::Retriever",
+    "web-experience": "AWS::QBusiness::WebExperience"
+  },
+  "quicksight": {
+    "analysis": "AWS::QuickSight::Analysis",
+    "brand": "AWS::QuickSight::Brand",
+    "custom-permissions": "AWS::QuickSight::CustomPermissions",
+    "custompermissions": "AWS::QuickSight::CustomPermissions",
+    "dashboard": "AWS::QuickSight::Dashboard",
+    "dataset": "AWS::QuickSight::DataSet",
+    "datasource": "AWS::QuickSight::DataSource",
+    "folder": "AWS::QuickSight::Folder",
+    "namespace": "AWS::QuickSight::Namespace",
+    "template": "AWS::QuickSight::Template",
+    "theme": "AWS::QuickSight::Theme",
+    "topic": "AWS::QuickSight::Topic",
+    "user": "AWS::QuickSight::User",
+    "vpc-connection": "AWS::QuickSight::VPCConnection",
+    "vpcconnection": "AWS::QuickSight::VPCConnection"
+  },
+  "ram": {
+    "resource-share": "AWS::RAM::ResourceShare"
+  },
+  "rbin": {
+    "rule": "AWS::RBin::Rule"
+  },
+  "rds": {
+    "deployment": "AWS::RDS::Deployment",
+    "global-cluster": "AWS::RDS::GlobalCluster",
+    "integration": "AWS::RDS::Integration",
+    "snapshot-tenant-database": "AWS::RDS::SnapshotTenantDatabase",
+    "tenant-database": "AWS::RDS::TenantDatabase"
+  },
+  "redshift": {
+    "cluster": "AWS::Redshift::Cluster",
+    "event-subscription": "AWS::Redshift::EventSubscription",
+    "eventsubscription": "AWS::Redshift::EventSubscription",
+    "hsm-client-certificate": "AWS::Redshift::HSMClientCertificate",
+    "hsm-configuration": "AWS::Redshift::HSMConfiguration",
+    "hsmclientcertificate": "AWS::Redshift::HSMClientCertificate",
+    "hsmconfiguration": "AWS::Redshift::HSMConfiguration",
+    "integration": "AWS::Redshift::Integration",
+    "namespace": "AWS::Redshift::Namespace",
+    "snapshot": "AWS::Redshift::Snapshot",
+    "snapshot-copy-grant": "AWS::Redshift::SnapshotCopyGrant",
+    "snapshot-schedule": "AWS::Redshift::SnapshotSchedule",
+    "snapshotcopygrant": "AWS::Redshift::SnapshotCopyGrant",
+    "snapshotschedule": "AWS::Redshift::SnapshotSchedule",
+    "usage-limit": "AWS::Redshift::UsageLimit",
+    "usagelimit": "AWS::Redshift::UsageLimit"
+  },
+  "redshift-serverless": {
+    "namespace": "AWS::RedshiftServerless::Namespace",
+    "recovery-point": "AWS::RedshiftServerless::RecoveryPoint",
+    "recoveryPoint": "AWS::RedshiftServerless::RecoveryPoint",
+    "snapshot": "AWS::RedshiftServerless::Snapshot",
+    "workgroup": "AWS::RedshiftServerless::Workgroup"
+  },
+  "refactor-spaces": {
+    "application": "AWS::RefactorSpaces::Application",
+    "environment": "AWS::RefactorSpaces::Environment",
+    "route": "AWS::RefactorSpaces::Route",
+    "service": "AWS::RefactorSpaces::Service"
+  },
+  "rekognition": {
+    "collection": "AWS::Rekognition::Collection",
+    "stream-processor": "AWS::Rekognition::StreamProcessor",
+    "streamprocessor": "AWS::Rekognition::StreamProcessor"
+  },
+  "resiliencehub": {
+    "app-assessment": "AWS::ResilienceHub::AppAssessment",
+    "recommendation-template": "AWS::ResilienceHub::RecommendationTemplate",
+    "resiliency-policy": "AWS::ResilienceHub::ResiliencyPolicy"
+  },
+  "resource-groups": {
+    "group": "AWS::ResourceGroups::Group"
+  },
+  "route53": {
+    "healthcheck": "AWS::Route53::HealthCheck",
+    "hostedzone": "AWS::Route53::HostedZone"
+  },
+  "route53-recovery-control": {
+    "cluster": "AWS::Route53RecoveryControl::Cluster",
+    "control-panel": "AWS::Route53RecoveryControl::ControlPanel",
+    "controlpanel": "AWS::Route53RecoveryControl::ControlPanel",
+    "safety-rule": "AWS::Route53RecoveryControl::SafetyRule",
+    "safetyrule": "AWS::Route53RecoveryControl::SafetyRule"
+  },
+  "route53profiles": {
+    "profile": "AWS::Route53Profiles::Profile",
+    "profile-association": "AWS::Route53Profiles::ProfileAssociation"
+  },
+  "route53resolver": {
+    "firewall-domain-list": "AWS::Route53Resolver::FirewallDomainList",
+    "firewall-rule-group": "AWS::Route53Resolver::FirewallRuleGroup",
+    "firewall-rule-group-association": "AWS::Route53Resolver::FirewallRuleGroupAssociation",
+    "outpost-resolver": "AWS::Route53Resolver::OutpostResolver",
+    "resolver-endpoint": "AWS::Route53Resolver::ResolverEndpoint",
+    "resolver-rule": "AWS::Route53Resolver::ResolverRule"
+  },
+  "rum": {},
+  "s3": {
+    "access-grant": "AWS::S3::AccessGrant",
+    "access-grants-location": "AWS::S3::AccessGrantsLocation",
+    "accessgrant": "AWS::S3::AccessGrant",
+    "accessgrantslocation": "AWS::S3::AccessGrantsLocation",
+    "bucket": "AWS::S3::Bucket",
+    "job": "AWS::S3::Job",
+    "storage-lens": "AWS::S3::StorageLens",
+    "storage-lens-group": "AWS::S3::StorageLensGroup",
+    "storagelensgroup": "AWS::S3::StorageLensGroup"
+  },
+  "s3-object-lambda": {},
+  "s3express": {
+    "bucket": "AWS::S3::Bucket"
+  },
+  "sagemaker": {
+    "action": "AWS::SageMaker::Action",
+    "algorithm": "AWS::SageMaker::Algorithm",
+    "app": "AWS::SageMaker::App",
+    "app-image-config": "AWS::SageMaker::AppImageConfig",
+    "artifact": "AWS::SageMaker::Artifact",
+    "automl-job": "AWS::SageMaker::AutoMLJob",
+    "cluster": "AWS::SageMaker::Cluster",
+    "cluster-scheduler-config": "AWS::SageMaker::ClusterSchedulerConfig",
+    "code-repository": "AWS::SageMaker::CodeRepository",
+    "compilation-job": "AWS::SageMaker::CompilationJob",
+    "compute-quota": "AWS::SageMaker::ComputeQuota",
+    "context": "AWS::SageMaker::Context",
+    "data-quality-job-definition": "AWS::SageMaker::DataQualityJobDefinition",
+    "device-fleet": "AWS::SageMaker::DeviceFleet",
+    "domain": "AWS::SageMaker::Domain",
+    "edge-deployment-plan": "AWS::SageMaker::EdgeDeploymentPlan",
+    "edge-packaging-job": "AWS::SageMaker::EdgePackagingJob",
+    "endpoint": "AWS::SageMaker::Endpoint",
+    "endpoint-config": "AWS::SageMaker::EndpointConfig",
+    "experiment": "AWS::SageMaker::Experiment",
+    "experiment-trial": "AWS::SageMaker::ExperimentTrial",
+    "experiment-trial-component": "AWS::SageMaker::ExperimentTrialComponent",
+    "feature-group": "AWS::SageMaker::FeatureGroup",
+    "flow-definition": "AWS::SageMaker::FlowDefinition",
+    "hub": "AWS::SageMaker::Hub",
+    "hub-content": "AWS::SageMaker::HubContent",
+    "human-task-ui": "AWS::SageMaker::HumanTaskUi",
+    "hyper-parameter-tuning-job": "AWS::SageMaker::HyperParameterTuningJob",
+    "image": "AWS::SageMaker::Image",
+    "inference-component": "AWS::SageMaker::InferenceComponent",
+    "inference-experiment": "AWS::SageMaker::InferenceExperiment",
+    "inference-recommendations-job": "AWS::SageMaker::InferenceRecommendationsJob",
+    "labeling-job": "AWS::SageMaker::LabelingJob",
+    "lineage-group": "AWS::SageMaker::LineageGroup",
+    "mlflow-tracking-server": "AWS::SageMaker::MlflowTrackingServer",
+    "model": "AWS::SageMaker::Model",
+    "model-bias-job-definition": "AWS::SageMaker::ModelBiasJobDefinition",
+    "model-card": "AWS::SageMaker::ModelCard",
+    "model-explainability-job-definition": "AWS::SageMaker::ModelExplainabilityJobDefinition",
+    "model-package": "AWS::SageMaker::ModelPackage",
+    "model-package-group": "AWS::SageMaker::ModelPackageGroup",
+    "model-quality-job-definition": "AWS::SageMaker::ModelQualityJobDefinition",
+    "monitoring-schedule": "AWS::SageMaker::MonitoringSchedule",
+    "notebook-instance": "AWS::SageMaker::NotebookInstance",
+    "optimization-job": "AWS::SageMaker::OptimizationJob",
+    "pipeline": "AWS::SageMaker::Pipeline",
+    "processing-job": "AWS::SageMaker::ProcessingJob",
+    "project": "AWS::SageMaker::Project",
+    "space": "AWS::SageMaker::Space",
+    "studio-lifecycle-config": "AWS::SageMaker::StudioLifecycleConfig",
+    "training-job": "AWS::SageMaker::TrainingJob",
+    "transform-job": "AWS::SageMaker::TransformJob",
+    "user-profile": "AWS::SageMaker::UserProfile",
+    "workforce": "AWS::SageMaker::Workforce",
+    "workteam": "AWS::SageMaker::Workteam"
+  },
+  "savingsplans": {
+    "savings-plan": "AWS::SavingsPlans::SavingsPlan",
+    "savingsplan": "AWS::SavingsPlans::SavingsPlan"
+  },
+  "scheduler": {
+    "schedule-group": "AWS::Scheduler::ScheduleGroup"
+  },
+  "schemas": {
+    "discoverer": "AWS::EventSchemas::Discoverer",
+    "registry": "AWS::EventSchemas::Registry",
+    "schema": "AWS::EventSchemas::Schema"
+  },
+  "scn": {
+    "instance": "AWS::SCN::Instance"
+  },
+  "secretsmanager": {
+    "Secret": "AWS::SecretsManager::Secret",
+    "secret": "AWS::SecretsManager::Secret"
+  },
+  "securityhub": {
+    "automation-rule": "AWS::SecurityHub::AutomationRule",
+    "configuration-policy": "AWS::SecurityHub::ConfigurationPolicy",
+    "hub": "AWS::SecurityHub::Hub"
+  },
+  "servicecatalog": {
+    "Application": "AWS::ServiceCatalogAppRegistry::Application",
+    "AttributeGroup": "AWS::ServiceCatalogAppRegistry::AttributeGroup",
+    "application": "AWS::ServiceCatalogAppRegistry::Application",
+    "attribute-group": "AWS::ServiceCatalogAppRegistry::AttributeGroup"
+  },
+  "servicediscovery": {
+    "namespace": "AWS::ServiceDiscovery::Namespace",
+    "service": "AWS::ServiceDiscovery::Service"
+  },
+  "servicequotas": {
+    "quota": "AWS::ServiceQuotas::Quota"
+  },
+  "ses": {
+    "configuration-set": "AWS::SES::ConfigurationSet",
+    "contact-list": "AWS::SES::ContactList",
+    "dedicated-ip-pool": "AWS::SES::DedicatedIpPool",
+    "identity": "AWS::SES::Identity",
+    "mailmanager-archive": "AWS::SES::MailManagerArchive",
+    "mailmanager-ingress-point": "AWS::SES::MailManagerIngressPoint",
+    "mailmanager-rule-set": "AWS::SES::MailManagerRuleSet",
+    "mailmanager-traffic-policy": "AWS::SES::MailManagerTrafficPolicy"
+  },
+  "shield": {
+    "protection": "AWS::Shield::Protection",
+    "protection-group": "AWS::Shield::ProtectionGroup"
+  },
+  "simspaceweaver": {
+    "Simulation": "AWS::SimSpaceWeaver::Simulation",
+    "simulation": "AWS::SimSpaceWeaver::Simulation"
+  },
+  "sms-voice": {
+    "ConfigurationSet": "AWS::PinpointSMSVoiceV2::ConfigurationSet",
+    "OptOutList": "AWS::PinpointSMSVoiceV2::OptOutList",
+    "PhoneNumber": "AWS::PinpointSMSVoiceV2::PhoneNumber",
+    "Pool": "AWS::PinpointSMSVoiceV2::Pool",
+    "configuration-set": "AWS::PinpointSMSVoiceV2::ConfigurationSet",
+    "opt-out-list": "AWS::PinpointSMSVoiceV2::OptOutList",
+    "phone-number": "AWS::PinpointSMSVoiceV2::PhoneNumber",
+    "pool": "AWS::PinpointSMSVoiceV2::Pool"
+  },
+  "snow-device-management": {
+    "managed-device": "AWS::SnowDeviceManagement::ManagedDevice",
+    "task": "AWS::SnowDeviceManagement::Task"
+  },
+  "sns": {
+    "topic": "AWS::SNS::Topic"
+  },
+  "social-messaging": {},
+  "sqs": {
+    "queue": "AWS::SQS::Queue"
+  },
+  "ssm": {
+    "association": "AWS::SSM::Association",
+    "automation-execution": "AWS::SSM::AutomationExecution",
+    "document": "AWS::SSM::Document",
+    "maintenance-window": "AWS::SSM::MaintenanceWindow",
+    "maintenancewindow": "AWS::SSM::MaintenanceWindow",
+    "managed-instance": "AWS::SSM::ManagedInstance",
+    "ops-metadata": "AWS::SSM::OpsMetadata",
+    "opsitem": "AWS::SSM::OpsItem",
+    "opsmetadata": "AWS::SSM::OpsMetadata",
+    "parameter": "AWS::SSM::Parameter",
+    "patch-baseline": "AWS::SSM::PatchBaseline",
+    "patchbaseline": "AWS::SSM::PatchBaseline",
+    "session": "AWS::SSM::Session"
+  },
+  "ssm-contacts": {
+    "contact": "AWS::SSMContacts::Contact",
+    "rotation": "AWS::SSMContacts::Rotation"
+  },
+  "ssm-incidents": {
+    "incident-record": "AWS::SSMIncidents::IncidentRecord",
+    "replication-set": "AWS::SSMIncidents::ReplicationSet",
+    "response-plan": "AWS::SSMIncidents::ResponsePlan"
+  },
+  "ssm-quicksetup": {
+    "configuration-manager": "AWS::SSMQuickSetup::ConfigurationManager"
+  },
+  "ssm-sap": {
+    "application": "AWS::SystemsManagerSAP::Application",
+    "database": "AWS::SystemsManagerSAP::Database"
+  },
+  "sso": {
+    "Application": "AWS::SSO::Application",
+    "Instance": "AWS::SSO::Instance",
+    "PermissionSet": "AWS::SSO::PermissionSet",
+    "TrustedTokenIssuer": "AWS::SSO::TrustedTokenIssuer",
+    "application": "AWS::SSO::Application",
+    "instance": "AWS::SSO::Instance",
+    "permission-set": "AWS::SSO::PermissionSet",
+    "trusted-token-issuer": "AWS::SSO::TrustedTokenIssuer"
+  },
+  "states": {
+    "activity": "AWS::StepFunctions::Activity",
+    "state-machine": "AWS::StepFunctions::StateMachine",
+    "statemachine": "AWS::StepFunctions::StateMachine"
+  },
+  "storagegateway": {
+    "gateway": "AWS::StorageGateway::Gateway",
+    "tape": "AWS::StorageGateway::Tape",
+    "tape-pool": "AWS::StorageGateway::TapePool",
+    "tapepool": "AWS::StorageGateway::TapePool",
+    "volume": "AWS::StorageGateway::Volume"
+  },
+  "swf": {
+    "domain": "AWS::SWF::Domain"
+  },
+  "synthetics": {
+    "canary": "AWS::Synthetics::Canary",
+    "group": "AWS::Synthetics::Group"
+  },
+  "textract": {
+    "adapter": "AWS::Textract::Adapter"
+  },
+  "thinclient": {
+    "device": "AWS::ThinClient::Device",
+    "environment": "AWS::ThinClient::Environment",
+    "software-set": "AWS::ThinClient::SoftwareSet",
+    "softwareset": "AWS::ThinClient::SoftwareSet"
+  },
+  "timestream": {
+    "database": "AWS::Timestream::Database",
+    "scheduled-query": "AWS::Timestream::ScheduledQuery",
+    "table": "AWS::Timestream::Table"
+  },
+  "tnb": {
+    "function-package": "AWS::TNB::FunctionPackage",
+    "network-instance": "AWS::TNB::NetworkInstance",
+    "network-package": "AWS::TNB::NetworkPackage"
+  },
+  "transcribe": {
+    "language-model": "AWS::Transcribe::LanguageModel",
+    "languagemodel": "AWS::Transcribe::LanguageModel",
+    "medical-scribe-job": "AWS::Transcribe::MedicalScribeJob",
+    "medical-transcription-job": "AWS::Transcribe::MedicalTranscriptionJob",
+    "medical-vocabulary": "AWS::Transcribe::MedicalVocabulary",
+    "medicalscribejob": "AWS::Transcribe::MedicalScribeJob",
+    "medicaltranscriptionjob": "AWS::Transcribe::MedicalTranscriptionJob",
+    "medicalvocabulary": "AWS::Transcribe::MedicalVocabulary",
+    "transcription-job": "AWS::Transcribe::TranscriptionJob",
+    "transcriptionjob": "AWS::Transcribe::TranscriptionJob",
+    "vocabulary": "AWS::Transcribe::Vocabulary",
+    "vocabulary-filter": "AWS::Transcribe::VocabularyFilter",
+    "vocabularyfilter": "AWS::Transcribe::VocabularyFilter"
+  },
+  "transfer": {
+    "agreement": "AWS::Transfer::Agreement",
+    "certificate": "AWS::Transfer::Certificate",
+    "connector": "AWS::Transfer::Connector",
+    "host-key": "AWS::Transfer::HostKey",
+    "profile": "AWS::Transfer::Profile",
+    "server": "AWS::Transfer::Server",
+    "user": "AWS::Transfer::User",
+    "webapp": "AWS::Transfer::WebApp",
+    "workflow": "AWS::Transfer::Workflow"
+  },
+  "translate": {
+    "parallel-data": "AWS::Translate::ParallelData",
+    "terminology": "AWS::Translate::Terminology"
+  },
+  "voiceid": {
+    "domain": "AWS::VoiceID::Domain"
+  },
+  "vpc-lattice": {
+    "AccessLogSubscription": "AWS::VpcLattice::AccessLogSubscription",
+    "Listener": "AWS::VpcLattice::Listener",
+    "ResourceConfiguration": "AWS::VpcLattice::ResourceConfiguration",
+    "ResourceGateway": "AWS::VpcLattice::ResourceGateway",
+    "Rule": "AWS::VpcLattice::Rule",
+    "Service": "AWS::VpcLattice::Service",
+    "ServiceNetwork": "AWS::VpcLattice::ServiceNetwork",
+    "ServiceNetworkResourceAssociation": "AWS::VpcLattice::ServiceNetworkResourceAssociation",
+    "ServiceNetworkServiceAssociation": "AWS::VpcLattice::ServiceNetworkServiceAssociation",
+    "ServiceNetworkVpcAssociation": "AWS::VpcLattice::ServiceNetworkVpcAssociation",
+    "TargetGroup": "AWS::VpcLattice::TargetGroup",
+    "access-log-subscription": "AWS::VpcLattice::AccessLogSubscription",
+    "listener": "AWS::VpcLattice::Listener",
+    "resource-configuration": "AWS::VpcLattice::ResourceConfiguration",
+    "resource-gateway": "AWS::VpcLattice::ResourceGateway",
+    "rule": "AWS::VpcLattice::Rule",
+    "service": "AWS::VpcLattice::Service",
+    "service-network": "AWS::VpcLattice::ServiceNetwork",
+    "service-network-resource-association": "AWS::VpcLattice::ServiceNetworkResourceAssociation",
+    "service-network-service-association": "AWS::VpcLattice::ServiceNetworkServiceAssociation",
+    "service-network-vpc-association": "AWS::VpcLattice::ServiceNetworkVpcAssociation",
+    "target-group": "AWS::VpcLattice::TargetGroup"
+  },
+  "waf": {
+    "rate-based-rule": "AWS::WAF::RateBasedRule",
+    "ratebasedrule": "AWS::WAF::RateBasedRule",
+    "rule": "AWS::WAF::Rule",
+    "rulegroup": "AWS::WAF::RuleGroup",
+    "webacl": "AWS::WAF::WebACL"
+  },
+  "waf-regional": {
+    "rate-based-rule": "AWS::WAFRegional::RateBasedRule",
+    "ratebasedrule": "AWS::WAFRegional::RateBasedRule",
+    "rule": "AWS::WAFRegional::Rule",
+    "rulegroup": "AWS::WAFRegional::RuleGroup",
+    "webacl": "AWS::WAFRegional::WebACL"
+  },
+  "wellarchitected": {
+    "lens": "AWS::WellArchitected::Lens",
+    "profile": "AWS::WellArchitected::Profile",
+    "review-template": "AWS::WellArchitected::ReviewTemplate",
+    "workload": "AWS::WellArchitected::Workload"
+  },
+  "wickr": {
+    "network": "AWS::Wickr::Network"
+  },
+  "wisdom": {
+    "AIAgent": "AWS::Wisdom::AIAgent",
+    "AIGuardrail": "AWS::Wisdom::AIGuardrail",
+    "AIPrompt": "AWS::Wisdom::AIPrompt",
+    "Assistant": "AWS::Wisdom::Assistant",
+    "AssistantAssociation": "AWS::Wisdom::AssistantAssociation",
+    "Content": "AWS::Wisdom::Content",
+    "ContentAssociation": "AWS::Wisdom::ContentAssociation",
+    "KnowledgeBase": "AWS::Wisdom::KnowledgeBase",
+    "MessageTemplate": "AWS::Wisdom::MessageTemplate",
+    "QuickResponse": "AWS::Wisdom::QuickResponse",
+    "Session": "AWS::Wisdom::Session",
+    "ai-agent": "AWS::Wisdom::AIAgent",
+    "ai-guardrail": "AWS::Wisdom::AIGuardrail",
+    "ai-prompt": "AWS::Wisdom::AIPrompt",
+    "assistant": "AWS::Wisdom::Assistant",
+    "assistant-association": "AWS::Wisdom::AssistantAssociation",
+    "content": "AWS::Wisdom::Content",
+    "content-association": "AWS::Wisdom::ContentAssociation",
+    "knowledge-base": "AWS::Wisdom::KnowledgeBase",
+    "message-template": "AWS::Wisdom::MessageTemplate",
+    "quick-response": "AWS::Wisdom::QuickResponse",
+    "session": "AWS::Wisdom::Session"
+  },
+  "workmail": {
+    "organization": "AWS::Workmail::Organization"
+  },
+  "workspaces": {
+    "connection-alias": "AWS::WorkSpaces::ConnectionAlias",
+    "connectionalias": "AWS::WorkSpaces::ConnectionAlias",
+    "workspace-bundle": "AWS::WorkSpaces::WorkspaceBundle",
+    "workspace-image": "AWS::WorkSpaces::WorkspaceImage",
+    "workspace-ip-group": "AWS::WorkSpaces::WorkspaceIpGroup",
+    "workspacebundle": "AWS::WorkSpaces::WorkspaceBundle",
+    "workspaceimage": "AWS::WorkSpaces::WorkspaceImage",
+    "workspaceipgroup": "AWS::WorkSpaces::WorkspaceIpGroup"
+  },
+  "workspaces-web": {
+    "browser-settings": "AWS::WorkSpacesWeb::BrowserSettings",
+    "browserSettings": "AWS::WorkSpacesWeb::BrowserSettings",
+    "data-protection-settings": "AWS::WorkSpacesWeb::DataProtectionSettings",
+    "dataProtectionSettings": "AWS::WorkSpacesWeb::DataProtectionSettings",
+    "identity-provider": "AWS::WorkSpacesWeb::IdentityProvider",
+    "identityProvider": "AWS::WorkSpacesWeb::IdentityProvider",
+    "ip-access-settings": "AWS::WorkSpacesWeb::IpAccessSettings",
+    "ipAccessSettings": "AWS::WorkSpacesWeb::IpAccessSettings",
+    "network-settings": "AWS::WorkSpacesWeb::NetworkSettings",
+    "networkSettings": "AWS::WorkSpacesWeb::NetworkSettings",
+    "portal": "AWS::WorkSpacesWeb::Portal",
+    "trust-store": "AWS::WorkSpacesWeb::TrustStore",
+    "trustStore": "AWS::WorkSpacesWeb::TrustStore",
+    "user-access-logging-settings": "AWS::WorkSpacesWeb::UserAccessLoggingSettings",
+    "user-settings": "AWS::WorkSpacesWeb::UserSettings",
+    "userAccessLoggingSettings": "AWS::WorkSpacesWeb::UserAccessLoggingSettings",
+    "userSettings": "AWS::WorkSpacesWeb::UserSettings"
+  },
+  "xray": {
+    "group": "AWS::XRay::Group",
+    "sampling-rule": "AWS::XRay::SamplingRule"
+  }
+}
