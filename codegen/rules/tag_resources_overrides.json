@@ -1,1 +1,90 @@
-{}
+{
+  "redshift": {
+    "parameter-group": "AWS::Redshift::ClusterParameterGroup",
+    "parametergroup": "AWS::Redshift::ClusterParameterGroup",
+    "security-group": "AWS::Redshift::ClusterSecurityGroup",
+    "securitygroup": "AWS::Redshift::ClusterSecurityGroup",
+    "subnet-group": "AWS::Redshift::ClusterSubnetGroup",
+    "subnetgroup": "AWS::Redshift::ClusterSubnetGroup"
+  },
+  "iam": {
+    "mfa": "AWS::IAM::VirtualMFADevice",
+    "oidc-provider": "AWS::IAM::OpenIDConnectProvider",
+    "policy": "AWS::IAM::ManagedPolicy"
+  },
+  "elasticloadbalancing": {
+    "listener-app": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener-gwy": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener-net": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener-rule-app": "AWS::ElasticLoadBalancingV2::ListenerRule",
+    "listener-rule-net": "AWS::ElasticLoadBalancingV2::ListenerRule",
+    "listener-rule/app": "AWS::ElasticLoadBalancingV2::ListenerRule",
+    "listener-rule/net": "AWS::ElasticLoadBalancingV2::ListenerRule",
+    "listener/app": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener/gwy": "AWS::ElasticLoadBalancingV2::Listener",
+    "listener/net": "AWS::ElasticLoadBalancingV2::Listener",
+    "loadbalancer-app": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer-gwy": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer-net": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/app": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/app/": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/gwy": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/gwy/": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/net": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    "loadbalancer/net/": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  },
+  "rds": {
+    "cev": "AWS::RDS::CustomDBEngineVersion",
+    "cluster": "AWS::RDS::DBCluster",
+    "cluster-endpoint": "AWS::RDS::DBClusterEndpoint",
+    "cluster-pg": "AWS::RDS::DBClusterParameterGroup",
+    "cluster-snapshot": "AWS::RDS::DBClusterSnapshot",
+    "db": "AWS::RDS::DBInstance",
+    "es": "AWS::RDS::EventSubscription",
+    "og": "AWS::RDS::OptionGroup",
+    "pg": "AWS::RDS::DBParameterGroup",
+    "proxy": "AWS::RDS::DBProxy",
+    "proxy-endpoint": "AWS::RDS::DBProxyEndpoint",
+    "ri": "AWS::RDS::ReservedDBInstance",
+    "secgrp": "AWS::RDS::DBSecurityGroup",
+    "snapshot": "AWS::RDS::DBSnapshot",
+    "subgrp": "AWS::RDS::DBSubnetGroup",
+    "target-group": "AWS::RDS::DBProxyTargetGroup"
+  },
+  "mgn": {
+    "ApplicationResource": "AWS::MGN::Application",
+    "ConnectorResource": "AWS::MGN::Connector",
+    "JobResource": "AWS::MGN::Job",
+    "LaunchConfigurationTemplateResource": "AWS::MGN::LaunchConfigurationTemplate",
+    "ReplicationConfigurationTemplateResource": "AWS::MGN::ReplicationConfigurationTemplate",
+    "SourceServerResource": "AWS::MGN::SourceServer",
+    "VcenterClientResource": "AWS::MGN::VcenterClient",
+    "WaveResource": "AWS::MGN::Wave",
+    "application-resource": "AWS::MGN::Application",
+    "connector-resource": "AWS::MGN::Connector",
+    "job-resource": "AWS::MGN::Job",
+    "launch-configuration-template-resource": "AWS::MGN::LaunchConfigurationTemplate",
+    "replication-configuration-template-resource": "AWS::MGN::ReplicationConfigurationTemplate",
+    "source-server-resource": "AWS::MGN::SourceServer",
+    "vcenter-client-resource": "AWS::MGN::VcenterClient",
+    "wave-resource": "AWS::MGN::Wave"
+  },
+  "mediaconnect": {
+    "Entitlement": "AWS::MediaConnect::FlowEntitlement",
+    "Output": "AWS::MediaConnect::FlowOutput",
+    "Source": "AWS::MediaConnect::FlowSource",
+    "entitlement": "AWS::MediaConnect::FlowEntitlement",
+    "output": "AWS::MediaConnect::FlowOutput",
+    "source": "AWS::MediaConnect::FlowSource"
+  },
+  "ec2": {
+    "dedicated-host": "AWS::EC2::Host",
+    "elastic-ip": "AWS::EC2::EIP",
+    "fleet": "AWS::EC2::EC2Fleet",
+    "ipv4pool-ec2": "AWS::EC2::IPv4Pool",
+    "ipv6pool-ec2": "AWS::EC2::IPv6Pool",
+    "spot-fleet-request": "AWS::EC2::SpotFleet",
+    "spot-instances-request": "AWS::EC2::SpotInstanceRequest",
+    "vpc-flow-log": "AWS::EC2::FlowLog"
+  }
+}
