@@ -40,7 +40,7 @@ def test_autoscaling():
     result = arnmatch(
         "arn:aws:autoscaling:us-east-1:012345678901:autoScalingGroup:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee:autoScalingGroupName/asg1"
     )
-    assert result.resource_type == "auto-scaling-group"
+    assert result.resource_type == "autoscaling-group"
     assert result.attributes["GroupId"] == "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
     assert result.attributes["GroupFriendlyName"] == "asg1"
 
