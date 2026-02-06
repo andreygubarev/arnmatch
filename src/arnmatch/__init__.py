@@ -31,6 +31,7 @@ class ARN:
     attributes: dict[str, str]
     aws_sdk_service: str | None = None
     cloudformation_resource: str | None = None
+    tagging_resource: str | None = None
 
     @cached_property
     def resource_id(self) -> str:
@@ -143,6 +144,7 @@ def arnmatch(arn: str) -> ARN:
                 attributes=match.groupdict(),
                 aws_sdk_service=pattern['sdk'],
                 cloudformation_resource=pattern['cfn'],
+                tagging_resource=pattern['tag'],
             )
 
     raise ARNError(f"No pattern matched ARN: {arn}")
@@ -166,6 +168,7 @@ def main() -> None:
         print(f"resource_id: {result.resource_id}")
         print(f"resource_name: {result.resource_name}")
         print(f"cloudformation_resource: {result.cloudformation_resource}")
+        print(f"tagging_resource: {result.tagging_resource}")
     except ARNError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)

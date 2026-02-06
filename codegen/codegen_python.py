@@ -85,6 +85,7 @@ class PythonGenerator:
             for resource in resources:
                 sdk = resource.get("botoclient")
                 cfn = resource.get("cloudformation")
+                tag = resource.get("tagging")
                 names = resource["names"]
 
                 for arn in resource["arns"]:
@@ -94,6 +95,7 @@ class PythonGenerator:
                         "names": names,
                         "sdk": sdk,
                         "cfn": cfn,
+                        "tag": tag,
                     })
 
             # Sort by specificity
@@ -112,7 +114,8 @@ class PythonGenerator:
                     f.write(f"        {{'regex': re.compile(r\"{p['regex']}\"), ")
                     f.write(f"'names': {p['names']!r}, ")
                     f.write(f"'sdk': {p['sdk']!r}, ")
-                    f.write(f"'cfn': {p['cfn']!r}}},\n")
+                    f.write(f"'cfn': {p['cfn']!r}, ")
+                    f.write(f"'tag': {p['tag']!r}}},\n")
                 f.write("    ],\n")
             f.write("}\n\n")
 
