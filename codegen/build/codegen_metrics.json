@@ -42,6 +42,22 @@
     "missing": 0,
     "mapped": 1078
   },
+  "tag_service_indexer": {
+    "tagging_services_total": 252,
+    "direct_match": 237,
+    "override": 15,
+    "excluded": 12,
+    "mapped_to_arn": 249
+  },
+  "tag_resource_indexer": {
+    "services_with_tag": 249,
+    "exact_match": 1008,
+    "plural_match": 17,
+    "override": 98,
+    "excluded": 615,
+    "missing": 0,
+    "mapped": 1123
+  },
   "transformer": {
     "total": 4138,
     "transformed": 1570

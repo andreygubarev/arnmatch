@@ -16,6 +16,8 @@ from index_cfn import CFNServiceIndexer
 from index_cfn_resources import CFNResourceIndexer
 from index_sdk import SDKServiceIndexer
 from index_sdk_resources import SDKResourceIndexer
+from index_tag import TagServiceIndexer
+from index_tag_resources import TagResourceIndexer
 from transform import Transformer
 
 log = logging.getLogger(__name__)
@@ -113,7 +115,7 @@ class CodeGenerator:
             return overrides[resource_type]
         return SDKResourceIndexer.DEFAULT_SERVICE[arn_service]
 
-    def export(self, resources, sdk_mapping, cfn_resources_mapping, transformer, output_path):
+    def export(self, resources, sdk_mapping, cfn_resources_mapping, tag_resources_mapping, transformer, output_path):
         """Export patterns to YAML source of truth format."""
         # Group resources by (arn_service, resource_type) to collect multiple ARN patterns
         grouped = {}
@@ -146,6 +148,9 @@ class CodeGenerator:
             # Get cloudformation type (lookup with original name)
             cfn_type = cfn_resources_mapping.get(arn_service, {}).get(resource_type)
 
+            # Get tagging type (lookup with original name)
+            tag_type = tag_resources_mapping.get(arn_service, {}).get(resource_type)
+
             # Transform resource_type for output
             transformed_type = transformer.process(resource_type)
 
@@ -155,6 +160,7 @@ class CodeGenerator:
                 "arns": arns,
                 "botoclient": botoclient,
                 "cloudformation": cfn_type,
+                "tagging": tag_type,
             }
             by_service[arn_service].append(entry)
 
@@ -176,6 +182,7 @@ class CodeGenerator:
                 item["arns"] = CommentedSeq(entry["arns"])
                 item["botoclient"] = entry["botoclient"]
                 item["cloudformation"] = entry["cloudformation"]
+                item["tagging"] = entry["tagging"]
                 service_list.append(item)
             output[service] = service_list
 
@@ -228,6 +235,10 @@ def main():
     cfn_indexer = CFNServiceIndexer()
     cfn_mapping = cfn_indexer.process(sdk_mapping)
 
+    # Build Tagging API services mapping
+    tag_indexer = TagServiceIndexer()
+    tag_mapping = tag_indexer.process(sdk_mapping)
+
     # Generate
     generator = CodeGenerator()
     by_service = generator.process(resources)
@@ -235,10 +246,13 @@ def main():
     cfn_resource_indexer = CFNResourceIndexer()
     cfn_resources_mapping = cfn_resource_indexer.process(by_service, cfn_mapping)
 
+    tag_resource_indexer = TagResourceIndexer()
+    tag_resources_mapping = tag_resource_indexer.process(by_service, tag_mapping)
+
     # Transform resource names at export time
     transformer = Transformer()
 
-    generator.export(resources, sdk_mapping, cfn_resources_mapping, transformer, BUILD_DIR / "arn_patterns.yaml")
+    generator.export(resources, sdk_mapping, cfn_resources_mapping, tag_resources_mapping, transformer, BUILD_DIR / "arn_patterns.yaml")
 
     # Collect and save metrics
     metrics = {
@@ -248,6 +262,8 @@ def main():
         "sdk_resource_indexer": sdk_resource_indexer.metrics,
         "cfn_service_indexer": cfn_indexer.metrics,
         "cfn_resource_indexer": cfn_resource_indexer.metrics,
+        "tag_service_indexer": tag_indexer.metrics,
+        "tag_resource_indexer": tag_resource_indexer.metrics,
         "transformer": transformer.metrics,
         "generator": generator.metrics,
     }
@@ -284,6 +300,14 @@ def print_summary(metrics):
     cfnr = metrics["cfn_resource_indexer"]
     print(f"CFN Resources: exact={cfnr['exact_match']} plural={cfnr['plural_match']} "
           f"override={cfnr['override']} exclude={cfnr['excluded']} missing={cfnr['missing']} → mapped={cfnr['mapped']}")
+
+    tag = metrics["tag_service_indexer"]
+    print(f"Tag Services:  in={tag['tagging_services_total']} → direct={tag['direct_match']} "
+          f"override={tag['override']} exclude={tag['excluded']} → mapped={tag['mapped_to_arn']}")
+
+    tagr = metrics["tag_resource_indexer"]
+    print(f"Tag Resources: exact={tagr['exact_match']} plural={tagr['plural_match']} "
+          f"override={tagr['override']} exclude={tagr['excluded']} missing={tagr['missing']} → mapped={tagr['mapped']}")
 
     t = metrics["transformer"]
     print(f"Transform:     total={t['total']} transformed={t['transformed']}")
