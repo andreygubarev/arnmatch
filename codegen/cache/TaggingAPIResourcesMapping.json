@@ -717,6 +717,7 @@
     "catalog": "AWS::Glue::Catalog",
     "completion": "AWS::Glue::Completion",
     "connection": "AWS::Glue::Connection",
+    "connectionType": "AWS::Glue::Connection",
     "crawler": "AWS::Glue::Crawler",
     "customEntityType": "AWS::Glue::CustomEntityType",
     "dataQualityRuleset": "AWS::Glue::DataQualityRuleset",

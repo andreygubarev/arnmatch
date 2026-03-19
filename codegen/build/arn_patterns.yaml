@@ -7821,8 +7821,8 @@ glue:
     arns:
       - arn:${Partition}:glue:${Region}:${Account}:connectionType:${ConnectionTypeName}
     botoclient: glue
-    cloudformation:
-    tagging:
+    cloudformation: AWS::Glue::Connection
+    tagging: AWS::Glue::Connection
   - name: crawler
     names:
       - crawler
@@ -10957,7 +10957,7 @@ mediaconnect:
     arns:
       - arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/vpcInterface/${VpcInterfaceName}
     botoclient: mediaconnect
-    cloudformation:
+    cloudformation: AWS::MediaConnect::FlowVpcInterface
     tagging:
 
 mediaconvert:

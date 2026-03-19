@@ -127,6 +127,9 @@
     "ipam-pool",
     "ipam-prefix-list-resolver",
     "ipam-prefix-list-resolver-target",
+    "secondary-interface",
+    "secondary-network",
+    "secondary-subnet",
     "ipam-resource-discovery",
     "ipam-resource-discovery-association",
     "ipam-scope",
@@ -201,19 +204,23 @@
     "Bridge",
     "Gateway",
     "GatewayInstance",
+    "MediaStream",
     "Offering",
     "Reservation",
     "RouterInput",
     "RouterNetworkInterface",
     "RouterOutput",
+    "VpcInterface",
     "bridge",
     "gateway",
     "gateway-instance",
+    "media-stream",
     "offering",
     "reservation",
     "router-input",
     "router-network-interface",
-    "router-output"
+    "router-output",
+    "vpc-interface"
   ],
   "mgn": [
     "ExportResource",
@@ -249,6 +256,7 @@
   "bedrock": [
     "automated-reasoning-policy",
     "automated-reasoning-policy-version",
+    "blueprint-optimization-invocation",
     "bedrock-marketplace-model-endpoint",
     "blueprint",
     "custom-model-deployment",
@@ -473,6 +481,7 @@
     "data-table",
     "email-address",
     "legacy-phone-number",
+    "notification",
     "qualified-aws-managed-view",
     "qualified-customer-managed-view",
     "workspace"
@@ -632,6 +641,7 @@
   ],
   "glue": [
     "integration",
+    "integrationResourceProperty",
     "root-catalog",
     "rootcatalog",
     "table",
@@ -899,6 +909,7 @@
     "voice-profile"
   ],
   "cloudwatch": [
+    "alarm-mute-rule",
     "dashboard",
     "service"
   ],
@@ -975,6 +986,7 @@
     "assessmentControlSet"
   ],
   "aws-marketplace": [
+    "Assessment",
     "DeploymentParameter",
     "deployment-parameter"
   ],

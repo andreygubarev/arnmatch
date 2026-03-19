@@ -37,10 +37,10 @@
     "services_with_cfn": 239,
     "exact_match": 954,
     "plural_match": 12,
-    "override": 103,
-    "excluded": 561,
-    "missing": 11,
-    "mapped": 1069
+    "override": 105,
+    "excluded": 570,
+    "missing": 0,
+    "mapped": 1071
   },
   "tag_service_indexer": {
     "tagging_services_total": 251,
@@ -53,10 +53,10 @@
     "services_with_tag": 248,
     "exact_match": 1004,
     "plural_match": 17,
-    "override": 98,
-    "excluded": 614,
-    "missing": 11,
-    "mapped": 1119
+    "override": 99,
+    "excluded": 624,
+    "missing": 0,
+    "mapped": 1120
   },
   "transformer": {
     "total": 4186,

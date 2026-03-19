@@ -105,6 +105,7 @@
     "RelatedItem"
   ],
   "cloudwatch": [
+    "alarm-mute-rule",
     "service",
     "slo"
   ],
@@ -306,6 +307,9 @@
   "shield": [
     "attack"
   ],
+  "sdb": [
+    "export"
+  ],
   "signer": [
     "signing-job"
   ],
@@ -473,6 +477,7 @@
     "contact",
     "contact-evaluation",
     "legacy-phone-number",
+    "notification",
     "qualified-aws-managed-view",
     "qualified-customer-managed-view",
     "use-case",
@@ -514,6 +519,7 @@
   "bedrock-agentcore": [
     "apikeycredentialprovider",
     "browser",
+    "browser-profile",
     "code-interpreter",
     "evaluator",
     "oauth2credentialprovider",
@@ -541,6 +547,7 @@
     "model-customization-job",
     "model-evaluation-job",
     "model-import-job",
+    "blueprint-optimization-invocation",
     "model-invocation-job",
     "prompt-router",
     "provisioned-model",
@@ -618,6 +625,7 @@
   ],
   "mediaconnect": [
     "GatewayInstance",
+    "MediaStream",
     "Offering",
     "Reservation"
   ],
@@ -827,6 +835,9 @@
     "ipam-policy",
     "ipam-prefix-list-resolver",
     "ipam-prefix-list-resolver-target",
+    "secondary-interface",
+    "secondary-network",
+    "secondary-subnet",
     "ipv4pool-ec2",
     "ipv6pool-ec2",
     "local-gateway",

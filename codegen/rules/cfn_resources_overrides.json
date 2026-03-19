@@ -6,6 +6,9 @@
   "cloudfront": {
     "origin-access-identity": "AWS::CloudFront::CloudFrontOriginAccessIdentity"
   },
+  "glue": {
+    "connectionType": "AWS::Glue::Connection"
+  },
   "codepipeline": {
     "actiontype": "AWS::CodePipeline::CustomActionType"
   },
@@ -173,7 +176,8 @@
   "mediaconnect": {
     "Entitlement": "AWS::MediaConnect::FlowEntitlement",
     "Output": "AWS::MediaConnect::FlowOutput",
-    "Source": "AWS::MediaConnect::FlowSource"
+    "Source": "AWS::MediaConnect::FlowSource",
+    "VpcInterface": "AWS::MediaConnect::FlowVpcInterface"
   },
   "network-firewall": {
     "StatefulRuleGroup": "AWS::NetworkFirewall::RuleGroup",

@@ -173,6 +173,9 @@
   "cloudwatch": {
     "slo": "AWS::CloudWatch::ServiceLevelObjective"
   },
+  "glue": {
+    "connectionType": "AWS::Glue::Connection"
+  },
   "codeguru-reviewer": {
     "association": "AWS::CodeGuruReviewer::RepositoryAssociation"
   },
