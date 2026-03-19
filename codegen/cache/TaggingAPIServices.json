@@ -309,6 +309,7 @@
   ],
   "elastictranscoder": [],
   "elemental-appliances-software": [],
+  "elemental-inference": [],
   "elemental-support-cases": [],
   "emr-containers": [
     "EMRContainers"
@@ -386,6 +387,7 @@
     "GuardDuty"
   ],
   "health": [],
+  "health-agent": [],
   "healthlake": [
     "HealthLake"
   ],
@@ -404,6 +406,7 @@
   "inspector2": [
     "InspectorV2"
   ],
+  "interconnect": [],
   "internetmonitor": [
     "InternetMonitor"
   ],
@@ -411,9 +414,7 @@
   "iot": [
     "IoT"
   ],
-  "iotanalytics": [
-    "IoTAnalytics"
-  ],
+  "iotanalytics": [],
   "iotdeviceadvisor": [
     "IoTCoreDeviceAdvisor"
   ],
@@ -745,6 +746,7 @@
     "Shield"
   ],
   "signer": [],
+  "signin": [],
   "simspaceweaver": [
     "SimSpaceWeaver"
   ],
