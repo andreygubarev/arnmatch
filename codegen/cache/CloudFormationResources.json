@@ -805,13 +805,6 @@
     "AWS::Events::EventBusPolicy",
     "AWS::Events::Rule"
   ],
-  "Evidently": [
-    "AWS::Evidently::Experiment",
-    "AWS::Evidently::Feature",
-    "AWS::Evidently::Launch",
-    "AWS::Evidently::Project",
-    "AWS::Evidently::Segment"
-  ],
   "FIS": [
     "AWS::FIS::ExperimentTemplate",
     "AWS::FIS::TargetAccountConfiguration"
@@ -1036,12 +1029,6 @@
     "AWS::IoT::ThingType",
     "AWS::IoT::TopicRule",
     "AWS::IoT::TopicRuleDestination"
-  ],
-  "IoTAnalytics": [
-    "AWS::IoTAnalytics::Channel",
-    "AWS::IoTAnalytics::Dataset",
-    "AWS::IoTAnalytics::Datastore",
-    "AWS::IoTAnalytics::Pipeline"
   ],
   "IoTCoreDeviceAdvisor": [
     "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
