@@ -702,7 +702,7 @@
   {
     "service": "appconfig",
     "resource_type": "hostedconfigurationversion",
-    "arn_pattern": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}/hostedconfigurationversion/${VersionNumber}"
+    "arn_pattern": "arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}"
   },
   {
     "service": "appfabric",
@@ -1081,6 +1081,11 @@
   },
   {
     "service": "aws-marketplace",
+    "resource_type": "Assessment",
+    "arn_pattern": "arn:${Partition}:aws-marketplace:${Region}::${Catalog}/Assessment/${ResourceId}"
+  },
+  {
+    "service": "aws-marketplace",
     "resource_type": "ChangeSet",
     "arn_pattern": "arn:${Partition}:aws-marketplace:${Region}:${Account}:${Catalog}/ChangeSet/${ResourceId}"
   },
@@ -1252,17 +1257,17 @@
   {
     "service": "bcm-pricing-calculator",
     "resource_type": "bill-estimate",
-    "arn_pattern": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-estimate/${BillEstimateId}"
+    "arn_pattern": "arn:${Partition}:bcm-pricing-calculator::${Account}:bill-estimate/${BillEstimateId}"
   },
   {
     "service": "bcm-pricing-calculator",
     "resource_type": "bill-scenario",
-    "arn_pattern": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-scenario/${BillScenarioId}"
+    "arn_pattern": "arn:${Partition}:bcm-pricing-calculator::${Account}:bill-scenario/${BillScenarioId}"
   },
   {
     "service": "bcm-pricing-calculator",
     "resource_type": "workload-estimate",
-    "arn_pattern": "arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:workload-estimate/${WorkloadEstimateId}"
+    "arn_pattern": "arn:${Partition}:bcm-pricing-calculator::${Account}:workload-estimate/${WorkloadEstimateId}"
   },
   {
     "service": "bedrock",
@@ -1303,6 +1308,11 @@
     "service": "bedrock",
     "resource_type": "blueprint",
     "arn_pattern": "arn:${Partition}:bedrock:${Region}:${Account}:blueprint/${BlueprintId}"
+  },
+  {
+    "service": "bedrock",
+    "resource_type": "blueprint-optimization-invocation",
+    "arn_pattern": "arn:${Partition}:bedrock:${Region}:${Account}:blueprint-optimization-invocation/${ResourceId}"
   },
   {
     "service": "bedrock",
@@ -1453,6 +1463,11 @@
     "service": "bedrock-agentcore",
     "resource_type": "browser-custom",
     "arn_pattern": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:browser-custom/${BrowserId}"
+  },
+  {
+    "service": "bedrock-agentcore",
+    "resource_type": "browser-profile",
+    "arn_pattern": "arn:${Partition}:bedrock-agentcore:${Region}:${Account}:browser-profile/${BrowserProfileId}"
   },
   {
     "service": "bedrock-agentcore",
@@ -1712,7 +1727,7 @@
   {
     "service": "chime",
     "resource_type": "meeting",
-    "arn_pattern": "arn:${Partition}:chime::${AccountId}:meeting/${MeetingId}"
+    "arn_pattern": "arn:${Partition}:chime:${Region}:${AccountId}:meeting/${MeetingId}"
   },
   {
     "service": "chime",
@@ -2038,6 +2053,11 @@
     "service": "cloudwatch",
     "resource_type": "alarm",
     "arn_pattern": "arn:${Partition}:cloudwatch:${Region}:${Account}:alarm:${AlarmName}"
+  },
+  {
+    "service": "cloudwatch",
+    "resource_type": "alarm-mute-rule",
+    "arn_pattern": "arn:${Partition}:cloudwatch:${Region}:${Account}:alarm-mute-rule:${AlarmMuteRuleName}"
   },
   {
     "service": "cloudwatch",
@@ -2508,6 +2528,11 @@
     "service": "connect",
     "resource_type": "legacy-phone-number",
     "arn_pattern": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/phone-number/${PhoneNumberId}"
+  },
+  {
+    "service": "connect",
+    "resource_type": "notification",
+    "arn_pattern": "arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/notification/${NotificationId}"
   },
   {
     "service": "connect",
@@ -3451,6 +3476,21 @@
   },
   {
     "service": "ec2",
+    "resource_type": "secondary-interface",
+    "arn_pattern": "arn:${Partition}:ec2:${Region}:${Account}:secondary-interface/${SecondaryInterfaceId}"
+  },
+  {
+    "service": "ec2",
+    "resource_type": "secondary-network",
+    "arn_pattern": "arn:${Partition}:ec2:${Region}:${Account}:secondary-network/${SecondaryNetworkId}"
+  },
+  {
+    "service": "ec2",
+    "resource_type": "secondary-subnet",
+    "arn_pattern": "arn:${Partition}:ec2:${Region}:${Account}:secondary-subnet/${SecondarySubnetId}"
+  },
+  {
+    "service": "ec2",
     "resource_type": "security-group",
     "arn_pattern": "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
   },
@@ -3968,6 +4008,11 @@
     "service": "elemental-appliances-software",
     "resource_type": "quote",
     "arn_pattern": "arn:${Partition}:elemental-appliances-software:${Region}:${Account}:quote/${ResourceId}"
+  },
+  {
+    "service": "elemental-inference",
+    "resource_type": "feed",
+    "arn_pattern": "arn:${Partition}:elemental-inference:${Region}:${Account}:feed/${Id}"
   },
   {
     "service": "elemental-support-cases",
@@ -4621,6 +4666,11 @@
   },
   {
     "service": "glue",
+    "resource_type": "connectionType",
+    "arn_pattern": "arn:${Partition}:glue:${Region}:${Account}:connectionType:${ConnectionTypeName}"
+  },
+  {
+    "service": "glue",
     "resource_type": "crawler",
     "arn_pattern": "arn:${Partition}:glue:${Region}:${Account}:crawler/${CrawlerName}"
   },
@@ -4648,6 +4698,11 @@
     "service": "glue",
     "resource_type": "integration",
     "arn_pattern": "arn:${Partition}:glue:${Region}:${Account}:integration:${IntegrationId}"
+  },
+  {
+    "service": "glue",
+    "resource_type": "integrationResourceProperty",
+    "arn_pattern": "arn:${Partition}:glue:${Region}:${Account}:integrationresourceproperty/${ResourceType}/${ResourceName}"
   },
   {
     "service": "glue",
@@ -4930,6 +4985,36 @@
     "arn_pattern": "arn:${Partition}:health:*::event/${Service}/${EventTypeCode}/*"
   },
   {
+    "service": "health-agent",
+    "resource_type": "Agent",
+    "arn_pattern": "arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/agent/${AgentId}"
+  },
+  {
+    "service": "health-agent",
+    "resource_type": "Domain",
+    "arn_pattern": "arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}"
+  },
+  {
+    "service": "health-agent",
+    "resource_type": "Integration",
+    "arn_pattern": "arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/integration/${IntegrationId}"
+  },
+  {
+    "service": "health-agent",
+    "resource_type": "PatientInsightsJob",
+    "arn_pattern": "arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/patient-insights-job/${JobId}"
+  },
+  {
+    "service": "health-agent",
+    "resource_type": "Session",
+    "arn_pattern": "arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/session/${SessionId}"
+  },
+  {
+    "service": "health-agent",
+    "resource_type": "Subscription",
+    "arn_pattern": "arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/subscription/${SubscriptionId}"
+  },
+  {
     "service": "healthlake",
     "resource_type": "datastore",
     "arn_pattern": "arn:${Partition}:healthlake:${Region}:${Account}:datastore/fhir/${DatastoreId}"
@@ -5173,6 +5258,16 @@
     "service": "inspector2",
     "resource_type": "Finding",
     "arn_pattern": "arn:${Partition}:inspector2:${Region}:${Account}:finding/${FindingId}"
+  },
+  {
+    "service": "interconnect",
+    "resource_type": "connection",
+    "arn_pattern": "arn:${Partition}:interconnect:${Region}:${Account}:connection/${Id}"
+  },
+  {
+    "service": "interconnect",
+    "resource_type": "environment",
+    "arn_pattern": "arn:${Partition}:interconnect:${Region}:${Account}:environment/${Id}"
   },
   {
     "service": "internetmonitor",
@@ -6376,6 +6471,11 @@
   },
   {
     "service": "mediaconnect",
+    "resource_type": "MediaStream",
+    "arn_pattern": "arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/mediaStream/${MediaStreamName}"
+  },
+  {
+    "service": "mediaconnect",
     "resource_type": "Offering",
     "arn_pattern": "arn:${Partition}:mediaconnect:${Region}:offering:${OfferingId}"
   },
@@ -6408,6 +6508,11 @@
     "service": "mediaconnect",
     "resource_type": "Source",
     "arn_pattern": "arn:${Partition}:mediaconnect:${Region}:${Account}:source:${SourceId}:${SourceName}"
+  },
+  {
+    "service": "mediaconnect",
+    "resource_type": "VpcInterface",
+    "arn_pattern": "arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/vpcInterface/${VpcInterfaceName}"
   },
   {
     "service": "mediaconvert",
@@ -9325,6 +9430,11 @@
     "arn_pattern": "arn:${Partition}:sdb:${Region}:${Account}:domain/${DomainName}"
   },
   {
+    "service": "sdb",
+    "resource_type": "export",
+    "arn_pattern": "arn:${Partition}:sdb:${Region}:${Account}:domain/${DomainName}/export/${ExportUUID}"
+  },
+  {
     "service": "secretsmanager",
     "resource_type": "Secret",
     "arn_pattern": "arn:${Partition}:secretsmanager:${Region}:${Account}:secret:${SecretId}"
@@ -9393,6 +9503,11 @@
     "service": "securityagent",
     "resource_type": "SecurityRequirement",
     "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:security-requirement/${SecurityRequirementId}"
+  },
+  {
+    "service": "securityagent",
+    "resource_type": "TargetDomain",
+    "arn_pattern": "arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId}"
   },
   {
     "service": "securityhub",
@@ -9613,6 +9728,16 @@
     "service": "signer",
     "resource_type": "signing-profile",
     "arn_pattern": "arn:${Partition}:signer:${Region}:${Account}:/signing-profiles/${ProfileName}"
+  },
+  {
+    "service": "signin",
+    "resource_type": "oauth2-public-client-localhost",
+    "arn_pattern": "arn:${Partition}:signin:${Region}:${Account}:oauth2/public-client/localhost"
+  },
+  {
+    "service": "signin",
+    "resource_type": "oauth2-public-client-remote",
+    "arn_pattern": "arn:${Partition}:signin:${Region}:${Account}:oauth2/public-client/remote"
   },
   {
     "service": "simspaceweaver",

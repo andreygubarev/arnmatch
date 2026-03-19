@@ -1169,15 +1169,6 @@ appconfig:
     botoclient: appconfig
     cloudformation: AWS::AppConfig::ExtensionAssociation
     tagging: AWS::AppConfig::ExtensionAssociation
-  - name: hosted-configuration-version
-    names:
-      - hosted-configuration-version
-      - hostedconfigurationversion
-    arns:
-      - arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}/hostedconfigurationversion/${VersionNumber}
-    botoclient: appconfig
-    cloudformation: AWS::AppConfig::HostedConfigurationVersion
-    tagging:
 
 appfabric:
   - name: app-authorization
@@ -1815,6 +1806,15 @@ autoscaling:
     tagging:
 
 aws-marketplace:
+  - name: assessment
+    names:
+      - assessment
+      - Assessment
+    arns:
+      - arn:${Partition}:aws-marketplace:${Region}::${Catalog}/Assessment/${ResourceId}
+    botoclient: marketplace-catalog
+    cloudformation:
+    tagging:
   - name: change-set
     names:
       - change-set
@@ -2085,7 +2085,7 @@ bcm-pricing-calculator:
     names:
       - bill-estimate
     arns:
-      - arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-estimate/${BillEstimateId}
+      - arn:${Partition}:bcm-pricing-calculator::${Account}:bill-estimate/${BillEstimateId}
     botoclient: bcm-pricing-calculator
     cloudformation:
     tagging: AWS::BCMPricingCalculator::BillEstimate
@@ -2093,7 +2093,7 @@ bcm-pricing-calculator:
     names:
       - bill-scenario
     arns:
-      - arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:bill-scenario/${BillScenarioId}
+      - arn:${Partition}:bcm-pricing-calculator::${Account}:bill-scenario/${BillScenarioId}
     botoclient: bcm-pricing-calculator
     cloudformation:
     tagging: AWS::BCMPricingCalculator::BillScenario
@@ -2101,7 +2101,7 @@ bcm-pricing-calculator:
     names:
       - workload-estimate
     arns:
-      - arn:${Partition}:bcm-pricing-calculator:${Region}:${Account}:workload-estimate/${WorkloadEstimateId}
+      - arn:${Partition}:bcm-pricing-calculator::${Account}:workload-estimate/${WorkloadEstimateId}
     botoclient: bcm-pricing-calculator
     cloudformation:
     tagging: AWS::BCMPricingCalculator::WorkloadEstimate
@@ -2170,6 +2170,14 @@ bedrock:
       - arn:${Partition}:bedrock:${Region}:${Account}:blueprint/${BlueprintId}
     botoclient: bedrock
     cloudformation: AWS::Bedrock::Blueprint
+    tagging:
+  - name: blueprint-optimization-invocation
+    names:
+      - blueprint-optimization-invocation
+    arns:
+      - arn:${Partition}:bedrock:${Region}:${Account}:blueprint-optimization-invocation/${ResourceId}
+    botoclient: bedrock
+    cloudformation:
     tagging:
   - name: custom-model
     names:
@@ -2413,6 +2421,14 @@ bedrock-agentcore:
       - arn:${Partition}:bedrock-agentcore:${Region}:${Account}:browser-custom/${BrowserId}
     botoclient: bedrock-agentcore-control
     cloudformation: AWS::BedrockAgentCore::BrowserCustom
+    tagging:
+  - name: browser-profile
+    names:
+      - browser-profile
+    arns:
+      - arn:${Partition}:bedrock-agentcore:${Region}:${Account}:browser-profile/${BrowserProfileId}
+    botoclient: bedrock-agentcore-control
+    cloudformation:
     tagging:
   - name: code-interpreter
     names:
@@ -2879,7 +2895,7 @@ chime:
     names:
       - meeting
     arns:
-      - arn:${Partition}:chime::${AccountId}:meeting/${MeetingId}
+      - arn:${Partition}:chime:${Region}:${AccountId}:meeting/${MeetingId}
     botoclient: chime-sdk-meetings
     cloudformation:
     tagging:
@@ -3435,6 +3451,14 @@ cloudwatch:
     botoclient: cloudwatch
     cloudformation: AWS::CloudWatch::Alarm
     tagging: AWS::CloudWatch::Alarm
+  - name: alarm-mute-rule
+    names:
+      - alarm-mute-rule
+    arns:
+      - arn:${Partition}:cloudwatch:${Region}:${Account}:alarm-mute-rule:${AlarmMuteRuleName}
+    botoclient: cloudwatch
+    cloudformation:
+    tagging:
   - name: dashboard
     names:
       - dashboard
@@ -4236,6 +4260,14 @@ connect:
       - legacy-phone-number
     arns:
       - arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/phone-number/${PhoneNumberId}
+    botoclient: connect
+    cloudformation:
+    tagging:
+  - name: notification
+    names:
+      - notification
+    arns:
+      - arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/notification/${NotificationId}
     botoclient: connect
     cloudformation:
     tagging:
@@ -5720,6 +5752,30 @@ ec2:
     botoclient: ec2
     cloudformation: AWS::EC2::RouteTable
     tagging: AWS::EC2::RouteTable
+  - name: secondary-interface
+    names:
+      - secondary-interface
+    arns:
+      - arn:${Partition}:ec2:${Region}:${Account}:secondary-interface/${SecondaryInterfaceId}
+    botoclient: ec2
+    cloudformation:
+    tagging:
+  - name: secondary-network
+    names:
+      - secondary-network
+    arns:
+      - arn:${Partition}:ec2:${Region}:${Account}:secondary-network/${SecondaryNetworkId}
+    botoclient: ec2
+    cloudformation:
+    tagging:
+  - name: secondary-subnet
+    names:
+      - secondary-subnet
+    arns:
+      - arn:${Partition}:ec2:${Region}:${Account}:secondary-subnet/${SecondarySubnetId}
+    botoclient: ec2
+    cloudformation:
+    tagging:
   - name: security-group
     names:
       - security-group
@@ -6662,6 +6718,16 @@ elemental-appliances-software:
     cloudformation:
     tagging:
 
+elemental-inference:
+  - name: feed
+    names:
+      - feed
+    arns:
+      - arn:${Partition}:elemental-inference:${Region}:${Account}:feed/${Id}
+    botoclient: elementalinference
+    cloudformation:
+    tagging:
+
 elemental-support-cases:
   - name: case
     names:
@@ -6909,8 +6975,8 @@ evidently:
       - Experiment
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}/experiment/${ExperimentName}
-    botoclient: evidently
-    cloudformation: AWS::Evidently::Experiment
+    botoclient:
+    cloudformation:
     tagging:
   - name: feature
     names:
@@ -6918,8 +6984,8 @@ evidently:
       - Feature
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}/feature/${FeatureName}
-    botoclient: evidently
-    cloudformation: AWS::Evidently::Feature
+    botoclient:
+    cloudformation:
     tagging:
   - name: launch
     names:
@@ -6927,8 +6993,8 @@ evidently:
       - Launch
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}/launch/${LaunchName}
-    botoclient: evidently
-    cloudformation: AWS::Evidently::Launch
+    botoclient:
+    cloudformation:
     tagging:
   - name: project
     names:
@@ -6936,8 +7002,8 @@ evidently:
       - Project
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:project/${ProjectName}
-    botoclient: evidently
-    cloudformation: AWS::Evidently::Project
+    botoclient:
+    cloudformation:
     tagging:
   - name: segment
     names:
@@ -6945,8 +7011,8 @@ evidently:
       - Segment
     arns:
       - arn:${Partition}:evidently:${Region}:${Account}:segment/${SegmentName}
-    botoclient: evidently
-    cloudformation: AWS::Evidently::Segment
+    botoclient:
+    cloudformation:
     tagging:
 
 evs:
@@ -7748,6 +7814,15 @@ glue:
     botoclient: glue
     cloudformation: AWS::Glue::Connection
     tagging: AWS::Glue::Connection
+  - name: connection-type
+    names:
+      - connection-type
+      - connectionType
+    arns:
+      - arn:${Partition}:glue:${Region}:${Account}:connectionType:${ConnectionTypeName}
+    botoclient: glue
+    cloudformation:
+    tagging:
   - name: crawler
     names:
       - crawler
@@ -7798,6 +7873,15 @@ glue:
       - arn:${Partition}:glue:${Region}:${Account}:integration:${IntegrationId}
     botoclient: glue
     cloudformation: AWS::Glue::Integration
+    tagging:
+  - name: integration-resource-property
+    names:
+      - integration-resource-property
+      - integrationResourceProperty
+    arns:
+      - arn:${Partition}:glue:${Region}:${Account}:integrationresourceproperty/${ResourceType}/${ResourceName}
+    botoclient: glue
+    cloudformation: AWS::Glue::IntegrationResourceProperty
     tagging:
   - name: job
     names:
@@ -8282,6 +8366,62 @@ health:
     cloudformation:
     tagging:
 
+health-agent:
+  - name: agent
+    names:
+      - agent
+      - Agent
+    arns:
+      - arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/agent/${AgentId}
+    botoclient: connecthealth
+    cloudformation:
+    tagging:
+  - name: domain
+    names:
+      - domain
+      - Domain
+    arns:
+      - arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}
+    botoclient: connecthealth
+    cloudformation:
+    tagging:
+  - name: integration
+    names:
+      - integration
+      - Integration
+    arns:
+      - arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/integration/${IntegrationId}
+    botoclient: connecthealth
+    cloudformation:
+    tagging:
+  - name: patient-insights-job
+    names:
+      - patient-insights-job
+      - PatientInsightsJob
+    arns:
+      - arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/patient-insights-job/${JobId}
+    botoclient: connecthealth
+    cloudformation:
+    tagging:
+  - name: session
+    names:
+      - session
+      - Session
+    arns:
+      - arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/session/${SessionId}
+    botoclient: connecthealth
+    cloudformation:
+    tagging:
+  - name: subscription
+    names:
+      - subscription
+      - Subscription
+    arns:
+      - arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/subscription/${SubscriptionId}
+    botoclient: connecthealth
+    cloudformation:
+    tagging:
+
 healthlake:
   - name: datastore
     names:
@@ -8715,6 +8855,24 @@ inspector2:
     cloudformation:
     tagging:
 
+interconnect:
+  - name: connection
+    names:
+      - connection
+    arns:
+      - arn:${Partition}:interconnect:${Region}:${Account}:connection/${Id}
+    botoclient:
+    cloudformation:
+    tagging:
+  - name: environment
+    names:
+      - environment
+    arns:
+      - arn:${Partition}:interconnect:${Region}:${Account}:environment/${Id}
+    botoclient:
+    cloudformation:
+    tagging:
+
 internetmonitor:
   - name: health-event
     names:
@@ -9033,33 +9191,33 @@ iotanalytics:
       - channel
     arns:
       - arn:${Partition}:iotanalytics:${Region}:${Account}:channel/${ChannelName}
-    botoclient: iotanalytics
-    cloudformation: AWS::IoTAnalytics::Channel
-    tagging: AWS::IoTAnalytics::Channel
+    botoclient:
+    cloudformation:
+    tagging:
   - name: dataset
     names:
       - dataset
     arns:
       - arn:${Partition}:iotanalytics:${Region}:${Account}:dataset/${DatasetName}
-    botoclient: iotanalytics
-    cloudformation: AWS::IoTAnalytics::Dataset
-    tagging: AWS::IoTAnalytics::Dataset
+    botoclient:
+    cloudformation:
+    tagging:
   - name: datastore
     names:
       - datastore
     arns:
       - arn:${Partition}:iotanalytics:${Region}:${Account}:datastore/${DatastoreName}
-    botoclient: iotanalytics
-    cloudformation: AWS::IoTAnalytics::Datastore
-    tagging: AWS::IoTAnalytics::Datastore
+    botoclient:
+    cloudformation:
+    tagging:
   - name: pipeline
     names:
       - pipeline
     arns:
       - arn:${Partition}:iotanalytics:${Region}:${Account}:pipeline/${PipelineName}
-    botoclient: iotanalytics
-    cloudformation: AWS::IoTAnalytics::Pipeline
-    tagging: AWS::IoTAnalytics::Pipeline
+    botoclient:
+    cloudformation:
+    tagging:
 
 iotdeviceadvisor:
   - name: suite-definition
@@ -10720,6 +10878,15 @@ mediaconnect:
     botoclient: mediaconnect
     cloudformation:
     tagging:
+  - name: media-stream
+    names:
+      - media-stream
+      - MediaStream
+    arns:
+      - arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/mediaStream/${MediaStreamName}
+    botoclient: mediaconnect
+    cloudformation:
+    tagging:
   - name: offering
     names:
       - offering
@@ -10783,6 +10950,15 @@ mediaconnect:
     botoclient: mediaconnect
     cloudformation: AWS::MediaConnect::FlowSource
     tagging: AWS::MediaConnect::FlowSource
+  - name: vpc-interface
+    names:
+      - vpc-interface
+      - VpcInterface
+    arns:
+      - arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/vpcInterface/${VpcInterfaceName}
+    botoclient: mediaconnect
+    cloudformation:
+    tagging:
 
 mediaconvert:
   - name: certificate-association
@@ -15635,6 +15811,14 @@ sdb:
     botoclient: sdb
     cloudformation: AWS::SDB::Domain
     tagging:
+  - name: export
+    names:
+      - export
+    arns:
+      - arn:${Partition}:sdb:${Region}:${Account}:domain/${DomainName}/export/${ExportUUID}
+    botoclient: sdb
+    cloudformation:
+    tagging:
 
 secretsmanager:
   - name: secret
@@ -15762,6 +15946,15 @@ securityagent:
       - SecurityRequirement
     arns:
       - arn:${Partition}:securityagent:${Region}:${Account}:security-requirement/${SecurityRequirementId}
+    botoclient:
+    cloudformation:
+    tagging:
+  - name: target-domain
+    names:
+      - target-domain
+      - TargetDomain
+    arns:
+      - arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId}
     botoclient:
     cloudformation:
     tagging:
@@ -16122,6 +16315,24 @@ signer:
       - arn:${Partition}:signer:${Region}:${Account}:/signing-profiles/${ProfileName}
     botoclient: signer
     cloudformation: AWS::Signer::SigningProfile
+    tagging:
+
+signin:
+  - name: oauth2-public-client-localhost
+    names:
+      - oauth2-public-client-localhost
+    arns:
+      - arn:${Partition}:signin:${Region}:${Account}:oauth2/public-client/localhost
+    botoclient: signin
+    cloudformation:
+    tagging:
+  - name: oauth2-public-client-remote
+    names:
+      - oauth2-public-client-remote
+    arns:
+      - arn:${Partition}:signin:${Region}:${Account}:oauth2/public-client/remote
+    botoclient: signin
+    cloudformation:
     tagging:
 
 simspaceweaver:
