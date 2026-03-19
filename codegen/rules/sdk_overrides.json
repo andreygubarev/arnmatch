@@ -1,5 +1,7 @@
 {
   "aidevops": ["aiops"],
+  "iotjobsdata": ["iot-jobs-data"],
+  "kafka-cluster": ["kafka"],
   "appmesh-preview": ["appmesh"],
   "catalog": ["servicecatalog"],
   "cloudwatch": ["cloudwatch"],
@@ -16,5 +18,7 @@
     "route53-recovery-control-config"
   ],
   "s3-object-lambda": ["s3"],
-  "s3express": ["s3"]
+  "s3express": ["s3"],
+  "sagemaker-mlflow": ["sagemaker"],
+  "vpc-lattice-svcs": ["vpc-lattice"]
 }

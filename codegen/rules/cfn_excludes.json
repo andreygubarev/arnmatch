@@ -1,6 +1,8 @@
 {
   "discontinued": [
     "codestar",
+    "evidently",
+    "iotanalytics",
     "lookoutvision",
     "opsworks",
     "qldb",

@@ -5,7 +5,9 @@
     "codestar",
     "elastic-inference",
     "elastictranscoder",
+    "evidently",
     "honeycode",
+    "iotanalytics",
     "iotfleethub",
     "lookoutmetrics",
     "lookoutvision",
@@ -41,8 +43,11 @@
     "bedrock-mantle",
     "codewhisperer",
     "freertos",
+    "interconnect",
+    "q",
     "qdeveloper",
     "transform",
-    "transform-custom"
+    "transform-custom",
+    "vpce"
   ]
 }
