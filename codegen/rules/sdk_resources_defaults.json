@@ -28,6 +28,8 @@
   "rds": "rds",
   "route53-recovery-control": "route53-recovery-control-config",
   "s3": "s3",
+  "sdb": "sdb",
+  "signer": "signer",
   "sagemaker": "sagemaker",
   "servicecatalog": "servicecatalog",
   "ses": "sesv2",
