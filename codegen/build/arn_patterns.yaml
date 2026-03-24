@@ -5402,7 +5402,7 @@ ec2:
     names:
       - image
     arns:
-      - arn:${Partition}:ec2:${Region}:${Account}:image/${ImageId}
+      - arn:${Partition}:ec2:${Region}:${Account?}:image/${ImageId}
     botoclient: ec2
     cloudformation:
     tagging: AWS::EC2::Image
@@ -5796,7 +5796,7 @@ ec2:
     names:
       - snapshot
     arns:
-      - arn:${Partition}:ec2:${Region}:${Account}:snapshot/${SnapshotId}
+      - arn:${Partition}:ec2:${Region}:${Account?}:snapshot/${SnapshotId}
     botoclient: ec2
     cloudformation:
     tagging: AWS::EC2::Snapshot

@@ -30,8 +30,8 @@
     "ReplicationTaskIndividualAssessment": "arn:${Partition}:dms:${Region}:${Account}:individual-assessment:${IndividualAssessmentId}"
   },
   "ec2": {
-    "image": "arn:${Partition}:ec2:${Region}:${Account}:image/${ImageId}",
-    "snapshot": "arn:${Partition}:ec2:${Region}:${Account}:snapshot/${SnapshotId}"
+    "image": "arn:${Partition}:ec2:${Region}:${Account?}:image/${ImageId}",
+    "snapshot": "arn:${Partition}:ec2:${Region}:${Account?}:snapshot/${SnapshotId}"
   },
   "health": {
     "event": "arn:${Partition}:health:${Region}:${Account}:event/${Service}/${EventTypeCode}/${EventId}"

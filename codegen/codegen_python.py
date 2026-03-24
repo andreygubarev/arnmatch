@@ -46,8 +46,12 @@ class PythonGenerator:
         result = result.replace("\\-", "-")
 
         for i, name in enumerate(placeholders):
+            optional = name.endswith("?")
+            if optional:
+                name = name[:-1]
             pattern = PLACEHOLDER_PATTERNS.get(name, ".+?")
-            result = result.replace(f"\x00{i}\x00", f"(?P<{name}>{pattern})")
+            group = f"(?P<{name}>{pattern})?" if optional else f"(?P<{name}>{pattern})"
+            result = result.replace(f"\x00{i}\x00", group)
 
         result = result.replace("\x01", ".*")
         return f"^{result}$"
