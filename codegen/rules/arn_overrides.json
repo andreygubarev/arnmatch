@@ -38,8 +38,5 @@
   },
   "neptune-db": {
     "database": "arn:${Partition}:neptune-db:${Region}:${Account}:${ClusterResourceId}/${DatabaseId}"
-  },
-  "mq": {
-    "configurations": "arn:${Partition}:mq:${Region}:${Account}:configuration[/:]${ConfigurationId}"
   }
 }

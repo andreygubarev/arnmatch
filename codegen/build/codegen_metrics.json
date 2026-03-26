@@ -7,7 +7,7 @@
     "input": 2194,
     "filtered_by_arn": 14,
     "filtered_by_resource": 16,
-    "overrides_applied": 29,
+    "overrides_applied": 28,
     "duplicates_removed": 69,
     "includes_added": 10,
     "output": 2106
@@ -37,10 +37,10 @@
     "services_with_cfn": 239,
     "exact_match": 954,
     "plural_match": 12,
-    "override": 106,
+    "override": 105,
     "excluded": 570,
     "missing": 0,
-    "mapped": 1072
+    "mapped": 1071
   },
   "tag_service_indexer": {
     "tagging_services_total": 251,

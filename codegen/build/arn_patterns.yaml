@@ -11839,9 +11839,9 @@ mq:
       - configurations
       - configuration
     arns:
-      - arn:${Partition}:mq:${Region}:${Account}:configuration[/:]${ConfigurationId}
+      - arn:${Partition}:mq:${Region}:${Account}:configuration:${ConfigurationId}
     botoclient: mq
-    cloudformation: AWS::AmazonMQ::Configuration
+    cloudformation:
     tagging: AWS::AmazonMQ::Configuration
 
 neptune-db:
