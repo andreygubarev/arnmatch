@@ -64,6 +64,22 @@ Test locally:
 uv run arnmatch <arn>   # Test CLI locally
 ```
 
+### Codegen Pipeline Commands
+
+To regenerate patterns from AWS documentation:
+
+```bash
+cd codegen
+make clean      # Clean build artifacts
+make            # Run full pipeline: generates arn_patterns.yaml then arn_patterns.py
+
+# Or run steps individually:
+uv run codegen.py         # Generate arn_patterns.yaml from AWS docs
+uv run codegen_python.py  # Convert YAML to Python module
+```
+
+The generated `codegen/build/arn_patterns.py` is copied to `src/arnmatch/arn_patterns.py` by `make build`.
+
 ## Code Architecture
 
 ### Core Library (`src/arnmatch/`)
@@ -100,6 +116,12 @@ AWS docs → scraper.py → raw resources → codegen.py → arn_patterns.yaml �
 - `index_cfn.py` / `index_cfn_resources.py` - CloudFormation service/resource mappings
 - `index_tag.py` / `index_tag_resources.py` - Tagging API mappings
 - `transform.py` - Normalizes resource type names (kebab-case)
+
+**Python Generation (`codegen_python.py`):**
+- Converts YAML ARN patterns to Python regex
+- Handles `${Placeholder}` substitution with capture groups
+- Preserves regex character classes like `[/:]` for alternative separators
+- Escapes special regex characters appropriately
 
 **Rules System (`codegen/rules/`):**
 All indexers use JSON rule files for overrides and exclusions:
@@ -184,6 +206,39 @@ If CFN type is incorrect or missing:
 
 1. Check `codegen/rules/cfn_overrides.json` or `cfn_resources_overrides.json`
 2. Add override: `"arn_service": {"resource_type": "AWS::Service::ResourceType"}`
+
+### Fixing ARN Pattern Format Issues
+
+Some AWS services use inconsistent ARN formats (e.g., both `:` and `/` separators). Example: AmazonMQ configuration ARNs may use `configuration:c-id` or `configuration/c-id`.
+
+**To fix pattern matching issues:**
+
+1. Add pattern override in `codegen/rules/arn_overrides.json` using regex character classes:
+   ```json
+   "mq": {
+     "configurations": "arn:${Partition}:mq:${Region}:${Account}:configuration[/:]${ConfigurationId}"
+   }
+   ```
+
+2. If CFN mapping is also missing, add to `codegen/rules/cfn_resources_overrides.json`:
+   ```json
+   "mq": {
+     "configurations": "AWS::AmazonMQ::Configuration"
+   }
+   ```
+
+3. Regenerate patterns:
+   ```bash
+   cd codegen && make clean && make
+   ```
+
+4. Copy to source and test:
+   ```bash
+   make build
+   make check
+   ```
+
+**Important:** The `codegen_python.py` converts the YAML patterns to Python regex. Character classes like `[/:]` are preserved during regex escaping. If you add new character class patterns, ensure `codegen_python.py` handles them correctly (it captures them before `re.escape()` and restores after).
 
 ## Security Considerations
 
