@@ -35,12 +35,19 @@ class PythonGenerator:
     def pattern_to_regex(self, arn_pattern: str) -> str:
         """Convert ${Placeholder} to regex capture groups."""
         placeholders = []
+        char_classes = []
 
         def capture_var(m):
             placeholders.append(m.group(1))
             return f"\x00{len(placeholders) - 1}\x00"
 
+        def capture_char_class(m):
+            char_classes.append(m.group(0))
+            return f"\x02{len(char_classes) - 1}\x02"
+
         result = re.sub(r"\$\{([^}]+)\}", capture_var, arn_pattern)
+        # Capture character classes like [/:] before escaping
+        result = re.sub(r"\[[^\]]+\]", capture_char_class, result)
         result = result.replace("*", "\x01")
         result = re.escape(result)
         result = result.replace("\\-", "-")
@@ -52,6 +59,10 @@ class PythonGenerator:
             pattern = PLACEHOLDER_PATTERNS.get(name, ".+?")
             group = f"(?P<{name}>{pattern})?" if optional else f"(?P<{name}>{pattern})"
             result = result.replace(f"\x00{i}\x00", group)
+
+        # Restore character classes
+        for i, char_class in enumerate(char_classes):
+            result = result.replace(f"\x02{i}\x02", char_class)
 
         result = result.replace("\x01", ".*")
         return f"^{result}$"

@@ -1816,7 +1816,7 @@ ARN_PATTERNS = {
     ],
     'mq': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):mq:(?P<Region>[\w-]*):(?P<Account>\d{12}):broker:(?P<BrokerName>.+?):(?P<BrokerId>.+?)$"), 'names': ['brokers'], 'sdk': 'mq', 'cfn': 'AWS::AmazonMQ::Broker', 'tag': 'AWS::AmazonMQ::Broker'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):mq:(?P<Region>[\w-]*):(?P<Account>\d{12}):configuration:(?P<ConfigurationId>.+?)$"), 'names': ['configurations', 'configuration'], 'sdk': 'mq', 'cfn': None, 'tag': 'AWS::AmazonMQ::Configuration'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):mq:(?P<Region>[\w-]*):(?P<Account>\d{12}):configuration[/:](?P<ConfigurationId>.+?)$"), 'names': ['configurations', 'configuration'], 'sdk': 'mq', 'cfn': 'AWS::AmazonMQ::Configuration', 'tag': 'AWS::AmazonMQ::Configuration'},
     ],
     'neptune-db': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):neptune-db:(?P<Region>[\w-]*):(?P<Account>\d{12}):(?P<ClusterResourceId>.+?)/(?P<DatabaseId>.+?)$"), 'names': ['database'], 'sdk': 'neptunedata', 'cfn': None, 'tag': None},

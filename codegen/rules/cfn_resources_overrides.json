@@ -203,5 +203,8 @@
   "workspaces": {
     "workspaceid": "AWS::WorkSpaces::Workspace",
     "workspacespoolid": "AWS::WorkSpaces::WorkspacesPool"
+  },
+  "mq": {
+    "configurations": "AWS::AmazonMQ::Configuration"
   }
 }
