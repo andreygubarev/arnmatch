@@ -60,6 +60,19 @@ build-backend = "hatchling.build"
 [tool.hatch.version]
 path = "src/arnmatch/__init__.py"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/arnmatch"]
+
+[tool.hatch.build.targets.sdist]
+ignore-vcs = true
+only-include = [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "pyproject.toml",
+    "src/arnmatch",
+]
+
 [dependency-groups]
 dev = [
     "boto3>=1.42.41",
