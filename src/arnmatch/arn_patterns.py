@@ -31,9 +31,10 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):acm-pca:(?P<Region>[\w-]*):(?P<Account>\d{12}):certificate-authority/(?P<CertificateAuthorityId>.+?)$"), 'names': ['certificate-authority'], 'sdk': 'acm-pca', 'cfn': 'AWS::ACMPCA::CertificateAuthority', 'tag': 'AWS::ACMPCA::CertificateAuthority'},
     ],
     'aidevops': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):agentspace/(?P<AgentSpaceId>.+?)/associations/(?P<AssociationId>.+?)$"), 'names': ['association-resource', 'AssociationResource'], 'sdk': 'aiops', 'cfn': 'AWS::DevOpsAgent::Association', 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):agentspace/(?P<AgentSpaceId>.+?)$"), 'names': ['agent-space-resource', 'AgentSpaceResource'], 'sdk': 'aiops', 'cfn': 'AWS::DevOpsAgent::AgentSpace', 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):service/(?P<ServiceId>.+?)$"), 'names': ['service-resource', 'ServiceResource'], 'sdk': 'aiops', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):agentspace/(?P<AgentSpaceId>.+?)/association/(?P<AssociationId>.+?)$"), 'names': ['associations'], 'sdk': 'aiops', 'cfn': 'AWS::DevOpsAgent::Association', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):agentspace/(?P<AgentSpaceId>.+?)$"), 'names': ['agentspace'], 'sdk': 'aiops', 'cfn': 'AWS::DevOpsAgent::AgentSpace', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):private-connection/(?P<Name>.+?)$"), 'names': ['private-connection'], 'sdk': 'aiops', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aidevops:(?P<Region>[\w-]*):(?P<Account>\d{12}):service/(?P<ServiceId>.+?)$"), 'names': ['service'], 'sdk': 'aiops', 'cfn': None, 'tag': None},
     ],
     'aiops': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aiops:(?P<Region>[\w-]*):(?P<Account>\d{12}):investigation-group/(?P<InvestigationGroupId>.+?)$"), 'names': ['investigation-group'], 'sdk': 'aiops', 'cfn': 'AWS::AIOps::InvestigationGroup', 'tag': 'AWS::AIOps::InvestigationGroup'},
@@ -191,6 +192,9 @@ ARN_PATTERNS = {
     'application-signals': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):application-signals:(?P<Region>[\w-]*):(?P<Account>\d{12}):slo/(?P<SloName>.+?)$"), 'names': ['slo'], 'sdk': 'application-signals', 'cfn': 'AWS::ApplicationSignals::ServiceLevelObjective', 'tag': 'AWS::ApplicationSignals::ServiceLevelObjective'},
     ],
+    'application-signals-mcp': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):application-signals-mcp:(?P<Region>[\w-]*):(?P<Account>\d{12}):mcp-server/.*$"), 'names': ['mcp-server'], 'sdk': None, 'cfn': None, 'tag': None},
+    ],
     'appmesh': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):appmesh:(?P<Region>[\w-]*):(?P<Account>\d{12}):mesh/(?P<MeshName>.+?)/virtualGateway/(?P<VirtualGatewayName>.+?)/gatewayRoute/(?P<GatewayRouteName>.+?)$"), 'names': ['gateway-route', 'gatewayRoute'], 'sdk': 'appmesh', 'cfn': 'AWS::AppMesh::GatewayRoute', 'tag': 'AWS::AppMesh::GatewayRoute'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):appmesh:(?P<Region>[\w-]*):(?P<Account>\d{12}):mesh/(?P<MeshName>.+?)/virtualRouter/(?P<VirtualRouterName>.+?)/route/(?P<RouteName>.+?)$"), 'names': ['route'], 'sdk': 'appmesh', 'cfn': 'AWS::AppMesh::Route', 'tag': 'AWS::AppMesh::Route'},
@@ -244,7 +248,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):appsync:(?P<Region>[\w-]*):(?P<Account>\d{12}):domainnames/(?P<DomainName>.+?)$"), 'names': ['domain'], 'sdk': 'appsync', 'cfn': 'AWS::AppSync::DomainName', 'tag': 'AWS::AppSync::DomainName'},
     ],
     'apptest': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):apptest:(?P<Region>[\w-]*):(?P<Account>\d{12}):testcase/(?P<TestCaseId>.+?)$"), 'names': ['test-case', 'TestCase'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):apptest:(?P<Region>[\w-]*):(?P<Account>\d{12}):testcase/(?P<TestCaseId>.+?)$"), 'names': ['test-case', 'TestCase'], 'sdk': None, 'cfn': 'AWS::AppTest::TestCase', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):apptest:(?P<Region>[\w-]*):(?P<Account>\d{12}):testconfiguration/(?P<TestConfigurationId>.+?)$"), 'names': ['test-configuration', 'TestConfiguration'], 'sdk': None, 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):apptest:(?P<Region>[\w-]*):(?P<Account>\d{12}):testrun/(?P<TestRunId>.+?)$"), 'names': ['test-run', 'TestRun'], 'sdk': None, 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):apptest:(?P<Region>[\w-]*):(?P<Account>\d{12}):testsuite/(?P<TestSuiteId>.+?)$"), 'names': ['test-suite', 'TestSuite'], 'sdk': None, 'cfn': None, 'tag': None},
@@ -279,9 +283,21 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):autoscaling:(?P<Region>[\w-]*):(?P<Account>\d{12}):autoScalingGroup:(?P<GroupId>.+?):autoScalingGroupName/(?P<GroupFriendlyName>.+?)$"), 'names': ['autoscaling-group', 'autoScalingGroup'], 'sdk': 'autoscaling', 'cfn': 'AWS::AutoScaling::AutoScalingGroup', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):autoscaling:(?P<Region>[\w-]*):(?P<Account>\d{12}):launchConfiguration:(?P<Id>.+?):launchConfigurationName/(?P<LaunchConfigurationName>.+?)$"), 'names': ['launch-configuration', 'launchConfiguration'], 'sdk': 'autoscaling', 'cfn': 'AWS::AutoScaling::LaunchConfiguration', 'tag': None},
     ],
+    'aws-external-anthropic': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-external-anthropic:(?P<Region>[\w-]*):(?P<Account>\d{12}):workspace/(?P<ResourceId>.+?)$"), 'names': ['workspace'], 'sdk': None, 'cfn': None, 'tag': None},
+    ],
     'aws-marketplace': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/listing/(?P<ListingId>.+?)$"), 'names': ['listing', 'Listing'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::Entity'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/listing/.*$"), 'names': ['all-listings', 'AllListings'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/offer/(?P<OfferId>.+?)$"), 'names': ['offer', 'Offer'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::Entity'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/offerSet/(?P<OfferSetId>.+?)$"), 'names': ['offer-set', 'OfferSet'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::Entity'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/product/(?P<ProductId>.+?)$"), 'names': ['product', 'Product'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::Entity'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/purchaseOption/(?P<PurchaseOptionId>.+?)$"), 'names': ['purchase-option', 'PurchaseOption'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::Entity'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:::catalog/(?P<CatalogName>.+?)/purchaseOption/.*$"), 'names': ['all-purchase-options', 'AllPurchaseOptions'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:(?P<Region>[\w-]*)::(?P<Catalog>.+?)/Assessment/(?P<ResourceId>.+?)$"), 'names': ['assessment', 'Assessment'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:(?P<Region>[\w-]*):(?P<Account>\d{12}):DeploymentParameter:catalogs/(?P<CatalogName>.+?)/products/(?P<ProductId>.+?)/(?P<ResourceId>.+?)$"), 'names': ['deployment-parameter', 'DeploymentParameter'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:(?P<Region>[\w-]*):(?P<Account>\d{12}):catalog/(?P<Catalog>.+?)/invoice-submission-task/(?P<ResourceId>.+?)$"), 'names': ['invoice-submission-task', 'InvoiceSubmissionTask'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:(?P<Region>[\w-]*):(?P<Account>\d{12}):catalog/(?P<Catalog>.+?)/issued-tax-invoice/(?P<ResourceId>.+?)$"), 'names': ['issued-tax-invoice', 'IssuedTaxInvoice'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:(?P<Region>[\w-]*):(?P<Account>\d{12}):(?P<Catalog>.+?)/ChangeSet/(?P<ResourceId>.+?)$"), 'names': ['change-set', 'ChangeSet'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::ChangeSet'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):aws-marketplace:(?P<Region>[\w-]*):(?P<Account>\d{12}):(?P<Catalog>.+?)/(?P<EntityType>.+?)/(?P<ResourceId>.+?)$"), 'names': ['entity', 'Entity'], 'sdk': 'marketplace-catalog', 'cfn': None, 'tag': 'AWS::MarketplaceCatalog::Entity'},
     ],
@@ -310,6 +326,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):backup-search:(?P<Region>[\w-]*):(?P<Account>\d{12}):search-job/(?P<ResourceId>.+?)$"), 'names': ['search-job', 'searchJob'], 'sdk': 'backupsearch', 'cfn': None, 'tag': 'AWS::BackupSearch::SearchJob'},
     ],
     'batch': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):batch:(?P<Region>[\w-]*):(?P<Account>\d{12}):job-queue/(?P<JobQueueName>.+?)/quota-share/(?P<QuotaShareName>.+?)$"), 'names': ['quota-share'], 'sdk': 'batch', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):batch:(?P<Region>[\w-]*):(?P<Account>\d{12}):job-definition/(?P<JobDefinitionName>.+?):(?P<Revision>.+?)$"), 'names': ['job-definition-revision'], 'sdk': 'batch', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):batch:(?P<Region>[\w-]*):(?P<Account>\d{12}):compute-environment/(?P<ComputeEnvironmentName>.+?)$"), 'names': ['compute-environment'], 'sdk': 'batch', 'cfn': 'AWS::Batch::ComputeEnvironment', 'tag': 'AWS::Batch::ComputeEnvironment'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):batch:(?P<Region>[\w-]*):(?P<Account>\d{12}):consumable-resource/(?P<ConsumableResourceName>.+?)$"), 'names': ['consumable-resource'], 'sdk': 'batch', 'cfn': 'AWS::Batch::ConsumableResource', 'tag': 'AWS::Batch::ConsumableResource'},
@@ -320,13 +337,17 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):batch:(?P<Region>[\w-]*):(?P<Account>\d{12}):service-environment/(?P<ServiceEnvironmentName>.+?)$"), 'names': ['service-environment'], 'sdk': 'batch', 'cfn': 'AWS::Batch::ServiceEnvironment', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):batch:(?P<Region>[\w-]*):(?P<Account>\d{12}):service-job/(?P<JobId>.+?)$"), 'names': ['service-job'], 'sdk': 'batch', 'cfn': None, 'tag': None},
     ],
+    'bcm-dashboards': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-dashboards::(?P<Account>\d{12}):dashboard/(?P<DashboardName>.+?)$"), 'names': ['dashboard'], 'sdk': 'bcm-dashboards', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-dashboards::(?P<Account>\d{12}):scheduled-report/(?P<ScheduledReportName>.+?)$"), 'names': ['scheduled-report'], 'sdk': 'bcm-dashboards', 'cfn': None, 'tag': None},
+    ],
     'bcm-data-exports': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-data-exports:(?P<Region>[\w-]*):(?P<Account>\d{12}):export/(?P<Identifier>.+?)$"), 'names': ['export'], 'sdk': 'bcm-data-exports', 'cfn': 'AWS::BCMDataExports::Export', 'tag': 'AWS::BCMDataExports::Export'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-data-exports:(?P<Region>[\w-]*):(?P<Account>\d{12}):table/(?P<Identifier>.+?)$"), 'names': ['table'], 'sdk': 'bcm-data-exports', 'cfn': None, 'tag': None},
     ],
     'bcm-pricing-calculator': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-pricing-calculator::(?P<Account>\d{12}):bill-estimate/(?P<BillEstimateId>.+?)$"), 'names': ['bill-estimate'], 'sdk': 'bcm-pricing-calculator', 'cfn': None, 'tag': 'AWS::BCMPricingCalculator::BillEstimate'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-pricing-calculator::(?P<Account>\d{12}):bill-scenario/(?P<BillScenarioId>.+?)$"), 'names': ['bill-scenario'], 'sdk': 'bcm-pricing-calculator', 'cfn': None, 'tag': 'AWS::BCMPricingCalculator::BillScenario'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-pricing-calculator::(?P<Account>\d{12}):bill-scenario/(?P<BillScenarioId>.+?)$"), 'names': ['bill-scenario'], 'sdk': 'bcm-pricing-calculator', 'cfn': 'AWS::BcmPricingCalculator::BillScenario', 'tag': 'AWS::BCMPricingCalculator::BillScenario'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bcm-pricing-calculator::(?P<Account>\d{12}):workload-estimate/(?P<WorkloadEstimateId>.+?)$"), 'names': ['workload-estimate'], 'sdk': 'bcm-pricing-calculator', 'cfn': None, 'tag': 'AWS::BCMPricingCalculator::WorkloadEstimate'},
     ],
     'bedrock': [
@@ -347,6 +368,8 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):custom-model/(?P<ResourceId>.+?)$"), 'names': ['custom-model'], 'sdk': 'bedrock', 'cfn': None, 'tag': 'AWS::Bedrock::CustomModel'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):custom-model-deployment/(?P<ResourceId>.+?)$"), 'names': ['custom-model-deployment'], 'sdk': 'bedrock', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):data-automation-invocation/(?P<JobId>.+?)$"), 'names': ['data-automation-invocation-job'], 'sdk': 'bedrock', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):data-automation-library/(?P<DataAutomationLibraryId>.+?)$"), 'names': ['data-automation-library'], 'sdk': 'bedrock', 'cfn': 'AWS::Bedrock::DataAutomationLibrary', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):data-automation-library-ingestion-job/(?P<IngestionJobId>.+?)$"), 'names': ['data-automation-library-ingestion-job'], 'sdk': 'bedrock', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):data-automation-profile/(?P<ProfileId>.+?)$"), 'names': ['data-automation-profile'], 'sdk': 'bedrock', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):data-automation-project/(?P<ProjectId>.+?)$"), 'names': ['data-automation-project'], 'sdk': 'bedrock', 'cfn': 'AWS::Bedrock::DataAutomationProject', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock:(?P<Region>[\w-]*):(?P<Account>\d{12}):default-prompt-router/(?P<ResourceId>.+?)$"), 'names': ['default-prompt-router'], 'sdk': 'bedrock-agent', 'cfn': 'AWS::Bedrock::IntelligentPromptRouter', 'tag': None},
@@ -372,24 +395,35 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):aws:code-interpreter/(?P<CodeInterpreterId>.+?)$"), 'names': ['code-interpreter'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):policy-engine/(?P<PolicyEngineId>.+?)/policy/(?P<PolicyId>.+?)$"), 'names': ['policy'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):policy-engine/(?P<PolicyEngineId>.+?)/policy-generation/(?P<PolicyGenerationId>.+?)$"), 'names': ['policy-generation'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):registry/(?P<RegistryId>.+?)/record/(?P<RecordId>.+?)$"), 'names': ['registry-record'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):runtime/(?P<RuntimeId>.+?)/runtime-endpoint/(?P<Name>.+?)$"), 'names': ['runtime-endpoint'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::RuntimeEndpoint', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):token-vault/(?P<TokenVaultId>.+?)/apikeycredentialprovider/(?P<Name>.+?)$"), 'names': ['api-key-credential-provider', 'apikeycredentialprovider'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):token-vault/(?P<TokenVaultId>.+?)/oauth2credentialprovider/(?P<Name>.+?)$"), 'names': ['oauth2-credential-provider', 'oauth2credentialprovider'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):token-vault/(?P<TokenVaultId>.+?)/paymentcredentialprovider/(?P<Name>.+?)$"), 'names': ['paymentcredentialprovider'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):workload-identity-directory/(?P<DirectoryId>.+?)/workload-identity/(?P<WorkloadIdentityName>.+?)$"), 'names': ['workload-identity'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::WorkloadIdentity', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):ab-test/(?P<ABTestId>.+?)$"), 'names': ['ab-test'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):batch-evaluate/(?P<BatchEvaluationId>.+?)$"), 'names': ['batch-evaluate'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):browser-custom/(?P<BrowserId>.+?)$"), 'names': ['browser-custom'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::BrowserCustom', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):browser-profile/(?P<BrowserProfileId>.+?)$"), 'names': ['browser-profile'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):code-interpreter-custom/(?P<CodeInterpreterId>.+?)$"), 'names': ['code-interpreter-custom'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::CodeInterpreterCustom', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):configuration-bundle/(?P<ConfigurationBundleId>.+?)$"), 'names': ['configuration-bundle'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):evaluator/(?P<EvaluatorId>.+?)$"), 'names': ['evaluator'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):gateway/(?P<GatewayId>.+?)$"), 'names': ['gateway'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::Gateway', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):harness/(?P<HarnessId>.+?)$"), 'names': ['harness'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):memory/(?P<MemoryId>.+?)$"), 'names': ['memory'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::Memory', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):online-evaluation-config/(?P<OnlineEvaluationConfigId>.+?)$"), 'names': ['online-evaluation-config'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):payment-manager/(?P<PaymentManagerId>.+?)$"), 'names': ['payment-manager'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):policy-engine/(?P<PolicyEngineId>.+?)$"), 'names': ['policy-engine'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):recommendation/(?P<RecommendationId>.+?)$"), 'names': ['recommendation'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):registry/(?P<RegistryId>.+?)$"), 'names': ['registry'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):runtime/(?P<RuntimeId>.+?)$"), 'names': ['runtime'], 'sdk': 'bedrock-agentcore-control', 'cfn': 'AWS::BedrockAgentCore::Runtime', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):token-vault/(?P<TokenVaultId>.+?)$"), 'names': ['token-vault'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-agentcore:(?P<Region>[\w-]*):(?P<Account>\d{12}):workload-identity-directory/(?P<DirectoryId>.+?)$"), 'names': ['workload-identity-directory'], 'sdk': 'bedrock-agentcore-control', 'cfn': None, 'tag': None},
     ],
     'bedrock-mantle': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-mantle:(?P<Region>[\w-]*):(?P<Account>\d{12}):project/(?P<ResourceId>.+?)$"), 'names': ['project'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-mantle:(?P<Region>[\w-]*):(?P<Account>\d{12}):customized-model/(?P<ResourceId>.+?)$"), 'names': ['customized-model'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-mantle:(?P<Region>[\w-]*):(?P<Account>\d{12}):project/(?P<ResourceId>.+?)$"), 'names': ['project'], 'sdk': None, 'cfn': 'AWS::BedrockMantle::Project', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):bedrock-mantle:(?P<Region>[\w-]*):(?P<Account>\d{12}):reservation/(?P<ResourceId>.+?)$"), 'names': ['reservation'], 'sdk': None, 'cfn': None, 'tag': None},
     ],
     'billing': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):billing::(?P<Account>\d{12}):billingview/(?P<ResourceId>.+?)$"), 'names': ['billing-view', 'billingview'], 'sdk': 'billing', 'cfn': 'AWS::Billing::BillingView', 'tag': 'AWS::Billing::BillingView'},
@@ -403,7 +437,8 @@ ARN_PATTERNS = {
     'braket': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):braket:(?P<Region>[\w-]*):(?P<Account>\d{12}):job/(?P<JobName>.+?)$"), 'names': ['job'], 'sdk': 'braket', 'cfn': None, 'tag': 'AWS::Braket::Job'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):braket:(?P<Region>[\w-]*):(?P<Account>\d{12}):quantum-task/(?P<RandomId>.+?)$"), 'names': ['quantum-task'], 'sdk': 'braket', 'cfn': None, 'tag': 'AWS::Braket::QuantumTask'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):braket:(?P<Region>[\w-]*):(?P<Account>\d{12}):spending-limit/(?P<RandomId>.+?)$"), 'names': ['spending-limit'], 'sdk': 'braket', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):braket:(?P<Region>[\w-]*):(?P<Account>\d{12}):spending-limit/(?P<RandomId>.+?)$"), 'names': ['spending-limit'], 'sdk': 'braket', 'cfn': 'AWS::Braket::SpendingLimit', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):braket:.*:(?P<Account>\d{12}):device/(?P<DeviceType>.+?)/(?P<Provider>.+?)/(?P<DeviceId>.+?)$"), 'names': ['device'], 'sdk': 'braket', 'cfn': None, 'tag': None},
     ],
     'budgets': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):budgets::(?P<Account>\d{12}):budget/(?P<BudgetName>.+?)/action/(?P<ActionId>.+?)$"), 'names': ['budget-action', 'budgetAction'], 'sdk': 'budgets', 'cfn': 'AWS::Budgets::BudgetsAction', 'tag': 'AWS::Budgets::BudgetsAction'},
@@ -440,11 +475,11 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chatbot::(?P<Account>\d{12}):custom-action/(?P<ActionName>.+?)$"), 'names': ['custom-action'], 'sdk': 'chatbot', 'cfn': 'AWS::Chatbot::CustomAction', 'tag': 'AWS::Chatbot::CustomAction'},
     ],
     'chime': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)/bot/(?P<AppInstanceBotId>.+?)$"), 'names': ['app-instance-bot'], 'sdk': 'chime-sdk-identity', 'cfn': None, 'tag': 'AWS::Chime::AppInstanceBot'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)/bot/(?P<AppInstanceBotId>.+?)$"), 'names': ['app-instance-bot'], 'sdk': 'chime-sdk-identity', 'cfn': 'AWS::Chime::AppInstanceBot', 'tag': 'AWS::Chime::AppInstanceBot'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)/channel/(?P<ChannelId>.+?)$"), 'names': ['channel'], 'sdk': 'chime-sdk-messaging', 'cfn': None, 'tag': 'AWS::Chime::Channel'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)/channel-flow/(?P<ChannelFlowId>.+?)$"), 'names': ['channel-flow'], 'sdk': 'chime-sdk-messaging', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)/user/(?P<AppInstanceUserId>.+?)$"), 'names': ['app-instance-user'], 'sdk': 'chime-sdk-identity', 'cfn': None, 'tag': 'AWS::Chime::AppInstanceUser'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)$"), 'names': ['app-instance'], 'sdk': 'chime-sdk-identity', 'cfn': None, 'tag': 'AWS::Chime::AppInstance'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):app-instance/(?P<AppInstanceId>.+?)$"), 'names': ['app-instance'], 'sdk': 'chime-sdk-identity', 'cfn': 'AWS::Chime::AppInstance', 'tag': 'AWS::Chime::AppInstance'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):media-insights-pipeline-configuration/(?P<ConfigurationName>.+?)$"), 'names': ['media-insights-pipeline-configuration'], 'sdk': 'chime-sdk-media-pipelines', 'cfn': None, 'tag': 'AWS::Chime::MediaInsightsPipelineConfiguration'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):media-pipeline/(?P<MediaPipelineId>.+?)$"), 'names': ['media-pipeline'], 'sdk': 'chime-sdk-media-pipelines', 'cfn': None, 'tag': 'AWS::Chime::MediaPipeline'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):chime:(?P<Region>[\w-]*):(?P<AccountId>.+?):media-pipeline-kinesis-video-stream-pool/(?P<PoolName>.+?)$"), 'names': ['media-pipeline-kinesis-video-stream-pool'], 'sdk': 'chime-sdk-media-pipelines', 'cfn': None, 'tag': 'AWS::Chime::MediaPipelineKinesisVideoStreamPool'},
@@ -638,7 +673,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):comprehend:(?P<Region>[\w-]*):(?P<Account>\d{12}):topics-detection-job/(?P<JobId>.+?)$"), 'names': ['topics-detection-job'], 'sdk': 'comprehend', 'cfn': None, 'tag': 'AWS::Comprehend::TopicsDetectionJob'},
     ],
     'compute-optimizer': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):compute-optimizer::(?P<Account>\d{12}):automation-rule/(?P<RuleId>.+?)$"), 'names': ['automation-rule', 'AutomationRule'], 'sdk': 'compute-optimizer', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):compute-optimizer::(?P<Account>\d{12}):automation-rule/(?P<RuleId>.+?)$"), 'names': ['automation-rule', 'AutomationRule'], 'sdk': 'compute-optimizer', 'cfn': 'AWS::ComputeOptimizer::AutomationRule', 'tag': None},
     ],
     'config': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):config:(?P<Region>[\w-]*):(?P<Account>\d{12}):aggregation-authorization/(?P<AggregatorAccount>.+?)/(?P<AggregatorRegion>.+?)$"), 'names': ['aggregation-authorization', 'AggregationAuthorization'], 'sdk': 'config', 'cfn': 'AWS::Config::AggregationAuthorization', 'tag': 'AWS::Config::AggregationAuthorization'},
@@ -777,9 +812,9 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):devicefarm:(?P<Region>[\w-]*):(?P<Account>\d{12}):vpceconfiguration:(?P<ResourceId>.+?)$"), 'names': ['vpce-configuration', 'vpceconfiguration'], 'sdk': 'devicefarm', 'cfn': None, 'tag': None},
     ],
     'directconnect': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect::(?P<Account>\d{12}):dx-gateway/(?P<DirectConnectGatewayId>.+?)$"), 'names': ['dx-gateway'], 'sdk': 'directconnect', 'cfn': None, 'tag': 'AWS::DirectConnect::Gateway'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):dxcon/(?P<ConnectionId>.+?)$"), 'names': ['dxcon'], 'sdk': 'directconnect', 'cfn': None, 'tag': 'AWS::DirectConnect::Connection'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):dxlag/(?P<LagId>.+?)$"), 'names': ['dxlag'], 'sdk': 'directconnect', 'cfn': None, 'tag': 'AWS::DirectConnect::Lag'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect::(?P<Account>\d{12}):dx-gateway/(?P<DirectConnectGatewayId>.+?)$"), 'names': ['dx-gateway'], 'sdk': 'directconnect', 'cfn': 'AWS::DirectConnect::DirectConnectGateway', 'tag': 'AWS::DirectConnect::Gateway'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):dxcon/(?P<ConnectionId>.+?)$"), 'names': ['dxcon'], 'sdk': 'directconnect', 'cfn': 'AWS::DirectConnect::Connection', 'tag': 'AWS::DirectConnect::Connection'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):dxlag/(?P<LagId>.+?)$"), 'names': ['dxlag'], 'sdk': 'directconnect', 'cfn': 'AWS::DirectConnect::Lag', 'tag': 'AWS::DirectConnect::Lag'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):directconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):dxvif/(?P<VirtualInterfaceId>.+?)$"), 'names': ['dxvif'], 'sdk': 'directconnect', 'cfn': None, 'tag': 'AWS::DirectConnect::VirtualInterface'},
     ],
     'dlm': [
@@ -816,6 +851,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ds:(?P<Region>[\w-]*):(?P<Account>\d{12}):directory/(?P<DirectoryId>.+?)$"), 'names': ['directory'], 'sdk': 'ds', 'cfn': None, 'tag': 'AWS::DirectoryService::Directory'},
     ],
     'dsql': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):dsql:(?P<Region>[\w-]*):(?P<Account>\d{12}):cluster/(?P<ClusterId>.+?)/stream/(?P<StreamId>.+?)$"), 'names': ['stream', 'Stream'], 'sdk': 'dsql', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):dsql:(?P<Region>[\w-]*):(?P<Account>\d{12}):cluster/(?P<Identifier>.+?)$"), 'names': ['cluster', 'Cluster'], 'sdk': 'dsql', 'cfn': 'AWS::DSQL::Cluster', 'tag': None},
     ],
     'dynamodb': [
@@ -942,10 +978,14 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecr-public::(?P<Account>\d{12}):repository/(?P<RepositoryName>.+?)$"), 'names': ['repository'], 'sdk': 'ecr-public', 'cfn': None, 'tag': None},
     ],
     'ecs': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):daemon-deployment/(?P<ClusterName>.+?)/(?P<DaemonName>.+?)/(?P<DaemonDeploymentId>.+?)$"), 'names': ['daemon-deployment'], 'sdk': 'ecs', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):daemon-revision/(?P<ClusterName>.+?)/(?P<DaemonName>.+?)/(?P<DaemonRevisionId>.+?)$"), 'names': ['daemon-revision'], 'sdk': 'ecs', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):service-deployment/(?P<ClusterName>.+?)/(?P<ServiceName>.+?)/(?P<ServiceDeploymentId>.+?)$"), 'names': ['service-deployment'], 'sdk': 'ecs', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):service-revision/(?P<ClusterName>.+?)/(?P<ServiceName>.+?)/(?P<ServiceRevisionId>.+?)$"), 'names': ['service-revision'], 'sdk': 'ecs', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):task-set/(?P<ClusterName>.+?)/(?P<ServiceName>.+?)/(?P<TaskSetId>.+?)$"), 'names': ['task-set'], 'sdk': 'ecs', 'cfn': 'AWS::ECS::TaskSet', 'tag': 'AWS::ECS::TaskSet'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):container-instance/(?P<ClusterName>.+?)/(?P<ContainerInstanceId>.+?)$"), 'names': ['container-instance'], 'sdk': 'ecs', 'cfn': None, 'tag': 'AWS::ECS::ContainerInstance'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):daemon/(?P<ClusterName>.+?)/(?P<DaemonName>.+?)$"), 'names': ['daemon'], 'sdk': 'ecs', 'cfn': 'AWS::ECS::Daemon', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):daemon-task-definition/(?P<DaemonTaskDefinitionFamilyName>.+?):(?P<DaemonTaskDefinitionRevisionNumber>.+?)$"), 'names': ['daemon-task-definition'], 'sdk': 'ecs', 'cfn': 'AWS::ECS::DaemonTaskDefinition', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):service/(?P<ClusterName>.+?)/(?P<ServiceName>.+?)$"), 'names': ['service'], 'sdk': 'ecs', 'cfn': 'AWS::ECS::Service', 'tag': 'AWS::ECS::Service'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):task/(?P<ClusterName>.+?)/(?P<TaskId>.+?)$"), 'names': ['task'], 'sdk': 'ecs', 'cfn': None, 'tag': 'AWS::ECS::Task'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ecs:(?P<Region>[\w-]*):(?P<Account>\d{12}):task-definition/(?P<TaskDefinitionFamilyName>.+?):(?P<TaskDefinitionRevisionNumber>.+?)$"), 'names': ['task-definition'], 'sdk': 'ecs', 'cfn': 'AWS::ECS::TaskDefinition', 'tag': 'AWS::ECS::TaskDefinition'},
@@ -1032,7 +1072,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):elemental-appliances-software:(?P<Region>[\w-]*):(?P<Account>\d{12}):quote/(?P<ResourceId>.+?)$"), 'names': ['quote'], 'sdk': None, 'cfn': None, 'tag': None},
     ],
     'elemental-inference': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):elemental-inference:(?P<Region>[\w-]*):(?P<Account>\d{12}):feed/(?P<Id>.+?)$"), 'names': ['feed'], 'sdk': 'elementalinference', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):elemental-inference:(?P<Region>[\w-]*):(?P<Account>\d{12}):feed/(?P<Id>.+?)$"), 'names': ['feed'], 'sdk': 'elementalinference', 'cfn': 'AWS::ElementalInference::Feed', 'tag': None},
     ],
     'elemental-support-cases': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):elemental-support-cases::(?P<Account>\d{12}):case/(?P<ResourceId>.+?)$"), 'names': ['case'], 'sdk': None, 'cfn': None, 'tag': None},
@@ -1046,6 +1086,7 @@ ARN_PATTERNS = {
     ],
     'emr-serverless': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):emr-serverless:(?P<Region>[\w-]*):(?P<Account>\d{12}):/applications/(?P<ApplicationId>.+?)/jobruns/(?P<JobRunId>.+?)$"), 'names': ['job-run', 'jobRun'], 'sdk': 'emr-serverless', 'cfn': None, 'tag': 'AWS::EMRServerless::JobRun'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):emr-serverless:(?P<Region>[\w-]*):(?P<Account>\d{12}):/applications/(?P<ApplicationId>.+?)/sessions/(?P<SessionId>.+?)$"), 'names': ['session'], 'sdk': 'emr-serverless', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):emr-serverless:(?P<Region>[\w-]*):(?P<Account>\d{12}):/applications/(?P<ApplicationId>.+?)$"), 'names': ['application'], 'sdk': 'emr-serverless', 'cfn': 'AWS::EMRServerless::Application', 'tag': 'AWS::EMRServerless::Application'},
     ],
     'entityresolution': [
@@ -1183,6 +1224,7 @@ ARN_PATTERNS = {
     'geo': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):geo:(?P<Region>[\w-]*):(?P<Account>\d{12}):api-key/(?P<KeyName>.+?)$"), 'names': ['api-key'], 'sdk': 'location', 'cfn': 'AWS::Location::APIKey', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):geo:(?P<Region>[\w-]*):(?P<Account>\d{12}):geofence-collection/(?P<GeofenceCollectionName>.+?)$"), 'names': ['geofence-collection'], 'sdk': 'location', 'cfn': 'AWS::Location::GeofenceCollection', 'tag': 'AWS::Location::GeofenceCollection'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):geo:(?P<Region>[\w-]*):(?P<Account>\d{12}):job/(?P<JobId>.+?)$"), 'names': ['job'], 'sdk': 'location', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):geo:(?P<Region>[\w-]*):(?P<Account>\d{12}):map/(?P<MapName>.+?)$"), 'names': ['map'], 'sdk': 'location', 'cfn': 'AWS::Location::Map', 'tag': 'AWS::Location::Map'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):geo:(?P<Region>[\w-]*):(?P<Account>\d{12}):place-index/(?P<IndexName>.+?)$"), 'names': ['place-index'], 'sdk': 'location', 'cfn': 'AWS::Location::PlaceIndex', 'tag': 'AWS::Location::PlaceIndex'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):geo:(?P<Region>[\w-]*):(?P<Account>\d{12}):route-calculator/(?P<CalculatorName>.+?)$"), 'names': ['route-calculator'], 'sdk': 'location', 'cfn': 'AWS::Location::RouteCalculator', 'tag': 'AWS::Location::RouteCalculator'},
@@ -1360,7 +1402,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):inspector2:(?P<Region>[\w-]*):(?P<Account>\d{12}):finding/(?P<FindingId>.+?)$"), 'names': ['finding', 'Finding'], 'sdk': 'inspector2', 'cfn': None, 'tag': None},
     ],
     'interconnect': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):interconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):connection/(?P<Id>.+?)$"), 'names': ['connection'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):interconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):connection/(?P<Id>.+?)$"), 'names': ['connection'], 'sdk': None, 'cfn': 'AWS::Interconnect::Connection', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):interconnect:(?P<Region>[\w-]*):(?P<Account>\d{12}):environment/(?P<Id>.+?)$"), 'names': ['environment'], 'sdk': None, 'cfn': None, 'tag': None},
     ],
     'internetmonitor': [
@@ -1491,6 +1533,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):iq-permission:(?P<Region>[\w-]*)::permission/(?P<PermissionRequestId>.+?)$"), 'names': ['permission'], 'sdk': None, 'cfn': None, 'tag': None},
     ],
     'ivs': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ivs:(?P<Region>[\w-]*):(?P<Account>\d{12}):ad-configuration/(?P<ResourceId>.+?)$"), 'names': ['ad-configuration', 'Ad-Configuration'], 'sdk': 'ivs', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ivs:(?P<Region>[\w-]*):(?P<Account>\d{12}):channel/(?P<ResourceId>.+?)$"), 'names': ['channel', 'Channel'], 'sdk': 'ivs', 'cfn': 'AWS::IVS::Channel', 'tag': 'AWS::IVS::Channel'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ivs:(?P<Region>[\w-]*):(?P<Account>\d{12}):composition/(?P<ResourceId>.+?)$"), 'names': ['composition', 'Composition'], 'sdk': 'ivs-realtime', 'cfn': None, 'tag': 'AWS::IVS::Composition'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):ivs:(?P<Region>[\w-]*):(?P<Account>\d{12}):encoder-configuration/(?P<ResourceId>.+?)$"), 'names': ['encoder-configuration', 'Encoder-Configuration'], 'sdk': 'ivs-realtime', 'cfn': 'AWS::IVS::EncoderConfiguration', 'tag': 'AWS::IVS::EncoderConfiguration'},
@@ -1622,6 +1665,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):logs:(?P<Region>[\w-]*):(?P<Account>\d{12}):delivery-source:(?P<DeliverySourceName>.+?)$"), 'names': ['delivery-source'], 'sdk': 'logs', 'cfn': 'AWS::Logs::DeliverySource', 'tag': 'AWS::Logs::DeliverySource'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):logs:(?P<Region>[\w-]*):(?P<Account>\d{12}):destination:(?P<DestinationName>.+?)$"), 'names': ['destination'], 'sdk': 'logs', 'cfn': 'AWS::Logs::Destination', 'tag': 'AWS::Logs::Destination'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):logs:(?P<Region>[\w-]*):(?P<Account>\d{12}):log-group:(?P<LogGroupName>.+?)$"), 'names': ['log-group'], 'sdk': 'logs', 'cfn': 'AWS::Logs::LogGroup', 'tag': 'AWS::Logs::LogGroup'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):logs:(?P<Region>[\w-]*):(?P<Account>\d{12}):lookup-table:(?P<LookupTableName>.+?)$"), 'names': ['lookup-table'], 'sdk': 'logs', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):logs:(?P<Region>[\w-]*):(?P<Account>\d{12}):scheduled-query:(?P<ScheduledQueryId>.+?)$"), 'names': ['scheduled-query'], 'sdk': 'logs', 'cfn': None, 'tag': None},
     ],
     'lookoutequipment': [
@@ -1880,7 +1924,7 @@ ARN_PATTERNS = {
     ],
     'nova-act': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):nova-act:(?P<Region>[\w-]*):(?P<Account>\d{12}):workflow-definition/(?P<WorkflowDefinitionName>.+?)/workflow-run/(?P<WorkflowRunId>.+?)$"), 'names': ['workflow-run'], 'sdk': 'nova-act', 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):nova-act:(?P<Region>[\w-]*):(?P<Account>\d{12}):workflow-definition/(?P<WorkflowDefinitionName>.+?)$"), 'names': ['workflow-definition'], 'sdk': 'nova-act', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):nova-act:(?P<Region>[\w-]*):(?P<Account>\d{12}):workflow-definition/(?P<WorkflowDefinitionName>.+?)$"), 'names': ['workflow-definition'], 'sdk': 'nova-act', 'cfn': 'AWS::NovaAct::WorkflowDefinition', 'tag': None},
     ],
     'oam': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):oam:(?P<Region>[\w-]*):(?P<Account>\d{12}):link/(?P<ResourceId>.+?)$"), 'names': ['link', 'Link'], 'sdk': 'oam', 'cfn': 'AWS::Oam::Link', 'tag': 'AWS::Oam::Link'},
@@ -1907,8 +1951,10 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):sequenceStore/(?P<SequenceStoreId>.+?)/readSet/(?P<ReadSetId>.+?)$"), 'names': ['read-set', 'readSet'], 'sdk': 'omics', 'cfn': None, 'tag': 'AWS::Omics::ReadSet'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):workflow/(?P<Id>.+?)/version/(?P<VersionName>.+?)$"), 'names': ['workflow-version', 'WorkflowVersion'], 'sdk': 'omics', 'cfn': 'AWS::Omics::WorkflowVersion', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):annotationStore/(?P<AnnotationStoreName>.+?)$"), 'names': ['annotation-store', 'AnnotationStore'], 'sdk': 'omics', 'cfn': 'AWS::Omics::AnnotationStore', 'tag': 'AWS::Omics::AnnotationStore'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):configuration/(?P<Name>.+?)$"), 'names': ['configuration'], 'sdk': 'omics', 'cfn': 'AWS::Omics::Configuration', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):referenceStore/(?P<ReferenceStoreId>.+?)$"), 'names': ['reference-store', 'referenceStore'], 'sdk': 'omics', 'cfn': 'AWS::Omics::ReferenceStore', 'tag': 'AWS::Omics::ReferenceStore'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):run/(?P<Id>.+?)$"), 'names': ['run'], 'sdk': 'omics', 'cfn': None, 'tag': 'AWS::Omics::Run'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):runBatch/(?P<BatchId>.+?)$"), 'names': ['run-batch', 'runBatch'], 'sdk': 'omics', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):runCache/(?P<Id>.+?)$"), 'names': ['run-cache', 'runCache'], 'sdk': 'omics', 'cfn': None, 'tag': 'AWS::Omics::RunCache'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):runGroup/(?P<Id>.+?)$"), 'names': ['run-group', 'runGroup'], 'sdk': 'omics', 'cfn': 'AWS::Omics::RunGroup', 'tag': 'AWS::Omics::RunGroup'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):omics:(?P<Region>[\w-]*):(?P<Account>\d{12}):sequenceStore/(?P<SequenceStoreId>.+?)$"), 'names': ['sequence-store', 'sequenceStore'], 'sdk': 'omics', 'cfn': 'AWS::Omics::SequenceStore', 'tag': 'AWS::Omics::SequenceStore'},
@@ -2050,7 +2096,9 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/integrations/(?P<Uri>.+?)$"), 'names': ['integrations'], 'sdk': 'customer-profiles', 'cfn': 'AWS::CustomerProfiles::Integration', 'tag': 'AWS::CustomerProfiles::Integration'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/layouts/(?P<LayoutDefinitionName>.+?)$"), 'names': ['layouts'], 'sdk': 'customer-profiles', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/object-types/(?P<ObjectTypeName>.+?)$"), 'names': ['object-types'], 'sdk': 'customer-profiles', 'cfn': 'AWS::CustomerProfiles::ObjectType', 'tag': 'AWS::CustomerProfiles::ObjectType'},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/recommenders/(?P<RecommenderTypeName>.+?)$"), 'names': ['recommenders'], 'sdk': 'customer-profiles', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/recommender-filters/(?P<RecommenderFilterName>.+?)$"), 'names': ['recommender-filters'], 'sdk': 'customer-profiles', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/recommender-schemas/(?P<RecommenderSchemaName>.+?)$"), 'names': ['recommender-schemas'], 'sdk': 'customer-profiles', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/recommenders/(?P<RecommenderTypeName>.+?)$"), 'names': ['recommenders'], 'sdk': 'customer-profiles', 'cfn': 'AWS::CustomerProfiles::Recommender', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)/segment-definitions/(?P<SegmentDefinitionName>.+?)$"), 'names': ['segment-definitions'], 'sdk': 'customer-profiles', 'cfn': 'AWS::CustomerProfiles::SegmentDefinition', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):profile:(?P<Region>[\w-]*):(?P<Account>\d{12}):domains/(?P<DomainName>.+?)$"), 'names': ['domains'], 'sdk': 'customer-profiles', 'cfn': 'AWS::CustomerProfiles::Domain', 'tag': 'AWS::CustomerProfiles::Domain'},
     ],
@@ -2102,6 +2150,8 @@ ARN_PATTERNS = {
     ],
     'quicksight': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight::(?P<Account>\d{12}):assignment/(?P<ResourceId>.+?)$"), 'names': ['assignment'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):automation-group/(?P<AutomationGroupId>.+?)/automation/(?P<AutomationId>.+?)/job/(?P<ResourceId>.+?)$"), 'names': ['automation-job', 'automationJob'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):automation-group/(?P<AutomationGroupId>.+?)/automation/(?P<ResourceId>.+?)$"), 'names': ['automation'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):dashboard/(?P<DashboardId>.+?)/snapshot-job/(?P<ResourceId>.+?)$"), 'names': ['dashboard-snapshot-job', 'dashboardSnapshotJob'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):dataset/(?P<DatasetId>.+?)/ingestion/(?P<ResourceId>.+?)$"), 'names': ['ingestion'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):dataset/(?P<DatasetId>.+?)/refresh-schedule/(?P<ResourceId>.+?)$"), 'names': ['refresh-schedule', 'refreshschedule'], 'sdk': 'quicksight', 'cfn': 'AWS::QuickSight::RefreshSchedule', 'tag': None},
@@ -2111,6 +2161,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):analysis/(?P<ResourceId>.+?)$"), 'names': ['analysis'], 'sdk': 'quicksight', 'cfn': 'AWS::QuickSight::Analysis', 'tag': 'AWS::QuickSight::Analysis'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):asset-bundle-export-job/(?P<ResourceId>.+?)$"), 'names': ['asset-bundle-export-job', 'assetBundleExportJob'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):asset-bundle-import-job/(?P<ResourceId>.+?)$"), 'names': ['asset-bundle-import-job', 'assetBundleImportJob'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):automation-group/(?P<ResourceId>.+?)$"), 'names': ['automation-group', 'automationGroup'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):brand/(?P<ResourceId>.+?)$"), 'names': ['brand'], 'sdk': 'quicksight', 'cfn': None, 'tag': 'AWS::QuickSight::Brand'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):customization/(?P<ResourceId>.+?)$"), 'names': ['customization'], 'sdk': 'quicksight', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):quicksight:(?P<Region>[\w-]*):(?P<Account>\d{12}):custompermissions/(?P<ResourceId>.+?)$"), 'names': ['custom-permissions', 'custompermissions'], 'sdk': 'quicksight', 'cfn': 'AWS::QuickSight::CustomPermissions', 'tag': 'AWS::QuickSight::CustomPermissions'},
@@ -2272,11 +2323,11 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53-recovery-readiness::(?P<Account>\d{12}):resource-set/(?P<ResourceId>.+?)$"), 'names': ['resource-set', 'resourceset'], 'sdk': 'route53-recovery-readiness', 'cfn': 'AWS::Route53RecoveryReadiness::ResourceSet', 'tag': None},
     ],
     'route53globalresolver': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):access-source/(?P<Id>.+?)$"), 'names': ['access-source'], 'sdk': 'route53globalresolver', 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):access-token/(?P<Id>.+?)$"), 'names': ['access-token'], 'sdk': 'route53globalresolver', 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):dns-view/(?P<Id>.+?)$"), 'names': ['dns-view'], 'sdk': 'route53globalresolver', 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):firewall-domain-list/(?P<Id>.+?)$"), 'names': ['firewall-domain-list'], 'sdk': 'route53globalresolver', 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):global-resolver/(?P<Id>.+?)$"), 'names': ['global-resolver'], 'sdk': 'route53globalresolver', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):access-source/(?P<Id>.+?)$"), 'names': ['access-source'], 'sdk': 'route53globalresolver', 'cfn': 'AWS::Route53GlobalResolver::AccessSource', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):access-token/(?P<Id>.+?)$"), 'names': ['access-token'], 'sdk': 'route53globalresolver', 'cfn': 'AWS::Route53GlobalResolver::AccessToken', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):dns-view/(?P<Id>.+?)$"), 'names': ['dns-view'], 'sdk': 'route53globalresolver', 'cfn': 'AWS::Route53GlobalResolver::DnsView', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):firewall-domain-list/(?P<Id>.+?)$"), 'names': ['firewall-domain-list'], 'sdk': 'route53globalresolver', 'cfn': 'AWS::Route53GlobalResolver::FirewallDomainList', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53globalresolver::(?P<Account>\d{12}):global-resolver/(?P<Id>.+?)$"), 'names': ['global-resolver'], 'sdk': 'route53globalresolver', 'cfn': 'AWS::Route53GlobalResolver::GlobalResolver', 'tag': None},
     ],
     'route53profiles': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53profiles:(?P<Region>[\w-]*):(?P<Account>\d{12}):profile/(?P<ResourceId>.+?)$"), 'names': ['profile'], 'sdk': 'route53profiles', 'cfn': 'AWS::Route53Profiles::Profile', 'tag': 'AWS::Route53Profiles::Profile'},
@@ -2294,6 +2345,9 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53resolver:(?P<Region>[\w-]*):(?P<Account>\d{12}):resolver-endpoint/(?P<ResourceId>.+?)$"), 'names': ['resolver-endpoint'], 'sdk': 'route53resolver', 'cfn': 'AWS::Route53Resolver::ResolverEndpoint', 'tag': 'AWS::Route53Resolver::ResolverEndpoint'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53resolver:(?P<Region>[\w-]*):(?P<Account>\d{12}):resolver-query-log-config/(?P<ResourceId>.+?)$"), 'names': ['resolver-query-log-config'], 'sdk': 'route53resolver', 'cfn': 'AWS::Route53Resolver::ResolverQueryLoggingConfig', 'tag': 'AWS::Route53Resolver::ResolverQueryLoggingConfig'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):route53resolver:(?P<Region>[\w-]*):(?P<Account>\d{12}):resolver-rule/(?P<ResourceId>.+?)$"), 'names': ['resolver-rule'], 'sdk': 'route53resolver', 'cfn': 'AWS::Route53Resolver::ResolverRule', 'tag': 'AWS::Route53Resolver::ResolverRule'},
+    ],
+    'rtbfabric': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):rtbfabric:(?P<Region>[\w-]*):(?P<Account>\d{12}):gateway/(?P<GatewayId>.+?)/link/(?P<LinkId>.+?)/routing-rule/(?P<RuleId>.+?)$"), 'names': ['link-routing-rule', 'LinkRoutingRule'], 'sdk': 'rtbfabric', 'cfn': None, 'tag': None},
     ],
     'rum': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):rum:(?P<Region>[\w-]*):(?P<Account>\d{12}):appmonitor/(?P<Name>.+?)$"), 'names': ['app-monitor-resource', 'AppMonitorResource'], 'sdk': 'rum', 'cfn': 'AWS::RUM::AppMonitor', 'tag': 'AWS::RUM::AppMonitor'},
@@ -2323,7 +2377,11 @@ ARN_PATTERNS = {
     ],
     's3express': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):s3express:(?P<Region>[\w-]*):(?P<Account>\d{12}):accesspoint/(?P<AccessPointName>.+?)$"), 'names': ['access-point', 'accesspoint'], 'sdk': 's3', 'cfn': 'AWS::S3Express::AccessPoint', 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):s3express:(?P<Region>[\w-]*):(?P<Account>\d{12}):bucket/(?P<BucketName>.+?)$"), 'names': ['bucket'], 'sdk': 's3', 'cfn': 'AWS::S3::Bucket', 'tag': 'AWS::S3::Bucket'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):s3express:(?P<Region>[\w-]*):(?P<Account>\d{12}):bucket/(?P<BucketName>.+?)$"), 'names': ['bucket'], 'sdk': 's3', 'cfn': 'AWS::S3Express::DirectoryBucket', 'tag': None},
+    ],
+    's3files': [
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):s3files:(?P<Region>[\w-]*):(?P<Account>\d{12}):file-system/(?P<FileSystemId>.+?)/access-point/(?P<AccessPointId>.+?)$"), 'names': ['access-point'], 'sdk': None, 'cfn': 'AWS::S3Files::AccessPoint', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):s3files:(?P<Region>[\w-]*):(?P<Account>\d{12}):file-system/(?P<FileSystemId>.+?)$"), 'names': ['file-system'], 'sdk': None, 'cfn': 'AWS::S3Files::FileSystem', 'tag': None},
     ],
     's3tables': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):s3tables:(?P<Region>[\w-]*):(?P<Account>\d{12}):bucket/(?P<TableBucketName>.+?)/table/(?P<TableID>.+?)$"), 'names': ['table', 'Table'], 'sdk': 's3tables', 'cfn': 'AWS::S3Tables::Table', 'tag': None},
@@ -2344,6 +2402,9 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):space/(?P<DomainId>.+?)/(?P<SpaceName>.+?)$"), 'names': ['space'], 'sdk': 'sagemaker', 'cfn': 'AWS::SageMaker::Space', 'tag': 'AWS::SageMaker::Space'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):user-profile/(?P<DomainId>.+?)/(?P<UserProfileName>.+?)$"), 'names': ['user-profile'], 'sdk': 'sagemaker', 'cfn': 'AWS::SageMaker::UserProfile', 'tag': 'AWS::SageMaker::UserProfile'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):action/(?P<ActionName>.+?)$"), 'names': ['action'], 'sdk': 'sagemaker', 'cfn': None, 'tag': 'AWS::SageMaker::Action'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):ai-benchmark-job/(?P<AIBenchmarkJobName>.+?)$"), 'names': ['ai-benchmark-job'], 'sdk': 'sagemaker', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):ai-recommendation-job/(?P<AIRecommendationJobName>.+?)$"), 'names': ['ai-recommendation-job'], 'sdk': 'sagemaker', 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):ai-workload-config/(?P<AIWorkloadConfigName>.+?)$"), 'names': ['ai-workload-config'], 'sdk': 'sagemaker', 'cfn': None, 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):algorithm/(?P<AlgorithmName>.+?)$"), 'names': ['algorithm'], 'sdk': 'sagemaker', 'cfn': None, 'tag': 'AWS::SageMaker::Algorithm'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):app-image-config/(?P<AppImageConfigName>.+?)$"), 'names': ['app-image-config'], 'sdk': 'sagemaker', 'cfn': 'AWS::SageMaker::AppImageConfig', 'tag': 'AWS::SageMaker::AppImageConfig'},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sagemaker:(?P<Region>[\w-]*):(?P<Account>\d{12}):artifact/(?P<HashOfArtifactSource>.+?)$"), 'names': ['artifact'], 'sdk': 'sagemaker', 'cfn': None, 'tag': 'AWS::SageMaker::Artifact'},
@@ -2440,18 +2501,11 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):security-ir:(?P<Region>[\w-]*):(?P<Account>\d{12}):membership/(?P<MembershipId>.+?)$"), 'names': ['membership'], 'sdk': 'security-ir', 'cfn': None, 'tag': None},
     ],
     'securityagent': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)/artifact/(?P<ArtifactId>.+?)$"), 'names': ['artifact', 'Artifact'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)/finding/(?P<FindingId>.+?)$"), 'names': ['finding', 'Finding'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)/pentest/(?P<PentestId>.+?)$"), 'names': ['pentest', 'Pentest'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)/pentest-job/(?P<JobId>.+?)$"), 'names': ['pentest-job', 'PentestJob'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)/pentest-task/(?P<TaskId>.+?)$"), 'names': ['pentest-task', 'PentestTask'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-instance/(?P<AgentId>.+?)$"), 'names': ['agent-instance', 'AgentInstance'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)$"), 'names': ['agent-space', 'AgentSpace'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):application/(?P<ApplicationId>.+?)$"), 'names': ['application', 'Application'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):control/(?P<ControlId>.+?)$"), 'names': ['control', 'Control'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):agent-space/(?P<AgentId>.+?)$"), 'names': ['agent-space', 'AgentSpace'], 'sdk': None, 'cfn': 'AWS::SecurityAgent::AgentSpace', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):application/(?P<ApplicationId>.+?)$"), 'names': ['application', 'Application'], 'sdk': None, 'cfn': 'AWS::SecurityAgent::Application', 'tag': None},
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):integration/(?P<IntegrationId>.+?)$"), 'names': ['integration', 'Integration'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):security-requirement/(?P<SecurityRequirementId>.+?)$"), 'names': ['security-requirement', 'SecurityRequirement'], 'sdk': None, 'cfn': None, 'tag': None},
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):target-domain/(?P<TargetDomainId>.+?)$"), 'names': ['target-domain', 'TargetDomain'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):security-requirement-pack/(?P<SecurityRequirementPackId>.+?)$"), 'names': ['security-requirement-pack', 'SecurityRequirementPack'], 'sdk': None, 'cfn': None, 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityagent:(?P<Region>[\w-]*):(?P<Account>\d{12}):target-domain/(?P<TargetDomainId>.+?)$"), 'names': ['target-domain', 'TargetDomain'], 'sdk': None, 'cfn': 'AWS::SecurityAgent::TargetDomain', 'tag': None},
     ],
     'securityhub': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):securityhub:(?P<Region>[\w-]*):(?P<Account>\d{12}):product/(?P<Company>.+?)/(?P<ProductId>.+?)$"), 'names': ['product'], 'sdk': 'securityhub', 'cfn': None, 'tag': None},
@@ -2518,7 +2572,7 @@ ARN_PATTERNS = {
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):signin:(?P<Region>[\w-]*):(?P<Account>\d{12}):oauth2/public-client/remote$"), 'names': ['oauth2-public-client-remote'], 'sdk': 'signin', 'cfn': None, 'tag': None},
     ],
     'simspaceweaver': [
-        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):simspaceweaver:(?P<Region>[\w-]*):(?P<Account>\d{12}):simulation/(?P<SimulationName>.+?)$"), 'names': ['simulation', 'Simulation'], 'sdk': 'simspaceweaver', 'cfn': 'AWS::SimSpaceWeaver::Simulation', 'tag': 'AWS::SimSpaceWeaver::Simulation'},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):simspaceweaver:(?P<Region>[\w-]*):(?P<Account>\d{12}):simulation/(?P<SimulationName>.+?)$"), 'names': ['simulation', 'Simulation'], 'sdk': 'simspaceweaver', 'cfn': 'AWS::SimSpaceWeaver::Simulation', 'tag': None},
     ],
     'sms-voice': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):sms-voice:(?P<Region>[\w-]*):(?P<Account>\d{12}):sender-id/(?P<SenderId>.+?)/(?P<IsoCountryCode>.+?)$"), 'names': ['sender-id', 'SenderId'], 'sdk': 'pinpoint-sms-voice-v2', 'cfn': 'AWS::SMSVOICE::SenderId', 'tag': None},
@@ -2706,6 +2760,7 @@ ARN_PATTERNS = {
     ],
     'verifiedpermissions': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):verifiedpermissions::(?P<Account>\d{12}):policy-store/(?P<PolicyStoreId>.+?)$"), 'names': ['policy-store'], 'sdk': 'verifiedpermissions', 'cfn': 'AWS::VerifiedPermissions::PolicyStore', 'tag': None},
+        {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):verifiedpermissions:(?P<Region>[\w-]*):(?P<Account>\d{12}):policy-store-alias/(?P<AliasName>.+?)$"), 'names': ['policy-store-alias'], 'sdk': 'verifiedpermissions', 'cfn': None, 'tag': None},
     ],
     'voiceid': [
         {'regex': re.compile(r"^arn:(?P<Partition>[\w-]+):voiceid:(?P<Region>[\w-]*):(?P<Account>\d{12}):domain/(?P<DomainId>.+?)$"), 'names': ['domain'], 'sdk': 'voice-id', 'cfn': 'AWS::VoiceID::Domain', 'tag': 'AWS::VoiceID::Domain'},
@@ -2849,6 +2904,7 @@ AWS_SDK_SERVICES = {
     'appflow': ['appflow'],
     'application-autoscaling': ['application-autoscaling'],
     'application-signals': ['application-signals'],
+    'application-signals-mcp': [],
     'appmesh': ['appmesh'],
     'appmesh-preview': ['appmesh'],
     'apprunner': ['apprunner'],
@@ -2862,12 +2918,14 @@ AWS_SDK_SERVICES = {
     'athena': ['athena'],
     'auditmanager': ['auditmanager'],
     'autoscaling': ['autoscaling'],
-    'aws-marketplace': ['marketplace-agreement', 'marketplace-catalog', 'marketplace-deployment', 'marketplace-entitlement', 'marketplace-reporting', 'meteringmarketplace'],
+    'aws-external-anthropic': [],
+    'aws-marketplace': ['marketplace-agreement', 'marketplace-catalog', 'marketplace-deployment', 'marketplace-discovery', 'marketplace-entitlement', 'marketplace-reporting', 'meteringmarketplace'],
     'b2bi': ['b2bi'],
     'backup': ['backup'],
     'backup-gateway': ['backup-gateway'],
     'backup-search': ['backupsearch'],
     'batch': ['batch'],
+    'bcm-dashboards': ['bcm-dashboards'],
     'bcm-data-exports': ['bcm-data-exports'],
     'bcm-pricing-calculator': ['bcm-pricing-calculator'],
     'bedrock': ['bedrock', 'bedrock-agent', 'bedrock-agent-runtime', 'bedrock-data-automation', 'bedrock-data-automation-runtime', 'bedrock-runtime'],
@@ -3113,11 +3171,13 @@ AWS_SDK_SERVICES = {
     'route53globalresolver': ['route53globalresolver'],
     'route53profiles': ['route53profiles'],
     'route53resolver': ['route53resolver'],
+    'rtbfabric': ['rtbfabric'],
     'rum': ['rum'],
     's3': ['s3', 's3control'],
     's3-object-lambda': ['s3'],
     's3-outposts': ['s3outposts'],
     's3express': ['s3'],
+    's3files': [],
     's3tables': ['s3tables'],
     's3vectors': ['s3vectors'],
     'sagemaker': ['sagemaker', 'sagemaker-a2i-runtime', 'sagemaker-edge', 'sagemaker-featurestore-runtime', 'sagemaker-metrics', 'sagemaker-runtime'],

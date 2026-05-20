@@ -214,5 +214,12 @@
   },
   "resiliencehub": {
     "application": "AWS::ResilienceHub::App"
+  },
+  "aws-marketplace": {
+    "Listing": "AWS::MarketplaceCatalog::Entity",
+    "Offer": "AWS::MarketplaceCatalog::Entity",
+    "OfferSet": "AWS::MarketplaceCatalog::Entity",
+    "Product": "AWS::MarketplaceCatalog::Entity",
+    "PurchaseOption": "AWS::MarketplaceCatalog::Entity"
   }
 }

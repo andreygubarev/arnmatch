@@ -104,6 +104,11 @@ class CFNServiceIndexer:
             return name.lower().replace("-", "").replace(" ", "")
 
         for cfn in self.cloudformation_services:
+            if cfn in self.OVERRIDES:
+                cfn_to_sdk[cfn] = self.OVERRIDES[cfn]
+                override_count += 1
+                continue
+
             ncfn = normalize(cfn)
             for sdk, names in sdk_to_names.items():
                 if ncfn in names:
@@ -111,10 +116,6 @@ class CFNServiceIndexer:
                     direct_count += 1
                     break
             else:
-                if cfn in self.OVERRIDES:
-                    cfn_to_sdk[cfn] = self.OVERRIDES[cfn]
-                    override_count += 1
-                    continue
                 raise ValueError(f"No SDK mapping for CFN service: {cfn}")
 
         sdk_to_cfn = {}
@@ -127,6 +128,17 @@ class CFNServiceIndexer:
             for sdk in sdks:
                 for cfn in sdk_to_cfn.get(sdk, []):
                     arn_to_cfn[arn].append(cfn)
+
+        # Some CloudFormation services have ARN patterns but no boto3 client.
+        # Allow explicit overrides to target those ARN services directly.
+        cloudformation_service_names = set(self.cloudformation_services)
+        for cfn, target in self.OVERRIDES.items():
+            if (
+                cfn in cloudformation_service_names
+                and target in arn_to_sdk
+                and not arn_to_sdk[target]
+            ):
+                arn_to_cfn[target].append(cfn)
 
         cloudformation_services = {s for services in arn_to_cfn.values() for s in services}
         diff = set(self.cloudformation_services) - cloudformation_services

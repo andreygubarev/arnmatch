@@ -136,6 +136,8 @@ class TagResourceIndexer:
         if resources_missing:
             self.CACHE_MISSING_FILE.write_text(json.dumps(resources_missing, indent=2))
             print(f"Wrote {len(resources_missing)} missing tagging resource mappings")
+        elif self.CACHE_MISSING_FILE.exists():
+            self.CACHE_MISSING_FILE.unlink()
 
         self.metrics = {
             "services_with_tag": len(services),

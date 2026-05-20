@@ -251,7 +251,10 @@
     "group",
     "ingestion",
     "refresh-schedule",
-    "refreshschedule"
+    "refreshschedule",
+    "automation",
+    "automationGroup",
+    "automationJob"
   ],
   "bedrock": [
     "automated-reasoning-policy",
@@ -274,7 +277,9 @@
     "prompt-router",
     "provisioned-model",
     "session",
-    "system-tool"
+    "system-tool",
+    "data-automation-library",
+    "data-automation-library-ingestion-job"
   ],
   "rds": [
     "auto-backup",
@@ -418,7 +423,10 @@
     "sagemaker-catalog",
     "shared-model",
     "shared-model-event",
-    "training-plan"
+    "training-plan",
+    "ai-benchmark-job",
+    "ai-recommendation-job",
+    "ai-workload-config"
   ],
   "appsync": [
     "channel-namespace",
@@ -686,7 +694,9 @@
     "event-triggers",
     "layouts",
     "recommenders",
-    "segment-definitions"
+    "segment-definitions",
+    "recommender-filters",
+    "recommender-schemas"
   ],
   "aidevops": [
     "AgentSpaceResource",
@@ -694,7 +704,11 @@
     "ServiceResource",
     "agent-space-resource",
     "association-resource",
-    "service-resource"
+    "service-resource",
+    "agentspace",
+    "associations",
+    "private-connection",
+    "service"
   ],
   "clouddirectory": [
     "applied-schema",
@@ -843,7 +857,9 @@
     "TaskResource",
     "WorkflowVersion",
     "task-resource",
-    "workflow-version"
+    "workflow-version",
+    "configuration",
+    "runBatch"
   ],
   "pca-connector-ad": [
     "DirectoryRegistration",
@@ -901,7 +917,8 @@
   "batch": [
     "job-definition-revision",
     "service-environment",
-    "service-job"
+    "service-job",
+    "quota-share"
   ],
   "chime": [
     "channel-flow",
@@ -988,7 +1005,11 @@
   "aws-marketplace": [
     "Assessment",
     "DeploymentParameter",
-    "deployment-parameter"
+    "deployment-parameter",
+    "AllListings",
+    "AllPurchaseOptions",
+    "InvoiceSubmissionTask",
+    "IssuedTaxInvoice"
   ],
   "backup": [
     "tiering-configuration",
@@ -1016,7 +1037,11 @@
   ],
   "ecs": [
     "service-deployment",
-    "service-revision"
+    "service-revision",
+    "daemon",
+    "daemon-deployment",
+    "daemon-revision",
+    "daemon-task-definition"
   ],
   "entityresolution": [
     "ProviderService",
@@ -1040,7 +1065,8 @@
   ],
   "logs": [
     "log-stream",
-    "scheduled-query"
+    "scheduled-query",
+    "lookup-table"
   ],
   "macie2": [
     "AllowList",
@@ -1123,7 +1149,8 @@
     "table"
   ],
   "braket": [
-    "spending-limit"
+    "spending-limit",
+    "device"
   ],
   "cassandra": [
     "stream"
@@ -1150,7 +1177,8 @@
     "build"
   ],
   "geo": [
-    "api-key"
+    "api-key",
+    "job"
   ],
   "iotsitewise": [
     "computation-model"
@@ -1184,5 +1212,11 @@
   ],
   "ssm-sap": [
     "component"
+  ],
+  "emr-serverless": [
+    "session"
+  ],
+  "ivs": [
+    "Ad-Configuration"
   ]
 }

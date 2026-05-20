@@ -1,6 +1,7 @@
 {
   "AmazonMQ": "mq",
   "AppTest": "apptest",
+  "BedrockMantle": "bedrock-mantle",
   "CertificateManager": "acm",
   "Cognito": "cognito-idp",
   "DevOpsAgent": "aiops",
@@ -8,6 +9,7 @@
   "EventSchemas": "schemas",
   "HealthImaging": "medical-imaging",
   "InspectorV2": "inspector2",
+  "Interconnect": "interconnect",
   "IoTCoreDeviceAdvisor": "iotdeviceadvisor",
   "KinesisFirehose": "firehose",
   "MSK": "kafka",
@@ -15,8 +17,10 @@
   "OpenSearchService": "opensearch",
   "RefactorSpaces": "migration-hub-refactor-spaces",
   "Route53RecoveryControl": "route53-recovery-control-config",
+  "S3Files": "s3files",
   "S3Express": "s3",
   "S3ObjectLambda": "s3",
+  "SecurityAgent": "securityagent",
   "SMSVOICE": "pinpoint-sms-voice",
   "SystemsManagerSAP": "ssm-sap"
 }

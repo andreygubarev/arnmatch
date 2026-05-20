@@ -141,6 +141,9 @@
     "AWS::AppSync::Resolver",
     "AWS::AppSync::SourceApiAssociation"
   ],
+  "AppTest": [
+    "AWS::AppTest::TestCase"
+  ],
   "ApplicationAutoScaling": [
     "AWS::ApplicationAutoScaling::ScalableTarget",
     "AWS::ApplicationAutoScaling::ScalingPolicy"
@@ -196,8 +199,12 @@
     "AWS::Batch::ConsumableResource",
     "AWS::Batch::JobDefinition",
     "AWS::Batch::JobQueue",
+    "AWS::Batch::QuotaShare",
     "AWS::Batch::SchedulingPolicy",
     "AWS::Batch::ServiceEnvironment"
+  ],
+  "BcmPricingCalculator": [
+    "AWS::BcmPricingCalculator::BillScenario"
   ],
   "Bedrock": [
     "AWS::Bedrock::Agent",
@@ -206,8 +213,10 @@
     "AWS::Bedrock::AutomatedReasoningPolicy",
     "AWS::Bedrock::AutomatedReasoningPolicyVersion",
     "AWS::Bedrock::Blueprint",
+    "AWS::Bedrock::DataAutomationLibrary",
     "AWS::Bedrock::DataAutomationProject",
     "AWS::Bedrock::DataSource",
+    "AWS::Bedrock::EnforcedGuardrailConfiguration",
     "AWS::Bedrock::Flow",
     "AWS::Bedrock::FlowAlias",
     "AWS::Bedrock::FlowVersion",
@@ -216,17 +225,28 @@
     "AWS::Bedrock::IntelligentPromptRouter",
     "AWS::Bedrock::KnowledgeBase",
     "AWS::Bedrock::Prompt",
-    "AWS::Bedrock::PromptVersion"
+    "AWS::Bedrock::PromptVersion",
+    "AWS::Bedrock::ResourcePolicy"
   ],
   "BedrockAgentCore": [
+    "AWS::BedrockAgentCore::ApiKeyCredentialProvider",
     "AWS::BedrockAgentCore::BrowserCustom",
+    "AWS::BedrockAgentCore::BrowserProfile",
     "AWS::BedrockAgentCore::CodeInterpreterCustom",
+    "AWS::BedrockAgentCore::Evaluator",
     "AWS::BedrockAgentCore::Gateway",
     "AWS::BedrockAgentCore::GatewayTarget",
     "AWS::BedrockAgentCore::Memory",
+    "AWS::BedrockAgentCore::OAuth2CredentialProvider",
+    "AWS::BedrockAgentCore::OnlineEvaluationConfig",
+    "AWS::BedrockAgentCore::Policy",
+    "AWS::BedrockAgentCore::PolicyEngine",
     "AWS::BedrockAgentCore::Runtime",
     "AWS::BedrockAgentCore::RuntimeEndpoint",
     "AWS::BedrockAgentCore::WorkloadIdentity"
+  ],
+  "BedrockMantle": [
+    "AWS::BedrockMantle::Project"
   ],
   "Billing": [
     "AWS::Billing::BillingView"
@@ -236,6 +256,9 @@
     "AWS::BillingConductor::CustomLineItem",
     "AWS::BillingConductor::PricingPlan",
     "AWS::BillingConductor::PricingRule"
+  ],
+  "Braket": [
+    "AWS::Braket::SpendingLimit"
   ],
   "Budgets": [
     "AWS::Budgets::Budget",
@@ -270,6 +293,10 @@
     "AWS::Chatbot::MicrosoftTeamsChannelConfiguration",
     "AWS::Chatbot::SlackChannelConfiguration"
   ],
+  "Chime": [
+    "AWS::Chime::AppInstance",
+    "AWS::Chime::AppInstanceBot"
+  ],
   "CleanRooms": [
     "AWS::CleanRooms::AnalysisTemplate",
     "AWS::CleanRooms::Collaboration",
@@ -281,6 +308,8 @@
     "AWS::CleanRooms::PrivacyBudgetTemplate"
   ],
   "CleanRoomsML": [
+    "AWS::CleanRoomsML::ConfiguredModelAlgorithm",
+    "AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation",
     "AWS::CleanRoomsML::TrainingDataset"
   ],
   "Cloud9": [
@@ -337,11 +366,13 @@
   ],
   "CloudWatch": [
     "AWS::CloudWatch::Alarm",
+    "AWS::CloudWatch::AlarmMuteRule",
     "AWS::CloudWatch::AnomalyDetector",
     "AWS::CloudWatch::CompositeAlarm",
     "AWS::CloudWatch::Dashboard",
     "AWS::CloudWatch::InsightRule",
-    "AWS::CloudWatch::MetricStream"
+    "AWS::CloudWatch::MetricStream",
+    "AWS::CloudWatch::OTelEnrichment"
   ],
   "CodeArtifact": [
     "AWS::CodeArtifact::Domain",
@@ -406,6 +437,9 @@
     "AWS::Comprehend::DocumentClassifier",
     "AWS::Comprehend::Flywheel"
   ],
+  "ComputeOptimizer": [
+    "AWS::ComputeOptimizer::AutomationRule"
+  ],
   "Config": [
     "AWS::Config::AggregationAuthorization",
     "AWS::Config::ConfigRule",
@@ -423,6 +457,8 @@
     "AWS::Connect::ApprovedOrigin",
     "AWS::Connect::ContactFlow",
     "AWS::Connect::ContactFlowModule",
+    "AWS::Connect::ContactFlowModuleAlias",
+    "AWS::Connect::ContactFlowModuleVersion",
     "AWS::Connect::ContactFlowVersion",
     "AWS::Connect::DataTable",
     "AWS::Connect::DataTableAttribute",
@@ -433,6 +469,7 @@
     "AWS::Connect::Instance",
     "AWS::Connect::InstanceStorageConfig",
     "AWS::Connect::IntegrationAssociation",
+    "AWS::Connect::Notification",
     "AWS::Connect::PhoneNumber",
     "AWS::Connect::PredefinedAttribute",
     "AWS::Connect::Prompt",
@@ -469,6 +506,7 @@
     "AWS::CustomerProfiles::EventTrigger",
     "AWS::CustomerProfiles::Integration",
     "AWS::CustomerProfiles::ObjectType",
+    "AWS::CustomerProfiles::Recommender",
     "AWS::CustomerProfiles::SegmentDefinition"
   ],
   "DAX": [
@@ -560,7 +598,18 @@
   ],
   "DevOpsAgent": [
     "AWS::DevOpsAgent::AgentSpace",
-    "AWS::DevOpsAgent::Association"
+    "AWS::DevOpsAgent::Association",
+    "AWS::DevOpsAgent::PrivateConnection",
+    "AWS::DevOpsAgent::Service"
+  ],
+  "DirectConnect": [
+    "AWS::DirectConnect::Connection",
+    "AWS::DirectConnect::DirectConnectGateway",
+    "AWS::DirectConnect::DirectConnectGatewayAssociation",
+    "AWS::DirectConnect::Lag",
+    "AWS::DirectConnect::PrivateVirtualInterface",
+    "AWS::DirectConnect::PublicVirtualInterface",
+    "AWS::DirectConnect::TransitVirtualInterface"
   ],
   "DirectoryService": [
     "AWS::DirectoryService::MicrosoftAD",
@@ -604,6 +653,8 @@
     "AWS::EC2::IPAMAllocation",
     "AWS::EC2::IPAMPool",
     "AWS::EC2::IPAMPoolCidr",
+    "AWS::EC2::IPAMPrefixListResolver",
+    "AWS::EC2::IPAMPrefixListResolverTarget",
     "AWS::EC2::IPAMResourceDiscovery",
     "AWS::EC2::IPAMResourceDiscoveryAssociation",
     "AWS::EC2::IPAMScope",
@@ -645,6 +696,7 @@
     "AWS::EC2::SecurityGroupVpcAssociation",
     "AWS::EC2::SnapshotBlockPublicAccess",
     "AWS::EC2::SpotFleet",
+    "AWS::EC2::SqlHaStandbyDetectedInstance",
     "AWS::EC2::Subnet",
     "AWS::EC2::SubnetCidrBlock",
     "AWS::EC2::SubnetNetworkAclAssociation",
@@ -708,6 +760,8 @@
     "AWS::ECS::CapacityProvider",
     "AWS::ECS::Cluster",
     "AWS::ECS::ClusterCapacityProviderAssociations",
+    "AWS::ECS::Daemon",
+    "AWS::ECS::DaemonTaskDefinition",
     "AWS::ECS::ExpressGatewayService",
     "AWS::ECS::PrimaryTaskSet",
     "AWS::ECS::Service",
@@ -782,6 +836,9 @@
   ],
   "Elasticsearch": [
     "AWS::Elasticsearch::Domain"
+  ],
+  "ElementalInference": [
+    "AWS::ElementalInference::Feed"
   ],
   "EntityResolution": [
     "AWS::EntityResolution::IdMappingWorkflow",
@@ -858,6 +915,7 @@
     "AWS::GlobalAccelerator::Listener"
   ],
   "Glue": [
+    "AWS::Glue::Catalog",
     "AWS::Glue::Classifier",
     "AWS::Glue::Connection",
     "AWS::Glue::Crawler",
@@ -991,6 +1049,9 @@
     "AWS::InspectorV2::CodeSecurityIntegration",
     "AWS::InspectorV2::CodeSecurityScanConfiguration",
     "AWS::InspectorV2::Filter"
+  ],
+  "Interconnect": [
+    "AWS::Interconnect::Connection"
   ],
   "InternetMonitor": [
     "AWS::InternetMonitor::Monitor"
@@ -1184,6 +1245,7 @@
     "AWS::Logs::MetricFilter",
     "AWS::Logs::QueryDefinition",
     "AWS::Logs::ResourcePolicy",
+    "AWS::Logs::ScheduledQuery",
     "AWS::Logs::SubscriptionFilter",
     "AWS::Logs::Transformer"
   ],
@@ -1206,6 +1268,7 @@
     "AWS::MSK::Configuration",
     "AWS::MSK::Replicator",
     "AWS::MSK::ServerlessCluster",
+    "AWS::MSK::Topic",
     "AWS::MSK::VpcConnection"
   ],
   "MWAA": [
@@ -1303,6 +1366,7 @@
   ],
   "NeptuneGraph": [
     "AWS::NeptuneGraph::Graph",
+    "AWS::NeptuneGraph::GraphSnapshot",
     "AWS::NeptuneGraph::PrivateGraphEndpoint"
   ],
   "NetworkFirewall": [
@@ -1343,6 +1407,9 @@
   "NotificationsContacts": [
     "AWS::NotificationsContacts::EmailContact"
   ],
+  "NovaAct": [
+    "AWS::NovaAct::WorkflowDefinition"
+  ],
   "ODB": [
     "AWS::ODB::CloudAutonomousVmCluster",
     "AWS::ODB::CloudExadataInfrastructure",
@@ -1361,11 +1428,13 @@
     "AWS::ObservabilityAdmin::OrganizationCentralizationRule",
     "AWS::ObservabilityAdmin::OrganizationTelemetryRule",
     "AWS::ObservabilityAdmin::S3TableIntegration",
+    "AWS::ObservabilityAdmin::TelemetryEnrichment",
     "AWS::ObservabilityAdmin::TelemetryPipelines",
     "AWS::ObservabilityAdmin::TelemetryRule"
   ],
   "Omics": [
     "AWS::Omics::AnnotationStore",
+    "AWS::Omics::Configuration",
     "AWS::Omics::ReferenceStore",
     "AWS::Omics::RunGroup",
     "AWS::Omics::SequenceStore",
@@ -1376,6 +1445,7 @@
   "OpenSearchServerless": [
     "AWS::OpenSearchServerless::AccessPolicy",
     "AWS::OpenSearchServerless::Collection",
+    "AWS::OpenSearchServerless::CollectionGroup",
     "AWS::OpenSearchServerless::Index",
     "AWS::OpenSearchServerless::LifecyclePolicy",
     "AWS::OpenSearchServerless::SecurityConfig",
@@ -1566,6 +1636,15 @@
     "AWS::Route53::RecordSet",
     "AWS::Route53::RecordSetGroup"
   ],
+  "Route53GlobalResolver": [
+    "AWS::Route53GlobalResolver::AccessSource",
+    "AWS::Route53GlobalResolver::AccessToken",
+    "AWS::Route53GlobalResolver::DnsView",
+    "AWS::Route53GlobalResolver::FirewallDomainList",
+    "AWS::Route53GlobalResolver::FirewallRule",
+    "AWS::Route53GlobalResolver::GlobalResolver",
+    "AWS::Route53GlobalResolver::HostedZoneAssociation"
+  ],
   "Route53Profiles": [
     "AWS::Route53Profiles::Profile",
     "AWS::Route53Profiles::ProfileAssociation",
@@ -1613,6 +1692,12 @@
     "AWS::S3Express::BucketPolicy",
     "AWS::S3Express::DirectoryBucket"
   ],
+  "S3Files": [
+    "AWS::S3Files::AccessPoint",
+    "AWS::S3Files::FileSystem",
+    "AWS::S3Files::FileSystemPolicy",
+    "AWS::S3Files::MountTarget"
+  ],
   "S3ObjectLambda": [
     "AWS::S3ObjectLambda::AccessPoint",
     "AWS::S3ObjectLambda::AccessPointPolicy"
@@ -1642,6 +1727,7 @@
     "AWS::SES::ConfigurationSet",
     "AWS::SES::ConfigurationSetEventDestination",
     "AWS::SES::ContactList",
+    "AWS::SES::CustomVerificationEmailTemplate",
     "AWS::SES::DedicatedIpPool",
     "AWS::SES::EmailIdentity",
     "AWS::SES::MailManagerAddonInstance",
@@ -1759,6 +1845,12 @@
     "AWS::SecretsManager::Secret",
     "AWS::SecretsManager::SecretTargetAttachment"
   ],
+  "SecurityAgent": [
+    "AWS::SecurityAgent::AgentSpace",
+    "AWS::SecurityAgent::Application",
+    "AWS::SecurityAgent::Pentest",
+    "AWS::SecurityAgent::TargetDomain"
+  ],
   "SecurityHub": [
     "AWS::SecurityHub::AggregatorV2",
     "AWS::SecurityHub::AutomationRule",
@@ -1841,6 +1933,7 @@
   ],
   "Timestream": [
     "AWS::Timestream::Database",
+    "AWS::Timestream::InfluxDBCluster",
     "AWS::Timestream::InfluxDBInstance",
     "AWS::Timestream::ScheduledQuery",
     "AWS::Timestream::Table"

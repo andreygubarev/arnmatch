@@ -50,6 +50,7 @@
   "application-signals": [
     "ApplicationSignals"
   ],
+  "application-signals-mcp": [],
   "appmesh": [
     "AppMesh"
   ],
@@ -79,6 +80,7 @@
     "AuditManager"
   ],
   "autoscaling": [],
+  "aws-external-anthropic": [],
   "aws-marketplace": [
     "MarketplaceCatalog"
   ],
@@ -97,6 +99,7 @@
   "batch": [
     "Batch"
   ],
+  "bcm-dashboards": [],
   "bcm-data-exports": [
     "BCMDataExports"
   ],
@@ -687,19 +690,17 @@
   "route53resolver": [
     "Route53Resolver"
   ],
+  "rtbfabric": [],
   "rum": [
     "RUM"
   ],
   "s3": [
     "S3"
   ],
-  "s3-object-lambda": [
-    "S3"
-  ],
+  "s3-object-lambda": [],
   "s3-outposts": [],
-  "s3express": [
-    "S3"
-  ],
+  "s3express": [],
+  "s3files": [],
   "s3tables": [],
   "s3vectors": [],
   "sagemaker": [
@@ -747,9 +748,7 @@
   ],
   "signer": [],
   "signin": [],
-  "simspaceweaver": [
-    "SimSpaceWeaver"
-  ],
+  "simspaceweaver": [],
   "sms-voice": [
     "PinpointSMSVoiceV2"
   ],

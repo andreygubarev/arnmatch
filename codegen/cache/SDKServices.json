@@ -59,6 +59,7 @@
   "application-signals": [
     "application-signals"
   ],
+  "application-signals-mcp": [],
   "appmesh": [
     "appmesh"
   ],
@@ -94,10 +95,12 @@
   "autoscaling": [
     "autoscaling"
   ],
+  "aws-external-anthropic": [],
   "aws-marketplace": [
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
+    "marketplace-discovery",
     "marketplace-entitlement",
     "marketplace-reporting",
     "meteringmarketplace"
@@ -116,6 +119,9 @@
   ],
   "batch": [
     "batch"
+  ],
+  "bcm-dashboards": [
+    "bcm-dashboards"
   ],
   "bcm-data-exports": [
     "bcm-data-exports"
@@ -828,6 +834,9 @@
   "route53resolver": [
     "route53resolver"
   ],
+  "rtbfabric": [
+    "rtbfabric"
+  ],
   "rum": [
     "rum"
   ],
@@ -844,6 +853,7 @@
   "s3express": [
     "s3"
   ],
+  "s3files": [],
   "s3tables": [
     "s3tables"
   ],

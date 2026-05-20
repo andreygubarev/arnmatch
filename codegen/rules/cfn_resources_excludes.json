@@ -1,6 +1,8 @@
 {
   "aidevops": [
-    "ServiceResource"
+    "ServiceResource",
+    "private-connection",
+    "service"
   ],
   "app-integrations": [
     "application-association",
@@ -15,7 +17,8 @@
   "batch": [
     "job",
     "job-definition-revision",
-    "service-job"
+    "service-job",
+    "quota-share"
   ],
   "cloudfront": [
     "field-level-encryption-config",
@@ -141,7 +144,8 @@
     "InternetEvent"
   ],
   "logs": [
-    "scheduled-query"
+    "scheduled-query",
+    "lookup-table"
   ],
   "macie2": [
     "ClassificationJob",
@@ -245,7 +249,8 @@
     "directory"
   ],
   "emr-serverless": [
-    "jobRun"
+    "jobRun",
+    "session"
   ],
   "entityresolution": [
     "ProviderService"
@@ -263,7 +268,8 @@
     "metadataTransferJob"
   ],
   "ivs": [
-    "Composition"
+    "Composition",
+    "Ad-Configuration"
   ],
   "kafkaconnect": [
     "connector operation"
@@ -343,7 +349,9 @@
     "container-instance",
     "service-deployment",
     "service-revision",
-    "task"
+    "task",
+    "daemon-deployment",
+    "daemon-revision"
   ],
   "elasticache": [
     "reserved-instance",
@@ -528,7 +536,15 @@
     "policy-engine",
     "policy-generation",
     "token-vault",
-    "workload-identity-directory"
+    "workload-identity-directory",
+    "ab-test",
+    "batch-evaluate",
+    "configuration-bundle",
+    "payment-manager",
+    "paymentcredentialprovider",
+    "recommendation",
+    "registry",
+    "registry-record"
   ],
   "bedrock": [
     "async-invoke",
@@ -552,7 +568,8 @@
     "prompt-router",
     "provisioned-model",
     "session",
-    "system-tool"
+    "system-tool",
+    "data-automation-library-ingestion-job"
   ],
   "ses": [
     "custom-verification-email-template",
@@ -614,7 +631,10 @@
     "training-job",
     "training-plan",
     "transform-job",
-    "workforce"
+    "workforce",
+    "ai-benchmark-job",
+    "ai-recommendation-job",
+    "ai-workload-config"
   ],
   "lightsail": [
     "CloudFormationStackRecord",
@@ -700,7 +720,8 @@
     "readSet",
     "reference",
     "run",
-    "runCache"
+    "runCache",
+    "runBatch"
   ],
   "personalize": [
     "algorithm",
@@ -746,7 +767,10 @@
     "group",
     "ingestion",
     "namespace",
-    "user"
+    "user",
+    "automation",
+    "automationGroup",
+    "automationJob"
   ],
   "events": [
     "create-snapshot",
@@ -854,5 +878,55 @@
     "verified-access-policy",
     "vpc-endpoint-connection",
     "vpn-connection-device-type"
+  ],
+  "apptest": [
+    "TestConfiguration",
+    "TestRun",
+    "TestSuite"
+  ],
+  "bcm-pricing-calculator": [
+    "bill-estimate",
+    "workload-estimate"
+  ],
+  "bedrock-mantle": [
+    "customized-model",
+    "reservation"
+  ],
+  "braket": [
+    "device",
+    "job",
+    "quantum-task"
+  ],
+  "chime": [
+    "app-instance-user",
+    "channel",
+    "channel-flow",
+    "media-insights-pipeline-configuration",
+    "media-pipeline",
+    "media-pipeline-kinesis-video-stream-pool",
+    "meeting",
+    "sip-media-application",
+    "voice-connector",
+    "voice-profile",
+    "voice-profile-domain"
+  ],
+  "directconnect": [
+    "dxvif"
+  ],
+  "dsql": [
+    "Stream"
+  ],
+  "geo": [
+    "job"
+  ],
+  "interconnect": [
+    "environment"
+  ],
+  "nova-act": [
+    "workflow-run"
+  ],
+  "securityagent": [
+    "Integration",
+    "SecurityRequirementPack"
   ]
 }

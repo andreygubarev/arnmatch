@@ -120,7 +120,12 @@
   },
   "aws-marketplace": {
     "ChangeSet": "AWS::MarketplaceCatalog::ChangeSet",
-    "Entity": "AWS::MarketplaceCatalog::Entity"
+    "Entity": "AWS::MarketplaceCatalog::Entity",
+    "Listing": "AWS::MarketplaceCatalog::Entity",
+    "Offer": "AWS::MarketplaceCatalog::Entity",
+    "OfferSet": "AWS::MarketplaceCatalog::Entity",
+    "Product": "AWS::MarketplaceCatalog::Entity",
+    "PurchaseOption": "AWS::MarketplaceCatalog::Entity"
   },
   "b2bi": {
     "capability": "AWS::B2BI::Capability",
@@ -1305,10 +1310,6 @@
     "storagelensconfiguration": "AWS::S3::StorageLens",
     "storagelensgroup": "AWS::S3::StorageLensGroup"
   },
-  "s3-object-lambda": {},
-  "s3express": {
-    "bucket": "AWS::S3::Bucket"
-  },
   "sagemaker": {
     "action": "AWS::SageMaker::Action",
     "algorithm": "AWS::SageMaker::Algorithm",
@@ -1413,9 +1414,6 @@
   "shield": {
     "protection": "AWS::Shield::Protection",
     "protection-group": "AWS::Shield::ProtectionGroup"
-  },
-  "simspaceweaver": {
-    "Simulation": "AWS::SimSpaceWeaver::Simulation"
   },
   "sms-voice": {
     "ConfigurationSet": "AWS::PinpointSMSVoiceV2::ConfigurationSet",

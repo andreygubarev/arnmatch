@@ -54,6 +54,7 @@
   "application-signals": [
     "ApplicationSignals"
   ],
+  "application-signals-mcp": [],
   "appmesh": [
     "AppMesh"
   ],
@@ -70,7 +71,9 @@
   "appsync": [
     "AppSync"
   ],
-  "apptest": [],
+  "apptest": [
+    "AppTest"
+  ],
   "aps": [
     "APS"
   ],
@@ -87,6 +90,7 @@
   "autoscaling": [
     "AutoScaling"
   ],
+  "aws-external-anthropic": [],
   "aws-marketplace": [],
   "b2bi": [
     "B2BI"
@@ -101,24 +105,31 @@
   "batch": [
     "Batch"
   ],
+  "bcm-dashboards": [],
   "bcm-data-exports": [
     "BCMDataExports"
   ],
-  "bcm-pricing-calculator": [],
+  "bcm-pricing-calculator": [
+    "BcmPricingCalculator"
+  ],
   "bedrock": [
     "Bedrock"
   ],
   "bedrock-agentcore": [
     "BedrockAgentCore"
   ],
-  "bedrock-mantle": [],
+  "bedrock-mantle": [
+    "BedrockMantle"
+  ],
   "billing": [
     "Billing"
   ],
   "billingconductor": [
     "BillingConductor"
   ],
-  "braket": [],
+  "braket": [
+    "Braket"
+  ],
   "budgets": [
     "Budgets"
   ],
@@ -138,7 +149,9 @@
   "chatbot": [
     "Chatbot"
   ],
-  "chime": [],
+  "chime": [
+    "Chime"
+  ],
   "cleanrooms": [
     "CleanRooms"
   ],
@@ -206,7 +219,9 @@
   "comprehend": [
     "Comprehend"
   ],
-  "compute-optimizer": [],
+  "compute-optimizer": [
+    "ComputeOptimizer"
+  ],
   "config": [
     "Config"
   ],
@@ -248,7 +263,9 @@
     "Detective"
   ],
   "devicefarm": [],
-  "directconnect": [],
+  "directconnect": [
+    "DirectConnect"
+  ],
   "dlm": [
     "DLM"
   ],
@@ -300,7 +317,9 @@
   ],
   "elastictranscoder": [],
   "elemental-appliances-software": [],
-  "elemental-inference": [],
+  "elemental-inference": [
+    "ElementalInference"
+  ],
   "elemental-support-cases": [],
   "emr-containers": [
     "EMRContainers"
@@ -398,7 +417,9 @@
   "inspector2": [
     "InspectorV2"
   ],
-  "interconnect": [],
+  "interconnect": [
+    "Interconnect"
+  ],
   "internetmonitor": [
     "InternetMonitor"
   ],
@@ -558,7 +579,9 @@
   "notifications-contacts": [
     "NotificationsContacts"
   ],
-  "nova-act": [],
+  "nova-act": [
+    "NovaAct"
+  ],
   "oam": [
     "Oam"
   ],
@@ -674,23 +697,25 @@
   "route53-recovery-readiness": [
     "Route53RecoveryReadiness"
   ],
-  "route53globalresolver": [],
+  "route53globalresolver": [
+    "Route53GlobalResolver"
+  ],
   "route53profiles": [
     "Route53Profiles"
   ],
   "route53resolver": [
     "Route53Resolver"
   ],
+  "rtbfabric": [],
   "rum": [
     "RUM"
   ],
   "s3": [
-    "S3",
     "S3Express",
-    "S3ObjectLambda"
+    "S3ObjectLambda",
+    "S3"
   ],
   "s3-object-lambda": [
-    "S3",
     "S3Express",
     "S3ObjectLambda"
   ],
@@ -698,9 +723,11 @@
     "S3Outposts"
   ],
   "s3express": [
-    "S3",
     "S3Express",
     "S3ObjectLambda"
+  ],
+  "s3files": [
+    "S3Files"
   ],
   "s3tables": [
     "S3Tables"
@@ -727,7 +754,9 @@
     "SecretsManager"
   ],
   "security-ir": [],
-  "securityagent": [],
+  "securityagent": [
+    "SecurityAgent"
+  ],
   "securityhub": [
     "SecurityHub"
   ],

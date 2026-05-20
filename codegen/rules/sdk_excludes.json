@@ -39,13 +39,16 @@
     "vendor-insights"
   ],
   "non_boto3": [
+    "application-signals-mcp",
     "apptest",
+    "aws-external-anthropic",
     "bedrock-mantle",
     "codewhisperer",
     "freertos",
     "interconnect",
     "q",
     "qdeveloper",
+    "s3files",
     "transform",
     "transform-custom",
     "vpce"

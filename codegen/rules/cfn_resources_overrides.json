@@ -203,5 +203,13 @@
   "workspaces": {
     "workspaceid": "AWS::WorkSpaces::Workspace",
     "workspacespoolid": "AWS::WorkSpaces::WorkspacesPool"
+  },
+  "directconnect": {
+    "dx-gateway": "AWS::DirectConnect::DirectConnectGateway",
+    "dxcon": "AWS::DirectConnect::Connection",
+    "dxlag": "AWS::DirectConnect::Lag"
+  },
+  "s3express": {
+    "bucket": "AWS::S3Express::DirectoryBucket"
   }
 }

@@ -13,7 +13,6 @@
   ],
   "no_arn": [
     "applicationinsights",
-    "apptest",
     "arczonalshift",
     "autoscalingplans",
     "devopsguru",
@@ -21,6 +20,7 @@
     "lakeformation",
     "rtbfabric",
     "ssmguiconnect",
-    "supportapp"
+    "supportapp",
+    "uxc"
   ]
 }

@@ -114,6 +114,8 @@ class CFNResourceIndexer:
         if resources_missing:
             self.CACHE_RESOURCES_MISS_FILE.write_text(json.dumps(resources_missing, indent=2))
             print(f"Wrote {len(resources_missing)} missing CFN resource mappings")
+        elif self.CACHE_RESOURCES_MISS_FILE.exists():
+            self.CACHE_RESOURCES_MISS_FILE.unlink()
 
         self.metrics = {
             "services_with_cfn": len(services),
