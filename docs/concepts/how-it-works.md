@@ -41,18 +41,16 @@ The generated module contains only Python literals and compiled `re.Pattern` obj
 
 ## Updating patterns
 
-When AWS releases new services or resource types, you can regenerate the patterns:
-
-```bash
-cd codegen
-make clean
-make
-```
-
-Then build the package:
-
-```bash
-make build
-```
-
 For most users, installing the latest published version from PyPI is enough.
+
+If you are contributing new AWS service or resource support, regenerate the patterns from the repository root:
+
+```bash
+make generate
+make build
+make check
+```
+
+The generated files are based on cached AWS metadata in `codegen/cache/`. Refresh those caches when AWS has released new resource types and the generated mappings look stale.
+
+For detailed contributor instructions, including CloudFormation and Resource Groups Tagging API cache refreshes, see the [code generation reference](../reference/codegen.md).

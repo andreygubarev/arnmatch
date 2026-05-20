@@ -28,6 +28,8 @@ print(resource.cloudformation_resource)  # AWS::Lambda::Function
 
 When no mapping exists, `cloudformation_resource` is `None`.
 
+If you are contributing mapping updates, use resource-level rule files rather than editing generated output. See the [code generation reference](codegen.md).
+
 ## Resource Groups Tagging API mapping
 
 The `tagging_resource` field contains the Tagging API resource type used with APIs such as `GetResources`.
@@ -38,6 +40,8 @@ print(resource.tagging_resource)  # AWS::RDS::DBInstance
 ```
 
 When no mapping exists, `tagging_resource` is `None`.
+
+The Resource Groups Tagging API supported-resource list is fetched from AWS and may lag behind newly released service features. If you maintain the generated data, see the [code generation reference](codegen.md) for cache refresh and missing-mapping guidance.
 
 ## boto3 SDK mapping
 

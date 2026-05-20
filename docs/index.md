@@ -24,6 +24,7 @@ New to arnmatch? Start here:
 - [Python API](reference/api.md): Complete reference for `arnmatch()`, the `ARN` dataclass, and error handling.
 - [CLI](reference/cli.md): Command-line usage and output format.
 - [Mappings](reference/mappings.md): CloudFormation, Tagging API, and boto3 SDK mappings explained.
+- [Code generation](reference/codegen.md): Regenerate ARN patterns and update mapping rules.
 
 ## Troubleshooting
 

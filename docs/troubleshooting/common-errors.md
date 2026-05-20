@@ -57,7 +57,7 @@ Error: No pattern matched ARN: <arn>
 
 **Fix:**
 - No action is required for the parser; this is expected behavior.
-- If you need a specific mapping, you can add an override in `codegen/rules/cfn_overrides.json` or `codegen/rules/tag_overrides.json` and regenerate patterns.
+- If you are contributing a mapping fix, add a resource-level override or exclude and regenerate patterns. See the [code generation reference](../reference/codegen.md).
 
 ## "No SDK service mapping for service"
 
