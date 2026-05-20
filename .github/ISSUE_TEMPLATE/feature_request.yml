@@ -1,0 +1,34 @@
+name: Feature request
+description: Suggest a new feature, mapping source, or developer experience improvement
+title: "Feature: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What are you trying to build or automate?
+      placeholder: I want to map ARNs to ...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior or API you would like to see.
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workarounds or other tools you tried.
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Links to AWS docs, related tools, examples, or screenshots.
+    validations:
+      required: false

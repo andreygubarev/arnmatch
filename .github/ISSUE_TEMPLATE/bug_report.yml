@@ -1,0 +1,46 @@
+name: Bug report
+description: Report incorrect ARN parsing, mappings, or CLI behavior
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. If this involves a real ARN, please redact account IDs and sensitive resource names.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the incorrect behavior.
+      placeholder: The ARN parsed as ... but I expected ...
+    validations:
+      required: true
+  - type: textarea
+    id: arn
+    attributes:
+      label: Example ARN or ARN pattern
+      description: Redact sensitive values, but keep the ARN structure intact.
+      placeholder: arn:aws:lambda:us-east-1:123456789012:function:example
+    validations:
+      required: false
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: Include expected resource type, CloudFormation type, Tagging API type, or boto3 service if relevant.
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: arnmatch version
+      placeholder: 2026.3.3
+    validations:
+      required: false
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Python version, OS, install method
+    validations:
+      required: false

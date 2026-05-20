@@ -1,14 +1,54 @@
 [project]
 name = "arnmatch"
 dynamic = ["version"]
-description = "Parse AWS ARNs into structured data (2000+ resource types)"
+description = "Auto-generated AWS ARN parser with mappings for 2100+ resources to CloudFormation, Tagging API, and boto3"
 readme = "README.md"
 authors = [
     { name = "Andrey Gubarev", email = "andrey@andreygubarev.com" }
 ]
 requires-python = ">=3.10"
 license = "Apache-2.0"
+keywords = [
+    "amazon-resource-names",
+    "arn",
+    "aws",
+    "aws-arn",
+    "aws-inventory",
+    "boto3",
+    "cloudformation",
+    "cloud-security",
+    "cspm",
+    "parser",
+    "resource-tagging-api",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Security",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/andreygubarev/arnmatch"
+Repository = "https://github.com/andreygubarev/arnmatch"
+Issues = "https://github.com/andreygubarev/arnmatch/issues"
+Changelog = "https://github.com/andreygubarev/arnmatch/releases"
+PyPI = "https://pypi.org/project/arnmatch/"
 
 [project.scripts]
 arnmatch = "arnmatch:main"

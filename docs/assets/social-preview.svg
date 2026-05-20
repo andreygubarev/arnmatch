@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">arnmatch social preview</title>
+  <desc id="desc">Auto-generated Python AWS ARN parser with CloudFormation, Tagging API, and boto3 mappings.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="76%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#glow)"/>
+
+  <g opacity="0.16" stroke="#93c5fd" stroke-width="2" fill="none">
+    <path d="M86 115h220v80H86zM974 88h220v80H974zM874 435h280v88H874zM112 432h230v88H112z"/>
+    <path d="M306 155h130M844 128h130M342 476h160M760 480h114"/>
+    <circle cx="512" cy="155" r="36"/>
+    <circle cx="720" cy="480" r="36"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="76" y="88" width="1128" height="464" rx="36" fill="#020617" opacity="0.72"/>
+    <rect x="78" y="90" width="1124" height="460" rx="34" fill="none" stroke="#334155" stroke-width="2"/>
+  </g>
+
+  <text x="128" y="205" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="92" font-weight="800" letter-spacing="-3">
+    arnmatch
+  </text>
+  <text x="132" y="270" fill="#93c5fd" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="34" font-weight="650">
+    Auto-generated Python AWS ARN parser
+  </text>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="650">
+    <g transform="translate(132 344)">
+      <rect width="250" height="68" rx="18" fill="#0f766e" opacity="0.9"/>
+      <text x="28" y="44" fill="#ecfeff">350+ services</text>
+    </g>
+    <g transform="translate(410 344)">
+      <rect width="270" height="68" rx="18" fill="#1d4ed8" opacity="0.9"/>
+      <text x="28" y="44" fill="#eff6ff">2,100+ patterns</text>
+    </g>
+    <g transform="translate(708 344)">
+      <rect width="252" height="68" rx="18" fill="#7c3aed" opacity="0.9"/>
+      <text x="28" y="44" fill="#f5f3ff">0 dependencies</text>
+    </g>
+  </g>
+
+  <text x="132" y="477" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="27" font-weight="500">
+    CloudFormation • Resource Groups Tagging API • boto3 SDK mappings
+  </text>
+</svg>

@@ -116,22 +116,28 @@ from arnmatch import arnmatch
 resource = arnmatch("arn:aws:rds:us-east-1:123456789012:db:my-database")
 
 print(resource.tagging_resource)
-# rds:db
+# AWS::RDS::DBInstance
 ```
 
 ### Get a boto3 client from an AWS ARN
 
 ```python
+import boto3
+
 from arnmatch import arnmatch
 
 resource = arnmatch("arn:aws:lambda:us-east-1:123456789012:function:my-function")
-client = resource.client()
+session = boto3.Session(region_name=resource.aws_region)
+client = resource.client(session=session)
 
+# Requires AWS credentials and permission to call Lambda GetFunction.
 client.get_function(FunctionName=resource.resource_name)
 ```
 
 The parser itself has zero runtime dependencies. The optional `client()` helper
-requires `boto3` to be installed in your application environment.
+requires `boto3` to be installed in your application environment. Pass a boto3
+session when you want to control region, profile, credentials, or other session
+settings.
 
 ### Extract account, region, resource ID, and resource name
 
@@ -142,7 +148,7 @@ resource = arnmatch("arn:aws:iam::123456789012:role/Admin")
 
 print(resource.aws_account)    # 123456789012
 print(resource.aws_region)     # "" for global IAM resources
-print(resource.resource_type)  # role
+print(resource.resource_type)  # iam-role
 print(resource.resource_id)    # Admin
 print(resource.resource_name)  # Admin
 ```

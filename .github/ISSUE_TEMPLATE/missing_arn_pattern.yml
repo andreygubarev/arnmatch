@@ -1,0 +1,51 @@
+name: Missing or incorrect ARN pattern
+description: Report an AWS ARN resource type that arnmatch does not recognize correctly
+title: "ARN pattern: "
+labels: ["arn-pattern"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please redact account IDs and sensitive resource names. Keep separators and resource structure unchanged.
+  - type: textarea
+    id: arn
+    attributes:
+      label: ARN or ARN pattern
+      placeholder: arn:aws:service:region:123456789012:resource/example
+    validations:
+      required: true
+  - type: input
+    id: aws-service
+    attributes:
+      label: AWS service
+      placeholder: lambda
+    validations:
+      required: false
+  - type: input
+    id: resource-type
+    attributes:
+      label: Expected resource type
+      placeholder: function
+    validations:
+      required: false
+  - type: input
+    id: cfn
+    attributes:
+      label: Expected CloudFormation resource type, if known
+      placeholder: AWS::Lambda::Function
+    validations:
+      required: false
+  - type: input
+    id: tagging
+    attributes:
+      label: Expected Resource Groups Tagging API type, if known
+      placeholder: AWS::Lambda::Function
+    validations:
+      required: false
+  - type: input
+    id: docs
+    attributes:
+      label: AWS documentation link
+      placeholder: https://docs.aws.amazon.com/...
+    validations:
+      required: false

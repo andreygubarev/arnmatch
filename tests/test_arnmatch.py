@@ -548,12 +548,13 @@ class TestClient:
         result = arnmatch(
             "arn:aws:lambda:us-east-1:012345678901:function:my-function"
         )
-        client = result.client()
+        session = boto3.Session(region_name="us-east-1")
+        client = result.client(session=session)
         assert client.meta.service_model.service_name == "lambda"
 
     def test_client_uses_provided_session(self):
         """Test client() uses the provided session."""
-        session = boto3.Session()
+        session = boto3.Session(region_name="us-east-1")
         result = arnmatch("arn:aws:s3:::my-bucket")
         client = result.client(session=session)
         assert client.meta.service_model.service_name == "s3"
